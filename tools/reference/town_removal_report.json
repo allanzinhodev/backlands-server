@@ -1,8 +1,8 @@
 {
-  "dryRun": true,
-  "ranAt": "2026-08-13T19:36:10.205Z",
-  "maxRadius": 250,
-  "maxTiles": 400000,
+  "dryRun": false,
+  "ranAt": "2026-08-13T19:57:16.835Z",
+  "maxRadius": 40,
+  "maxTiles": 120000,
   "kept": [
     "Rookgaard",
     "Ab'Dendriel",
@@ -16,7 +16,7 @@
     "Port Hope"
   ],
   "totalTiles": 17972264,
-  "doomedTiles": 335719,
+  "doomedTiles": 540267,
   "towns": [
     {
       "name": "Dawnport Tutorial",
@@ -26,8 +26,8 @@
         "y": 31901,
         "z": 6
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 42381,
+      "overflow": false
     },
     {
       "name": "Dawnport",
@@ -37,8 +37,8 @@
         "y": 31894,
         "z": 6
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 40748,
+      "overflow": false
     },
     {
       "name": "Island of Destiny",
@@ -48,8 +48,8 @@
         "y": 32027,
         "z": 7
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 43940,
+      "overflow": false
     },
     {
       "name": "Farmine",
@@ -59,8 +59,8 @@
         "y": 31521,
         "z": 11
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 50740,
+      "overflow": false
     },
     {
       "name": "Liberty Bay",
@@ -70,8 +70,8 @@
         "y": 32826,
         "z": 7
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 35774,
+      "overflow": false
     },
     {
       "name": "Svargrond",
@@ -81,8 +81,8 @@
         "y": 31132,
         "z": 7
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 45731,
+      "overflow": false
     },
     {
       "name": "Yalahar",
@@ -92,8 +92,8 @@
         "y": 31276,
         "z": 7
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 34546,
+      "overflow": false
     },
     {
       "name": "Gray Beach",
@@ -103,8 +103,8 @@
         "y": 31323,
         "z": 9
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 28102,
+      "overflow": false
     },
     {
       "name": "Krailos",
@@ -114,8 +114,8 @@
         "y": 31665,
         "z": 8
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 8714,
+      "overflow": false
     },
     {
       "name": "Rathleton",
@@ -125,8 +125,8 @@
         "y": 31899,
         "z": 6
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 54106,
+      "overflow": false
     },
     {
       "name": "Roshamuul",
@@ -136,8 +136,8 @@
         "y": 32363,
         "z": 6
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 29325,
+      "overflow": false
     },
     {
       "name": "Issavi",
@@ -147,8 +147,8 @@
         "y": 31477,
         "z": 5
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 24837,
+      "overflow": false
     },
     {
       "name": "Cobra Bastion",
@@ -158,8 +158,8 @@
         "y": 32651,
         "z": 7
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 16351,
+      "overflow": false
     },
     {
       "name": "Bounac",
@@ -169,8 +169,8 @@
         "y": 32445,
         "z": 7
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 30262,
+      "overflow": false
     },
     {
       "name": "Feyrist",
@@ -180,8 +180,8 @@
         "y": 32221,
         "z": 7
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 16301,
+      "overflow": false
     },
     {
       "name": "Gnomprona",
@@ -191,8 +191,8 @@
         "y": 32856,
         "z": 14
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 14628,
+      "overflow": false
     },
     {
       "name": "Marapur",
@@ -202,7 +202,7 @@
         "y": 32853,
         "z": 7
       },
-      "tiles": 209153,
+      "tiles": 6763,
       "overflow": false
     },
     {
@@ -213,8 +213,8 @@
         "y": 32125,
         "z": 7
       },
-      "tiles": 400001,
-      "overflow": true
+      "tiles": 26368,
+      "overflow": false
     },
     {
       "name": "Silvertides",
@@ -224,7 +224,7 @@
         "y": 32842,
         "z": 7
       },
-      "tiles": 223731,
+      "tiles": 9140,
       "overflow": false
     },
     {
@@ -235,8 +235,12 @@
         "y": 32755,
         "z": 5
       },
-      "tiles": 335719,
+      "tiles": 18941,
       "overflow": false
     }
-  ]
+  ],
+  "removedTiles": 540267,
+  "removedTowns": 20,
+  "bytesBefore": 184767314,
+  "bytesAfter": 179094058
 }

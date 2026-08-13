@@ -30,8 +30,12 @@ const TOWNS = path.join(__dirname, 'map_towns.json');
 const OUT = path.join(__dirname, 'town_removal_report.json');
 
 const APPLY = process.argv.includes('--apply');
-const MAX_RADIUS = 250;      // tiles a partir do templo
-const MAX_TILES = 400000;    // teto por cidade; estourou = cidade abortada
+// Raio 250 vazou: o mundo e contiguo e 17 das 20 cidades estouraram o teto,
+// inundando a mesma massa de terra. Raio 40 pega o nucleo urbano (templo, depot,
+// casas) e aceita que o arredor fique — e o que da para automatizar sem precisar
+// desenhar 20 retangulos a mao.
+const MAX_RADIUS = 40;       // tiles a partir do templo
+const MAX_TILES = 120000;    // teto por cidade; estourou = cidade abortada
 
 // Cidades pre-7.7 que ficam. Todo o resto do mapa sai.
 const KEEP = new Set([
