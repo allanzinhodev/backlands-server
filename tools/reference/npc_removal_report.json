@@ -1,0 +1,2940 @@
+{
+  "dryRun": false,
+  "ranAt": "2026-08-13T15:13:16.327Z",
+  "source": "tibiantis_npcs_cross_check.json (serverOnly)",
+  "counts": {
+    "npcsRemoved": 718,
+    "filesRemoved": 730,
+    "filesAlreadyMissing": 0,
+    "spawnTagsRemoved": 0
+  },
+  "spawnFiles": [
+    {
+      "file": "data/world/world860-spawn.xml",
+      "npcTagsRemoved": 0
+    }
+  ],
+  "removedFiles": [
+    {
+      "npc": "...",
+      "file": "data/npc/crystalserver/services/....lua"
+    },
+    {
+      "npc": "A Bearded Woman",
+      "file": "data/npc/crystalserver/services/a_bearded_woman.lua"
+    },
+    {
+      "npc": "A Beautiful Girl",
+      "file": "data/npc/crystalserver/services/a_beautiful_girl.lua"
+    },
+    {
+      "npc": "A Beggar",
+      "file": "data/npc/crystalserver/quests/a_beggar.lua"
+    },
+    {
+      "npc": "A Behemoth",
+      "file": "data/npc/crystalserver/quests/a_behemoth.lua"
+    },
+    {
+      "npc": "A Confused Frog",
+      "file": "data/npc/crystalserver/services/a_confused_frog.lua"
+    },
+    {
+      "npc": "A Dark Priestess",
+      "file": "data/npc/crystalserver/services/a_dark_priestess.lua"
+    },
+    {
+      "npc": "A Dead Bureaucrat (1)",
+      "file": "data/npc/crystalserver/quests/a_dead_bureaucrat1.lua"
+    },
+    {
+      "npc": "A Dead Bureaucrat (2)",
+      "file": "data/npc/crystalserver/quests/a_dead_bureaucrat2.lua"
+    },
+    {
+      "npc": "A Dead Bureaucrat (3)",
+      "file": "data/npc/crystalserver/quests/a_dead_bureaucrat3.lua"
+    },
+    {
+      "npc": "A Dead Bureaucrat (4)",
+      "file": "data/npc/crystalserver/quests/a_dead_bureaucrat4.lua"
+    },
+    {
+      "npc": "A Dragon Lord",
+      "file": "data/npc/crystalserver/quests/a_dragon_lord.lua"
+    },
+    {
+      "npc": "A Dragon Mother",
+      "file": "data/npc/crystalserver/quests/a_dragon_mother.lua"
+    },
+    {
+      "npc": "A Drillworm",
+      "file": "data/npc/crystalserver/quests/a_drillworm.lua"
+    },
+    {
+      "npc": "A Dwarven Ghost",
+      "file": "data/npc/crystalserver/services/a_dwarven_ghost.lua"
+    },
+    {
+      "npc": "A Fading Memory",
+      "file": "data/npc/crystalserver/services/a_fading_memory.lua"
+    },
+    {
+      "npc": "A Fluffy Squirrel",
+      "file": "data/npc/crystalserver/shops/mixed/a_fluffy_squirrel.lua"
+    },
+    {
+      "npc": "A Frog",
+      "file": "data/npc/crystalserver/quests/a_frog.lua"
+    },
+    {
+      "npc": "A Ghostly Guardian",
+      "file": "data/npc/crystalserver/services/a_ghostly_guardian.lua"
+    },
+    {
+      "npc": "A Ghostly Knight",
+      "file": "data/npc/crystalserver/services/a_ghostly_knight.lua"
+    },
+    {
+      "npc": "A Ghostly Sage",
+      "file": "data/npc/crystalserver/services/a_ghostly_sage.lua"
+    },
+    {
+      "npc": "A Ghostly Woman (Ghostland)",
+      "file": "data/npc/crystalserver/services/a_ghostly_woman_ghostland.lua"
+    },
+    {
+      "npc": "A Goblin Exile",
+      "file": "data/npc/crystalserver/services/a_goblin_exile.lua"
+    },
+    {
+      "npc": "A Grumpy Cyclops",
+      "file": "data/npc/crystalserver/services/a_grumpy_cyclops.lua"
+    },
+    {
+      "npc": "A Lost Basher",
+      "file": "data/npc/crystalserver/quests/a_lost_basher.lua"
+    },
+    {
+      "npc": "A Lost Husher",
+      "file": "data/npc/crystalserver/quests/a_lost_husher.lua"
+    },
+    {
+      "npc": "A Lost Thrower",
+      "file": "data/npc/crystalserver/quests/a_lost_thrower.lua"
+    },
+    {
+      "npc": "A Majestic Warwolf",
+      "file": "data/npc/crystalserver/quests/a_majestic_warwolf.lua"
+    },
+    {
+      "npc": "A Nightmare Scion",
+      "file": "data/npc/crystalserver/quests/a_nightmare_scion.lua"
+    },
+    {
+      "npc": "A Restless Soul",
+      "file": "data/npc/crystalserver/quests/a_restless_soul.lua"
+    },
+    {
+      "npc": "A Sleeping Dragon",
+      "file": "data/npc/crystalserver/quests/a_sleeping_dragon.lua"
+    },
+    {
+      "npc": "A Starving Dog",
+      "file": "data/npc/crystalserver/quests/a_starving_dog.lua"
+    },
+    {
+      "npc": "A Strange Chalice",
+      "file": "data/npc/crystalserver/quests/a_strange_chalice.lua"
+    },
+    {
+      "npc": "A Swan",
+      "file": "data/npc/crystalserver/quests/a_swan.lua"
+    },
+    {
+      "npc": "A Vulcongra",
+      "file": "data/npc/crystalserver/quests/a_vulcongra.lua"
+    },
+    {
+      "npc": "A Weakened Forest Fury",
+      "file": "data/npc/crystalserver/quests/a_weakened_forest_fury.lua"
+    },
+    {
+      "npc": "A Wrinkled Bonelord",
+      "file": "data/npc/crystalserver/services/a_wrinkled_bonelord.lua"
+    },
+    {
+      "npc": "A Wyrm",
+      "file": "data/npc/crystalserver/quests/a_wyrm.lua"
+    },
+    {
+      "npc": "Admiral Wyrmslicer",
+      "file": "data/npc/crystalserver/services/admiral_wyrmslicer.lua"
+    },
+    {
+      "npc": "Ajax",
+      "file": "data/npc/crystalserver/quests/ajax.lua"
+    },
+    {
+      "npc": "Alaistar",
+      "file": "data/npc/crystalserver/shops/mixed/alaistar.lua"
+    },
+    {
+      "npc": "Albinius",
+      "file": "data/npc/crystalserver/shops/mixed/albinius.lua"
+    },
+    {
+      "npc": "Alice",
+      "file": "data/npc/lua/services/Alice.lua"
+    },
+    {
+      "npc": "Alissa",
+      "file": "data/npc/crystalserver/shops/mixed/alissa.lua"
+    },
+    {
+      "npc": "Alkestios",
+      "file": "data/npc/crystalserver/quests/alkestios.lua"
+    },
+    {
+      "npc": "Altar",
+      "file": "data/npc/crystalserver/services/altar.lua"
+    },
+    {
+      "npc": "Alternative Rock",
+      "file": "data/npc/crystalserver/services/alternative_rock.lua"
+    },
+    {
+      "npc": "Alyxo",
+      "file": "data/npc/crystalserver/quests/alyxo.lua"
+    },
+    {
+      "npc": "Amarie",
+      "file": "data/npc/crystalserver/services/amarie.lua"
+    },
+    {
+      "npc": "Ambassador Manop",
+      "file": "data/npc/crystalserver/quests/ambassador_manop.lua"
+    },
+    {
+      "npc": "Ambassador Of Rathleton",
+      "file": "data/npc/crystalserver/quests/ambassador_of_rathleton.lua"
+    },
+    {
+      "npc": "Amra",
+      "file": "data/npc/crystalserver/shops/mixed/amra.lua"
+    },
+    {
+      "npc": "An Ancient Priest",
+      "file": "data/npc/crystalserver/services/an_ancient_priest.lua"
+    },
+    {
+      "npc": "An Idol",
+      "file": "data/npc/crystalserver/services/an_idol.lua"
+    },
+    {
+      "npc": "An Imprisoned Goblin",
+      "file": "data/npc/crystalserver/services/an_imprisoned_goblin.lua"
+    },
+    {
+      "npc": "An Ominous Bat",
+      "file": "data/npc/crystalserver/quests/an_ominous_bat.lua"
+    },
+    {
+      "npc": "An Orc Guard",
+      "file": "data/npc/crystalserver/services/an_orc_guard.lua"
+    },
+    {
+      "npc": "An Orchish Ancestor Spirit",
+      "file": "data/npc/crystalserver/quests/an_orchish_ancestor_spirit.lua"
+    },
+    {
+      "npc": "Anaztassja Moroia",
+      "file": "data/npc/crystalserver/quests/anaztassja_moroia.lua"
+    },
+    {
+      "npc": "Anaztassja Moroia Init",
+      "file": "data/npc/crystalserver/quests/anaztassja_moroia_init.lua"
+    },
+    {
+      "npc": "Andrew Lyze",
+      "file": "data/npc/crystalserver/shops/mixed/andrew_lyze.lua"
+    },
+    {
+      "npc": "Angelo",
+      "file": "data/npc/crystalserver/quests/angelo.lua"
+    },
+    {
+      "npc": "Appaloosa",
+      "file": "data/npc/crystalserver/quests/appaloosa.lua"
+    },
+    {
+      "npc": "Archery",
+      "file": "data/npc/crystalserver/shops/mixed/archery.lua"
+    },
+    {
+      "npc": "Archery Rook",
+      "file": "data/npc/crystalserver/shops/mixed/archery_rook.lua"
+    },
+    {
+      "npc": "Ariella",
+      "file": "data/npc/crystalserver/shops/mixed/ariella.lua"
+    },
+    {
+      "npc": "Arkarra",
+      "file": "data/npc/crystalserver/services/arkarra.lua"
+    },
+    {
+      "npc": "Arkulius",
+      "file": "data/npc/crystalserver/shops/mixed/arkulius.lua"
+    },
+    {
+      "npc": "Armenius",
+      "file": "data/npc/crystalserver/shops/mixed/armenius.lua"
+    },
+    {
+      "npc": "Ashari",
+      "file": "data/npc/crystalserver/services/ashari.lua"
+    },
+    {
+      "npc": "Asnarus",
+      "file": "data/npc/crystalserver/shops/mixed/asnarus.lua"
+    },
+    {
+      "npc": "Asphota",
+      "file": "data/npc/crystalserver/shops/mixed/asphota.lua"
+    },
+    {
+      "npc": "Asralius",
+      "file": "data/npc/crystalserver/services/asralius.lua"
+    },
+    {
+      "npc": "Atrad",
+      "file": "data/npc/crystalserver/shops/mixed/atrad.lua"
+    },
+    {
+      "npc": "Atur",
+      "file": "data/npc/crystalserver/services/atur.lua"
+    },
+    {
+      "npc": "Augustin",
+      "file": "data/npc/crystalserver/shops/mixed/augustin.lua"
+    },
+    {
+      "npc": "Aurita",
+      "file": "data/npc/crystalserver/quests/aurita.lua"
+    },
+    {
+      "npc": "Auron",
+      "file": "data/npc/crystalserver/shops/mixed/auron.lua"
+    },
+    {
+      "npc": "Awareness Of The Emperor",
+      "file": "data/npc/crystalserver/quests/awareness_of_the_emperor.lua"
+    },
+    {
+      "npc": "Azalea",
+      "file": "data/npc/crystalserver/quests/azalea.lua"
+    },
+    {
+      "npc": "Baa",
+      "file": "data/npc/crystalserver/quests/baa_leal.lua"
+    },
+    {
+      "npc": "Baltim",
+      "file": "data/npc/crystalserver/shops/mixed/baltim.lua"
+    },
+    {
+      "npc": "Banker",
+      "file": "data/npc/crystalserver/bank/banker.lua"
+    },
+    {
+      "npc": "Banker",
+      "file": "data/npc/lua/bank/banker.lua"
+    },
+    {
+      "npc": "Barazbaz",
+      "file": "data/npc/crystalserver/quests/barazbaz.lua"
+    },
+    {
+      "npc": "Barnabas Dee",
+      "file": "data/npc/crystalserver/quests/barnabas_dee.lua"
+    },
+    {
+      "npc": "Barney",
+      "file": "data/npc/crystalserver/services/barney.lua"
+    },
+    {
+      "npc": "Barry",
+      "file": "data/npc/crystalserver/quests/barry.lua"
+    },
+    {
+      "npc": "Battlemart",
+      "file": "data/npc/crystalserver/shops/mixed/battlemart.lua"
+    },
+    {
+      "npc": "Benevola",
+      "file": "data/npc/crystalserver/quests/benevola.lua"
+    },
+    {
+      "npc": "Berenice",
+      "file": "data/npc/crystalserver/shops/mixed/berenice.lua"
+    },
+    {
+      "npc": "Bertha",
+      "file": "data/npc/crystalserver/shops/mixed/bertha.lua"
+    },
+    {
+      "npc": "Bertram",
+      "file": "data/npc/crystalserver/quests/bertram.lua"
+    },
+    {
+      "npc": "Bigfoot Soldier",
+      "file": "data/npc/crystalserver/services/bigfoot_soldier.lua"
+    },
+    {
+      "npc": "Bill The Worker",
+      "file": "data/npc/crystalserver/services/bill_the_worker.lua"
+    },
+    {
+      "npc": "Black Bert",
+      "file": "data/npc/crystalserver/shops/mixed/black_bert.lua"
+    },
+    {
+      "npc": "Bloodshade Rotten",
+      "file": "data/npc/crystalserver/quests/bloodshade_rotten.lua"
+    },
+    {
+      "npc": "Bloodshade Sacrifice",
+      "file": "data/npc/crystalserver/quests/bloodshade_sacrifice.lua"
+    },
+    {
+      "npc": "Bo",
+      "file": "data/npc/crystalserver/quests/bo_ques.lua"
+    },
+    {
+      "npc": "Bob The Worker",
+      "file": "data/npc/crystalserver/services/bob_the_worker.lua"
+    },
+    {
+      "npc": "Bolfona",
+      "file": "data/npc/crystalserver/shops/mixed/bolfona.lua"
+    },
+    {
+      "npc": "Boveas",
+      "file": "data/npc/crystalserver/services/boveas.lua"
+    },
+    {
+      "npc": "Bozarn",
+      "file": "data/npc/crystalserver/services/bozarn.lua"
+    },
+    {
+      "npc": "Braden",
+      "file": "data/npc/crystalserver/services/braden.lua"
+    },
+    {
+      "npc": "Bradford",
+      "file": "data/npc/crystalserver/services/bradford.lua"
+    },
+    {
+      "npc": "Bright Percht Sleigh",
+      "file": "data/npc/crystalserver/services/bright_percht_sleigh.lua"
+    },
+    {
+      "npc": "Broken Servant Sentry",
+      "file": "data/npc/crystalserver/quests/broken_servant_sentry.lua"
+    },
+    {
+      "npc": "Brom",
+      "file": "data/npc/crystalserver/services/brom.lua"
+    },
+    {
+      "npc": "Bron",
+      "file": "data/npc/crystalserver/quests/bron.lua"
+    },
+    {
+      "npc": "Bruce",
+      "file": "data/npc/crystalserver/quests/bruce.lua"
+    },
+    {
+      "npc": "Brutus",
+      "file": "data/npc/crystalserver/services/brutus.lua"
+    },
+    {
+      "npc": "Buddel",
+      "file": "data/npc/crystalserver/shops/mixed/buddel.lua"
+    },
+    {
+      "npc": "Buddel (Helheim)",
+      "file": "data/npc/crystalserver/shops/mixed/buddel_helheim.lua"
+    },
+    {
+      "npc": "Buddel (Okolnir)",
+      "file": "data/npc/crystalserver/shops/mixed/buddel_okolnir.lua"
+    },
+    {
+      "npc": "Buddel (Raider Camp)",
+      "file": "data/npc/crystalserver/shops/mixed/buddel_raider_camp.lua"
+    },
+    {
+      "npc": "Buddel (Tyrsung)",
+      "file": "data/npc/crystalserver/shops/mixed/buddel_tyrsung.lua"
+    },
+    {
+      "npc": "Cael",
+      "file": "data/npc/crystalserver/shops/mixed/cael.lua"
+    },
+    {
+      "npc": "Cameron",
+      "file": "data/npc/crystalserver/services/cameron.lua"
+    },
+    {
+      "npc": "Captain",
+      "file": "data/npc/crystalserver/travel/Captain.lua"
+    },
+    {
+      "npc": "Captain",
+      "file": "data/npc/lua/travel/Captain.lua"
+    },
+    {
+      "npc": "Captain Breezelda",
+      "file": "data/npc/crystalserver/travel/captain_breezelda.lua"
+    },
+    {
+      "npc": "Captain Chelop",
+      "file": "data/npc/crystalserver/travel/captain_chelop.lua"
+    },
+    {
+      "npc": "Captain Cookie",
+      "file": "data/npc/crystalserver/travel/captain_cookie.lua"
+    },
+    {
+      "npc": "Captain Dreadnought",
+      "file": "data/npc/crystalserver/travel/captain_dreadnought.lua"
+    },
+    {
+      "npc": "Captain Gulliver",
+      "file": "data/npc/crystalserver/travel/captain_gulliver.lua"
+    },
+    {
+      "npc": "Captain Haba",
+      "file": "data/npc/crystalserver/travel/captain_haba.lua"
+    },
+    {
+      "npc": "Captain Haba (Open Sea)",
+      "file": "data/npc/crystalserver/travel/captain_haba_open_sea.lua"
+    },
+    {
+      "npc": "Captain Harava",
+      "file": "data/npc/crystalserver/travel/captain_harava.lua"
+    },
+    {
+      "npc": "Captain Jack Rat",
+      "file": "data/npc/crystalserver/travel/captain_jack_rat.lua"
+    },
+    {
+      "npc": "Captain Kurt",
+      "file": "data/npc/crystalserver/travel/captain_kurt.lua"
+    },
+    {
+      "npc": "Captain Max",
+      "file": "data/npc/crystalserver/travel/captain_max.lua"
+    },
+    {
+      "npc": "Captain Max (Calassa)",
+      "file": "data/npc/crystalserver/travel/captain_max_calassa.lua"
+    },
+    {
+      "npc": "Captain Pelagia",
+      "file": "data/npc/crystalserver/travel/captain_pelagia.lua"
+    },
+    {
+      "npc": "Captain Tiberius",
+      "file": "data/npc/crystalserver/travel/captain_tiberius.lua"
+    },
+    {
+      "npc": "Captain Waverider",
+      "file": "data/npc/crystalserver/travel/captain_waverider.lua"
+    },
+    {
+      "npc": "Captain Waverider (Island)",
+      "file": "data/npc/crystalserver/travel/captain_waverider_island.lua"
+    },
+    {
+      "npc": "Caramellia",
+      "file": "data/npc/crystalserver/services/caramellia.lua"
+    },
+    {
+      "npc": "Carlos",
+      "file": "data/npc/crystalserver/shops/mixed/carlos.lua"
+    },
+    {
+      "npc": "Cassino",
+      "file": "data/npc/crystalserver/services/cassino.lua"
+    },
+    {
+      "npc": "Cedrik",
+      "file": "data/npc/crystalserver/shops/mixed/cedrik.lua"
+    },
+    {
+      "npc": "Ceiron",
+      "file": "data/npc/crystalserver/quests/ceiron.lua"
+    },
+    {
+      "npc": "Cerdras",
+      "file": "data/npc/crystalserver/services/cerdras.lua"
+    },
+    {
+      "npc": "Cerebrir",
+      "file": "data/npc/crystalserver/services/cerebrir.lua"
+    },
+    {
+      "npc": "Chantalle",
+      "file": "data/npc/crystalserver/shops/mixed/chantalle.lua"
+    },
+    {
+      "npc": "Charlotta",
+      "file": "data/npc/crystalserver/quests/charlotta.lua"
+    },
+    {
+      "npc": "Charos",
+      "file": "data/npc/crystalserver/quests/charos.lua"
+    },
+    {
+      "npc": "Chartan",
+      "file": "data/npc/crystalserver/shops/mixed/chartan.lua"
+    },
+    {
+      "npc": "Chavis",
+      "file": "data/npc/crystalserver/quests/chavis.lua"
+    },
+    {
+      "npc": "Chief Grarkharok",
+      "file": "data/npc/crystalserver/quests/chief_grarkharok.lua"
+    },
+    {
+      "npc": "Chondur",
+      "file": "data/npc/crystalserver/shops/mixed/chondur.lua"
+    },
+    {
+      "npc": "Chrak",
+      "file": "data/npc/crystalserver/quests/chrak.lua"
+    },
+    {
+      "npc": "Christine",
+      "file": "data/npc/crystalserver/shops/mixed/christine.lua"
+    },
+    {
+      "npc": "Chuck The Worker",
+      "file": "data/npc/crystalserver/services/chuck_the_worker.lua"
+    },
+    {
+      "npc": "Chuckles",
+      "file": "data/npc/crystalserver/shops/mixed/chuckles.lua"
+    },
+    {
+      "npc": "Cillia",
+      "file": "data/npc/crystalserver/services/cillia.lua"
+    },
+    {
+      "npc": "Cledwyn",
+      "file": "data/npc/crystalserver/shops/mixed/cledwyn.lua"
+    },
+    {
+      "npc": "Cold Percht Sleigh",
+      "file": "data/npc/crystalserver/services/cold_percht_sleigh.lua"
+    },
+    {
+      "npc": "Coltrayne",
+      "file": "data/npc/crystalserver/shops/mixed/coltrayne.lua"
+    },
+    {
+      "npc": "Commander Stone",
+      "file": "data/npc/crystalserver/quests/commander_stone.lua"
+    },
+    {
+      "npc": "Cornell",
+      "file": "data/npc/crystalserver/services/cornell.lua"
+    },
+    {
+      "npc": "Corym Butler",
+      "file": "data/npc/crystalserver/quests/corym_butler.lua"
+    },
+    {
+      "npc": "Corym Footman",
+      "file": "data/npc/crystalserver/quests/corym_footman.lua"
+    },
+    {
+      "npc": "Corym Ratter",
+      "file": "data/npc/crystalserver/quests/corym_ratter.lua"
+    },
+    {
+      "npc": "Corym Servant",
+      "file": "data/npc/crystalserver/quests/corym_servant.lua"
+    },
+    {
+      "npc": "Corym Slave",
+      "file": "data/npc/crystalserver/quests/corym_slave.lua"
+    },
+    {
+      "npc": "Corym Worker (1)",
+      "file": "data/npc/crystalserver/quests/corym_worker_01.lua"
+    },
+    {
+      "npc": "Corym Worker (2)",
+      "file": "data/npc/crystalserver/quests/corym_worker_02.lua"
+    },
+    {
+      "npc": "Corym Worker (3)",
+      "file": "data/npc/crystalserver/quests/corym_worker_03.lua"
+    },
+    {
+      "npc": "Corym Worker (4)",
+      "file": "data/npc/crystalserver/quests/corym_worker_04.lua"
+    },
+    {
+      "npc": "Corym Worker (5)",
+      "file": "data/npc/crystalserver/quests/corym_worker_05.lua"
+    },
+    {
+      "npc": "Cranky Lizard Crone",
+      "file": "data/npc/crystalserver/quests/cranky_lizard_crone.lua"
+    },
+    {
+      "npc": "Crowned Tree",
+      "file": "data/npc/crystalserver/services/crowned_tree.lua"
+    },
+    {
+      "npc": "Cruleo",
+      "file": "data/npc/crystalserver/shops/mixed/cruleo.lua"
+    },
+    {
+      "npc": "Curos",
+      "file": "data/npc/crystalserver/quests/curos.lua"
+    },
+    {
+      "npc": "Dancing Fairy",
+      "file": "data/npc/crystalserver/quests/dancing_fairy.lua"
+    },
+    {
+      "npc": "Dankwart",
+      "file": "data/npc/crystalserver/shops/mixed/dankwart.lua"
+    },
+    {
+      "npc": "Danlon",
+      "file": "data/npc/crystalserver/services/danlon.lua"
+    },
+    {
+      "npc": "Dark Percht Sleigh",
+      "file": "data/npc/crystalserver/services/dark_percht_sleigh.lua"
+    },
+    {
+      "npc": "Dark Rodo",
+      "file": "data/npc/crystalserver/shops/mixed/Dark Rodo.lua"
+    },
+    {
+      "npc": "Dark Rodo",
+      "file": "data/npc/lua/shops/mixed/Dark Rodo.lua"
+    },
+    {
+      "npc": "Dedoras",
+      "file": "data/npc/crystalserver/quests/dedoras.lua"
+    },
+    {
+      "npc": "Denominator",
+      "file": "data/npc/crystalserver/quests/denominator.lua"
+    },
+    {
+      "npc": "Deruno",
+      "file": "data/npc/crystalserver/shops/buy/Deruno.lua"
+    },
+    {
+      "npc": "Deruno",
+      "file": "data/npc/lua/shops/buy/Deruno.lua"
+    },
+    {
+      "npc": "Doctor Gnomedix",
+      "file": "data/npc/crystalserver/quests/doctor_gnomedix.lua"
+    },
+    {
+      "npc": "Dorbin",
+      "file": "data/npc/crystalserver/shops/mixed/dorbin.lua"
+    },
+    {
+      "npc": "Dorian",
+      "file": "data/npc/crystalserver/shops/mixed/dorian.lua"
+    },
+    {
+      "npc": "Doubleday",
+      "file": "data/npc/crystalserver/quests/doubleday.lua"
+    },
+    {
+      "npc": "Doug",
+      "file": "data/npc/crystalserver/services/doug.lua"
+    },
+    {
+      "npc": "Dr Merlay",
+      "file": "data/npc/crystalserver/services/dr_merlay.lua"
+    },
+    {
+      "npc": "Dreadeye",
+      "file": "data/npc/crystalserver/services/dreadeye.lua"
+    },
+    {
+      "npc": "Dream Butterfly",
+      "file": "data/npc/crystalserver/services/dream_butterfly.lua"
+    },
+    {
+      "npc": "Dregor",
+      "file": "data/npc/crystalserver/services/dregor.lua"
+    },
+    {
+      "npc": "Drog",
+      "file": "data/npc/crystalserver/services/drog.lua"
+    },
+    {
+      "npc": "Dronk",
+      "file": "data/npc/crystalserver/services/dronk.lua"
+    },
+    {
+      "npc": "Druid Yandur",
+      "file": "data/npc/crystalserver/services/druid_yandur.lua"
+    },
+    {
+      "npc": "Drystan Wildweed",
+      "file": "data/npc/crystalserver/services/drystan_wildweed.lua"
+    },
+    {
+      "npc": "Dukosch",
+      "file": "data/npc/crystalserver/quests/dukosch.lua"
+    },
+    {
+      "npc": "Duncan",
+      "file": "data/npc/crystalserver/shops/mixed/duncan.lua"
+    },
+    {
+      "npc": "Eathar",
+      "file": "data/npc/crystalserver/services/eathar.lua"
+    },
+    {
+      "npc": "Eclesius",
+      "file": "data/npc/crystalserver/services/eclesius.lua"
+    },
+    {
+      "npc": "Edgar-Ellen",
+      "file": "data/npc/crystalserver/quests/edgar-ellen.lua"
+    },
+    {
+      "npc": "Edmund",
+      "file": "data/npc/crystalserver/shops/mixed/edmund.lua"
+    },
+    {
+      "npc": "Edron Guardsman",
+      "file": "data/npc/crystalserver/services/edron_guardsman.lua"
+    },
+    {
+      "npc": "Eighty",
+      "file": "data/npc/crystalserver/services/eighty.lua"
+    },
+    {
+      "npc": "Eirik",
+      "file": "data/npc/crystalserver/services/eirik.lua"
+    },
+    {
+      "npc": "Elbert",
+      "file": "data/npc/crystalserver/services/elbert.lua"
+    },
+    {
+      "npc": "Eleonore",
+      "file": "data/npc/crystalserver/quests/eleonore.lua"
+    },
+    {
+      "npc": "Elgar",
+      "file": "data/npc/crystalserver/services/elgar.lua"
+    },
+    {
+      "npc": "Eliyas",
+      "file": "data/npc/crystalserver/shops/mixed/eliyas.lua"
+    },
+    {
+      "npc": "Eliza",
+      "file": "data/npc/crystalserver/services/eliza.lua"
+    },
+    {
+      "npc": "Elliott",
+      "file": "data/npc/crystalserver/quests/elliott.lua"
+    },
+    {
+      "npc": "Elyen Ravenlock",
+      "file": "data/npc/crystalserver/quests/elyen_ravenlock.lua"
+    },
+    {
+      "npc": "Emael",
+      "file": "data/npc/crystalserver/quests/emael.lua"
+    },
+    {
+      "npc": "Emberwing",
+      "file": "data/npc/crystalserver/services/emberwing.lua"
+    },
+    {
+      "npc": "Emily",
+      "file": "data/npc/crystalserver/services/emily.lua"
+    },
+    {
+      "npc": "Emma",
+      "file": "data/npc/crystalserver/shops/buy/emma.lua"
+    },
+    {
+      "npc": "Emperor Rehal",
+      "file": "data/npc/crystalserver/quests/emperor_rehal.lua"
+    },
+    {
+      "npc": "Enpa Rudra",
+      "file": "data/npc/crystalserver/shops/mixed/enpa_rudra.lua"
+    },
+    {
+      "npc": "Enpa-Deia Pema",
+      "file": "data/npc/crystalserver/shops/mixed/enpa_deia_pema.lua"
+    },
+    {
+      "npc": "Eranth",
+      "file": "data/npc/crystalserver/services/eranth.lua"
+    },
+    {
+      "npc": "Erayo",
+      "file": "data/npc/crystalserver/quests/erayo.lua"
+    },
+    {
+      "npc": "Eruaran",
+      "file": "data/npc/crystalserver/quests/eruaran.lua"
+    },
+    {
+      "npc": "Eshaya",
+      "file": "data/npc/crystalserver/quests/eshaya.lua"
+    },
+    {
+      "npc": "Esrik",
+      "file": "data/npc/crystalserver/shops/mixed/esrik.lua"
+    },
+    {
+      "npc": "Ethan",
+      "file": "data/npc/crystalserver/services/ethan.lua"
+    },
+    {
+      "npc": "Eustacio",
+      "file": "data/npc/crystalserver/quests/eustacio.lua"
+    },
+    {
+      "npc": "Evan",
+      "file": "data/npc/crystalserver/shops/mixed/evan.lua"
+    },
+    {
+      "npc": "Ezean",
+      "file": "data/npc/crystalserver/shops/mixed/ezean.lua"
+    },
+    {
+      "npc": "Ezebeth",
+      "file": "data/npc/crystalserver/quests/ezebeth.lua"
+    },
+    {
+      "npc": "Fa",
+      "file": "data/npc/crystalserver/quests/fa_hradin.lua"
+    },
+    {
+      "npc": "Fadil",
+      "file": "data/npc/crystalserver/shops/mixed/fadil.lua"
+    },
+    {
+      "npc": "Falonzo",
+      "file": "data/npc/crystalserver/services/falonzo.lua"
+    },
+    {
+      "npc": "Faloriel",
+      "file": "data/npc/crystalserver/shops/mixed/faloriel.lua"
+    },
+    {
+      "npc": "Farhilorn Of The Winter Court",
+      "file": "data/npc/crystalserver/quests/farhilorn_of_the_winter_court.lua"
+    },
+    {
+      "npc": "Fayla",
+      "file": "data/npc/crystalserver/shops/mixed/fayla.lua"
+    },
+    {
+      "npc": "Fergus",
+      "file": "data/npc/crystalserver/services/fergus.lua"
+    },
+    {
+      "npc": "Ferryman Kamil",
+      "file": "data/npc/crystalserver/travel/ferryman_kamil.lua"
+    },
+    {
+      "npc": "Ferryman Kamil (Meluna)",
+      "file": "data/npc/crystalserver/travel/ferryman_kamil_meluna.lua"
+    },
+    {
+      "npc": "Ferus",
+      "file": "data/npc/crystalserver/quests/ferus.lua"
+    },
+    {
+      "npc": "Fillias",
+      "file": "data/npc/crystalserver/services/fillias.lua"
+    },
+    {
+      "npc": "Finarfin",
+      "file": "data/npc/crystalserver/services/finarfin.lua"
+    },
+    {
+      "npc": "Fiona",
+      "file": "data/npc/crystalserver/shops/mixed/fiona.lua"
+    },
+    {
+      "npc": "Flickering Soul",
+      "file": "data/npc/crystalserver/services/flickering_soul.lua"
+    },
+    {
+      "npc": "Flint",
+      "file": "data/npc/crystalserver/shops/mixed/flint.lua"
+    },
+    {
+      "npc": "Flora",
+      "file": "data/npc/crystalserver/services/flora.lua"
+    },
+    {
+      "npc": "Florentine",
+      "file": "data/npc/crystalserver/shops/mixed/florentine.lua"
+    },
+    {
+      "npc": "Frafnar",
+      "file": "data/npc/crystalserver/quests/frafnar.lua"
+    },
+    {
+      "npc": "Frank The Plank",
+      "file": "data/npc/crystalserver/services/frank_the_plank.lua"
+    },
+    {
+      "npc": "Frederik",
+      "file": "data/npc/crystalserver/shops/mixed/frederik.lua"
+    },
+    {
+      "npc": "Freezhild",
+      "file": "data/npc/crystalserver/quests/freezhild.lua"
+    },
+    {
+      "npc": "Frok, The Guard",
+      "file": "data/npc/crystalserver/services/frok_the_guard.lua"
+    },
+    {
+      "npc": "Frosty",
+      "file": "data/npc/crystalserver/services/frosty.lua"
+    },
+    {
+      "npc": "Fynn",
+      "file": "data/npc/crystalserver/services/fynn.lua"
+    },
+    {
+      "npc": "Fyodor",
+      "file": "data/npc/crystalserver/shops/mixed/fyodor.lua"
+    },
+    {
+      "npc": "Garamond",
+      "file": "data/npc/crystalserver/services/garamond.lua"
+    },
+    {
+      "npc": "Gareth",
+      "file": "data/npc/crystalserver/quests/gareth.lua"
+    },
+    {
+      "npc": "Gate Guardian",
+      "file": "data/npc/crystalserver/quests/gate_guardian.lua"
+    },
+    {
+      "npc": "Gederas",
+      "file": "data/npc/crystalserver/services/gederas.lua"
+    },
+    {
+      "npc": "Gelagos",
+      "file": "data/npc/crystalserver/services/gelagos.lua"
+    },
+    {
+      "npc": "Gelidrazah",
+      "file": "data/npc/crystalserver/quests/gelidrazahs_thirst.lua"
+    },
+    {
+      "npc": "George The Boyscout",
+      "file": "data/npc/crystalserver/services/george_the_boyscout.lua"
+    },
+    {
+      "npc": "Gerimor",
+      "file": "data/npc/crystalserver/quests/gerimor.lua"
+    },
+    {
+      "npc": "Gewen",
+      "file": "data/npc/crystalserver/quests/gewen.lua"
+    },
+    {
+      "npc": "Ghorza",
+      "file": "data/npc/crystalserver/shops/mixed/ghorza.lua"
+    },
+    {
+      "npc": "Ghost Of A Priest",
+      "file": "data/npc/crystalserver/quests/ghost_of_a_priest.lua"
+    },
+    {
+      "npc": "Ghostly Wolf",
+      "file": "data/npc/crystalserver/quests/ghostly_wolf.lua"
+    },
+    {
+      "npc": "Giri",
+      "file": "data/npc/crystalserver/shops/mixed/giri.lua"
+    },
+    {
+      "npc": "Gladys",
+      "file": "data/npc/crystalserver/shops/mixed/gladys.lua"
+    },
+    {
+      "npc": "Gnomad",
+      "file": "data/npc/crystalserver/services/gnomad.lua"
+    },
+    {
+      "npc": "Gnomadness",
+      "file": "data/npc/crystalserver/services/gnomadness.lua"
+    },
+    {
+      "npc": "Gnomailion",
+      "file": "data/npc/crystalserver/shops/mixed/gnomailion.lua"
+    },
+    {
+      "npc": "Gnomally",
+      "file": "data/npc/crystalserver/shops/mixed/gnomally.lua"
+    },
+    {
+      "npc": "Gnomargery",
+      "file": "data/npc/crystalserver/quests/gnomargery.lua"
+    },
+    {
+      "npc": "Gnomaticus",
+      "file": "data/npc/crystalserver/quests/gnomaticus.lua"
+    },
+    {
+      "npc": "Gnombold",
+      "file": "data/npc/crystalserver/quests/gnombold.lua"
+    },
+    {
+      "npc": "Gnome",
+      "file": "data/npc/crystalserver/services/gnome.lua"
+    },
+    {
+      "npc": "Gnome Trooper",
+      "file": "data/npc/crystalserver/quests/gnome_trooper.lua"
+    },
+    {
+      "npc": "Gnomegica",
+      "file": "data/npc/crystalserver/shops/mixed/gnomegica.lua"
+    },
+    {
+      "npc": "Gnomejam",
+      "file": "data/npc/crystalserver/shops/mixed/gnomejam.lua"
+    },
+    {
+      "npc": "Gnomelvis",
+      "file": "data/npc/crystalserver/quests/gnomelvis.lua"
+    },
+    {
+      "npc": "Gnomenursey",
+      "file": "data/npc/crystalserver/services/gnomenursey.lua"
+    },
+    {
+      "npc": "Gnomeral",
+      "file": "data/npc/crystalserver/quests/gnomeral.lua"
+    },
+    {
+      "npc": "Gnomercy",
+      "file": "data/npc/crystalserver/services/gnomercy.lua"
+    },
+    {
+      "npc": "Gnomerik",
+      "file": "data/npc/crystalserver/quests/gnomerik.lua"
+    },
+    {
+      "npc": "Gnomerrow",
+      "file": "data/npc/crystalserver/shops/mixed/gnomerrow.lua"
+    },
+    {
+      "npc": "Gnomespector",
+      "file": "data/npc/crystalserver/quests/gnomespector.lua"
+    },
+    {
+      "npc": "Gnomette",
+      "file": "data/npc/crystalserver/shops/mixed/gnomette.lua"
+    },
+    {
+      "npc": "Gnomewart",
+      "file": "data/npc/crystalserver/quests/gnomewart.lua"
+    },
+    {
+      "npc": "Gnomfurry",
+      "file": "data/npc/crystalserver/shops/mixed/gnomfurry.lua"
+    },
+    {
+      "npc": "Gnomillion",
+      "file": "data/npc/crystalserver/services/gnomillion.lua"
+    },
+    {
+      "npc": "Gnomilly",
+      "file": "data/npc/crystalserver/quests/gnomilly.lua"
+    },
+    {
+      "npc": "Gnomincia",
+      "file": "data/npc/crystalserver/shops/mixed/gnomincia.lua"
+    },
+    {
+      "npc": "Gnominer",
+      "file": "data/npc/crystalserver/services/gnominer.lua"
+    },
+    {
+      "npc": "Gnominus",
+      "file": "data/npc/crystalserver/quests/gnominus.lua"
+    },
+    {
+      "npc": "Gnomish Operative (Catching)",
+      "file": "data/npc/crystalserver/services/gnomish_operative_cathing.lua"
+    },
+    {
+      "npc": "Gnomish Operative (GT-M-01)",
+      "file": "data/npc/crystalserver/services/gnomish_operative_gt-m-01.lua"
+    },
+    {
+      "npc": "Gnomish Operative (Raiders)",
+      "file": "data/npc/crystalserver/services/gnomish_operative_raiders.lua"
+    },
+    {
+      "npc": "Gnomish Operative (Resonating)",
+      "file": "data/npc/crystalserver/services/gnomish_operative_resonating.lua"
+    },
+    {
+      "npc": "Gnomish Operative (Volcano)",
+      "file": "data/npc/crystalserver/services/gnomish_operative_volcano.lua"
+    },
+    {
+      "npc": "Gnomission",
+      "file": "data/npc/crystalserver/shops/mixed/gnomission.lua"
+    },
+    {
+      "npc": "Gnommander",
+      "file": "data/npc/crystalserver/services/gnommander.lua"
+    },
+    {
+      "npc": "Gnomole",
+      "file": "data/npc/crystalserver/services/gnomole.lua"
+    },
+    {
+      "npc": "Gnomus",
+      "file": "data/npc/crystalserver/quests/gnomus.lua"
+    },
+    {
+      "npc": "Gnomux",
+      "file": "data/npc/crystalserver/shops/mixed/gnomux.lua"
+    },
+    {
+      "npc": "Golem Guardian",
+      "file": "data/npc/crystalserver/services/golem_guardian.lua"
+    },
+    {
+      "npc": "Gordon",
+      "file": "data/npc/crystalserver/services/gordon.lua"
+    },
+    {
+      "npc": "Graham",
+      "file": "data/npc/crystalserver/services/graham.lua"
+    },
+    {
+      "npc": "Gree Dee",
+      "file": "data/npc/crystalserver/shops/mixed/gree_dee.lua"
+    },
+    {
+      "npc": "Grizzly Adams",
+      "file": "data/npc/crystalserver/shops/mixed/grizzly_adams.lua"
+    },
+    {
+      "npc": "Grodrik",
+      "file": "data/npc/crystalserver/services/grodrik.lua"
+    },
+    {
+      "npc": "Grombur",
+      "file": "data/npc/crystalserver/quests/grombur.lua"
+    },
+    {
+      "npc": "Grubokk",
+      "file": "data/npc/crystalserver/services/grubokk.lua"
+    },
+    {
+      "npc": "Grumpy Stone",
+      "file": "data/npc/crystalserver/quests/grumpy_stone.lua"
+    },
+    {
+      "npc": "Guard Bazaya",
+      "file": "data/npc/crystalserver/services/guard_bazaya.lua"
+    },
+    {
+      "npc": "Guard Inurta",
+      "file": "data/npc/crystalserver/services/guard_inurta.lua"
+    },
+    {
+      "npc": "Guard Saros",
+      "file": "data/npc/crystalserver/services/guard_saros.lua"
+    },
+    {
+      "npc": "Guard Senet",
+      "file": "data/npc/crystalserver/services/guard_senet.lua"
+    },
+    {
+      "npc": "Guardian of the Deep Seas",
+      "file": "data/npc/crystalserver/services/guardian_of_the_deep_seas.lua"
+    },
+    {
+      "npc": "Guide Alexena",
+      "file": "data/npc/crystalserver/services/guide_alexena.lua"
+    },
+    {
+      "npc": "Guide Behil",
+      "file": "data/npc/crystalserver/services/guide_behil.lua"
+    },
+    {
+      "npc": "Guide Davina",
+      "file": "data/npc/crystalserver/services/guide_davina.lua"
+    },
+    {
+      "npc": "Guide Edna",
+      "file": "data/npc/crystalserver/services/guide_edna.lua"
+    },
+    {
+      "npc": "Guide Elena",
+      "file": "data/npc/crystalserver/services/guide_elena.lua"
+    },
+    {
+      "npc": "Guide Jonathan",
+      "file": "data/npc/crystalserver/services/guide_jonathan.lua"
+    },
+    {
+      "npc": "Guide Kroak",
+      "file": "data/npc/crystalserver/services/guide_kroak.lua"
+    },
+    {
+      "npc": "Guide Kunibert",
+      "file": "data/npc/crystalserver/services/guide_kunibert.lua"
+    },
+    {
+      "npc": "Guide Luke",
+      "file": "data/npc/crystalserver/services/guide_luke.lua"
+    },
+    {
+      "npc": "Guide Meruka",
+      "file": "data/npc/crystalserver/services/guide_meruka.lua"
+    },
+    {
+      "npc": "Guide Rahlkora",
+      "file": "data/npc/crystalserver/services/guide_rahlkora.lua"
+    },
+    {
+      "npc": "Guide Thelandil",
+      "file": "data/npc/crystalserver/services/guide_thelandil.lua"
+    },
+    {
+      "npc": "Guide Tiko",
+      "file": "data/npc/crystalserver/services/guide_tiko.lua"
+    },
+    {
+      "npc": "Guild Banker",
+      "file": "data/npc/crystalserver/bank/Guild_Banker.lua"
+    },
+    {
+      "npc": "Guild Banker",
+      "file": "data/npc/lua/bank/Guild_Banker.lua"
+    },
+    {
+      "npc": "Haani",
+      "file": "data/npc/crystalserver/shops/mixed/haani.lua"
+    },
+    {
+      "npc": "Hal",
+      "file": "data/npc/crystalserver/quests/hal.lua"
+    },
+    {
+      "npc": "Halvar",
+      "file": "data/npc/crystalserver/quests/halvar.lua"
+    },
+    {
+      "npc": "Hamilton",
+      "file": "data/npc/crystalserver/services/hamilton.lua"
+    },
+    {
+      "npc": "Hamish",
+      "file": "data/npc/crystalserver/shops/mixed/hamish.lua"
+    },
+    {
+      "npc": "Harlow",
+      "file": "data/npc/crystalserver/quests/harlow.lua"
+    },
+    {
+      "npc": "Harlow",
+      "file": "data/npc/crystalserver/services/harlow_trade.lua"
+    },
+    {
+      "npc": "Harlow (Vengoth)",
+      "file": "data/npc/crystalserver/services/harlow_vengoth.lua"
+    },
+    {
+      "npc": "Harog",
+      "file": "data/npc/crystalserver/shops/mixed/harog.lua"
+    },
+    {
+      "npc": "Hawkhurst",
+      "file": "data/npc/crystalserver/services/hawkhurst.lua"
+    },
+    {
+      "npc": "Hawkhurst Ingol",
+      "file": "data/npc/crystalserver/services/hawkhurst_ingol.lua"
+    },
+    {
+      "npc": "Hawkyr",
+      "file": "data/npc/crystalserver/services/hawkyr.lua"
+    },
+    {
+      "npc": "Heavenly Messenger",
+      "file": "data/npc/crystalserver/services/heavenly_messenger.lua"
+    },
+    {
+      "npc": "Hector The Mentor",
+      "file": "data/npc/crystalserver/shops/mixed/hector_the_mentor.lua"
+    },
+    {
+      "npc": "Hemor, the guard",
+      "file": "data/npc/crystalserver/services/hemor_the_guard.lua"
+    },
+    {
+      "npc": "Henricus",
+      "file": "data/npc/crystalserver/shops/mixed/henricus.lua"
+    },
+    {
+      "npc": "Herbert",
+      "file": "data/npc/crystalserver/shops/mixed/herbert.lua"
+    },
+    {
+      "npc": "Hexel",
+      "file": "data/npc/crystalserver/services/hexel.lua"
+    },
+    {
+      "npc": "Hjaern",
+      "file": "data/npc/crystalserver/quests/hjaern.lua"
+    },
+    {
+      "npc": "Humnog, the guard",
+      "file": "data/npc/crystalserver/services/humnog_the_guard.lua"
+    },
+    {
+      "npc": "Huntsman",
+      "file": "data/npc/crystalserver/services/huntsman.lua"
+    },
+    {
+      "npc": "Ikassis",
+      "file": "data/npc/crystalserver/quests/ikassis.lua"
+    },
+    {
+      "npc": "Imbuement Assistant",
+      "file": "data/npc/crystalserver/shops/mixed/imbuement_assistant.lua"
+    },
+    {
+      "npc": "Imbuement Master",
+      "file": "data/npc/lua/shops/buy/Imbuement_Master.lua"
+    },
+    {
+      "npc": "Inigo",
+      "file": "data/npc/crystalserver/shops/buy/inigo.lua"
+    },
+    {
+      "npc": "Inkaef",
+      "file": "data/npc/crystalserver/shops/mixed/inkaef.lua"
+    },
+    {
+      "npc": "Iptar-Sin",
+      "file": "data/npc/crystalserver/shops/buy/iptar-sin.lua"
+    },
+    {
+      "npc": "Iriana",
+      "file": "data/npc/crystalserver/shops/mixed/iriana.lua"
+    },
+    {
+      "npc": "Irmana",
+      "file": "data/npc/crystalserver/shops/mixed/irmana.lua"
+    },
+    {
+      "npc": "Irvin",
+      "file": "data/npc/crystalserver/services/irvin.lua"
+    },
+    {
+      "npc": "Isika",
+      "file": "data/npc/crystalserver/shops/mixed/isika.lua"
+    },
+    {
+      "npc": "Iskan",
+      "file": "data/npc/crystalserver/quests/iskan.lua"
+    },
+    {
+      "npc": "Isolde",
+      "file": "data/npc/crystalserver/services/isolde.lua"
+    },
+    {
+      "npc": "Ivalisse",
+      "file": "data/npc/crystalserver/quests/ivalisse.lua"
+    },
+    {
+      "npc": "Iyad",
+      "file": "data/npc/crystalserver/shops/buy/iyad.lua"
+    },
+    {
+      "npc": "Izsh",
+      "file": "data/npc/crystalserver/quests/izsh.lua"
+    },
+    {
+      "npc": "Jack",
+      "file": "data/npc/crystalserver/quests/jack.lua"
+    },
+    {
+      "npc": "Jack Drone",
+      "file": "data/npc/crystalserver/services/jack_drone.lua"
+    },
+    {
+      "npc": "Jack Fate",
+      "file": "data/npc/crystalserver/quests/jack_fate.lua"
+    },
+    {
+      "npc": "Jack Fate (Goroma)",
+      "file": "data/npc/crystalserver/quests/jack_fate_goroma.lua"
+    },
+    {
+      "npc": "Jack Springer",
+      "file": "data/npc/crystalserver/shops/mixed/jack_springer.lua"
+    },
+    {
+      "npc": "Jack The Worker",
+      "file": "data/npc/crystalserver/services/jack_the_worker.lua"
+    },
+    {
+      "npc": "Jacob",
+      "file": "data/npc/crystalserver/quests/jacob.lua"
+    },
+    {
+      "npc": "Jagran",
+      "file": "data/npc/crystalserver/services/jagran.lua"
+    },
+    {
+      "npc": "Jamesfrancis",
+      "file": "data/npc/crystalserver/quests/jamesfrancis.lua"
+    },
+    {
+      "npc": "Janz",
+      "file": "data/npc/crystalserver/shops/mixed/janz.lua"
+    },
+    {
+      "npc": "Jason",
+      "file": "data/npc/crystalserver/services/jason.lua"
+    },
+    {
+      "npc": "Jean Pierre",
+      "file": "data/npc/crystalserver/quests/jean_pierre.lua"
+    },
+    {
+      "npc": "Jefrey",
+      "file": "data/npc/crystalserver/services/jefrey.lua"
+    },
+    {
+      "npc": "Jerom",
+      "file": "data/npc/crystalserver/shops/buy/jerom.lua"
+    },
+    {
+      "npc": "Jeronimo",
+      "file": "data/npc/crystalserver/services/jeronimo.lua"
+    },
+    {
+      "npc": "Jessica",
+      "file": "data/npc/crystalserver/shops/mixed/jessica.lua"
+    },
+    {
+      "npc": "Jimmy",
+      "file": "data/npc/crystalserver/services/jimmy.lua"
+    },
+    {
+      "npc": "John",
+      "file": "data/npc/crystalserver/shops/mixed/john.lua"
+    },
+    {
+      "npc": "John (Bounac)",
+      "file": "data/npc/crystalserver/shops/mixed/john_bounac.lua"
+    },
+    {
+      "npc": "Jondrin",
+      "file": "data/npc/crystalserver/quests/jondrin.lua"
+    },
+    {
+      "npc": "Jorge",
+      "file": "data/npc/crystalserver/services/jorge.lua"
+    },
+    {
+      "npc": "Jossel",
+      "file": "data/npc/crystalserver/services/jossel.lua"
+    },
+    {
+      "npc": "Julius",
+      "file": "data/npc/crystalserver/shops/mixed/julius.lua"
+    },
+    {
+      "npc": "Junkar (Mines)",
+      "file": "data/npc/crystalserver/services/junkar_mines.lua"
+    },
+    {
+      "npc": "Junkar (Robsons)",
+      "file": "data/npc/crystalserver/services/junkar_robsons.lua"
+    },
+    {
+      "npc": "Junkar (Thais)",
+      "file": "data/npc/crystalserver/services/junkar_thais.lua"
+    },
+    {
+      "npc": "Kais",
+      "file": "data/npc/crystalserver/services/kais.lua"
+    },
+    {
+      "npc": "Kallimae",
+      "file": "data/npc/crystalserver/quests/kallimae.lua"
+    },
+    {
+      "npc": "Kalvin",
+      "file": "data/npc/crystalserver/services/kalvin.lua"
+    },
+    {
+      "npc": "Karith",
+      "file": "data/npc/crystalserver/quests/karith.lua"
+    },
+    {
+      "npc": "Kaya",
+      "file": "data/npc/crystalserver/services/kaya.lua"
+    },
+    {
+      "npc": "Kendra",
+      "file": "data/npc/crystalserver/services/kendra.lua"
+    },
+    {
+      "npc": "Kendra (Thais)",
+      "file": "data/npc/crystalserver/services/kendra_thais.lua"
+    },
+    {
+      "npc": "Kepar",
+      "file": "data/npc/crystalserver/services/kepar.lua"
+    },
+    {
+      "npc": "Khanna",
+      "file": "data/npc/crystalserver/shops/mixed/khanna.lua"
+    },
+    {
+      "npc": "Kihil, The Guard",
+      "file": "data/npc/crystalserver/services/kihil_the_guard.lua"
+    },
+    {
+      "npc": "Kizar",
+      "file": "data/npc/crystalserver/services/kizar.lua"
+    },
+    {
+      "npc": "Kjesse",
+      "file": "data/npc/crystalserver/quests/kjesse.lua"
+    },
+    {
+      "npc": "Klaus",
+      "file": "data/npc/crystalserver/quests/klaus.lua"
+    },
+    {
+      "npc": "Klesar",
+      "file": "data/npc/crystalserver/services/klesar.lua"
+    },
+    {
+      "npc": "Klom Stonecutter",
+      "file": "data/npc/crystalserver/quests/klom_stonecutter.lua"
+    },
+    {
+      "npc": "Knight Hykrion",
+      "file": "data/npc/crystalserver/services/knight_hykrion.lua"
+    },
+    {
+      "npc": "Kromrek",
+      "file": "data/npc/crystalserver/services/kromrek.lua"
+    },
+    {
+      "npc": "Lailene",
+      "file": "data/npc/crystalserver/shops/mixed/lailene.lua"
+    },
+    {
+      "npc": "Lardoc Bashsmite",
+      "file": "data/npc/crystalserver/quests/lardoc_bashsmite.lua"
+    },
+    {
+      "npc": "Larek",
+      "file": "data/npc/crystalserver/shops/mixed/larek.lua"
+    },
+    {
+      "npc": "Larfion The Shaman",
+      "file": "data/npc/crystalserver/services/larfion_the_shaman.lua"
+    },
+    {
+      "npc": "Larry",
+      "file": "data/npc/crystalserver/shops/mixed/larry.lua"
+    },
+    {
+      "npc": "Lavirias",
+      "file": "data/npc/crystalserver/services/lavirias.lua"
+    },
+    {
+      "npc": "Lazaran",
+      "file": "data/npc/crystalserver/shops/buy/lazaran.lua"
+    },
+    {
+      "npc": "Lee",
+      "file": "data/npc/crystalserver/shops/mixed/lee_delle.lua"
+    },
+    {
+      "npc": "Lesser Messenger of Heaven",
+      "file": "data/npc/crystalserver/services/lesser_messenger_of_heaven.lua"
+    },
+    {
+      "npc": "Lisander",
+      "file": "data/npc/crystalserver/quests/lisander.lua"
+    },
+    {
+      "npc": "Lizard Tunnel Guard",
+      "file": "data/npc/crystalserver/quests/lizard_tunnel_guard.lua"
+    },
+    {
+      "npc": "Llathriel",
+      "file": "data/npc/crystalserver/services/llathriel.lua"
+    },
+    {
+      "npc": "Loot Buyer",
+      "file": "data/npc/crystalserver/shops/mixed/loot_buyer.lua"
+    },
+    {
+      "npc": "Lora",
+      "file": "data/npc/crystalserver/services/lora.lua"
+    },
+    {
+      "npc": "Lorietta",
+      "file": "data/npc/crystalserver/quests/lorietta.lua"
+    },
+    {
+      "npc": "Lothar",
+      "file": "data/npc/crystalserver/shops/buy/lothar.lua"
+    },
+    {
+      "npc": "Lou Toose",
+      "file": "data/npc/crystalserver/services/lou_toose.lua"
+    },
+    {
+      "npc": "Lucius",
+      "file": "data/npc/crystalserver/services/lucius.lua"
+    },
+    {
+      "npc": "Lukosch",
+      "file": "data/npc/crystalserver/quests/lukosch.lua"
+    },
+    {
+      "npc": "Lunch",
+      "file": "data/npc/crystalserver/services/lunch.lua"
+    },
+    {
+      "npc": "Lurik",
+      "file": "data/npc/crystalserver/shops/mixed/lurik.lua"
+    },
+    {
+      "npc": "Lyonel",
+      "file": "data/npc/crystalserver/shops/mixed/lyonel.lua"
+    },
+    {
+      "npc": "Mad",
+      "file": "data/npc/crystalserver/shops/sell/Mad.lua"
+    },
+    {
+      "npc": "Mad",
+      "file": "data/npc/lua/shops/sell/Mad.lua"
+    },
+    {
+      "npc": "Maelyrra",
+      "file": "data/npc/crystalserver/quests/maelyrra.lua"
+    },
+    {
+      "npc": "Maeryn",
+      "file": "data/npc/crystalserver/shops/buy/maeryn.lua"
+    },
+    {
+      "npc": "Malunga",
+      "file": "data/npc/crystalserver/shops/mixed/malunga.lua"
+    },
+    {
+      "npc": "Marcus",
+      "file": "data/npc/crystalserver/services/marcus.lua"
+    },
+    {
+      "npc": "Marina",
+      "file": "data/npc/crystalserver/shops/buy/marina.lua"
+    },
+    {
+      "npc": "Maris",
+      "file": "data/npc/crystalserver/quests/maris.lua"
+    },
+    {
+      "npc": "Maris (Fenrock)",
+      "file": "data/npc/crystalserver/services/maris_fenrock.lua"
+    },
+    {
+      "npc": "Maris (Mistrock)",
+      "file": "data/npc/crystalserver/quests/maris_mistrock.lua"
+    },
+    {
+      "npc": "Maritima",
+      "file": "data/npc/crystalserver/quests/maritima.lua"
+    },
+    {
+      "npc": "Mark",
+      "file": "data/npc/lua/services/mark.lua"
+    },
+    {
+      "npc": "Maro",
+      "file": "data/npc/crystalserver/shops/mixed/maro.lua"
+    },
+    {
+      "npc": "Marvin",
+      "file": "data/npc/crystalserver/quests/marvin.lua"
+    },
+    {
+      "npc": "Maun",
+      "file": "data/npc/crystalserver/shops/mixed/maun.lua"
+    },
+    {
+      "npc": "Mazarius",
+      "file": "data/npc/crystalserver/quests/mazarius.lua"
+    },
+    {
+      "npc": "Melfar",
+      "file": "data/npc/crystalserver/shops/mixed/melfar.lua"
+    },
+    {
+      "npc": "Melian",
+      "file": "data/npc/crystalserver/services/melian.lua"
+    },
+    {
+      "npc": "Menacing Mummy",
+      "file": "data/npc/crystalserver/services/menacing_mummy.lua"
+    },
+    {
+      "npc": "Menesto",
+      "file": "data/npc/crystalserver/quests/menesto.lua"
+    },
+    {
+      "npc": "Meraya",
+      "file": "data/npc/crystalserver/services/meraya.lua"
+    },
+    {
+      "npc": "Merchant",
+      "file": "data/npc/lua/travel/merchant_traveler.lua"
+    },
+    {
+      "npc": "Messenger of Heaven",
+      "file": "data/npc/crystalserver/services/messenger_of_heaven.lua"
+    },
+    {
+      "npc": "Messenger of Santa",
+      "file": "data/npc/crystalserver/shops/mixed/messenger_of_santa.lua"
+    },
+    {
+      "npc": "Miles, The Guard",
+      "file": "data/npc/crystalserver/quests/miles_the_guard.lua"
+    },
+    {
+      "npc": "Milos",
+      "file": "data/npc/crystalserver/services/milos.lua"
+    },
+    {
+      "npc": "Moe",
+      "file": "data/npc/crystalserver/quests/moe.lua"
+    },
+    {
+      "npc": "Morax",
+      "file": "data/npc/crystalserver/services/morax.lua"
+    },
+    {
+      "npc": "Mordecai",
+      "file": "data/npc/crystalserver/shops/mixed/mordecai.lua"
+    },
+    {
+      "npc": "Morgan",
+      "file": "data/npc/crystalserver/quests/morgan.lua"
+    },
+    {
+      "npc": "Morpel",
+      "file": "data/npc/crystalserver/shops/mixed/morpel.lua"
+    },
+    {
+      "npc": "Mortis",
+      "file": "data/npc/crystalserver/services/mortis.lua"
+    },
+    {
+      "npc": "Mother Of Jack",
+      "file": "data/npc/crystalserver/quests/mother_of_jack.lua"
+    },
+    {
+      "npc": "Mr Brandon",
+      "file": "data/npc/crystalserver/services/mr_brandon.lua"
+    },
+    {
+      "npc": "Mr Morris",
+      "file": "data/npc/crystalserver/quests/mr_morris.lua"
+    },
+    {
+      "npc": "Mr. West",
+      "file": "data/npc/crystalserver/quests/mr._west.lua"
+    },
+    {
+      "npc": "Mugruu",
+      "file": "data/npc/crystalserver/shops/mixed/mugruu.lua"
+    },
+    {
+      "npc": "Muhad",
+      "file": "data/npc/crystalserver/quests/muhad.lua"
+    },
+    {
+      "npc": "Murim",
+      "file": "data/npc/crystalserver/services/murim.lua"
+    },
+    {
+      "npc": "Mysterious Ornate Chest",
+      "file": "data/npc/crystalserver/services/mysterious_ornate_chest.lua"
+    },
+    {
+      "npc": "Myzzi",
+      "file": "data/npc/crystalserver/quests/myzzi.lua"
+    },
+    {
+      "npc": "Nah",
+      "file": "data/npc/crystalserver/shops/mixed/nah_bob.lua"
+    },
+    {
+      "npc": "Naji",
+      "file": "data/npc/crystalserver/services/naji.lua"
+    },
+    {
+      "npc": "Narsai",
+      "file": "data/npc/crystalserver/quests/narsai.lua"
+    },
+    {
+      "npc": "Navigator",
+      "file": "data/npc/crystalserver/shops/buy/navigator.lua"
+    },
+    {
+      "npc": "Neill",
+      "file": "data/npc/crystalserver/services/neill.lua"
+    },
+    {
+      "npc": "Nelly",
+      "file": "data/npc/crystalserver/shops/mixed/nelly.lua"
+    },
+    {
+      "npc": "Nibble",
+      "file": "data/npc/crystalserver/services/nibble.lua"
+    },
+    {
+      "npc": "Nicholas",
+      "file": "data/npc/crystalserver/shops/mixed/nicholas.lua"
+    },
+    {
+      "npc": "Nienna",
+      "file": "data/npc/crystalserver/shops/mixed/nienna.lua"
+    },
+    {
+      "npc": "Nilsor",
+      "file": "data/npc/crystalserver/quests/nilsor.lua"
+    },
+    {
+      "npc": "Nina",
+      "file": "data/npc/crystalserver/services/nina.lua"
+    },
+    {
+      "npc": "Ninev",
+      "file": "data/npc/crystalserver/shops/buy/ninev.lua"
+    },
+    {
+      "npc": "Ninos",
+      "file": "data/npc/crystalserver/shops/mixed/ninos.lua"
+    },
+    {
+      "npc": "Nipuna",
+      "file": "data/npc/crystalserver/shops/mixed/nipuna.lua"
+    },
+    {
+      "npc": "Nokmir",
+      "file": "data/npc/crystalserver/quests/nokmir.lua"
+    },
+    {
+      "npc": "Nomad",
+      "file": "data/npc/crystalserver/services/nomad.lua"
+    },
+    {
+      "npc": "Noozer",
+      "file": "data/npc/crystalserver/quests/noozer.lua"
+    },
+    {
+      "npc": "Nor",
+      "file": "data/npc/crystalserver/quests/nor.lua"
+    },
+    {
+      "npc": "Norman The Foreman",
+      "file": "data/npc/crystalserver/services/norman_the_foreman.lua"
+    },
+    {
+      "npc": "Normod",
+      "file": "data/npc/crystalserver/services/normod.lua"
+    },
+    {
+      "npc": "Norris",
+      "file": "data/npc/crystalserver/services/norris.lua"
+    },
+    {
+      "npc": "Nurik",
+      "file": "data/npc/crystalserver/quests/nurik.lua"
+    },
+    {
+      "npc": "Nymph Challenging",
+      "file": "data/npc/crystalserver/services/nymph_challenging.lua"
+    },
+    {
+      "npc": "Oberon",
+      "file": "data/npc/crystalserver/services/oberon's_bile.lua"
+    },
+    {
+      "npc": "Oberon",
+      "file": "data/npc/crystalserver/services/oberon's_hate.lua"
+    },
+    {
+      "npc": "Oberon",
+      "file": "data/npc/crystalserver/services/oberon's_ire.lua"
+    },
+    {
+      "npc": "Oberon",
+      "file": "data/npc/crystalserver/services/oberon's_spite.lua"
+    },
+    {
+      "npc": "Oblivion",
+      "file": "data/npc/crystalserver/quests/oblivion.lua"
+    },
+    {
+      "npc": "Ocelus",
+      "file": "data/npc/crystalserver/quests/ocelus.lua"
+    },
+    {
+      "npc": "Oiriz",
+      "file": "data/npc/crystalserver/shops/mixed/oiriz.lua"
+    },
+    {
+      "npc": "Old Rock Boy",
+      "file": "data/npc/crystalserver/services/old_rock_boy.lua"
+    },
+    {
+      "npc": "Oliver",
+      "file": "data/npc/crystalserver/quests/oliver.lua"
+    },
+    {
+      "npc": "Omrabas",
+      "file": "data/npc/crystalserver/quests/omrabas.lua"
+    },
+    {
+      "npc": "One-Eyed Joe",
+      "file": "data/npc/crystalserver/quests/one_eyed_joe.lua"
+    },
+    {
+      "npc": "Ongulf",
+      "file": "data/npc/crystalserver/shops/buy/ongulf.lua"
+    },
+    {
+      "npc": "Orc Berserker",
+      "file": "data/npc/crystalserver/services/orc_berserker.lua"
+    },
+    {
+      "npc": "Oressa",
+      "file": "data/npc/crystalserver/shops/buy/oressa.lua"
+    },
+    {
+      "npc": "Orockle",
+      "file": "data/npc/crystalserver/shops/mixed/orockle.lua"
+    },
+    {
+      "npc": "Ortelio",
+      "file": "data/npc/crystalserver/services/ortelio.lua"
+    },
+    {
+      "npc": "Ortheus",
+      "file": "data/npc/crystalserver/quests/ortheus.lua"
+    },
+    {
+      "npc": "Ottokar",
+      "file": "data/npc/crystalserver/services/ottokar.lua"
+    },
+    {
+      "npc": "Paladin Narai",
+      "file": "data/npc/crystalserver/services/paladin_narai.lua"
+    },
+    {
+      "npc": "Palimuth",
+      "file": "data/npc/crystalserver/shops/buy/palimuth.lua"
+    },
+    {
+      "npc": "Palomino",
+      "file": "data/npc/crystalserver/quests/palomino.lua"
+    },
+    {
+      "npc": "Paolo",
+      "file": "data/npc/crystalserver/services/paolo.lua"
+    },
+    {
+      "npc": "Parlan",
+      "file": "data/npc/crystalserver/services/parlan.lua"
+    },
+    {
+      "npc": "Pat The Worker",
+      "file": "data/npc/crystalserver/services/pat_the_worker.lua"
+    },
+    {
+      "npc": "Paulie",
+      "file": "data/npc/crystalserver/quests/paulie.lua"
+    },
+    {
+      "npc": "Peaceful Pooka",
+      "file": "data/npc/crystalserver/services/peaceful_pooka.lua"
+    },
+    {
+      "npc": "Peggy",
+      "file": "data/npc/crystalserver/shops/mixed/peggy.lua"
+    },
+    {
+      "npc": "Percy Silverhand",
+      "file": "data/npc/crystalserver/services/percy_silverhand.lua"
+    },
+    {
+      "npc": "Percybald",
+      "file": "data/npc/crystalserver/quests/percybald.lua"
+    },
+    {
+      "npc": "Peremin",
+      "file": "data/npc/crystalserver/services/peremin.lua"
+    },
+    {
+      "npc": "Peter",
+      "file": "data/npc/crystalserver/shops/buy/peter.lua"
+    },
+    {
+      "npc": "Pig",
+      "file": "data/npc/crystalserver/services/pig.lua"
+    },
+    {
+      "npc": "Plunderpurse",
+      "file": "data/npc/crystalserver/shops/buy/plunderpurse.lua"
+    },
+    {
+      "npc": "Polly",
+      "file": "data/npc/crystalserver/services/polly.lua"
+    },
+    {
+      "npc": "Pompan",
+      "file": "data/npc/crystalserver/shops/mixed/pompan.lua"
+    },
+    {
+      "npc": "Prezil",
+      "file": "data/npc/crystalserver/quests/prezil.lua"
+    },
+    {
+      "npc": "Prisoner",
+      "file": "data/npc/crystalserver/services/prisoner.lua"
+    },
+    {
+      "npc": "Pugwah",
+      "file": "data/npc/crystalserver/shops/mixed/pugwah.lua"
+    },
+    {
+      "npc": "Pukosch",
+      "file": "data/npc/crystalserver/quests/pukosch.lua"
+    },
+    {
+      "npc": "Pyro Peter",
+      "file": "data/npc/crystalserver/services/pyro_peter.lua"
+    },
+    {
+      "npc": "Pyromental",
+      "file": "data/npc/crystalserver/services/pyromental.lua"
+    },
+    {
+      "npc": "Pythius The Rotten",
+      "file": "data/npc/crystalserver/quests/pythius_the_rotten.lua"
+    },
+    {
+      "npc": "Quandons Ghost",
+      "file": "data/npc/crystalserver/quests/quandons_ghost.lua"
+    },
+    {
+      "npc": "Quill",
+      "file": "data/npc/crystalserver/services/quill.lua"
+    },
+    {
+      "npc": "Rabaz",
+      "file": "data/npc/crystalserver/shops/mixed/rabaz.lua"
+    },
+    {
+      "npc": "Raffael",
+      "file": "data/npc/crystalserver/services/raffael.lua"
+    },
+    {
+      "npc": "Rafzan",
+      "file": "data/npc/crystalserver/shops/mixed/rafzan.lua"
+    },
+    {
+      "npc": "Ramina",
+      "file": "data/npc/crystalserver/shops/mixed/ramina.lua"
+    },
+    {
+      "npc": "Rapanaio",
+      "file": "data/npc/crystalserver/quests/rapanaio.lua"
+    },
+    {
+      "npc": "Rapanaio (Boat)",
+      "file": "data/npc/crystalserver/travel/rapanaio_boat.lua"
+    },
+    {
+      "npc": "Rapanaio (Isle of Evil)",
+      "file": "data/npc/crystalserver/services/rapanaio_isle_of_evil.lua"
+    },
+    {
+      "npc": "Rashid",
+      "file": "data/npc/crystalserver/shops/mixed/rashid.lua"
+    },
+    {
+      "npc": "Rashid",
+      "file": "data/npc/lua/shops/sell/Rashid.lua"
+    },
+    {
+      "npc": "Rashid of Island",
+      "file": "data/npc/crystalserver/shops/mixed/rashid_custom.lua"
+    },
+    {
+      "npc": "Rata",
+      "file": "data/npc/crystalserver/quests/rata_mari.lua"
+    },
+    {
+      "npc": "Raymond Striker",
+      "file": "data/npc/crystalserver/quests/raymond_striker.lua"
+    },
+    {
+      "npc": "Rebel",
+      "file": "data/npc/crystalserver/services/rebel.lua"
+    },
+    {
+      "npc": "Red Lilly",
+      "file": "data/npc/crystalserver/shops/mixed/red_lilly.lua"
+    },
+    {
+      "npc": "Redward",
+      "file": "data/npc/crystalserver/shops/mixed/redward.lua"
+    },
+    {
+      "npc": "Reed",
+      "file": "data/npc/crystalserver/quests/reed.lua"
+    },
+    {
+      "npc": "Rehon",
+      "file": "data/npc/crystalserver/quests/rehon.lua"
+    },
+    {
+      "npc": "Repenter",
+      "file": "data/npc/crystalserver/services/repenter.lua"
+    },
+    {
+      "npc": "Richard",
+      "file": "data/npc/crystalserver/shops/mixed/richard.lua"
+    },
+    {
+      "npc": "Ring Seller",
+      "file": "data/npc/lua/shops/buy/Ring_Seller.lua"
+    },
+    {
+      "npc": "Riona",
+      "file": "data/npc/crystalserver/shops/buy/Riona.lua"
+    },
+    {
+      "npc": "Riona",
+      "file": "data/npc/lua/shops/buy/Riona.lua"
+    },
+    {
+      "npc": "Robert",
+      "file": "data/npc/crystalserver/shops/mixed/robert.lua"
+    },
+    {
+      "npc": "Robson",
+      "file": "data/npc/crystalserver/services/robson.lua"
+    },
+    {
+      "npc": "Rock In A Hard Place",
+      "file": "data/npc/crystalserver/shops/mixed/rock_in_a_hard_place.lua"
+    },
+    {
+      "npc": "Rock Steady",
+      "file": "data/npc/crystalserver/quests/rock_steady.lua"
+    },
+    {
+      "npc": "Rock With A Soft Spot",
+      "file": "data/npc/crystalserver/quests/rock_with_a_soft_spot.lua"
+    },
+    {
+      "npc": "Roger The Worker",
+      "file": "data/npc/crystalserver/services/roger_the_worker.lua"
+    },
+    {
+      "npc": "Romir",
+      "file": "data/npc/crystalserver/shops/mixed/romir.lua"
+    },
+    {
+      "npc": "Rosemarie",
+      "file": "data/npc/crystalserver/services/rosemarie.lua"
+    },
+    {
+      "npc": "Ross",
+      "file": "data/npc/crystalserver/services/ross.lua"
+    },
+    {
+      "npc": "Roswitha",
+      "file": "data/npc/crystalserver/quests/roswitha.lua"
+    },
+    {
+      "npc": "Rotem Valos",
+      "file": "data/npc/crystalserver/services/rotem_valos.lua"
+    },
+    {
+      "npc": "Rottin Wood",
+      "file": "data/npc/crystalserver/quests/rottin_wood.lua"
+    },
+    {
+      "npc": "Roughington",
+      "file": "data/npc/crystalserver/services/roughington.lua"
+    },
+    {
+      "npc": "Runtel Blackspark",
+      "file": "data/npc/crystalserver/shops/mixed/runtel_blackspark.lua"
+    },
+    {
+      "npc": "Ruprecht",
+      "file": "data/npc/crystalserver/shops/buy/ruprecht.lua"
+    },
+    {
+      "npc": "Saideh",
+      "file": "data/npc/crystalserver/quests/saideh.lua"
+    },
+    {
+      "npc": "Salbra",
+      "file": "data/npc/crystalserver/services/salbra.lua"
+    },
+    {
+      "npc": "Samir",
+      "file": "data/npc/crystalserver/services/samir.lua"
+    },
+    {
+      "npc": "Sandomo",
+      "file": "data/npc/crystalserver/shops/buy/sandomo.lua"
+    },
+    {
+      "npc": "Sane Mage",
+      "file": "data/npc/crystalserver/quests/sane_mage.lua"
+    },
+    {
+      "npc": "Santa Claus",
+      "file": "data/npc/crystalserver/quests/santa_claus.lua"
+    },
+    {
+      "npc": "Santiago",
+      "file": "data/npc/crystalserver/quests/santiago.lua"
+    },
+    {
+      "npc": "Satsu",
+      "file": "data/npc/crystalserver/shops/mixed/satsu.lua"
+    },
+    {
+      "npc": "Scott The Scout",
+      "file": "data/npc/crystalserver/services/scott_the_scout.lua"
+    },
+    {
+      "npc": "Scrutinon",
+      "file": "data/npc/crystalserver/quests/scrutinon.lua"
+    },
+    {
+      "npc": "Scutty",
+      "file": "data/npc/crystalserver/services/scutty.lua"
+    },
+    {
+      "npc": "Sebastian",
+      "file": "data/npc/crystalserver/quests/sebastian.lua"
+    },
+    {
+      "npc": "Sebastian (Nargor)",
+      "file": "data/npc/crystalserver/services/sebastian_nargor.lua"
+    },
+    {
+      "npc": "Ser Tybald",
+      "file": "data/npc/crystalserver/shops/buy/ser_tybald.lua"
+    },
+    {
+      "npc": "Serafin",
+      "file": "data/npc/crystalserver/shops/mixed/serafin.lua"
+    },
+    {
+      "npc": "Servant Sentry",
+      "file": "data/npc/crystalserver/quests/servant_sentry.lua"
+    },
+    {
+      "npc": "Sessek",
+      "file": "data/npc/crystalserver/shops/mixed/sessek.lua"
+    },
+    {
+      "npc": "Shadowpunch",
+      "file": "data/npc/crystalserver/services/shadowpunch.lua"
+    },
+    {
+      "npc": "Shanoya",
+      "file": "data/npc/crystalserver/services/shanoya.lua"
+    },
+    {
+      "npc": "Sharon",
+      "file": "data/npc/crystalserver/services/sharon.lua"
+    },
+    {
+      "npc": "Shimun",
+      "file": "data/npc/crystalserver/quests/shimun.lua"
+    },
+    {
+      "npc": "Shirtalis Of The Summer Court",
+      "file": "data/npc/crystalserver/quests/shirtalis_of_the_summer_court.lua"
+    },
+    {
+      "npc": "Shoddy Beggar",
+      "file": "data/npc/crystalserver/shops/buy/shoddy_beggar.lua"
+    },
+    {
+      "npc": "Sholley",
+      "file": "data/npc/crystalserver/quests/sholley.lua"
+    },
+    {
+      "npc": "Shortsighted Dwarf",
+      "file": "data/npc/crystalserver/services/shortsighted_dwarf.lua"
+    },
+    {
+      "npc": "Siestaar",
+      "file": "data/npc/crystalserver/services/siestaar.lua"
+    },
+    {
+      "npc": "Siflind",
+      "file": "data/npc/crystalserver/shops/mixed/siflind.lua"
+    },
+    {
+      "npc": "Silas",
+      "file": "data/npc/crystalserver/shops/mixed/silas.lua"
+    },
+    {
+      "npc": "Sinatuki",
+      "file": "data/npc/crystalserver/quests/sinatuki.lua"
+    },
+    {
+      "npc": "Sinclair",
+      "file": "data/npc/crystalserver/quests/sinclair.lua"
+    },
+    {
+      "npc": "Sirik",
+      "file": "data/npc/crystalserver/services/sirik.lua"
+    },
+    {
+      "npc": "Sissek",
+      "file": "data/npc/crystalserver/services/sissek.lua"
+    },
+    {
+      "npc": "Sister Of Jack",
+      "file": "data/npc/crystalserver/quests/sister_of_jack.lua"
+    },
+    {
+      "npc": "Skeleton Guard",
+      "file": "data/npc/crystalserver/services/skeleton_guard.lua"
+    },
+    {
+      "npc": "Skip",
+      "file": "data/npc/crystalserver/services/skip.lua"
+    },
+    {
+      "npc": "Soilance",
+      "file": "data/npc/crystalserver/shops/mixed/soilance.lua"
+    },
+    {
+      "npc": "Sorcerer Estrella",
+      "file": "data/npc/crystalserver/services/sorcerer_estrella.lua"
+    },
+    {
+      "npc": "Spectulus",
+      "file": "data/npc/crystalserver/quests/spectulus.lua"
+    },
+    {
+      "npc": "Squeekquek",
+      "file": "data/npc/crystalserver/shops/mixed/squeekquek.lua"
+    },
+    {
+      "npc": "Stan",
+      "file": "data/npc/crystalserver/shops/mixed/stan.lua"
+    },
+    {
+      "npc": "Storkus",
+      "file": "data/npc/crystalserver/quests/storkus.lua"
+    },
+    {
+      "npc": "Storyteller",
+      "file": "data/npc/lua/quests/Storyteller.lua"
+    },
+    {
+      "npc": "Strange Pipe",
+      "file": "data/npc/crystalserver/quests/strange_pipe.lua"
+    },
+    {
+      "npc": "Strange Pipe (1)",
+      "file": "data/npc/crystalserver/quests/strange_pipe1.lua"
+    },
+    {
+      "npc": "Strange Pipe (2)",
+      "file": "data/npc/crystalserver/quests/strange_pipe2.lua"
+    },
+    {
+      "npc": "Strange Pipe (3)",
+      "file": "data/npc/crystalserver/quests/strange_pipe3.lua"
+    },
+    {
+      "npc": "Stricken Soul",
+      "file": "data/npc/crystalserver/services/stricken_soul.lua"
+    },
+    {
+      "npc": "Sundara",
+      "file": "data/npc/crystalserver/shops/mixed/sundara.lua"
+    },
+    {
+      "npc": "Sven",
+      "file": "data/npc/crystalserver/quests/sven.lua"
+    },
+    {
+      "npc": "Swolt",
+      "file": "data/npc/crystalserver/shops/mixed/swolt.lua"
+    },
+    {
+      "npc": "Taegen",
+      "file": "data/npc/crystalserver/shops/mixed/taegen.lua"
+    },
+    {
+      "npc": "Talila",
+      "file": "data/npc/crystalserver/shops/mixed/talila.lua"
+    },
+    {
+      "npc": "Tamara",
+      "file": "data/npc/crystalserver/services/tamara.lua"
+    },
+    {
+      "npc": "Tamed Lion",
+      "file": "data/npc/crystalserver/services/tamed_lion.lua"
+    },
+    {
+      "npc": "Tamerin",
+      "file": "data/npc/crystalserver/quests/tamerin.lua"
+    },
+    {
+      "npc": "Tamoril",
+      "file": "data/npc/crystalserver/shops/mixed/tamoril.lua"
+    },
+    {
+      "npc": "Tanaro",
+      "file": "data/npc/crystalserver/shops/mixed/tanaro.lua"
+    },
+    {
+      "npc": "Tanyt",
+      "file": "data/npc/crystalserver/quests/tanyt.lua"
+    },
+    {
+      "npc": "Tarak (Inner)",
+      "file": "data/npc/crystalserver/services/tarak_inner.lua"
+    },
+    {
+      "npc": "Tarak (Sunken)",
+      "file": "data/npc/crystalserver/services/tarak_sunken.lua"
+    },
+    {
+      "npc": "Tarun",
+      "file": "data/npc/crystalserver/shops/mixed/tarun.lua"
+    },
+    {
+      "npc": "Tefrit",
+      "file": "data/npc/crystalserver/quests/tefrit.lua"
+    },
+    {
+      "npc": "Tehlim",
+      "file": "data/npc/crystalserver/quests/tehlim.lua"
+    },
+    {
+      "npc": "Telas",
+      "file": "data/npc/crystalserver/shops/mixed/telas.lua"
+    },
+    {
+      "npc": "Telas Golem",
+      "file": "data/npc/crystalserver/services/telas_golem.lua"
+    },
+    {
+      "npc": "Tereban",
+      "file": "data/npc/crystalserver/services/tereban.lua"
+    },
+    {
+      "npc": "Terrence",
+      "file": "data/npc/crystalserver/quests/terrence.lua"
+    },
+    {
+      "npc": "Test Server",
+      "file": "data/npc/crystalserver/shops/mixed/test_server.lua"
+    },
+    {
+      "npc": "Testserver Assistant",
+      "file": "data/npc/crystalserver/services/testserver_assistant.lua"
+    },
+    {
+      "npc": "The Beggar King",
+      "file": "data/npc/crystalserver/quests/the_beggar_king.lua"
+    },
+    {
+      "npc": "The Bone Master",
+      "file": "data/npc/crystalserver/quests/the_bone_master.lua"
+    },
+    {
+      "npc": "The Destiny Seer",
+      "file": "data/npc/crystalserver/services/the_destiny_seer.lua"
+    },
+    {
+      "npc": "The Dream Master",
+      "file": "data/npc/crystalserver/quests/the_dream_master.lua"
+    },
+    {
+      "npc": "The Empress",
+      "file": "data/npc/crystalserver/quests/the_empress.lua"
+    },
+    {
+      "npc": "The First Dragon",
+      "file": "data/npc/crystalserver/quests/the_first_dragon.lua"
+    },
+    {
+      "npc": "The Forgemaster",
+      "file": "data/npc/crystalserver/shops/mixed/the_forgemaster.lua"
+    },
+    {
+      "npc": "The Forgotten King",
+      "file": "data/npc/lua/services/The_Forgotten_King.lua"
+    },
+    {
+      "npc": "The Gate Keeper",
+      "file": "data/npc/crystalserver/services/the_gate_keeper.lua"
+    },
+    {
+      "npc": "The Librarian",
+      "file": "data/npc/crystalserver/shops/mixed/the_librarian.lua"
+    },
+    {
+      "npc": "The Lootmonger",
+      "file": "data/npc/crystalserver/shops/mixed/the_lootmonger.lua"
+    },
+    {
+      "npc": "The Queen Of The Banshees",
+      "file": "data/npc/crystalserver/quests/the_queen_of_the_banshees.lua"
+    },
+    {
+      "npc": "Theodore Loveless",
+      "file": "data/npc/crystalserver/quests/theodore_loveless.lua"
+    },
+    {
+      "npc": "Thorgrin",
+      "file": "data/npc/crystalserver/services/thorgrin.lua"
+    },
+    {
+      "npc": "Thorwulf",
+      "file": "data/npc/crystalserver/services/thorwulf.lua"
+    },
+    {
+      "npc": "Tigo",
+      "file": "data/npc/crystalserver/quests/tigo.lua"
+    },
+    {
+      "npc": "Timothy",
+      "file": "data/npc/crystalserver/quests/timothy.lua"
+    },
+    {
+      "npc": "Tired Tree",
+      "file": "data/npc/crystalserver/quests/tired_tree.lua"
+    },
+    {
+      "npc": "Tomruk The Ruddy",
+      "file": "data/npc/crystalserver/quests/tomruk_the_ruddy.lua"
+    },
+    {
+      "npc": "Tonar",
+      "file": "data/npc/crystalserver/quests/tonar.lua"
+    },
+    {
+      "npc": "Tonar Oskayaat",
+      "file": "data/npc/crystalserver/quests/tonar_oskayaat.lua"
+    },
+    {
+      "npc": "Tony",
+      "file": "data/npc/crystalserver/quests/tony.lua"
+    },
+    {
+      "npc": "Tooth Fairy",
+      "file": "data/npc/crystalserver/quests/tooth_fairy.lua"
+    },
+    {
+      "npc": "Toothless Tim",
+      "file": "data/npc/crystalserver/services/toothless_tim.lua"
+    },
+    {
+      "npc": "Torence",
+      "file": "data/npc/crystalserver/services/torence.lua"
+    },
+    {
+      "npc": "Torkada",
+      "file": "data/npc/crystalserver/quests/torkada.lua"
+    },
+    {
+      "npc": "Towncryer",
+      "file": "data/npc/crystalserver/shops/buy/towncryer.lua"
+    },
+    {
+      "npc": "Tristan",
+      "file": "data/npc/crystalserver/services/tristan.lua"
+    },
+    {
+      "npc": "Tylius",
+      "file": "data/npc/crystalserver/services/tylius.lua"
+    },
+    {
+      "npc": "Tyoric",
+      "file": "data/npc/lua/shops/buy/Tyoric.lua"
+    },
+    {
+      "npc": "Tyrias",
+      "file": "data/npc/crystalserver/shops/buy/tyrias.lua"
+    },
+    {
+      "npc": "Ula",
+      "file": "data/npc/crystalserver/services/ula.lua"
+    },
+    {
+      "npc": "Ulala",
+      "file": "data/npc/crystalserver/quests/ulala.lua"
+    },
+    {
+      "npc": "Uncle",
+      "file": "data/npc/crystalserver/shops/buy/uncle.lua"
+    },
+    {
+      "npc": "Undal",
+      "file": "data/npc/crystalserver/quests/undal.lua"
+    },
+    {
+      "npc": "Urks The Mute",
+      "file": "data/npc/crystalserver/quests/urks_the_mute.lua"
+    },
+    {
+      "npc": "Vad Inchi",
+      "file": "data/npc/crystalserver/services/vad_inchi.lua"
+    },
+    {
+      "npc": "Valentina",
+      "file": "data/npc/crystalserver/shops/mixed/valentina.lua"
+    },
+    {
+      "npc": "Valindara",
+      "file": "data/npc/crystalserver/shops/mixed/valindara.lua"
+    },
+    {
+      "npc": "Vanys",
+      "file": "data/npc/crystalserver/quests/vanys.lua"
+    },
+    {
+      "npc": "Vascalir",
+      "file": "data/npc/crystalserver/quests/vascalir.lua"
+    },
+    {
+      "npc": "Vescu",
+      "file": "data/npc/crystalserver/quests/vescu.lua"
+    },
+    {
+      "npc": "Victor",
+      "file": "data/npc/crystalserver/shops/mixed/victor.lua"
+    },
+    {
+      "npc": "Vigintius",
+      "file": "data/npc/crystalserver/services/vigintius.lua"
+    },
+    {
+      "npc": "Vincent",
+      "file": "data/npc/crystalserver/shops/mixed/vincent.lua"
+    },
+    {
+      "npc": "Virgil",
+      "file": "data/npc/crystalserver/services/virgil.lua"
+    },
+    {
+      "npc": "Vulturenose",
+      "file": "data/npc/crystalserver/quests/vulturenose.lua"
+    },
+    {
+      "npc": "Vuzrog",
+      "file": "data/npc/crystalserver/services/vuzrog.lua"
+    },
+    {
+      "npc": "Walter Jaeger",
+      "file": "data/npc/crystalserver/services/walter_jaeger.lua"
+    },
+    {
+      "npc": "Weaponmaster",
+      "file": "data/npc/crystalserver/services/weaponmaster.lua"
+    },
+    {
+      "npc": "Wentworth",
+      "file": "data/npc/crystalserver/services/wentworth.lua"
+    },
+    {
+      "npc": "Wesley",
+      "file": "data/npc/crystalserver/services/wesley.lua"
+    },
+    {
+      "npc": "Willem",
+      "file": "data/npc/crystalserver/services/willem.lua"
+    },
+    {
+      "npc": "Willow",
+      "file": "data/npc/crystalserver/services/willow.lua"
+    },
+    {
+      "npc": "Woblin",
+      "file": "data/npc/crystalserver/shops/buy/woblin.lua"
+    },
+    {
+      "npc": "Wyrdin",
+      "file": "data/npc/crystalserver/shops/buy/wyrdin.lua"
+    },
+    {
+      "npc": "Xelvar",
+      "file": "data/npc/crystalserver/shops/mixed/xelvar.lua"
+    },
+    {
+      "npc": "Xorlosh",
+      "file": "data/npc/crystalserver/quests/xorlosh.lua"
+    },
+    {
+      "npc": "Yalahari",
+      "file": "data/npc/crystalserver/shops/buy/yalahari.lua"
+    },
+    {
+      "npc": "Yana",
+      "file": "data/npc/crystalserver/shops/mixed/yana.lua"
+    },
+    {
+      "npc": "Yasir",
+      "file": "data/npc/crystalserver/shops/mixed/yasir.lua"
+    },
+    {
+      "npc": "Yawno",
+      "file": "data/npc/crystalserver/services/yawno.lua"
+    },
+    {
+      "npc": "Yonan",
+      "file": "data/npc/crystalserver/shops/mixed/yonan.lua"
+    },
+    {
+      "npc": "Zalamon",
+      "file": "data/npc/crystalserver/quests/zalamon.lua"
+    },
+    {
+      "npc": "Zarak",
+      "file": "data/npc/crystalserver/services/zarak.lua"
+    },
+    {
+      "npc": "Zarifan",
+      "file": "data/npc/crystalserver/quests/zarifan.lua"
+    },
+    {
+      "npc": "Zedrulon The Fallen",
+      "file": "data/npc/crystalserver/quests/zedrulon_the_fallen.lua"
+    },
+    {
+      "npc": "Zeronex",
+      "file": "data/npc/crystalserver/services/zeronex.lua"
+    },
+    {
+      "npc": "Zethra",
+      "file": "data/npc/crystalserver/shops/mixed/zethra.lua"
+    },
+    {
+      "npc": "Zirella",
+      "file": "data/npc/crystalserver/quests/zirella.lua"
+    },
+    {
+      "npc": "Zirkon",
+      "file": "data/npc/crystalserver/services/zirkon.lua"
+    },
+    {
+      "npc": "Ziyad",
+      "file": "data/npc/crystalserver/quests/ziyad.lua"
+    },
+    {
+      "npc": "Zizzle",
+      "file": "data/npc/crystalserver/quests/zizzle.lua"
+    },
+    {
+      "npc": "Zlak",
+      "file": "data/npc/crystalserver/quests/zlak.lua"
+    },
+    {
+      "npc": "Znozel",
+      "file": "data/npc/crystalserver/services/znozel.lua"
+    },
+    {
+      "npc": "Zora",
+      "file": "data/npc/crystalserver/shops/mixed/zora.lua"
+    },
+    {
+      "npc": "Ztiss",
+      "file": "data/npc/crystalserver/quests/ztiss.lua"
+    },
+    {
+      "npc": "Zuma Magehide",
+      "file": "data/npc/crystalserver/shops/mixed/zuma_magehide.lua"
+    },
+    {
+      "npc": "Zumtah",
+      "file": "data/npc/crystalserver/quests/zumtah.lua"
+    },
+    {
+      "npc": "Zurak",
+      "file": "data/npc/crystalserver/quests/zurak.lua"
+    },
+    {
+      "npc": "Zurak (Arena)",
+      "file": "data/npc/crystalserver/quests/zurak_arena.lua"
+    }
+  ],
+  "missingFiles": []
+}
