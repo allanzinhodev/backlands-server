@@ -18,4 +18,5 @@ spell:isSelfTarget(true)
 spell:isAggressive(false)
 spell:vocation("paladin;true", "royal paladin;true")
 
+spell:needLearn(true)
 spell:register()

@@ -26,4 +26,5 @@ spell:mana(75)
 spell:isSelfTarget(true)
 spell:isAggressive(false)
 
+spell:needLearn(true)
 spell:register()

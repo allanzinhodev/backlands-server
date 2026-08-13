@@ -13,7 +13,7 @@ spell:level(200)
 spell:mana(2000)
 spell:cooldown(0) -- calculated in CreateFamiliarSpell
 spell:groupCooldown(2 * 1000)
-spell:needLearn(false)
+spell:needLearn(true)
 spell:isAggressive(false)
 spell:vocation("paladin;true", "royal paladin;true")
 spell:register()

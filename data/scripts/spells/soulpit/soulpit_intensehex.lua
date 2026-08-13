@@ -31,4 +31,5 @@ spell:words("###940")
 spell:needTarget(true)
 spell:isAggressive(false) -- it's a buff, not hostile
 spell:range(7)
+spell:needLearn(true)
 spell:register()

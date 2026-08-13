@@ -40,4 +40,5 @@ spell:hasParams(true)
 spell:hasPlayerNameParam(true)
 spell:vocation("druid;true", "elder druid;true")
 
+spell:needLearn(true)
 spell:register()

@@ -30,4 +30,5 @@ spell:groupCooldown(1 * 1000)
 spell:isAggressive(false)
 
 spell:vocation("druid;true", "sorcerer;true", "elder druid;true", "master sorcerer;true")
+spell:needLearn(true)
 spell:register()

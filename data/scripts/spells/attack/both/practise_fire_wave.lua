@@ -26,4 +26,5 @@ spell:cooldown(4 * 1000)
 spell:groupCooldown(2 * 1000)
 spell:vocation("none")
 
+spell:needLearn(true)
 spell:register()

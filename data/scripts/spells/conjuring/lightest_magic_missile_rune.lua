@@ -14,4 +14,5 @@ spell:level(1)
 spell:mana(5)
 spell:soul(0)
 
+spell:needLearn(true)
 spell:register()

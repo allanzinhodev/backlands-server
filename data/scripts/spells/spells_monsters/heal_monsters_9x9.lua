@@ -31,4 +31,5 @@ spell:words("#####459")
 spell:blockWalls(true)
 
 spell:needDirection(true)
+spell:needLearn(true)
 spell:register()

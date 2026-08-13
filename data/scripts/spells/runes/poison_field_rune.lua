@@ -15,7 +15,7 @@ spell:name("Poison Field Rune")
 spell:level(14)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)
-spell:needLearn(false)
+spell:needLearn(true)
 spell:allowFarUse(true)
 spell:charges(3)
 spell:isBlocking(true) -- True = Solid / False = Creature
