@@ -1,0 +1,276 @@
+{
+  "map": "world.otbm",
+  "count": 30,
+  "towns": [
+    {
+      "id": 1,
+      "name": "Dawnport Tutorial",
+      "temple": {
+        "x": 32069,
+        "y": 31901,
+        "z": 6
+      }
+    },
+    {
+      "id": 2,
+      "name": "Dawnport",
+      "temple": {
+        "x": 32064,
+        "y": 31894,
+        "z": 6
+      }
+    },
+    {
+      "id": 3,
+      "name": "Rookgaard",
+      "temple": {
+        "x": 32097,
+        "y": 32219,
+        "z": 7
+      }
+    },
+    {
+      "id": 4,
+      "name": "Island of Destiny",
+      "temple": {
+        "x": 32091,
+        "y": 32027,
+        "z": 7
+      }
+    },
+    {
+      "id": 5,
+      "name": "Ab'Dendriel",
+      "temple": {
+        "x": 32732,
+        "y": 31634,
+        "z": 7
+      }
+    },
+    {
+      "id": 6,
+      "name": "Carlin",
+      "temple": {
+        "x": 32360,
+        "y": 31782,
+        "z": 7
+      }
+    },
+    {
+      "id": 7,
+      "name": "Kazordoon",
+      "temple": {
+        "x": 32649,
+        "y": 31925,
+        "z": 11
+      }
+    },
+    {
+      "id": 8,
+      "name": "Thais",
+      "temple": {
+        "x": 32369,
+        "y": 32241,
+        "z": 7
+      }
+    },
+    {
+      "id": 9,
+      "name": "Venore",
+      "temple": {
+        "x": 32957,
+        "y": 32076,
+        "z": 7
+      }
+    },
+    {
+      "id": 10,
+      "name": "Ankrahmun",
+      "temple": {
+        "x": 33194,
+        "y": 32853,
+        "z": 8
+      }
+    },
+    {
+      "id": 11,
+      "name": "Edron",
+      "temple": {
+        "x": 33217,
+        "y": 31814,
+        "z": 8
+      }
+    },
+    {
+      "id": 12,
+      "name": "Farmine",
+      "temple": {
+        "x": 33023,
+        "y": 31521,
+        "z": 11
+      }
+    },
+    {
+      "id": 13,
+      "name": "Darashia",
+      "temple": {
+        "x": 33213,
+        "y": 32454,
+        "z": 1
+      }
+    },
+    {
+      "id": 14,
+      "name": "Liberty Bay",
+      "temple": {
+        "x": 32317,
+        "y": 32826,
+        "z": 7
+      }
+    },
+    {
+      "id": 15,
+      "name": "Port Hope",
+      "temple": {
+        "x": 32594,
+        "y": 32745,
+        "z": 7
+      }
+    },
+    {
+      "id": 16,
+      "name": "Svargrond",
+      "temple": {
+        "x": 32212,
+        "y": 31132,
+        "z": 7
+      }
+    },
+    {
+      "id": 17,
+      "name": "Yalahar",
+      "temple": {
+        "x": 32787,
+        "y": 31276,
+        "z": 7
+      }
+    },
+    {
+      "id": 18,
+      "name": "Gray Beach",
+      "temple": {
+        "x": 33447,
+        "y": 31323,
+        "z": 9
+      }
+    },
+    {
+      "id": 19,
+      "name": "Krailos",
+      "temple": {
+        "x": 33657,
+        "y": 31665,
+        "z": 8
+      }
+    },
+    {
+      "id": 20,
+      "name": "Rathleton",
+      "temple": {
+        "x": 33594,
+        "y": 31899,
+        "z": 6
+      }
+    },
+    {
+      "id": 21,
+      "name": "Roshamuul",
+      "temple": {
+        "x": 33513,
+        "y": 32363,
+        "z": 6
+      }
+    },
+    {
+      "id": 22,
+      "name": "Issavi",
+      "temple": {
+        "x": 33921,
+        "y": 31477,
+        "z": 5
+      }
+    },
+    {
+      "id": 24,
+      "name": "Cobra Bastion",
+      "temple": {
+        "x": 33397,
+        "y": 32651,
+        "z": 7
+      }
+    },
+    {
+      "id": 25,
+      "name": "Bounac",
+      "temple": {
+        "x": 32424,
+        "y": 32445,
+        "z": 7
+      }
+    },
+    {
+      "id": 26,
+      "name": "Feyrist",
+      "temple": {
+        "x": 33490,
+        "y": 32221,
+        "z": 7
+      }
+    },
+    {
+      "id": 27,
+      "name": "Gnomprona",
+      "temple": {
+        "x": 33517,
+        "y": 32856,
+        "z": 14
+      }
+    },
+    {
+      "id": 28,
+      "name": "Marapur",
+      "temple": {
+        "x": 33842,
+        "y": 32853,
+        "z": 7
+      }
+    },
+    {
+      "id": 29,
+      "name": "Candia",
+      "temple": {
+        "x": 33338,
+        "y": 32125,
+        "z": 7
+      }
+    },
+    {
+      "id": 30,
+      "name": "Silvertides",
+      "temple": {
+        "x": 33776,
+        "y": 32842,
+        "z": 7
+      }
+    },
+    {
+      "id": 31,
+      "name": "Moonfall",
+      "temple": {
+        "x": 33797,
+        "y": 32755,
+        "z": 5
+      }
+    }
+  ]
+}

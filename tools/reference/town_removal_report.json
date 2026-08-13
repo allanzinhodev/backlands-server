@@ -1,0 +1,242 @@
+{
+  "dryRun": true,
+  "ranAt": "2026-08-13T19:36:10.205Z",
+  "maxRadius": 250,
+  "maxTiles": 400000,
+  "kept": [
+    "Rookgaard",
+    "Ab'Dendriel",
+    "Carlin",
+    "Kazordoon",
+    "Thais",
+    "Venore",
+    "Ankrahmun",
+    "Edron",
+    "Darashia",
+    "Port Hope"
+  ],
+  "totalTiles": 17972264,
+  "doomedTiles": 335719,
+  "towns": [
+    {
+      "name": "Dawnport Tutorial",
+      "id": 1,
+      "temple": {
+        "x": 32069,
+        "y": 31901,
+        "z": 6
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Dawnport",
+      "id": 2,
+      "temple": {
+        "x": 32064,
+        "y": 31894,
+        "z": 6
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Island of Destiny",
+      "id": 4,
+      "temple": {
+        "x": 32091,
+        "y": 32027,
+        "z": 7
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Farmine",
+      "id": 12,
+      "temple": {
+        "x": 33023,
+        "y": 31521,
+        "z": 11
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Liberty Bay",
+      "id": 14,
+      "temple": {
+        "x": 32317,
+        "y": 32826,
+        "z": 7
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Svargrond",
+      "id": 16,
+      "temple": {
+        "x": 32212,
+        "y": 31132,
+        "z": 7
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Yalahar",
+      "id": 17,
+      "temple": {
+        "x": 32787,
+        "y": 31276,
+        "z": 7
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Gray Beach",
+      "id": 18,
+      "temple": {
+        "x": 33447,
+        "y": 31323,
+        "z": 9
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Krailos",
+      "id": 19,
+      "temple": {
+        "x": 33657,
+        "y": 31665,
+        "z": 8
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Rathleton",
+      "id": 20,
+      "temple": {
+        "x": 33594,
+        "y": 31899,
+        "z": 6
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Roshamuul",
+      "id": 21,
+      "temple": {
+        "x": 33513,
+        "y": 32363,
+        "z": 6
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Issavi",
+      "id": 22,
+      "temple": {
+        "x": 33921,
+        "y": 31477,
+        "z": 5
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Cobra Bastion",
+      "id": 24,
+      "temple": {
+        "x": 33397,
+        "y": 32651,
+        "z": 7
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Bounac",
+      "id": 25,
+      "temple": {
+        "x": 32424,
+        "y": 32445,
+        "z": 7
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Feyrist",
+      "id": 26,
+      "temple": {
+        "x": 33490,
+        "y": 32221,
+        "z": 7
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Gnomprona",
+      "id": 27,
+      "temple": {
+        "x": 33517,
+        "y": 32856,
+        "z": 14
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Marapur",
+      "id": 28,
+      "temple": {
+        "x": 33842,
+        "y": 32853,
+        "z": 7
+      },
+      "tiles": 209153,
+      "overflow": false
+    },
+    {
+      "name": "Candia",
+      "id": 29,
+      "temple": {
+        "x": 33338,
+        "y": 32125,
+        "z": 7
+      },
+      "tiles": 400001,
+      "overflow": true
+    },
+    {
+      "name": "Silvertides",
+      "id": 30,
+      "temple": {
+        "x": 33776,
+        "y": 32842,
+        "z": 7
+      },
+      "tiles": 223731,
+      "overflow": false
+    },
+    {
+      "name": "Moonfall",
+      "id": 31,
+      "temple": {
+        "x": 33797,
+        "y": 32755,
+        "z": 5
+      },
+      "tiles": 335719,
+      "overflow": false
+    }
+  ]
+}

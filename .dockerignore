@@ -1,2 +1,5 @@
 build/**
 
+data/world/*.backup-before-removal
+data/items/*.backup-before-removal
+*.backup-before-removal
