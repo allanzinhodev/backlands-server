@@ -97,7 +97,6 @@ monster.loot = {
 	{ name = "steel shield", chance = 7000 },
 	{ name = "chain armor", chance = 6000 },
 	{ name = "scale armor", chance = 8000 },
-	{ name = "wand of cosmic energy", chance = 5500 },
 }
 
 monster.attacks = {

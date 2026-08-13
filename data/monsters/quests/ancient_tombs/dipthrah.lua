@@ -87,7 +87,6 @@ monster.loot = {
 	{ name = "ankh", chance = 500 },
 	{ name = "ornamented ankh", chance = 100000 },
 	{ name = "skull staff", chance = 500 },
-	{ name = "pharaoh sword", chance = 300 },
 	{ name = "great mana potion", chance = 7000 },
 }
 

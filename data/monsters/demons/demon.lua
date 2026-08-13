@@ -117,8 +117,6 @@ monster.loot = {
 	{ name = "demon shield", chance = 740 },
 	{ name = "fire mushroom", chance = 19660, maxCount = 6 },
 	{ name = "demon horn", chance = 14920 },
-	{ name = "assassin star", chance = 12550, maxCount = 10 },
-	{ name = "demonrage sword", chance = 70 },
 	{ id = 7393, chance = 90 }, -- demon trophy
 	{ name = "great mana potion", chance = 22220, maxCount = 3 },
 	{ name = "ultimate health potion", chance = 19540, maxCount = 3 },

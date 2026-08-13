@@ -82,8 +82,6 @@ monster.loot = {
 	{ id = 3456, chance = 5280 }, -- pick
 	{ name = "worm", chance = 4580, maxCount = 5 },
 	{ name = "iron ore", chance = 1750 },
-	{ name = "spiked squelcher", chance = 540 },
-	{ name = "terra amulet", chance = 2360 },
 	{ name = "lump of earth", chance = 15000 },
 	{ name = "clay lump", chance = 700 },
 	{ id = 12600, chance = 12130 }, -- coal

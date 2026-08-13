@@ -83,8 +83,6 @@ monster.loot = {
 	{ name = "Blue Crystal Splinter", chance = 24500, maxCount = 2 },
 	{ name = "Mummified Demon Finger", chance = 500, maxCount = 1 },
 	{ name = "Demonic Matter", chance = 1000, maxCount = 1 },
-	{ name = "Magma Legs", chance = 2000, maxCount = 1 },
-	{ name = "Arbalest", chance = 1500, maxCount = 1 },
 	{ name = "Drill Bolt", chance = 24500, maxCount = 25 },
 	{ name = "Power Bolt", chance = 24500, maxCount = 35 },
 	{ name = "Onyx Chip", chance = 24500, maxCount = 5 },

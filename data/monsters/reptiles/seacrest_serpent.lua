@@ -82,8 +82,6 @@ monster.loot = {
 	{ id = 3583, chance = 13040 }, -- dragon ham
 	{ id = 21801, chance = 12040 }, -- seacrest hair
 	{ id = 762, chance = 7020, maxCount = 17 }, -- shiver arrow
-	{ id = 829, chance = 2680 }, -- glacier mask
-	{ id = 21892, chance = 400 }, -- crest of the deep seas
 	{ id = 3035, chance = 100000, maxCount = 5 }, -- platinum coin
 	{ id = 236, chance = 7020, maxCount = 2 }, -- strong health potion
 	{ id = 237, chance = 10370, maxCount = 2 }, -- strong mana potion
@@ -94,11 +92,6 @@ monster.loot = {
 	{ id = 5944, chance = 3340 }, -- soul orb
 	{ id = 3028, chance = 5020, maxCount = 3 }, -- small diamond
 	{ id = 21800, chance = 17390 }, -- seacrest scale
-	{ id = 815, chance = 670 }, -- glacier amulet
-	{ id = 823, chance = 3680 }, -- glacier kilt
-	{ id = 819, chance = 3010 }, -- glacier shoes
-	{ id = 16096, chance = 670 }, -- wand of defiance
-	{ id = 8093, chance = 670 }, -- wand of draconia
 }
 
 monster.attacks = {

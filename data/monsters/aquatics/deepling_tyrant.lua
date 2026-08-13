@@ -90,10 +90,6 @@ monster.loot = {
 	{ name = "eye of a deepling", chance = 29950 },
 	{ name = "deepling guard belt buckle", chance = 23990 },
 	{ name = "small sapphire", chance = 9370, maxCount = 5 },
-	{ name = "heavy trident", chance = 3260 },
-	{ name = "deepling squelcher", chance = 1460 },
-	{ name = "guardian axe", chance = 1230 },
-	{ name = "ornate crossbow", chance = 1130 },
 	{ name = "deepling backpack", chance = 540 },
 	{ name = "foxtail", chance = 30 },
 }

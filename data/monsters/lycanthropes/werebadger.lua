@@ -89,13 +89,9 @@ monster.loot = {
 	{ id = 3741, chance = 1900 }, -- troll green
 	{ id = 22051, chance = 950 }, -- werebadger claws
 	{ id = 22055, chance = 780 }, -- werebadger skull
-	{ id = 22086, chance = 200 }, -- badger boots
 	{ id = 3055, chance = 160 }, -- platinum amulet
 	{ id = 3098, chance = 430 }, -- ring of healing
-	{ id = 8082, chance = 220 }, -- underworld rod
-	{ id = 8094, chance = 200 }, -- wand of voodoo
 	{ id = 22083, chance = 150 }, -- moonlight crystals
-	{ id = 22060, chance = 200 }, -- werewolf amulet
 	{ id = 22101, chance = 100 }, -- werebadger trophy
 }
 

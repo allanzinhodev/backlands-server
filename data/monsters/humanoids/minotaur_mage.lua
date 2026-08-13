@@ -81,12 +81,10 @@ monster.voices = {
 monster.loot = {
 	{ id = 2920, chance = 4950 }, -- torch
 	{ name = "gold coin", chance = 85780, maxCount = 35 },
-	{ name = "wand of cosmic energy", chance = 600 },
 	{ name = "leather helmet", chance = 3000 },
 	{ name = "leather legs", chance = 5190 },
 	{ id = 3595, chance = 15003, maxCount = 8 }, -- carrot
 	{ name = "minotaur leather", chance = 2290 },
-	{ name = "taurus mace", chance = 1000 },
 	{ name = "mana potion", chance = 490 },
 	{ name = "minotaur horn", chance = 3020, maxCount = 2 },
 	{ name = "purple robe", chance = 6430, maxCount = 2 },

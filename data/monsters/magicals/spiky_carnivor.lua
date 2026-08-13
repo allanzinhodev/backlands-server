@@ -86,15 +86,9 @@ monster.loot = {
 	{ name = "warrior helmet", chance = 2980 },
 	{ name = "rainbow quartz", chance = 2540, maxCount = 2 },
 	{ name = "talon", chance = 2000 },
-	{ name = "glacier amulet", chance = 1920 },
-	{ name = "terra amulet", chance = 1920 },
 	{ name = "blue robe", chance = 1670 },
 	{ name = "prismatic quartz", chance = 1380 },
-	{ name = "lightning pendant", chance = 1270 },
 	{ name = "doublet", chance = 360 },
-	{ name = "terra mantle", chance = 330 },
-	{ name = "buckle", chance = 180 },
-	{ name = "shockwave amulet", chance = 150 },
 }
 
 monster.attacks = {

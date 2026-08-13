@@ -93,12 +93,8 @@ monster.loot = {
 	{ id = 3456, chance = 4850 }, -- pick
 	{ name = "steel boots", chance = 300 },
 	{ name = "meat", chance = 40000, maxCount = 6 },
-	{ name = "skull helmet", chance = 10 },
 	{ name = "soul orb", chance = 5350 },
-	{ id = 6299, chance = 250 }, -- death ring
 	{ name = "demonic essence", chance = 13850 },
-	{ name = "dreaded cleaver", chance = 400 },
-	{ name = "chaos mace", chance = 800 },
 	{ name = "great health potion", chance = 1000 },
 	{ name = "metal spike", chance = 4850 },
 }

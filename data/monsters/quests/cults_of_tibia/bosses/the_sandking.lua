@@ -80,7 +80,6 @@ monster.loot = {
 	{ name = "luminous orb", chance = 35000 },
 	{ name = "great mana potion", chance = 31230, maxCount = 10 },
 	{ name = "ultimate health potion", chance = 28230, maxCount = 10 },
-	{ name = "cobra crown", chance = 400 },
 	{ name = "silver token", chance = 25520 },
 	{ name = "gold token", chance = 14210 },
 	{ name = "small topaz", chance = 11520, maxCount = 10 },
@@ -89,22 +88,17 @@ monster.loot = {
 	{ name = "magic sulphur", chance = 18920 },
 	{ id = 7440, chance = 2000 }, -- mastermind potion
 	{ id = 20062, chance = 12000, maxCount = 2 }, -- cluster of solace
-	{ name = "hailstorm rod", chance = 3470 },
 	{ id = 3036, chance = 1000 }, -- violet gem
 	{ id = 3098, chance = 20000 }, -- ring of healing
 	{ id = 3030, chance = 7360, maxCount = 10 }, -- small ruby
 	{ id = 281, chance = 28540 }, -- giant shimmering pearl (green)
 	{ name = "skull staff", chance = 13790 },
-	{ name = "grasshopper legs", chance = 13790 },
 	{ name = "huge chunk of crude iron", chance = 10000, maxCount = 2 },
-	{ id = 7404, chance = 430 }, -- assassin dagger
-	{ name = "runed sword", chance = 6666 },
 	{ name = "djinn blade", chance = 200 },
 	{ id = 16121, chance = 10000, maxCount = 3 }, -- green crystal shard
 	{ id = 16120, chance = 10000, maxCount = 3 }, -- violet crystal shard
 	{ id = 16119, chance = 10000, maxCount = 3 }, -- blue crystal shard
 	{ id = 7642, chance = 4800 }, -- great spirit potion
-	{ id = 16161, chance = 7030 }, -- crystalline axe
 	{ id = 3341, chance = 200 }, -- arcane staff
 	{ name = "heart of the mountain", chance = 400 },
 }

@@ -87,7 +87,6 @@ monster.loot = {
 	{ name = "steel shield", chance = 840 },
 	{ name = "plate shield", chance = 9950 },
 	{ name = "meat", chance = 19000 },
-	{ name = "belted cape", chance = 340 },
 }
 
 monster.attacks = {

@@ -86,13 +86,11 @@ monster.loot = {
 	{ name = "silken bookmark", chance = 10000, maxCount = 3 },
 	{ name = "flash arrow", chance = 10000, maxCount = 6 },
 	{ name = "throwing star", chance = 10000, maxCount = 10 },
-	{ name = "crystal sword", chance = 10000 },
 	{ id = 3051, chance = 10000 }, -- energy ring
 	{ name = "guardian shield", chance = 10000 },
 	{ name = "mana potion", chance = 10000, maxCount = 10 },
 	{ name = "ultimate mana potion", chance = 10000, maxCount = 8 },
 	{ name = "ultimate health potion", chance = 10000, maxCount = 8 },
-	{ name = "wand of cosmic energy", chance = 300 },
 }
 
 monster.attacks = {

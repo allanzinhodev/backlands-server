@@ -80,19 +80,11 @@ monster.voices = {
 monster.loot = {
 	{ name = "crystal coin", chance = 60590 },
 	{ name = "great spirit potion", chance = 31180, maxCount = 5 },
-	{ name = "sacred tree amulet", chance = 3590 },
-	{ name = "underworld rod", chance = 3030 },
 	{ id = 281, chance = 2690 }, -- giant shimmering pearl
-	{ name = "titan axe", chance = 2500 },
-	{ name = "terra amulet", chance = 1900 },
-	{ name = "mercenary sword", chance = 1900 },
 	{ name = "war axe", chance = 1560 },
 	{ name = "giant sword", chance = 1540 },
-	{ name = "fur armor", chance = 990 },
 	{ name = "wood cape", chance = 920 },
 	{ name = "stone skin amulet", chance = 740 },
-	{ name = "terra mantle", chance = 510 },
-	{ name = "rubber cap", chance = 430 },
 	{ name = "bag you desire", chance = 15 },
 }
 

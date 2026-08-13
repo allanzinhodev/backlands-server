@@ -91,10 +91,6 @@ monster.loot = {
 	{ name = "ultimate mana potion", chance = 13600000, maxCount = 9 },
 	{ name = "werebadger claws", chance = 13600000, maxCount = 9 },
 	{ name = "werebadger skull", chance = 13600000, maxCount = 9 },
-	{ name = "badger boots", chance = 400 },
-	{ name = "underworld rod", chance = 400 },
-	{ name = "wand of voodoo", chance = 400 },
-	{ name = "foxtail amulet", chance = 100 },
 	{ name = "silver token", chance = 1720 },
 	{ name = "wolf backpack", chance = 250 },
 }

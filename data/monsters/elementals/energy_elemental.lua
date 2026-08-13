@@ -83,11 +83,9 @@ monster.loot = {
 	{ name = "small amethyst", chance = 5000, maxCount = 2 },
 	{ id = 3051, chance = 892 }, -- energy ring
 	{ name = "silver amulet", chance = 1020 },
-	{ name = "wand of cosmic energy", chance = 636 },
 	{ name = "throwing star", chance = 9900, maxCount = 5 },
 	{ name = "obsidian lance", chance = 3571 },
 	{ name = "guardian shield", chance = 243 },
-	{ name = "crystal sword", chance = 5882 },
 	{ name = "strong mana potion", chance = 7692 },
 	{ name = "mana potion", chance = 11711 },
 	{ id = 761, chance = 10000, maxCount = 10 }, -- flash arrow

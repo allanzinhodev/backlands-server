@@ -89,7 +89,6 @@ monster.loot = {
 	{ id = 24387, chance = 14580 }, -- tarnished rhino figurine
 	{ id = 239, chance = 7300 }, -- great health potion
 	{ id = 3051, chance = 7660 }, -- energy ring
-	{ id = 3073, chance = 3810 }, -- wand of cosmic energy
 	{ id = 3055, chance = 370 }, -- platinum amulet
 	{ id = 24384, chance = 17000 }, -- ancient belt buckle
 	{ id = 24385, chance = 20000 }, -- cracked alabaster vase

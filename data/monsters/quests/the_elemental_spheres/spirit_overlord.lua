@@ -68,7 +68,6 @@ monster.loot = {
 	{ name = "platinum coin", chance = 29000, maxCount = 3 },
 	{ name = "holy ash", chance = 10800 },
 	{ name = "great spirit potion", chance = 8750, maxCount = 2 },
-	{ name = "moonlight rod", chance = 8300 },
 -- { name = "spirited soil", chance = 7000 },
 	{ name = "holy orchid", chance = 6000 },
 }

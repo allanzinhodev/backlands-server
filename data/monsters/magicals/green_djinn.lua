@@ -90,7 +90,6 @@ monster.loot = {
 	{ id = 3607, chance = 23500 }, -- cheese
 	{ name = "grave flower", chance = 1000 },
 	{ name = "green piece of cloth", chance = 2000 },
-	{ name = "royal spear", chance = 4870, maxCount = 2 },
 	{ name = "mana potion", chance = 490 },
 	{ name = "dirty turban", chance = 2210 },
 }

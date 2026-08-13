@@ -83,12 +83,9 @@ monster.loot = {
 	{ name = "blue crystal shard", chance = 1850 },
 	{ name = "violet crystal shard", chance = 1840 },
 	{ name = "green crystal shard", chance = 1770 },
-	{ name = "terra mantle", chance = 850 },
 	{ name = "green gem", chance = 820 },
 	{ name = "blue gem", chance = 810 },
-	{ id = 23529, chance = 520 }, -- ring of blue plasma
 	{ name = "crystalline arrow", chance = 480, minCount = 10, maxCount = 20 },
-	{ name = "composite hornbow", chance = 310 },
 	{ name = "violet gem", chance = 210 },
 }
 

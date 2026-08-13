@@ -91,11 +91,8 @@ monster.loot = {
 	{ name = "vortex bolt", chance = 3460, maxCount = 5 },
 	{ name = "small emerald", chance = 3080 },
 	{ id = 3052, chance = 3030 }, -- life ring
-	{ name = "heavy trident", chance = 1000 },
 	{ name = "fish fin", chance = 880 },
-	{ name = "warrior's shield", chance = 610 },
 	{ name = "eye of a deepling", chance = 590 },
-	{ name = "warrior's axe", chance = 520 },
 }
 
 monster.attacks = {

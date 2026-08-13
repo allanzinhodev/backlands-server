@@ -89,22 +89,14 @@ monster.loot = {
 	{ name = "violet gem", chance = 3410 },
 	{ name = "blue crystal shard", chance = 2880, maxCount = 3 },
 	{ name = "crowbar", chance = 2830 },
-	{ name = "diamond sceptre", chance = 2590 },
 	{ name = "violet crystal shard", chance = 2470 },
 	{ name = "yellow gem", chance = 2350 },
 	{ name = "ice rapier", chance = 2240 },
-	{ name = "magma coat", chance = 2180 },
-	{ name = "epee", chance = 2120 },
-	{ name = "dragonbone staff", chance = 2000 },
 	{ name = "knight axe", chance = 2000 },
-	{ name = "beastslayer axe", chance = 1940 },
 	{ name = "green crystal fragment", chance = 1710 },
 	{ name = "blue gem", chance = 1530 },
 	{ id = 3039, chance = 1530 }, -- red gem
 	{ name = "blue robe", chance = 1060 },
-	{ name = "focus cape", chance = 1060 },
-	{ name = "fur armor", chance = 820 },
-	{ name = "glacier robe", chance = 650 },
 }
 
 monster.attacks = {

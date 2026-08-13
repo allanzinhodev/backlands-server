@@ -84,7 +84,6 @@ monster.loot = {
 	{ id = 239, chance = 5000, maxCount = 5 }, -- great health potion
 	{ id = 3035, chance = 37500, maxCount = 5 }, -- platinum coin
 	{ id = 3042, chance = 15000, maxCount = 5 }, -- scarab coin
-	{ id = 3328, chance = 5000 }, -- daramian waraxe
 }
 
 monster.attacks = {

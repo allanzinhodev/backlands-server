@@ -87,10 +87,7 @@ monster.loot = {
 	{ name = "ultimate health potion", chance = 9300 },
 	{ name = "dream essence egg", chance = 8500 },
 	{ name = "tiger eye", chance = 6900 },
-	{ name = "northwind rod", chance = 6000 },
-	{ name = "glacier amulet", chance = 5000 },
 	{ name = "ice rapier", chance = 6250 },
-	{ name = "glacier robe", chance = 2500 },
 	{ name = "elven amulet", chance = 720 },
 	{ name = "blue gem", chance = 200 },
 }

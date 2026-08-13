@@ -83,10 +83,8 @@ monster.loot = {
 	{ id = 3582, chance = 6000, maxCount = 2 }, -- ham
 	{ id = 5880, chance = 3000 }, -- iron ore
 	{ id = 5895, chance = 5000 }, -- fish fin
-	{ id = 7418, chance = 350 }, -- nightmare blade
 	{ id = 238, chance = 10000, maxCount = 3 }, -- great mana potion
 	{ id = 239, chance = 10000, maxCount = 2 }, -- great health potion
-	{ id = 10389, chance = 300 }, -- sai
 	{ id = 20062, chance = 1200 }, -- cluster of solace
 	{ id = 20198, chance = 12000 }, -- frazzle tongue
 	{ id = 20199, chance = 10500 }, -- frazzle skin

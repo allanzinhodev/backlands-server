@@ -89,10 +89,7 @@ monster.loot = {
 	{ id = 3578, chance = 1560 }, -- fish
 	{ id = 3595, chance = 1540 }, -- carrot
 	{ name = "opal", chance = 1000 },
-	{ name = "royal star", chance = 1000, maxCount = 5 },
-	{ name = "butterfly ring", chance = 800 },
 	{ name = "etcher", chance = 800 }, -- new item
-	{ name = "elvish bow", chance = 600 },
 }
 
 monster.attacks = {

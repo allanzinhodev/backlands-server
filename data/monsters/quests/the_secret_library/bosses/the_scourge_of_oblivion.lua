@@ -83,7 +83,6 @@ monster.loot = {
 	{ id = 23516, chance = 100000 }, -- instable proto matter
 	{ name = "plasmatic lightning", chance = 100000 },
 	{ name = "emerald bangle", chance = 100000 },
-	{ name = "royal star", chance = 66666, maxCount = 100 },
 	{ name = "small amethyst", chance = 66666, maxCount = 12 },
 	{ name = "silver token", chance = 95830, maxCount = 22 },
 	{ name = "mastermind potion", chance = 66666, maxCount = 10 },
@@ -97,24 +96,19 @@ monster.loot = {
 	{ name = "blue crystal shard", chance = 33333, maxCount = 3 },
 	{ name = "giant sapphire", chance = 33333 },
 	{ name = "green gem", chance = 33333 },
-	{ id = 23542, chance = 33333 }, -- collar of blue plasma
 	{ name = "huge chunk of crude iron", chance = 33333 },
 	{ name = "magic sulphur", chance = 33333 },
 	{ name = "ring of the sky", chance = 33333 },
 	{ name = "ultimate spirit potion", chance = 15000, maxCount = 20 },
 	{ name = "small diamond", chance = 15000, maxCount = 12 },
 	{ name = "small emerald", chance = 15000, maxCount = 12 },
-	{ name = "rift shield", chance = 5000 },
 	{ id = 281, chance = 5000 }, -- giant shimmering pearl (green)
 	{ id = 3341, chance = 5000 }, -- arcane staff
-	{ name = "skullcracker armor", chance = 5000 },
-	{ name = "chaos mace", chance = 5000 },
 	{ name = "cat's paw", chance = 5000 },
 	{ name = "piggy bank", chance = 5000 },
 	{ name = "mysterious remains", chance = 5000 },
 	{ name = "energy bar", chance = 5000 },
 	{ name = "library ticket", chance = 500, unique = true },
-	{ name = "calamity", chance = 500, unique = true },
 	{ name = "spark sphere", chance = 100000 },
 }
 

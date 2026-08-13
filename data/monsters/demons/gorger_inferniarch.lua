@@ -83,10 +83,8 @@ monster.loot = {
 	{ name = "Demonic Core Essence", chance = 1000, maxCount = 1 },
 	{ name = "Small Sapphire", chance = 12500, maxCount = 5 },
 	{ name = "Gorger Antlers", chance = 9300, maxCount = 1 },
-	{ name = "Spiked Squelcher", chance = 14500, maxCount = 1 },
 	{ name = "Mummified Demon Finger", chance = 1500, maxCount = 1 },
 	{ name = "Demonic Matter", chance = 1000, maxCount = 1 },
-	{ name = "Spiked Squelcher", chance = 14500, maxCount = 1 },
 	{ id = 3053, chance = 5000, maxCount = 1 }, -- Time ring
 	{ id = 3040, chance = 5000, maxCount = 1 }, -- gold nugget
 	{ id = 3093, chance = 5000, maxCount = 1 }, -- club ring

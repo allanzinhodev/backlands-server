@@ -69,9 +69,6 @@ monster.loot = {
 	{ name = "green memory shard", chance = 35000 },
 	{ name = "blue memory shard", chance = 35000 },
 	{ name = "violet memory shard", chance = 32000 },
-	{ name = "terra amulet", chance = 26000 },
-	{ name = "terra hood", chance = 16500 },
-	{ name = "sacred tree amulet", chance = 12300 },
 }
 
 monster.attacks = {

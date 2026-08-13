@@ -79,7 +79,6 @@ monster.loot = {
 	{ name = "star herb", chance = 18180 },
 	{ name = "bag of apple slices", chance = 7580 },
 	{ name = "garlic necklace", chance = 3030 },
-	{ name = "necrotic rod", chance = 1520 },
 }
 
 monster.attacks = {

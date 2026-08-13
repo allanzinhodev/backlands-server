@@ -96,10 +96,6 @@ monster.loot = {
 	{ id = 3041, chance = 1000 }, -- blue gem
 	{ id = 3053, chance = 6000 }, -- time ring
 	{ id = 3098, chance = 6000 }, -- ring of healing
-	{ id = 22867, chance = 770 }, -- rift crossbow
-	{ id = 8050, chance = 770 }, -- crystalline armor
-	{ id = 22726, chance = 670 }, -- rift shield
-	{ id = 22762, chance = 500, unique = true }, -- maimer
 	{ id = 22555, chance = 500, unique = true }, -- stone wall
 }
 

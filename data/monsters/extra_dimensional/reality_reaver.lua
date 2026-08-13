@@ -94,14 +94,7 @@ monster.loot = {
 	{ id = 16120, chance = 4400 }, -- violet crystal shard
 	{ id = 16119, chance = 4000 }, -- blue crystal shard
 	{ id = 3039, chance = 2600 }, -- red gem
-	{ id = 23543, chance = 630 }, -- collar of green plasma
-	{ id = 828, chance = 520 }, -- lightning headband
 	{ id = 3036, chance = 370 }, -- violet gem
-	{ id = 23529, chance = 370 }, -- ring of blue plasma
-	{ id = 23544, chance = 300 }, -- collar of red plasma
-	{ id = 23531, chance = 220 }, -- ring of green plasma
-	{ id = 50150, chance = 560 }, -- ring of orange plasma
-	{ id = 50152, chance = 560 }, -- collar of orange plasma
 }
 
 monster.attacks = {

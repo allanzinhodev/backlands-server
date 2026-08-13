@@ -70,12 +70,8 @@ monster.loot = {
 	{ id = 3035, chance = 100000, maxCount = 6 }, -- platinum coin
 	{ id = 10309, chance = 100000 }, -- strand of medusa hair
 	{ id = 238, chance = 29730, maxCount = 2 }, -- great mana potion
-	{ id = 9302, chance = 2700 }, -- sacred tree amulet
 	{ id = 7643, chance = 28380, maxCount = 2 }, -- ultimate health potion
 	{ id = 3032, chance = 13510, maxCount = 4 }, -- small emerald
-	{ id = 814, chance = 6760 }, -- terra amulet
-	{ id = 811, chance = 1350 }, -- terra mantle
-	{ id = 7413, chance = 6760 }, -- titan axe
 }
 
 monster.attacks = {

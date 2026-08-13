@@ -81,11 +81,7 @@ monster.loot = {
 	{ name = "small diamond", chance = 10000, maxCount = 5 },
 	{ name = "fire axe", chance = 250 },
 	{ name = "soul orb", chance = 260, maxCount = 5 },
-	{ name = "spellbook of warding", chance = 250 },
-	{ name = "wand of inferno", chance = 250 },
 	{ name = "fire sword", chance = 250 },
-	{ name = "magma coat", chance = 350 },
-	{ name = "magma legs", chance = 250 },
 	{ name = "piece of hellfire armor", chance = 500, maxCount = 5 },
 	{ id = 12600, chance = 10000, maxCount = 5 }, -- coal
 }

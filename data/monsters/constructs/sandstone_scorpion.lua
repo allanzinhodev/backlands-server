@@ -81,7 +81,6 @@ monster.loot = {
 	{ name = "gold coin", chance = 92590, maxCount = 128 },
 	{ name = "small emerald", chance = 1100, maxCount = 2 },
 	{ name = "platinum coin", chance = 10750, maxCount = 2 },
-	{ name = "daramian mace", chance = 5100 },
 	{ name = "steel helmet", chance = 4620 },
 	{ name = "black shield", chance = 1820 },
 	{ name = "fist on a stick", chance = 220 },

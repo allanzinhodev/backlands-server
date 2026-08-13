@@ -87,8 +87,6 @@ monster.loot = {
 	{ name = "blue gem", chance = 3010 },
 	{ name = "crystal mace", chance = 1580 },
 	{ id = 23508, chance = 3010 }, -- energy vein
-	{ name = "crystalline armor", chance = 860 },
-	{ name = "suspicious device", chance = 1850 },
 }
 
 monster.attacks = {

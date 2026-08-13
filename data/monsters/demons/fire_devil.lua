@@ -80,7 +80,6 @@ monster.loot = {
 	{ id = 2920, chance = 10000 }, -- torch
 	{ id = 2920, chance = 1420, maxCount = 2 }, -- torch
 	{ name = "small amethyst", chance = 300 },
-	{ name = "necrotic rod", chance = 460 },
 	{ name = "blank rune", chance = 10950 },
 	{ name = "double axe", chance = 1500 },
 	{ id = 3307, chance = 3000 }, -- scimitar

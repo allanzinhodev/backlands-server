@@ -72,7 +72,6 @@ monster.voices = {
 monster.loot = {
 	{ id = 282, chance = 26900 }, -- giant shimmering pearl (brown)
 	{ name = "magic sulphur", chance = 18920 },
-	{ name = "mino shield", chance = 17620 },
 	{ name = "silver token", chance = 50000 },
 	{ name = "gold token", chance = 14290 },
 	{ name = "gold coin", chance = 100000, maxCount = 200 },
@@ -81,9 +80,7 @@ monster.loot = {
 	{ name = "red piece of cloth", chance = 16370, maxCount = 6 },
 	{ name = "yellow gem", chance = 29460 },
 	{ name = "blue gem", chance = 21892 },
-	{ name = "underworld rod", chance = 117270 },
 	{ name = "war axe", chance = 127270 },
-	{ name = "pair of iron fists", chance = 9510 },
 	{ name = "mysterious remains", chance = 100000 },
 	{ name = "small diamond", chance = 12760, maxCount = 10 },
 	{ name = "small amethyst", chance = 14700, maxCount = 10 },
@@ -96,10 +93,6 @@ monster.loot = {
 	{ name = "great mana potion", chance = 33721, maxCount = 10 },
 	{ name = "great spirit potion", chance = 25690, maxCount = 5 },
 	{ name = "piece of royal steel", chance = 15890 },
-	{ name = "execowtioner axe", chance = 7890 },
-	{ name = "maimer", chance = 1890 },
-	{ name = "ornate mace", chance = 7890 },
-	{ name = "velvet mantle", chance = 1890 },
 	{ name = "iron ore", chance = 14542 },
 	{ name = "giant sword", chance = 16892 },
 }

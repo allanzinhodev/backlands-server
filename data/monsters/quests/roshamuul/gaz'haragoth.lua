@@ -82,7 +82,6 @@ monster.voices = {
 monster.loot = {
 	{ id = 3043, chance = 10000, maxCount = 6 }, -- crystal coin
 	{ id = 16124, chance = 10000, maxCount = 15 }, -- blue crystal splinter
-	{ id = 7368, chance = 10000, maxCount = 100 }, -- assassin star
 	{ id = 20264, chance = 7000, maxCount = 3 }, -- unrealized dream
 	{ id = 6499, chance = 1000, maxCount = 2 }, -- demonic essence
 	{ id = 7643, chance = 10000, maxCount = 100 }, -- ultimate health potion
@@ -105,33 +104,6 @@ monster.loot = {
 	{ id = 20280, chance = 6000 }, -- nightmare beacon
 	{ id = 20279, chance = 6000 }, -- eye pod
 	{ id = 20277, chance = 6000 }, -- psychedelic tapestry
-	{ id = 20064, chance = 800 }, -- crude umbral blade
-	{ id = 20067, chance = 1000 }, -- crude umbral slayer
-	{ id = 20070, chance = 1000 }, -- crude umbral axe
-	{ id = 20073, chance = 1000 }, -- crude umbral chopper
-	{ id = 20079, chance = 1000 }, -- crude umbral hammer
-	{ id = 20076, chance = 500 }, -- crude umbral mace
-	{ id = 20082, chance = 1000 }, -- crude umbral bow
-	{ id = 20085, chance = 400 }, -- crude umbral crossbow
-	{ id = 20088, chance = 700 }, -- crude umbral spellbook
-	{ id = 20065, chance = 100 }, -- umbral blade
-	{ id = 20068, chance = 200 }, -- umbral slayer
-	{ id = 20071, chance = 1000 }, -- umbral axe
-	{ id = 20074, chance = 500 }, -- umbral chopper
-	{ id = 20080, chance = 1000 }, -- umbral hammer
-	{ id = 20077, chance = 500 }, -- umbral mace
-	{ id = 20083, chance = 250 }, -- umbral bow
-	{ id = 20086, chance = 400 }, -- umbral crossbow
-	{ id = 20089, chance = 200 }, -- umbral spellbook
-	{ id = 20066, chance = 300 }, -- umbral masterblade
-	{ id = 20069, chance = 700 }, -- umbral master slayer
-	{ id = 20072, chance = 500 }, -- umbral master axe
-	{ id = 20075, chance = 300 }, -- umbral master chopper
-	{ id = 20081, chance = 250 }, -- umbral master hammer
-	{ id = 20078, chance = 300 }, -- umbral master mace
-	{ id = 20084, chance = 1300 }, -- umbral master bow
-	{ id = 20087, chance = 1000 }, -- umbral master crossbow
-	{ id = 20090, chance = 140 }, -- umbral master spellbook
 	{ id = 10345, chance = 6000 }, -- solitude charm
 	{ id = 10344, chance = 6000 }, -- twin sun charm
 	{ id = 10343, chance = 6000 }, -- spiritual charm

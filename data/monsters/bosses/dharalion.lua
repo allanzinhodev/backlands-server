@@ -95,7 +95,6 @@ monster.loot = {
 	{ name = "sling herb", chance = 10890 },
 	{ id = 3257, chance = 7920 }, -- cornucopia
 	{ name = "green tunic", chance = 5940 },
-	{ name = "royal spear", chance = 990 },
 	{ id = 2902, chance = 1000 }, -- bowl
 	{ name = "candlestick", chance = 1000 },
 	{ id = 5805, chance = 1000 }, -- golden goblet

@@ -79,7 +79,6 @@ monster.loot = {
 	{ id = 22191, chance = 1200 }, -- skull fetish
 	{ id = 236, chance = 2200, maxCount = 3 }, -- strong health potion
 	{ id = 3279, chance = 600 }, -- war hammer
-	{ id = 22192, chance = 300 }, -- shamanic mask
 }
 
 monster.attacks = {

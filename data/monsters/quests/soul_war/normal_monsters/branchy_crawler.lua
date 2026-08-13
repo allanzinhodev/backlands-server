@@ -87,15 +87,9 @@ monster.loot = {
 	{ name = "roots", chance = 6000 },
 	{ name = "blue gem", chance = 1900 },
 	{ name = "crawler's essence", chance = 1450 },
-	{ name = "terra legs", chance = 970 },
 	{ name = "green gem", chance = 800 },
 	{ name = "hammer of wrath", chance = 760 },
 	{ name = "violet gem", chance = 650 },
-	{ name = "crystal crossbow", chance = 630 },
-	{ name = "nightmare blade", chance = 540 },
-	{ name = "twiceslicer", chance = 420 },
-	{ name = "crystalline sword", chance = 390 },
-	{ name = "ruthless axe", chance = 330 },
 	{ name = "bag you desire", chance = 15 },
 }
 

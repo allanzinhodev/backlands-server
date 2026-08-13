@@ -79,10 +79,6 @@ monster.voices = {
 }
 
 monster.loot = {
-	{ id = 9381, chance = 1000 }, -- helmet of ultimate terror
-	{ id = 9386, chance = 1000 }, -- farmer's avenger
-	{ id = 9380, chance = 1000 }, -- shield of care
-	{ id = 9396, chance = 1000 }, -- incredible mumpiz slayer
 }
 
 monster.attacks = {

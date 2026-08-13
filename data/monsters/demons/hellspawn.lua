@@ -89,10 +89,7 @@ monster.loot = {
 	{ name = "red mushroom", chance = 7692, maxCount = 2 },
 	{ name = "demonic essence", chance = 9090 },
 	{ name = "battle shield", chance = 7500 },
-	{ name = "assassin star", chance = 9090, maxCount = 2 },
-	{ name = "onyx flail", chance = 103 },
 	{ name = "berserk potion", chance = 934 },
-	{ name = "spiked squelcher", chance = 970 },
 	{ name = "great health potion", chance = 40333 },
 	{ name = "ultimate health potion", chance = 9090 },
 	{ id = 8895, chance = 3125 }, -- rusted armor

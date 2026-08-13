@@ -82,26 +82,21 @@ monster.loot = {
 	{ name = "berserk potion", chance = 90000, maxCount = 2 },
 	{ name = "bullseye potion", chance = 90000, maxCount = 2 },
 	{ name = "mastermind potion", chance = 90000, maxCount = 2 },
-	{ name = "chaos mace", chance = 30000 },
 	{ name = "crown armor", chance = 30000 },
 	{ name = "curious matter", chance = 30000 },
 	{ name = "demon horn", chance = 30000 },
-	{ name = "dreaded cleaver", chance = 30000 },
 	{ id = 281, chance = 30000 }, -- giant shimmering pearl (green)
 	{ name = "gold token", chance = 40000 },
 	{ name = "green gem", chance = 1000 },
 	{ name = "knowledgeable book", chance = 1000 },
 	{ name = "ominous book", chance = 1000 },
 	{ name = "magic sulphur", chance = 1000, maxCount = 2 },
-	{ name = "muck rod", chance = 1000 },
 	{ id = 3039, chance = 1000 }, -- red gem
 	{ name = "slightly rusted shield", chance = 11760 },
 	{ name = "silver token", chance = 80000 },
 	{ name = "sinister book", chance = 1000 },
-	{ name = "spellbook of warding", chance = 1000 },
 	{ name = "steel boots", chance = 1000 },
 	{ name = "stone skin amulet", chance = 1000 },
-	{ name = "wand of cosmic Energy", chance = 1000 },
 	{ name = "yellow gem", chance = 1000 },
 }
 

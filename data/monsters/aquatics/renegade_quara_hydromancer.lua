@@ -84,7 +84,6 @@ monster.loot = {
 	{ name = "small topaz", chance = 6450, maxCount = 2 },
 	{ name = "small emerald", chance = 7050, maxCount = 2 },
 	{ name = "great mana potion", chance = 5490, maxCount = 2 },
-	{ name = "spirit cloak", chance = 5000 },
 	{ name = "great health potion", chance = 5060, maxCount = 2 },
 	{ name = "yellow piece of cloth", chance = 2580 },
 	{ name = "green crystal shard", chance = 2980 },
@@ -92,7 +91,6 @@ monster.loot = {
 	{ id = 3052, chance = 1850 }, -- life ring
 	{ name = "fish fin", chance = 1420 },
 	{ id = 281, chance = 1320 }, -- giant shimmering pearl (green)
-	{ name = "wand of cosmic energy", chance = 930 },
 	{ name = "green gem", chance = 430 },
 	{ name = "knight armor", chance = 760 },
 }

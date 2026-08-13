@@ -77,7 +77,6 @@ monster.voices = {
 }
 
 monster.loot = {
-	{ id = 7368, chance = 3040, maxCount = 5 }, -- assassin star
 	{ id = 21204, chance = 19830 }, -- cowbell
 	{ id = 3031, chance = 100000, maxCount = 196 }, -- gold coin
 	{ id = 3582, chance = 60780 }, -- ham
@@ -93,8 +92,6 @@ monster.loot = {
 	{ id = 9057, chance = 900, maxCount = 2 }, -- small topaz
 	{ id = 3033, chance = 970, maxCount = 2 }, -- small amethyst
 	{ id = 3032, chance = 4050, maxCount = 2 }, -- small emerald
-	{ id = 21175, chance = 3040 }, -- mino shield
-	{ id = 21174, chance = 1740 }, -- mino lance
 	{ id = 5911, chance = 710 }, -- red piece of cloth
 	{ id = 3039, chance = 430 }, -- red gem
 	{ id = 3081, chance = 850 }, -- stone skin amulet

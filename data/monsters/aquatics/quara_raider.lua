@@ -82,10 +82,7 @@ monster.loot = {
 	{ name = "resinous fish fin", chance = 3940 },
 	{ name = "skull staff", chance = 1510 },
 	{ id = 3041, chance = 1150 }, -- blue gem
-	{ name = "glacier robe", chance = 810 },
 	{ name = "quara pincers", chance = 610 },
-	{ name = "crystalline armor", chance = 480 },
-	{ name = "abyss hammer", chance = 160 },
 	{ name = "preserved light blue seed", chance = 70 },
 	{ name = "preserved violet seed", chance = 50 },
 	{ name = "preserved purple seed", chance = 20 },

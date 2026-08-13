@@ -76,12 +76,9 @@ monster.loot = {
 	{ id = 12304, chance = 500 }, -- maxilla maximus
 	{ id = 3035, chance = 40000, maxCount = 4 }, -- platinum coin
 	{ id = 5944, chance = 100000 }, -- soul orb
-	{ id = 5741, chance = 25000 }, -- skull helmet
 	{ id = 9058, chance = 25000 }, -- gold ingot
 	{ id = 3057, chance = 25000 }, -- amulet of loss
-	{ id = 7430, chance = 25000 }, -- dragonbone staff
 	{ id = 8896, chance = 26670 }, -- slightly rusted armor
-	{ id = 6299, chance = 13330 }, -- death ring
 	{ id = 10316, chance = 50000, maxCount = 2 }, -- unholy bone
 }
 

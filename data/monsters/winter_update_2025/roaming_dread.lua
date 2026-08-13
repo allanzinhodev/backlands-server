@@ -81,10 +81,8 @@ monster.loot = {
 	{ name = "small emerald", chance = 3010, maxCount = 15 },
 	-- { name = "toe nails", chance = 2480 },
 	{ name = "green crystal shard", chance = 1730, maxCount = 4 },
-	{ name = "jade hammer", chance = 1510 },
 	-- { name = "necromantic core", chance = 900 },
 	{ name = "crystal mace", chance = 830 },
-	{ name = "crystalline armor", chance = 830 },
 	{ name = "green gem", chance = 150, minCount = 2, maxCount = 4 },
 }
 

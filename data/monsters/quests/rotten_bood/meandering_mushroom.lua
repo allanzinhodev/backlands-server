@@ -76,13 +76,11 @@ monster.loot = {
 -- { name = "lichen gobbler", chance = 9121, maxCount = 1 },
 	{ name = "white mushroom", chance = 12998, maxCount = 3 },
 	{ name = "rotten roots", chance = 9791, maxCount = 1 },
-	{ name = "wand of decay", chance = 14668, maxCount = 1 },
 	{ id = 3039, chance = 10406, maxCount = 1 }, -- red gem
 -- { name = "worm sponge", chance = 10697, maxCount = 1 },
 	{ name = "dark mushroom", chance = 12313, maxCount = 3 },
 	{ name = "yellow gem", chance = 13520, maxCount = 1 },
 	{ name = "brown mushroom", chance = 6422, maxCount = 3 },
-	{ name = "terra amulet", chance = 13122, maxCount = 1 },
 }
 
 monster.attacks = {

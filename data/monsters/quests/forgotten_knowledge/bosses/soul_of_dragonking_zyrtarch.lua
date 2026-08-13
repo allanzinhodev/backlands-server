@@ -78,13 +78,10 @@ monster.loot = {
 	{ id = 5882, chance = 5000 }, -- red dragon scale
 	{ id = 5889, chance = 500 }, -- piece of draconian steel
 	{ id = 9067, chance = 500 }, -- crystal of power
-	{ id = 11688, chance = 300 }, -- shield of corruption
 	{ id = 9057, chance = 3000, maxCount = 5 }, -- small topaz
 	{ id = 3032, chance = 3000, maxCount = 5 }, -- small emerald
 	{ id = 9058, chance = 500 }, -- gold ingot
-	{ id = 10391, chance = 100 }, -- drachaku
 	{ id = 3033, chance = 3000, maxCount = 5 }, -- small amethyst
-	{ id = 8021, chance = 500 }, -- modified crossbow
 	{ id = 3041, chance = 1000 }, -- blue gem
 	{ id = 7642, chance = 3000, maxCount = 3 }, -- great spirit potion
 	{ id = 3400, chance = 15, unique = true }, -- dragon scale helmet
@@ -100,11 +97,8 @@ monster.loot = {
 	{ id = 16119, chance = 3000, maxCount = 5 }, -- blue crystal shard
 	{ id = 281, chance = 500 }, -- giant shimmering pearl (green)
 	{ id = 7643, chance = 3000, maxCount = 3 }, -- ultimate health potion
-	{ id = 8074, chance = 500 }, -- spellbook of mind control
-	{ id = 11692, chance = 300, unique = true }, -- snake god's sceptre
 	{ id = 3035, chance = 90000, maxCount = 6 }, -- platinum coin
 	{ id = 3030, chance = 3000, maxCount = 5 }, -- small ruby
-	{ name = "zaoan monk robe", chance = 500 },
 }
 
 monster.attacks = {

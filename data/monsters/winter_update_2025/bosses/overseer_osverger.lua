@@ -95,23 +95,12 @@ monster.loot = {
 	-- { name = "stag parchment", chance = 14170 },
 	{ name = "blue gem", chance = 11670 },
 	{ name = "green gem", chance = 11670 },
-	{ id = 6299, chance = 10000 }, -- death ring
 	-- { name = "silver poniard", chance = 9170 },
-	{ name = "wand of cosmic energy", chance = 9170 },
 	{ name = "white gem", chance = 7500 },
-	{ id = 3059, chance = 6670 }, -- spellbook
 	{ name = "gold ingot", chance = 5000 },
 	{ name = "strange helmet", chance = 5000 },
-	{ name = "wand of starstorm", chance = 5000 },
-	{ name = "terra hood", chance = 4170 },
 	{ name = "clerical mace", chance = 3330 },
-	{ name = "wooden spellbook", chance = 3330 }, -- Not confirmed
-	{ name = "magma monocle", chance = 2500 },
 	{ name = "violet gem", chance = 2500 },
-	{ name = "terra helmet", chance = 2000 }, -- Not confirmed
-	{ name = "lightning robe", chance = 1670 },
-	{ name = "magma amulet", chance = 1670 }, -- Not confirmed
-	{ name = "shockwave amulet", chance = 1670 },
 }
 
 monster.attacks = {

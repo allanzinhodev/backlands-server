@@ -66,8 +66,6 @@ monster.voices = {
 }
 
 monster.loot = {
-	{ id = 6299, chance = 100000 }, -- death ring
-	{ id = 7430, chance = 100000 }, -- dragonbone staff
 	{ id = 3031, chance = 100000, maxCount = 100 }, -- gold coin
 	{ id = 2903, chance = 100000 }, -- golden mug
 	{ id = 3035, chance = 100000, maxCount = 10 }, -- platinum coin
@@ -78,7 +76,6 @@ monster.loot = {
 	{ id = 3385, chance = 40000 }, -- crown helmet
 	{ id = 7642, chance = 37000, maxCount = 3 }, -- great spirit potion
 	{ id = 5925, chance = 37000, maxCount = 5 }, -- hardened bone
-	{ id = 10451, chance = 37000 }, -- jade hat
 	{ id = 239, chance = 35000, maxCount = 4 }, -- great health potion
 	{ id = 8896, chance = 35000 }, -- slightly rusted armor
 	{ id = 3032, chance = 33000, maxCount = 5 }, -- small emerald
@@ -86,8 +83,6 @@ monster.loot = {
 	{ id = 238, chance = 25000, maxCount = 3 }, -- great mana potion
 	{ id = 3360, chance = 13500 }, -- golden armor
 	{ id = 12304, chance = 6780 }, -- maxilla maximus
-	{ id = 5741, chance = 5000 }, -- skull helmet
-	{ id = 8057, chance = 3390 }, -- divine plate
 	{ id = 3392, chance = 1690 }, -- royal helmet
 }
 

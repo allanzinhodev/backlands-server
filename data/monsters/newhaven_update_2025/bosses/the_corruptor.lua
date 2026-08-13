@@ -86,7 +86,6 @@ monster.loot = {
 	{ id = 3359, chance = 4760 }, -- brass armor (4.76%)
 	{ id = 8820, chance = 4760 }, -- magician's robe (4.76%)
 	{ id = 3375, chance = 4760 }, -- soldier helmet (4.76%)
-	{ id = 3074, chance = 4760 }, -- wand of vortex (4.76%)
 	{ id = 3723, chance = 4760, maxCount = 2 }, -- white mushroom (4.76%)
 	{ id = 44773, chance = 4760 }, -- refined bow (4.76%)
 }

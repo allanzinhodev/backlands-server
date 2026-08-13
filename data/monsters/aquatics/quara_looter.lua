@@ -81,15 +81,10 @@ monster.loot = {
 	{ name = "resinous fish fin", chance = 6630 },
 	{ id = 3039, chance = 5290 }, -- red gem
 	{ name = "blue gem", chance = 2480 },
-	{ name = "glacier kilt", chance = 800 },
-	{ name = "necklace of the deep", chance = 670 },
-	{ name = "rift lance", chance = 400 },
 	{ name = "mantassin tail", chance = 330 },
-	{ name = "crystal crossbow", chance = 330 },
 	{ name = "preserved light blue seed", chance = 70 },
 	{ name = "preserved violet seed", chance = 70 },
 	{ name = "platinum coin", chance = 10000, maxCount = 25 },
-	{ name = "glacier robe", chance = 800 },
 	{ name = "preserved purple seed", chance = 70 },
 }
 

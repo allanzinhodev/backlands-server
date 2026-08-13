@@ -89,12 +89,7 @@ monster.loot = {
 	{ name = "capricious heart", chance = 7530 },
 	{ name = "violet gem", chance = 4710 },
 	{ name = "capricious robe", chance = 2350 },
-	{ id = 23529, chance = 1880 }, -- ring of blue plasma
-	{ name = "fur armor", chance = 1650 },
 	{ name = "wood cape", chance = 1410 },
-	{ id = 23542, chance = 1180 }, -- collar of blue plasma
-	{ name = "glacial rod", chance = 940 },
-	{ name = "ornate crossbow", chance = 940 },
 	{ name = "bag you desire", chance = 15 },
 }
 

@@ -83,9 +83,6 @@ monster.loot = {
 	{ name = "poison dagger", chance = 2250 },
 	{ name = "bone shield", chance = 1000 },
 	{ name = "cleaver", chance = 9750 },
-	{ name = "ripper lance", chance = 90 },
-	{ name = "hunting spear", chance = 2000 },
-	{ name = "tribal mask", chance = 500 },
 }
 
 monster.attacks = {

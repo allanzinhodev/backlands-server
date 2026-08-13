@@ -95,8 +95,6 @@ monster.loot = {
 	{ id = 3081, chance = 1500 }, -- stone skin amulet
 	{ id = 237, chance = 15000 }, -- strong mana potion
 	{ id = 24387, chance = 15000 }, -- tarnished rhino figurine
-	{ id = 3072, chance = 2000 }, -- wand of decay
-	{ id = 8094, chance = 800 }, -- wand of voodoo
 	{ id = 2901, chance = 2000 }, -- waterskin
 }
 

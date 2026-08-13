@@ -91,12 +91,9 @@ monster.loot = {
 	{ name = "small amethyst", chance = 6000, maxCount = 4 },
 	{ name = "scarab coin", chance = 8000, maxCount = 2 },
 	{ id = 3046, chance = 11480 }, -- magic light wand
-	{ name = "daramian waraxe", chance = 300 },
 	{ name = "plate armor", chance = 5000 },
 	{ name = "scarab shield", chance = 480 },
 	{ name = "strong health potion", chance = 1500 },
-	{ name = "springsprout rod", chance = 1000 },
-	{ name = "terra hood", chance = 490 },
 	{ name = "scarab pincers", chance = 7000 },
 }
 

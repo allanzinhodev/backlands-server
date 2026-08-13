@@ -86,7 +86,6 @@ monster.loot = {
 	{ id = 3041, chance = 6790 },
 	{ name = "Mega Dragon Heart", chance = 1850 },
 	{ name = "Violet Gem", chance = 1470 },
-	{ name = "Dragon Slayer", chance = 130 },
 }
 
 monster.attacks = {

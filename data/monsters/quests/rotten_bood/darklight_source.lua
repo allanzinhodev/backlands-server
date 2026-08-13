@@ -78,7 +78,6 @@ monster.loot = {
 	{ name = "darklight core", chance = 7570, maxCount = 1 },
 	{ name = "small sapphire", chance = 5644, maxCount = 2 },
 	{ name = "blue gem", chance = 12909, maxCount = 1 },
-	{ name = "twiceslicer", chance = 11596, maxCount = 1 },
 	{ name = "white gem", chance = 13964, maxCount = 1 },
 }
 

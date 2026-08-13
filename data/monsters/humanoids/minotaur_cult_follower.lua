@@ -93,9 +93,7 @@ monster.loot = {
 	{ name = "red piece of cloth", chance = 810 },
 	{ name = "ham", chance = 59410 },
 	{ name = "bronze amulet", chance = 15140 },
-	{ name = "mino shield", chance = 12670 },
 	{ id = 3098, chance = 3190 }, -- ring of healing
-	{ name = "mino lance", chance = 1810 },
 	{ name = "warrior helmet", chance = 570 },
 	{ id = 3039, chance = 170 }, -- red gem
 	{ name = "meat", chance = 8020 },

@@ -86,12 +86,7 @@ monster.loot = {
 	{ id = 23520, chance = 10000 }, -- plasmatic lightning
 	{ id = 3038, chance = 10000 }, -- green gem
 	{ id = 22721, chance = 99460, maxCount = 23 }, -- gold token
-	{ id = 7426, chance = 10000 }, -- amber staff
-	{ id = 828, chance = 8000 }, -- lightning headband
-	{ id = 23533, chance = 8000 }, -- ring of red plasma
 	{ id = 3036, chance = 8000 }, -- violet gem
-	{ id = 23474, chance = 6000, unique = true }, -- tiara of power
-	{ id = 23477, chance = 6000, unique = true }, -- void boots
 	{ id = 23686, chance = 4000, unique = true }, -- devourer core
 	{ id = 23684, chance = 2000, unique = true }, -- crackling egg
 }

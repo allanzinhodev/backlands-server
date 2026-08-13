@@ -89,7 +89,6 @@ monster.loot = {
 	{ id = 48116, chance = 4590, maxCount = 2 }, -- gummy rotworm
 	{ id = 3593, chance = 1550 }, -- melon
 	{ id = 8012, chance = 1240, maxCount = 2 }, -- raspberry
-	{ name = "assassin dagger", chance = 400 },
 	{ name = "red crystal fragment", chance = 3400 },
 	{ name = "frazzle tongue", chance = 10430 },
 	{ name = "frazzle skin", chance = 7700 },

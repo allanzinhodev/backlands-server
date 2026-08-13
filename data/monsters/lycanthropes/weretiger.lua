@@ -77,15 +77,12 @@ monster.loot = {
 	{ name = "gold coin", chance = 100000, maxCount = 100 },
 	{ name = "platinum coin", chance = 100000, maxCount = 13 },
 	{ name = "weretiger tooth", chance = 10800 },
-	{ name = "furry club", chance = 6230 },
 	{ name = "meat", chance = 5500, maxCount = 4 },
 	{ name = "violet crystal shard", chance = 3370 },
 	{ name = "moonlight crystals", chance = 2550 },
 	{ id = 3041, chance = 1200 }, -- blue gem
 	{ name = "knight armor", chance = 3000 },
-	{ name = "angelic axe", chance = 1430 },
 	{ name = "gemmed figurine", chance = 1770 },
-	{ id = 817, chance = 1770 }, -- magma amulet
 	{ name = "silver moon coin", chance = 510 },
 	{ id = 43915, chance = 610 }, -- weretiger trophy
 }

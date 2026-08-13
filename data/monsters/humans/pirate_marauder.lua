@@ -85,7 +85,6 @@ monster.loot = {
 	{ id = 5090, chance = 910 }, -- treasure map
 	{ name = "rum flask", chance = 110 },
 	{ id = 5792, chance = 90 }, -- die
-	{ name = "bandana", chance = 880 },
 	{ name = "pirate bag", chance = 430 },
 	{ name = "empty goldfish bowl", chance = 80 },
 	{ name = "hook", chance = 520 },

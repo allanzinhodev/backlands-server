@@ -48,11 +48,8 @@ monster.loot = {
 	{ name = "small sapphire", chance = 1600, maxCount = 2 },
 	{ name = "paper boat", chance = 2000 }, -- new item
 	{ name = "star ink", chance = 1400 }, -- new item
-	{ name = "hailstorm rod", chance = 1000 },
 	{ name = "grapes", chance = 800 },
 	{ name = "blue crystal splinter", chance = 600 },
-	{ name = "glacier amulet", chance = 600 },
-	{ name = "glacier shoes", chance = 600 },
 	{ name = "blue crystal shard", chance = 600 },
 	{ name = "etcher", chance = 600 },
 	{ name = "blue gem", chance = 400 },

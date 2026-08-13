@@ -1,0 +1,7177 @@
+[
+  {
+    "file": "aquatics\\deathling_scout.lua",
+    "removed": [
+      "heavy trident",
+      "warrior's axe",
+      "warrior's shield",
+      "necklace of the deep"
+    ]
+  },
+  {
+    "file": "aquatics\\deathling_spellsinger.lua",
+    "removed": [
+      "warrior's shield",
+      "heavy trident",
+      "warrior's axe",
+      "necklace of the deep"
+    ]
+  },
+  {
+    "file": "aquatics\\deepling_brawler.lua",
+    "removed": [
+      "heavy trident"
+    ]
+  },
+  {
+    "file": "aquatics\\deepling_elite.lua",
+    "removed": [
+      "heavy trident",
+      "warrior's shield",
+      "warrior's axe"
+    ]
+  },
+  {
+    "file": "aquatics\\deepling_guard.lua",
+    "removed": [
+      "heavy trident",
+      "guardian axe",
+      "deepling squelcher",
+      "ornate crossbow"
+    ]
+  },
+  {
+    "file": "aquatics\\deepling_master_librarian.lua",
+    "removed": [
+      "deepling staff",
+      "necklace of the deep",
+      "ornate crossbow"
+    ]
+  },
+  {
+    "file": "aquatics\\deepling_scout.lua",
+    "removed": [
+      "hunting spear",
+      "heavy trident"
+    ]
+  },
+  {
+    "file": "aquatics\\deepling_spellsinger.lua",
+    "removed": [
+      "deepling staff",
+      "necklace of the deep",
+      "ornate crossbow"
+    ]
+  },
+  {
+    "file": "aquatics\\deepling_tyrant.lua",
+    "removed": [
+      "heavy trident",
+      "deepling squelcher",
+      "guardian axe",
+      "ornate crossbow"
+    ]
+  },
+  {
+    "file": "aquatics\\deepling_warrior.lua",
+    "removed": [
+      "heavy trident",
+      "warrior's shield",
+      "warrior's axe"
+    ]
+  },
+  {
+    "file": "aquatics\\deepling_worker.lua",
+    "removed": [
+      "heavy trident"
+    ]
+  },
+  {
+    "file": "aquatics\\quara_hydromancer.lua",
+    "removed": [
+      "wand of cosmic energy"
+    ]
+  },
+  {
+    "file": "aquatics\\quara_hydromancer_scout.lua",
+    "removed": [
+      "wand of cosmic energy"
+    ]
+  },
+  {
+    "file": "aquatics\\quara_looter.lua",
+    "removed": [
+      "glacier kilt",
+      "necklace of the deep",
+      "rift lance",
+      "crystal crossbow",
+      "glacier robe"
+    ]
+  },
+  {
+    "file": "aquatics\\quara_pincher.lua",
+    "removed": [
+      "glacier robe"
+    ]
+  },
+  {
+    "file": "aquatics\\quara_plunderer.lua",
+    "removed": [
+      "haunted blade",
+      "spellbook of mind control",
+      "demonrage sword"
+    ]
+  },
+  {
+    "file": "aquatics\\quara_predator.lua",
+    "removed": [
+      "royal spear",
+      "relic sword",
+      "assassin star",
+      "glacier robe",
+      "skull helmet"
+    ]
+  },
+  {
+    "file": "aquatics\\quara_predator_scout.lua",
+    "removed": [
+      "northwind rod"
+    ]
+  },
+  {
+    "file": "aquatics\\quara_raider.lua",
+    "removed": [
+      "glacier robe",
+      "crystalline armor",
+      "abyss hammer"
+    ]
+  },
+  {
+    "file": "aquatics\\renegade_quara_constrictor.lua",
+    "removed": [
+      "assassin star",
+      "northwind rod"
+    ]
+  },
+  {
+    "file": "aquatics\\renegade_quara_hydromancer.lua",
+    "removed": [
+      "spirit cloak",
+      "wand of cosmic energy"
+    ]
+  },
+  {
+    "file": "aquatics\\renegade_quara_pincher.lua",
+    "removed": [
+      "glacier robe",
+      "twiceslicer"
+    ]
+  },
+  {
+    "file": "aquatics\\renegade_quara_predator.lua",
+    "removed": [
+      "royal spear",
+      "assassin star",
+      "relic sword",
+      "skull helmet",
+      "glacier robe",
+      "abyss hammer",
+      "frozen plate"
+    ]
+  },
+  {
+    "file": "birds\\headpecker.lua",
+    "removed": [
+      "Furry Club",
+      "Titan Axe",
+      "Wand of Starstorm"
+    ]
+  },
+  {
+    "file": "birds\\jungle_moa.lua",
+    "removed": [
+      "Spellbook of Enlightenment"
+    ]
+  },
+  {
+    "file": "birds\\terror_bird.lua",
+    "removed": [
+      "feather headdress"
+    ]
+  },
+  {
+    "file": "bosses\\ahau.lua",
+    "removed": [
+      "ring of red plasma",
+      "ring of green plasma",
+      "ring of blue plasma",
+      "collar of red plasma",
+      "collar of blue plasma",
+      "collar of green plasma",
+      "broken macuahuitl",
+      "broken iks faulds",
+      "broken iks cuirass"
+    ]
+  },
+  {
+    "file": "bosses\\bazir.lua",
+    "removed": [
+      "moonlight rod",
+      "snakebite rod",
+      "wand of decay",
+      "necrotic rod"
+    ]
+  },
+  {
+    "file": "bosses\\bibby_bloodbath.lua",
+    "removed": [
+      "magma amulet",
+      "butcher's axe"
+    ]
+  },
+  {
+    "file": "bosses\\black_knight.lua",
+    "removed": [
+      "lightning legs"
+    ]
+  },
+  {
+    "file": "bosses\\boreth.lua",
+    "removed": [
+      "Dreaded Cleaver",
+      "Hibiscus Dress"
+    ]
+  },
+  {
+    "file": "bosses\\brain_head.lua",
+    "removed": [
+      "enchanted ring of souls",
+      "phantasmal axe",
+      "pair of old bracers",
+      "spooky hood"
+    ]
+  },
+  {
+    "file": "bosses\\bullwark.lua",
+    "removed": [
+      "mooh'tah plate",
+      "one hit wonder",
+      "moohtant cudgel"
+    ]
+  },
+  {
+    "file": "bosses\\cublarc_the_plunderer.lua",
+    "removed": [
+      "silkweaver bow"
+    ]
+  },
+  {
+    "file": "bosses\\custodian.lua",
+    "removed": [
+      "ring of red plasma",
+      "cobra axe"
+    ]
+  },
+  {
+    "file": "bosses\\dharalion.lua",
+    "removed": [
+      "royal spear"
+    ]
+  },
+  {
+    "file": "bosses\\diblis_the_fair.lua",
+    "removed": [
+      "spellbook of lost souls"
+    ]
+  },
+  {
+    "file": "bosses\\ekatrix.lua",
+    "removed": [
+      "necrotic rod"
+    ]
+  },
+  {
+    "file": "bosses\\freegoiz.lua",
+    "removed": [
+      "moonlight rod",
+      "snakebite rod",
+      "necrotic rod",
+      "wand of decay"
+    ]
+  },
+  {
+    "file": "bosses\\gaffir.lua",
+    "removed": [
+      "terra rod",
+      "springsprout rod",
+      "spellbook of warding",
+      "cobra wand",
+      "cobra rod"
+    ]
+  },
+  {
+    "file": "bosses\\general_murius.lua",
+    "removed": [
+      "wand of cosmic energy"
+    ]
+  },
+  {
+    "file": "bosses\\gorga.lua",
+    "removed": [
+      "sacred tree amulet",
+      "terra amulet",
+      "terra mantle",
+      "titan axe"
+    ]
+  },
+  {
+    "file": "bosses\\grandfather_tridian.lua",
+    "removed": [
+      "wand of inferno",
+      "amber staff"
+    ]
+  },
+  {
+    "file": "bosses\\gravelord_oshuran.lua",
+    "removed": [
+      "lightning boots",
+      "spellscroll of prophecies",
+      "spellbook"
+    ]
+  },
+  {
+    "file": "bosses\\groam.lua",
+    "removed": [
+      "hunting spear"
+    ]
+  },
+  {
+    "file": "bosses\\guard_captain_quaid.lua",
+    "removed": [
+      "terra hood",
+      "hunting spear",
+      "sacred tree amulet",
+      "magma monocle",
+      "crystal crossbow",
+      "skull helmet",
+      "ring of blue plasma",
+      "cobra boots",
+      "cobra hood",
+      "cobra crossbow"
+    ]
+  },
+  {
+    "file": "bosses\\heoni.lua",
+    "removed": [
+      "Ferumbras' hat"
+    ]
+  },
+  {
+    "file": "bosses\\high_templar_cobrass.lua",
+    "removed": [
+      "salamander shield"
+    ]
+  },
+  {
+    "file": "bosses\\infernatil.lua",
+    "removed": [
+      "moonlight rod",
+      "snakebite rod",
+      "necrotic rod",
+      "wand of decay"
+    ]
+  },
+  {
+    "file": "bosses\\kroazur.lua",
+    "removed": [
+      "assassin star",
+      "nightmare blade"
+    ]
+  },
+  {
+    "file": "bosses\\kusuma.lua",
+    "removed": [
+      "hailstorm rod",
+      "death ring",
+      "assassin star",
+      "terra mantle",
+      "terra legs"
+    ]
+  },
+  {
+    "file": "bosses\\lersatio.lua",
+    "removed": [
+      "Dreaded Cleaver"
+    ]
+  },
+  {
+    "file": "bosses\\lisa.lua",
+    "removed": [
+      "glooth club",
+      "glooth spear",
+      "glooth whip",
+      "glooth amulet",
+      "glooth axe",
+      "glooth blade",
+      "glooth cape"
+    ]
+  },
+  {
+    "file": "bosses\\mad_mage.lua",
+    "removed": [
+      "assassin star",
+      "mage's cap",
+      "spellbook of warding"
+    ]
+  },
+  {
+    "file": "bosses\\maw.lua",
+    "removed": [
+      "Calopteryx Cape",
+      "Hive Bow"
+    ]
+  },
+  {
+    "file": "bosses\\mindmasher.lua",
+    "removed": [
+      "Ripper Lance",
+      "Twin Hooks",
+      "Epee",
+      "Carapace Shield",
+      "Grasshopper Legs"
+    ]
+  },
+  {
+    "file": "bosses\\mitmah_vanguard.lua",
+    "removed": [
+      "stoic iks boots",
+      "stoic iks faulds",
+      "stoic iks casque",
+      "stoic iks cuirass",
+      "stoic iks chestplate",
+      "stoic iks sandals",
+      "stoic iks headpiece",
+      "stoic iks culet",
+      "iks footwraps"
+    ]
+  },
+  {
+    "file": "bosses\\morbol.lua",
+    "removed": [
+      "jungle flail",
+      "jungle bow",
+      "jungle rod",
+      "jungle wand",
+      "jungle quiver",
+      "cobra crossbow",
+      "cobra club",
+      "cobra axe",
+      "cobra sword",
+      "cobra wand",
+      "cobra rod"
+    ]
+  },
+  {
+    "file": "bosses\\morshabaal.lua",
+    "removed": [
+      "Morshabaal's mask",
+      "green demon armor",
+      "green demon helmet",
+      "green demon legs",
+      "green demon slippers"
+    ]
+  },
+  {
+    "file": "bosses\\owin.lua",
+    "removed": [
+      "Furry Club",
+      "Wereboar Loincloth",
+      "Fur Armor",
+      "Werewolf Amulet"
+    ]
+  },
+  {
+    "file": "bosses\\raging_mage.lua",
+    "removed": [
+      "focus cape",
+      "assassin star",
+      "skull helmet",
+      "spellbook of mind control"
+    ]
+  },
+  {
+    "file": "bosses\\renegade_orc.lua",
+    "removed": [
+      "royal spear"
+    ]
+  },
+  {
+    "file": "bosses\\rotspit.lua",
+    "removed": [
+      "Crystal Sword"
+    ]
+  },
+  {
+    "file": "bosses\\rukor_zad.lua",
+    "removed": [
+      "viper star"
+    ]
+  },
+  {
+    "file": "bosses\\shadowstalker.lua",
+    "removed": [
+      "Springsprout Rod"
+    ]
+  },
+  {
+    "file": "bosses\\sugar_daddy.lua",
+    "removed": [
+      "biscuit barrier",
+      "candy-coated quiver",
+      "cocoa grimoire",
+      "creamy grimoire",
+      "candy necklace",
+      "ring of temptation",
+      "ring of temptation"
+    ]
+  },
+  {
+    "file": "bosses\\sugar_mommy.lua",
+    "removed": [
+      "biscuit barrier",
+      "candy-coated quiver",
+      "cocoa grimoire",
+      "creamy grimoire",
+      "candy necklace",
+      "ring of temptation",
+      "ring of temptation"
+    ]
+  },
+  {
+    "file": "bosses\\the_blightfather.lua",
+    "removed": [
+      "beetle necklace"
+    ]
+  },
+  {
+    "file": "bosses\\the_brainstealer.lua",
+    "removed": [
+      "eldritch breeches",
+      "eldritch cowl",
+      "eldritch hood",
+      "eldritch bow",
+      "eldritch quiver",
+      "eldritch claymore",
+      "eldritch greataxe",
+      "eldritch warmace",
+      "eldritch shield",
+      "eldritch cuirass",
+      "eldritch folio",
+      "eldritch tome",
+      "eldritch rod",
+      "eldritch wand",
+      "gilded eldritch claymore",
+      "gilded eldritch greataxe",
+      "gilded eldritch warmace",
+      "gilded eldritch wand",
+      "gilded eldritch rod",
+      "gilded eldritch bow",
+      "eldritch crescent moon spade",
+      "eldritch monk boots"
+    ]
+  },
+  {
+    "file": "bosses\\the_evil_eye.lua",
+    "removed": [
+      "bonelord shield",
+      "bonelord helmet"
+    ]
+  },
+  {
+    "file": "bosses\\the_flaming_orchid.lua",
+    "removed": [
+      "assassin star",
+      "magma coat",
+      "moonlight rod",
+      "necrotic rod",
+      "oriental shoes"
+    ]
+  },
+  {
+    "file": "bosses\\the_monster.lua",
+    "removed": [
+      "alchemist's notepad",
+      "antler-horn helmet",
+      "mutant bone kilt",
+      "mutated skin armor",
+      "mutated skin legs",
+      "stitched mutant hide legs",
+      "alchemist's boots",
+      "mutant bone boots"
+    ]
+  },
+  {
+    "file": "bosses\\the_rootkraken.lua",
+    "removed": [
+      "amber axe",
+      "amber greataxe",
+      "amber slayer",
+      "amber sabre",
+      "amber cudgel",
+      "amber bludgeon",
+      "amber bow",
+      "amber crossbow",
+      "amber wand",
+      "amber rod",
+      "amber kusarigama",
+      "collar of orange plasma"
+    ]
+  },
+  {
+    "file": "bosses\\verminor.lua",
+    "removed": [
+      "moonlight rod",
+      "snakebite rod",
+      "necrotic rod",
+      "wand of decay"
+    ]
+  },
+  {
+    "file": "bosses\\visco.lua",
+    "removed": [
+      "dragon scale boots",
+      "viper star",
+      "earthborn titan armor",
+      "paladin armor"
+    ]
+  },
+  {
+    "file": "bosses\\warlord_ruzad.lua",
+    "removed": [
+      "hunting spear",
+      "magma boots"
+    ]
+  },
+  {
+    "file": "bosses\\weakened_shlorg.lua",
+    "removed": [
+      "goo shell",
+      "belted cape",
+      "springsprout rod",
+      "paladin armor"
+    ]
+  },
+  {
+    "file": "bosses\\yaga_the_crone.lua",
+    "removed": [
+      "spellbook of mind control",
+      "necrotic rod"
+    ]
+  },
+  {
+    "file": "bosses\\zarabustor.lua",
+    "removed": [
+      "assassin star",
+      "lightning robe"
+    ]
+  },
+  {
+    "file": "bosses\\zavarash.lua",
+    "removed": [
+      "bonebreaker",
+      "paladin armor",
+      "diamond sceptre",
+      "demonbone",
+      "lavos armor",
+      "obsidian truncheon"
+    ]
+  },
+  {
+    "file": "bosses\\zushuka.lua",
+    "removed": [
+      "crystal sword",
+      "glacier shoes",
+      "glacier amulet",
+      "glacier kilt",
+      "glacier robe",
+      "pair of earmuffs",
+      "glacier mask",
+      "icy culottes",
+      "queen's sceptre"
+    ]
+  },
+  {
+    "file": "constructs\\animated_snowman.lua",
+    "removed": [
+      "glacier mask",
+      "hailstorm rod",
+      "glacier mask",
+      "glacier amulet",
+      "moonlight rod",
+      "glacier kilt"
+    ]
+  },
+  {
+    "file": "constructs\\diamond_servant.lua",
+    "removed": [
+      "wand of cosmic energy",
+      "bonebreaker",
+      "lightning pendant",
+      "crystalline armor",
+      "shockwave amulet"
+    ]
+  },
+  {
+    "file": "constructs\\diamond_servant_replica.lua",
+    "removed": [
+      "lightning pendant",
+      "wand of cosmic energy",
+      "shockwave amulet",
+      "crystalline armor",
+      "bonebreaker"
+    ]
+  },
+  {
+    "file": "constructs\\enraged_crystal_golem.lua",
+    "removed": [
+      "crystal sword",
+      "glorious axe"
+    ]
+  },
+  {
+    "file": "constructs\\eternal_guardian.lua",
+    "removed": [
+      "zaoan sword",
+      "zaoan halberd"
+    ]
+  },
+  {
+    "file": "constructs\\glooth_golem.lua",
+    "removed": [
+      "glooth amulet",
+      "gearwheel chain",
+      "rubber cap",
+      "heat core",
+      "glooth blade",
+      "glooth club",
+      "glooth axe"
+    ]
+  },
+  {
+    "file": "constructs\\goggle_cake.lua",
+    "removed": [
+      "spirit cloak",
+      "glacier amulet",
+      "glacier robe",
+      "epee"
+    ]
+  },
+  {
+    "file": "constructs\\golden_servant.lua",
+    "removed": [
+      "spellbook of enlightenment"
+    ]
+  },
+  {
+    "file": "constructs\\golden_servant_replica.lua",
+    "removed": [
+      "spellbook of enlightenment"
+    ]
+  },
+  {
+    "file": "constructs\\ice_golem.lua",
+    "removed": [
+      "crystal sword",
+      "glacier mask"
+    ]
+  },
+  {
+    "file": "constructs\\lava_golem.lua",
+    "removed": [
+      "wand of inferno",
+      "magma amulet",
+      "magma boots",
+      "magma coat",
+      "spellbook of mind control",
+      "wand of everblazing"
+    ]
+  },
+  {
+    "file": "constructs\\magma_crawler.lua",
+    "removed": [
+      "magma amulet",
+      "magma boots",
+      "wand of draconia",
+      "wand of everblazing"
+    ]
+  },
+  {
+    "file": "constructs\\metal_gargoyle.lua",
+    "removed": [
+      "metal bat",
+      "underworld rod",
+      "metal spats",
+      "alloy legs"
+    ]
+  },
+  {
+    "file": "constructs\\orewalker.lua",
+    "removed": [
+      "titan axe",
+      "glorious axe",
+      "crystalline armor",
+      "wand of defiance",
+      "crystal crossbow"
+    ]
+  },
+  {
+    "file": "constructs\\rustheap_golem.lua",
+    "removed": [
+      "spiked squelcher",
+      "metal bat",
+      "gearwheel chain"
+    ]
+  },
+  {
+    "file": "constructs\\sandstone_scorpion.lua",
+    "removed": [
+      "daramian mace"
+    ]
+  },
+  {
+    "file": "constructs\\shrieking_cry-stal.lua",
+    "removed": [
+      "Terra Boots"
+    ]
+  },
+  {
+    "file": "constructs\\stone_devourer.lua",
+    "removed": [
+      "sapphire hammer",
+      "spiked squelcher",
+      "glorious axe"
+    ]
+  },
+  {
+    "file": "constructs\\walker.lua",
+    "removed": [
+      "gearwheel chain",
+      "metal spats"
+    ]
+  },
+  {
+    "file": "constructs\\war_golem.lua",
+    "removed": [
+      "epee",
+      "lightning boots",
+      "berserker",
+      "jade hammer",
+      "bonebreaker"
+    ]
+  },
+  {
+    "file": "constructs\\weeper.lua",
+    "removed": [
+      "magma legs",
+      "magma coat",
+      "wand of everblazing"
+    ]
+  },
+  {
+    "file": "constructs\\worker_golem.lua",
+    "removed": [
+      "bonebreaker",
+      "spiked squelcher"
+    ]
+  },
+  {
+    "file": "dawnport\\dawnfly.lua",
+    "removed": [
+      "simple jo staff"
+    ]
+  },
+  {
+    "file": "demons\\askarak_demon.lua",
+    "removed": [
+      "assassin star",
+      "terra legs",
+      "springsprout rod"
+    ]
+  },
+  {
+    "file": "demons\\askarak_lord.lua",
+    "removed": [
+      "assassin star",
+      "dreaded cleaver",
+      "terra mantle",
+      "springsprout rod"
+    ]
+  },
+  {
+    "file": "demons\\askarak_prince.lua",
+    "removed": [
+      "terra mantle",
+      "springsprout rod"
+    ]
+  },
+  {
+    "file": "demons\\broodrider_inferniarch.lua",
+    "removed": [
+      "Magma Legs",
+      "Arbalest"
+    ]
+  },
+  {
+    "file": "demons\\dark_torturer.lua",
+    "removed": [
+      "death ring",
+      "assassin star",
+      "vile axe",
+      "butcher's axe"
+    ]
+  },
+  {
+    "file": "demons\\dawnfire_asura.lua",
+    "removed": [
+      "death ring",
+      "focus cape",
+      "magma coat",
+      "oriental shoes",
+      "spellbook of mind control",
+      "wand of inferno"
+    ]
+  },
+  {
+    "file": "demons\\demon.lua",
+    "removed": [
+      "assassin star",
+      "demonrage sword"
+    ]
+  },
+  {
+    "file": "demons\\demon_outcast.lua",
+    "removed": [
+      "assassin star",
+      "demonrage sword"
+    ]
+  },
+  {
+    "file": "demons\\destroyer.lua",
+    "removed": [
+      "skull helmet",
+      "death ring",
+      "dreaded cleaver",
+      "chaos mace"
+    ]
+  },
+  {
+    "file": "demons\\diabolic_imp.lua",
+    "removed": [
+      "necrotic rod",
+      "death ring",
+      "magma coat",
+      "magma monocle"
+    ]
+  },
+  {
+    "file": "demons\\fire_devil.lua",
+    "removed": [
+      "necrotic rod"
+    ]
+  },
+  {
+    "file": "demons\\frost_flower_asura.lua",
+    "removed": [
+      "assassin star",
+      "assassin dagger",
+      "oriental shoes",
+      "skullcracker armor",
+      "spellbook of mind control",
+      "tribal mask",
+      "hailstorm rod",
+      "northwind rod"
+    ]
+  },
+  {
+    "file": "demons\\fury.lua",
+    "removed": [
+      "terra rod",
+      "death ring",
+      "assassin dagger",
+      "noble axe"
+    ]
+  },
+  {
+    "file": "demons\\gorger_inferniarch.lua",
+    "removed": [
+      "Spiked Squelcher",
+      "Spiked Squelcher"
+    ]
+  },
+  {
+    "file": "demons\\grimeleech.lua",
+    "removed": [
+      "underworld rod",
+      "wand of voodoo",
+      "magma legs",
+      "nightmare blade",
+      "rift crossbow",
+      "rift shield",
+      "rift lance",
+      "rift bow",
+      "abyss hammer",
+      "vile axe"
+    ]
+  },
+  {
+    "file": "demons\\hellfire_fighter.lua",
+    "removed": [
+      "wand of inferno",
+      "magma legs",
+      "magma coat"
+    ]
+  },
+  {
+    "file": "demons\\hellflayer.lua",
+    "removed": [
+      "magma boots",
+      "magma legs",
+      "rift bow",
+      "rift crossbow",
+      "skull helmet",
+      "rift lance",
+      "titan axe",
+      "spellbook of mind control"
+    ]
+  },
+  {
+    "file": "demons\\hellhound.lua",
+    "removed": [
+      "amber staff",
+      "assassin star",
+      "magma amulet",
+      "magma boots",
+      "magma coat",
+      "magma legs",
+      "magma monocle",
+      "onyx flail",
+      "ruthless axe",
+      "wand of inferno"
+    ]
+  },
+  {
+    "file": "demons\\hellhunter_inferniarch.lua",
+    "removed": [
+      "Assassin Star",
+      "death ring"
+    ]
+  },
+  {
+    "file": "demons\\hellspawn.lua",
+    "removed": [
+      "assassin star",
+      "onyx flail",
+      "spiked squelcher"
+    ]
+  },
+  {
+    "file": "demons\\juggernaut.lua",
+    "removed": [
+      "assassin star",
+      "titan axe",
+      "spiked squelcher",
+      "skullcracker armor"
+    ]
+  },
+  {
+    "file": "demons\\midnight_asura.lua",
+    "removed": [
+      "assassin star",
+      "assassin dagger",
+      "necrotic rod",
+      "oriental shoes",
+      "skullcracker armor",
+      "spellbook of mind control",
+      "tribal mask",
+      "underworld rod"
+    ]
+  },
+  {
+    "file": "demons\\shaburak_demon.lua",
+    "removed": [
+      "wand of inferno",
+      "royal spear",
+      "magma legs"
+    ]
+  },
+  {
+    "file": "demons\\shaburak_lord.lua",
+    "removed": [
+      "wand of inferno",
+      "magma coat"
+    ]
+  },
+  {
+    "file": "demons\\shaburak_prince.lua",
+    "removed": [
+      "wand of inferno",
+      "butcher's axe",
+      "magma coat"
+    ]
+  },
+  {
+    "file": "demons\\sineater_inferniarch.lua",
+    "removed": [
+      "Wand of Defiance",
+      "Wooden Spellbook"
+    ]
+  },
+  {
+    "file": "demons\\spellreaper_inferniarch.lua",
+    "removed": [
+      "Assassin Star",
+      "death ring"
+    ]
+  },
+  {
+    "file": "demons\\true_dawnfire_asura.lua",
+    "removed": [
+      "royal star",
+      "death ring",
+      "focus cape",
+      "magma coat",
+      "oriental shoes",
+      "spellbook of mind control",
+      "wand of inferno"
+    ]
+  },
+  {
+    "file": "demons\\true_frost_flower_asura.lua",
+    "removed": [
+      "oriental shoes",
+      "spellbook of mind control",
+      "royal star",
+      "assassin star",
+      "tribal mask",
+      "northwind rod",
+      "assassin dagger",
+      "skullcracker armor",
+      "hailstorm rod"
+    ]
+  },
+  {
+    "file": "demons\\true_midnight_asura.lua",
+    "removed": [
+      "royal star",
+      "assassin star",
+      "assassin dagger",
+      "necrotic rod",
+      "oriental shoes",
+      "skullcracker armor",
+      "spellbook of mind control",
+      "tribal mask",
+      "underworld rod"
+    ]
+  },
+  {
+    "file": "demons\\vexclaw.lua",
+    "removed": [
+      "wand of voodoo",
+      "rift lance",
+      "rift crossbow",
+      "rift bow",
+      "rift shield",
+      "demonrage sword"
+    ]
+  },
+  {
+    "file": "dragons\\dragon.lua",
+    "removed": [
+      "wand of inferno",
+      "dragonbone staff"
+    ]
+  },
+  {
+    "file": "dragons\\dragon_lord.lua",
+    "removed": [
+      "royal spear",
+      "dragon slayer"
+    ]
+  },
+  {
+    "file": "dragons\\dragon_lord_hatchling.lua",
+    "removed": [
+      "magma boots"
+    ]
+  },
+  {
+    "file": "dragons\\draken_abomination.lua",
+    "removed": [
+      "terra hood",
+      "wand of voodoo",
+      "zaoan armor",
+      "zaoan helmet",
+      "zaoan legs",
+      "shield of corruption",
+      "draken boots",
+      "snake god's wristguard"
+    ]
+  },
+  {
+    "file": "dragons\\draken_elite.lua",
+    "removed": [
+      "zaoan legs",
+      "draken boots",
+      "assassin dagger",
+      "twiceslicer",
+      "zaoan armor",
+      "zaoan sword",
+      "zaoan helmet",
+      "elite draken mail",
+      "blade of corruption",
+      "snake god's wristguard",
+      "cobra crown"
+    ]
+  },
+  {
+    "file": "dragons\\draken_spellweaver.lua",
+    "removed": [
+      "zaoan shoes",
+      "wand of inferno",
+      "focus cape",
+      "spellweaver's robe",
+      "zaoan legs",
+      "zaoan robe"
+    ]
+  },
+  {
+    "file": "dragons\\draken_warmaster.lua",
+    "removed": [
+      "zaoan halberd",
+      "zaoan shoes",
+      "zaoan legs",
+      "zaoan armor",
+      "drakinata"
+    ]
+  },
+  {
+    "file": "dragons\\elder_wyrm.lua",
+    "removed": [
+      "wand of draconia",
+      "wand of starstorm",
+      "lightning pendant",
+      "lightning legs",
+      "lightning robe",
+      "dragonbone staff",
+      "composite hornbow",
+      "shadow sceptre",
+      "lightning boots",
+      "shockwave amulet",
+      "legs of wisdom"
+    ]
+  },
+  {
+    "file": "dragons\\frost_dragon.lua",
+    "removed": [
+      "dragon slayer"
+    ]
+  },
+  {
+    "file": "dragons\\frost_dragon_hatchling.lua",
+    "removed": [
+      "spellbook of enlightenment"
+    ]
+  },
+  {
+    "file": "dragons\\ghastly_dragon.lua",
+    "removed": [
+      "zaoan halberd",
+      "terra boots",
+      "twin hooks",
+      "terra legs",
+      "jade hat",
+      "zaoan armor",
+      "guardian boots",
+      "drakinata",
+      "spellweaver's robe",
+      "zaoan shoes",
+      "zaoan legs",
+      "zaoan helmet",
+      "zaoan sword"
+    ]
+  },
+  {
+    "file": "dragons\\mega_dragon.lua",
+    "removed": [
+      "Dragon Slayer"
+    ]
+  },
+  {
+    "file": "dragons\\war_dragon.lua",
+    "removed": [
+      "Dragonbone Staff"
+    ]
+  },
+  {
+    "file": "dragons\\wyrm.lua",
+    "removed": [
+      "focus cape",
+      "wand of starstorm",
+      "wand of draconia",
+      "composite hornbow",
+      "dragonbone staff",
+      "lightning pendant",
+      "shockwave amulet",
+      "hibiscus dress"
+    ]
+  },
+  {
+    "file": "elementals\\candy_floss_elemental.lua",
+    "removed": [
+      "springsprout rod"
+    ]
+  },
+  {
+    "file": "elementals\\cliff_strider.lua",
+    "removed": [
+      "sapphire hammer",
+      "spiked squelcher",
+      "wand of defiance",
+      "glacial rod",
+      "crystalline sword",
+      "crystal crossbow"
+    ]
+  },
+  {
+    "file": "elementals\\energy_elemental.lua",
+    "removed": [
+      "wand of cosmic energy",
+      "crystal sword"
+    ]
+  },
+  {
+    "file": "elementals\\foam_stalker.lua",
+    "removed": [
+      "glacier shoes",
+      "terra boots",
+      "mercenary sword",
+      "collar of orange plasma"
+    ]
+  },
+  {
+    "file": "elementals\\high_voltage_elemental.lua",
+    "removed": [
+      "crystal sword"
+    ]
+  },
+  {
+    "file": "elementals\\honey_elemental.lua",
+    "removed": [
+      "magma boots",
+      "magma legs",
+      "terra amulet"
+    ]
+  },
+  {
+    "file": "elementals\\ironblight.lua",
+    "removed": [
+      "epee",
+      "sapphire hammer",
+      "terra legs",
+      "composite hornbow",
+      "springsprout rod",
+      "jade hat",
+      "glacial rod"
+    ]
+  },
+  {
+    "file": "elementals\\knowledge_elemental.lua",
+    "removed": [
+      "crystal sword",
+      "wand of cosmic energy"
+    ]
+  },
+  {
+    "file": "elementals\\massive_earth_elemental.lua",
+    "removed": [
+      "diamond sceptre",
+      "terra amulet"
+    ]
+  },
+  {
+    "file": "elementals\\massive_energy_elemental.lua",
+    "removed": [
+      "lightning pendant",
+      "lightning legs",
+      "spellbook of warding",
+      "wand of starstorm",
+      "shockwave amulet"
+    ]
+  },
+  {
+    "file": "elementals\\massive_fire_elemental.lua",
+    "removed": [
+      "wand of inferno",
+      "magma amulet",
+      "magma boots",
+      "magma legs"
+    ]
+  },
+  {
+    "file": "elementals\\sulphur_spouter.lua",
+    "removed": [
+      "Warrior's Shield",
+      "ring of red plasma",
+      "Crystal Crossbow"
+    ]
+  },
+  {
+    "file": "event_creatures\\bones.lua",
+    "removed": [
+      "skull helmet",
+      "death ring",
+      "dragonbone staff"
+    ]
+  },
+  {
+    "file": "event_creatures\\memory_creatures\\memory_of_an_elf.lua",
+    "removed": [
+      "wand of cosmic energy"
+    ]
+  },
+  {
+    "file": "event_creatures\\memory_creatures\\memory_of_an_insectoid.lua",
+    "removed": [
+      "epee"
+    ]
+  },
+  {
+    "file": "event_creatures\\memory_creatures\\memory_of_an_ogre.lua",
+    "removed": [
+      "bonebreaker"
+    ]
+  },
+  {
+    "file": "event_creatures\\memory_creatures\\memory_of_a_golem.lua",
+    "removed": [
+      "heat core"
+    ]
+  },
+  {
+    "file": "event_creatures\\memory_creatures\\memory_of_a_lizard.lua",
+    "removed": [
+      "zaoan legs"
+    ]
+  },
+  {
+    "file": "event_creatures\\memory_creatures\\memory_of_a_mammoth.lua",
+    "removed": [
+      "tusk shield",
+      "mammoth whopper",
+      "furry club"
+    ]
+  },
+  {
+    "file": "event_creatures\\memory_creatures\\memory_of_a_pirate.lua",
+    "removed": [
+      "pirate shirt"
+    ]
+  },
+  {
+    "file": "extra_dimensional\\breach_brood.lua",
+    "removed": [
+      "collar of red plasma",
+      "collar of blue plasma",
+      "ring of orange plasma",
+      "collar of orange plasma"
+    ]
+  },
+  {
+    "file": "extra_dimensional\\dread_intruder.lua",
+    "removed": [
+      "ring of red plasma",
+      "collar of blue plasma",
+      "collar of green plasma",
+      "ring of blue plasma",
+      "ring of orange plasma",
+      "collar of orange plasma"
+    ]
+  },
+  {
+    "file": "extra_dimensional\\mitmah_scout.lua",
+    "removed": [
+      "ornate crossbow"
+    ]
+  },
+  {
+    "file": "extra_dimensional\\mitmah_seer.lua",
+    "removed": [
+      "wand of cosmic energy",
+      "wooden spellbook"
+    ]
+  },
+  {
+    "file": "extra_dimensional\\reality_reaver.lua",
+    "removed": [
+      "collar of green plasma",
+      "lightning headband",
+      "ring of blue plasma",
+      "collar of red plasma",
+      "ring of green plasma",
+      "ring of orange plasma",
+      "collar of orange plasma"
+    ]
+  },
+  {
+    "file": "extra_dimensional\\sparkion.lua",
+    "removed": [
+      "wand of cosmic energy",
+      "ring of green plasma",
+      "ring of red plasma",
+      "ring of blue plasma",
+      "collar of green plasma",
+      "collar of blue plasma",
+      "collar of red plasma",
+      "ring of orange plasma",
+      "collar of orange plasma"
+    ]
+  },
+  {
+    "file": "extra_dimensional\\stabilizing_reality_reaver.lua",
+    "removed": [
+      "wand of starstorm"
+    ]
+  },
+  {
+    "file": "extra_dimensional\\yielothax.lua",
+    "removed": [
+      "wand of cosmic energy",
+      "epee",
+      "lightning pendant",
+      "lightning legs",
+      "shockwave amulet",
+      "broken ring of ending"
+    ]
+  },
+  {
+    "file": "fey\\angry_sugar_fairy.lua",
+    "removed": [
+      "wand of cosmic energy",
+      "spellbook of enlightenment",
+      "butterfly ring",
+      "hibiscus dress"
+    ]
+  },
+  {
+    "file": "fey\\arctic_faun.lua",
+    "removed": [
+      "leaf star",
+      "leaf legs",
+      "wooden spellbook"
+    ]
+  },
+  {
+    "file": "fey\\boogy.lua",
+    "removed": [
+      "terra amulet",
+      "wooden spellbook",
+      "leaf star"
+    ]
+  },
+  {
+    "file": "fey\\dark_faun.lua",
+    "removed": [
+      "wooden spellbook",
+      "leaf legs",
+      "leaf legs",
+      "leaf star"
+    ]
+  },
+  {
+    "file": "fey\\faun.lua",
+    "removed": [
+      "leaf star",
+      "leaf legs",
+      "wooden spellbook"
+    ]
+  },
+  {
+    "file": "fey\\nymph.lua",
+    "removed": [
+      "flower wreath",
+      "hibiscus dress",
+      "sacred tree amulet",
+      "dream blossom staff",
+      "butterfly ring"
+    ]
+  },
+  {
+    "file": "fey\\pixie.lua",
+    "removed": [
+      "butterfly ring",
+      "wooden spellbook",
+      "dream blossom staff",
+      "leaf star"
+    ]
+  },
+  {
+    "file": "fey\\pooka.lua",
+    "removed": [
+      "dream blossom staff"
+    ]
+  },
+  {
+    "file": "fey\\swan_maiden.lua",
+    "removed": [
+      "diamond sceptre",
+      "flower wreath",
+      "summer dress",
+      "butterfly ring"
+    ]
+  },
+  {
+    "file": "giants\\behemoth.lua",
+    "removed": [
+      "assassin star",
+      "titan axe"
+    ]
+  },
+  {
+    "file": "giants\\cyclops_smith.lua",
+    "removed": [
+      "spiked squelcher"
+    ]
+  },
+  {
+    "file": "giants\\frost_giant.lua",
+    "removed": [
+      "norse shield"
+    ]
+  },
+  {
+    "file": "giants\\frost_giantess.lua",
+    "removed": [
+      "norse shield"
+    ]
+  },
+  {
+    "file": "giants\\hulking_prehemoth.lua",
+    "removed": [
+      "Furry Club"
+    ]
+  },
+  {
+    "file": "giants\\ogre_brute.lua",
+    "removed": [
+      "bonebreaker",
+      "ogre klubba",
+      "shamanic mask"
+    ]
+  },
+  {
+    "file": "giants\\ogre_rowdy.lua",
+    "removed": [
+      "wand of inferno",
+      "wand of draconia",
+      "wand of everblazing",
+      "ogre choppa"
+    ]
+  },
+  {
+    "file": "giants\\ogre_ruffian.lua",
+    "removed": [
+      "pair of iron fists",
+      "diamond sceptre",
+      "metal spats"
+    ]
+  },
+  {
+    "file": "giants\\ogre_sage.lua",
+    "removed": [
+      "terra boots",
+      "sacred tree amulet"
+    ]
+  },
+  {
+    "file": "giants\\ogre_savage.lua",
+    "removed": [
+      "shamanic mask"
+    ]
+  },
+  {
+    "file": "giants\\ogre_shaman.lua",
+    "removed": [
+      "necrotic rod",
+      "wand of decay",
+      "ogre scepta",
+      "shamanic mask"
+    ]
+  },
+  {
+    "file": "giants\\orclops_doomhauler.lua",
+    "removed": [
+      "spiked squelcher",
+      "pair of iron fists",
+      "beetle necklace"
+    ]
+  },
+  {
+    "file": "giants\\orclops_ravager.lua",
+    "removed": [
+      "spiked squelcher",
+      "pair of iron fists",
+      "dreaded cleaver"
+    ]
+  },
+  {
+    "file": "humanoids\\bulltaur_alchemist.lua",
+    "removed": [
+      "mino shield",
+      "alloy legs"
+    ]
+  },
+  {
+    "file": "humanoids\\bulltaur_brute.lua",
+    "removed": [
+      "mino shield"
+    ]
+  },
+  {
+    "file": "humanoids\\bulltaur_forgepriest.lua",
+    "removed": [
+      "mino shield",
+      "alloy legs",
+      "lightning robe",
+      "spellbook of mind control",
+      "wand of defiance"
+    ]
+  },
+  {
+    "file": "humanoids\\chakoya_toolshaper.lua",
+    "removed": [
+      "mammoth whopper"
+    ]
+  },
+  {
+    "file": "humanoids\\chakoya_tribewarden.lua",
+    "removed": [
+      "mammoth whopper"
+    ]
+  },
+  {
+    "file": "humanoids\\corym_charlatan.lua",
+    "removed": [
+      "spike shield",
+      "ratana",
+      "life preserver",
+      "leather harness"
+    ]
+  },
+  {
+    "file": "humanoids\\corym_skirmisher.lua",
+    "removed": [
+      "spike shield",
+      "ratana",
+      "life preserver",
+      "leather harness"
+    ]
+  },
+  {
+    "file": "humanoids\\corym_vanguard.lua",
+    "removed": [
+      "spike shield",
+      "ratana",
+      "life preserver",
+      "leather harness",
+      "spiky club"
+    ]
+  },
+  {
+    "file": "humanoids\\crazed_summer_rearguard.lua",
+    "removed": [
+      "leaf star",
+      "ring of blue plasma",
+      "collar of blue plasma",
+      "crystal crossbow"
+    ]
+  },
+  {
+    "file": "humanoids\\crazed_summer_vanguard.lua",
+    "removed": [
+      "belted cape",
+      "magma amulet",
+      "wand of dragonbreath",
+      "wand of draconia",
+      "magma boots"
+    ]
+  },
+  {
+    "file": "humanoids\\crazed_winter_rearguard.lua",
+    "removed": [
+      "glacier mask",
+      "moonlight rod",
+      "northwind rod",
+      "glacier amulet",
+      "hailstorm rod",
+      "glacier robe"
+    ]
+  },
+  {
+    "file": "humanoids\\crazed_winter_vanguard.lua",
+    "removed": [
+      "northwind rod",
+      "glacier amulet",
+      "glacier robe"
+    ]
+  },
+  {
+    "file": "humanoids\\dwarf_geomancer.lua",
+    "removed": [
+      "spellbook",
+      "terra boots"
+    ]
+  },
+  {
+    "file": "humanoids\\dworc_fleshhunter.lua",
+    "removed": [
+      "ripper lance",
+      "hunting spear",
+      "tribal mask"
+    ]
+  },
+  {
+    "file": "humanoids\\dworc_venomsniper.lua",
+    "removed": [
+      "tribal mask",
+      "bast skirt"
+    ]
+  },
+  {
+    "file": "humanoids\\dworc_voodoomaster.lua",
+    "removed": [
+      "tribal mask"
+    ]
+  },
+  {
+    "file": "humanoids\\elf_arcanist.lua",
+    "removed": [
+      "wand of cosmic energy"
+    ]
+  },
+  {
+    "file": "humanoids\\elf_overseer.lua",
+    "removed": [
+      "wand of cosmic energy"
+    ]
+  },
+  {
+    "file": "humanoids\\elf_scout.lua",
+    "removed": [
+      "elvish bow"
+    ]
+  },
+  {
+    "file": "humanoids\\elite_pirat.lua",
+    "removed": [
+      "terra boots",
+      "terra boots",
+      "ratana",
+      "life preserver",
+      "lightning boots",
+      "magma boots"
+    ]
+  },
+  {
+    "file": "humanoids\\enslaved_dwarf.lua",
+    "removed": [
+      "titan axe",
+      "sapphire hammer",
+      "spiked squelcher",
+      "glorious axe"
+    ]
+  },
+  {
+    "file": "humanoids\\execowtioner.lua",
+    "removed": [
+      "butcher's axe",
+      "execowtioner axe",
+      "titan axe"
+    ]
+  },
+  {
+    "file": "humanoids\\firestarter.lua",
+    "removed": [
+      "elvish bow"
+    ]
+  },
+  {
+    "file": "humanoids\\gloom_maw.lua",
+    "removed": [
+      "batwing hat"
+    ]
+  },
+  {
+    "file": "humanoids\\insane_siren.lua",
+    "removed": [
+      "wand of draconia",
+      "magma amulet",
+      "wand of inferno",
+      "magma coat",
+      "wand of dragonbreath",
+      "magma legs",
+      "magma monocle"
+    ]
+  },
+  {
+    "file": "humanoids\\lost_basher.lua",
+    "removed": [
+      "chaos mace",
+      "spiked squelcher",
+      "terra boots",
+      "pair of iron fists",
+      "buckle"
+    ]
+  },
+  {
+    "file": "humanoids\\lost_berserker.lua",
+    "removed": [
+      "chaos mace",
+      "spiked squelcher",
+      "terra boots"
+    ]
+  },
+  {
+    "file": "humanoids\\lost_exile.lua",
+    "removed": [
+      "buckle",
+      "terra boots",
+      "suspicious device",
+      "terra legs",
+      "spiked squelcher"
+    ]
+  },
+  {
+    "file": "humanoids\\lost_husher.lua",
+    "removed": [
+      "spiked squelcher",
+      "terra legs",
+      "terra boots",
+      "buckle",
+      "buckle"
+    ]
+  },
+  {
+    "file": "humanoids\\lost_thrower.lua",
+    "removed": [
+      "buckle",
+      "helmet of the lost"
+    ]
+  },
+  {
+    "file": "humanoids\\minotaur_amazon.lua",
+    "removed": [
+      "assassin star",
+      "mino shield",
+      "mino lance"
+    ]
+  },
+  {
+    "file": "humanoids\\minotaur_cult_follower.lua",
+    "removed": [
+      "mino shield",
+      "mino lance"
+    ]
+  },
+  {
+    "file": "humanoids\\minotaur_cult_prophet.lua",
+    "removed": [
+      "moonlight rod"
+    ]
+  },
+  {
+    "file": "humanoids\\minotaur_cult_zealot.lua",
+    "removed": [
+      "snakebite rod",
+      "taurus mace"
+    ]
+  },
+  {
+    "file": "humanoids\\minotaur_hunter.lua",
+    "removed": [
+      "hunting spear",
+      "royal spear",
+      "mino shield",
+      "mooh'tah plate"
+    ]
+  },
+  {
+    "file": "humanoids\\minotaur_mage.lua",
+    "removed": [
+      "wand of cosmic energy",
+      "taurus mace"
+    ]
+  },
+  {
+    "file": "humanoids\\minotaur_occultist.lua",
+    "removed": [
+      "swampling club"
+    ]
+  },
+  {
+    "file": "humanoids\\mooh'tah_warrior.lua",
+    "removed": [
+      "cowtana",
+      "mooh'tah plate"
+    ]
+  },
+  {
+    "file": "humanoids\\moohtant.lua",
+    "removed": [
+      "moohtant cudgel",
+      "spiked squelcher",
+      "chaos mace"
+    ]
+  },
+  {
+    "file": "humanoids\\norcferatu_heartless.lua",
+    "removed": [
+      "chaos mace",
+      "greater garlic necklace"
+    ]
+  },
+  {
+    "file": "humanoids\\norcferatu_minion.lua",
+    "removed": [
+      "chaos mace",
+      "greater garlic necklace"
+    ]
+  },
+  {
+    "file": "humanoids\\norcferatu_nightweaver.lua",
+    "removed": [
+      "magma amulet",
+      "death ring",
+      "wand of defiance",
+      "greater garlic necklace"
+    ]
+  },
+  {
+    "file": "humanoids\\orc_berserker.lua",
+    "removed": [
+      "hunting spear"
+    ]
+  },
+  {
+    "file": "humanoids\\orc_leader.lua",
+    "removed": [
+      "royal spear"
+    ]
+  },
+  {
+    "file": "humanoids\\orc_marauder.lua",
+    "removed": [
+      "silkweaver bow"
+    ]
+  },
+  {
+    "file": "humanoids\\orc_shaman.lua",
+    "removed": [
+      "wand of decay"
+    ]
+  },
+  {
+    "file": "humanoids\\orc_warlord.lua",
+    "removed": [
+      "hunting spear",
+      "magma boots"
+    ]
+  },
+  {
+    "file": "humanoids\\orc_warrior.lua",
+    "removed": [
+      "light bandana"
+    ]
+  },
+  {
+    "file": "humanoids\\pirat_artillerist.lua",
+    "removed": [
+      "terra boots",
+      "terra boots",
+      "ratana",
+      "life preserver",
+      "lightning boots",
+      "magma boots"
+    ]
+  },
+  {
+    "file": "humanoids\\pirat_bombardier.lua",
+    "removed": [
+      "terra boots",
+      "magma boots",
+      "ring of blue plasma",
+      "lightning boots"
+    ]
+  },
+  {
+    "file": "humanoids\\pirat_cutthroat.lua",
+    "removed": [
+      "crystal sword",
+      "focus cape"
+    ]
+  },
+  {
+    "file": "humanoids\\pirat_scoundrel.lua",
+    "removed": [
+      "wand of inferno",
+      "springsprout rod",
+      "wand of starstorm",
+      "wand of voodoo"
+    ]
+  },
+  {
+    "file": "humanoids\\shaper_matriarch.lua",
+    "removed": [
+      "wand of decay",
+      "wand of voodoo"
+    ]
+  },
+  {
+    "file": "humanoids\\soul-broken_harbinger.lua",
+    "removed": [
+      "glacier kilt",
+      "glacier shoes",
+      "spellbook of mind control",
+      "ring of blue plasma",
+      "collar of green plasma"
+    ]
+  },
+  {
+    "file": "humanoids\\twisted_shaper.lua",
+    "removed": [
+      "wand of cosmic energy"
+    ]
+  },
+  {
+    "file": "humanoids\\varg.lua",
+    "removed": [
+      "ritual bone knife"
+    ]
+  },
+  {
+    "file": "humanoids\\worm_priestess.lua",
+    "removed": [
+      "snakebite rod",
+      "taurus mace",
+      "underworld rod"
+    ]
+  },
+  {
+    "file": "humans\\acolyte_of_the_cult.lua",
+    "removed": [
+      "terra rod"
+    ]
+  },
+  {
+    "file": "humans\\adept_of_the_cult.lua",
+    "removed": [
+      "hailstorm rod",
+      "lunar staff",
+      "amber staff"
+    ]
+  },
+  {
+    "file": "humans\\assassin.lua",
+    "removed": [
+      "leopard armor",
+      "horseman helmet",
+      "viper star"
+    ]
+  },
+  {
+    "file": "humans\\barbarian_bloodwalker.lua",
+    "removed": [
+      "beastslayer axe",
+      "fur boots"
+    ]
+  },
+  {
+    "file": "humans\\barbarian_brutetamer.lua",
+    "removed": [
+      "hunting spear",
+      "brutetamer's staff",
+      "fur boots",
+      "mammoth fur cape",
+      "mammoth fur shorts"
+    ]
+  },
+  {
+    "file": "humans\\barbarian_headsplitter.lua",
+    "removed": [
+      "fur boots",
+      "krimhorn helmet"
+    ]
+  },
+  {
+    "file": "humans\\barbarian_skullhunter.lua",
+    "removed": [
+      "crystal sword",
+      "fur boots",
+      "ragnir helmet"
+    ]
+  },
+  {
+    "file": "humans\\black_sphinx_acolyte.lua",
+    "removed": [
+      "snakebite rod",
+      "underworld rod",
+      "wand of voodoo"
+    ]
+  },
+  {
+    "file": "humans\\blood_hand.lua",
+    "removed": [
+      "necrotic rod",
+      "noble axe",
+      "spellbook of enlightenment"
+    ]
+  },
+  {
+    "file": "humans\\blood_priest.lua",
+    "removed": [
+      "spellbook of warding",
+      "spellbook of mind control",
+      "underworld rod"
+    ]
+  },
+  {
+    "file": "humans\\burning_gladiator.lua",
+    "removed": [
+      "secret instruction",
+      "lightning pendant",
+      "magma amulet",
+      "magma boots",
+      "lightning legs",
+      "lightning headband",
+      "lightning boots",
+      "spellweaver's robe"
+    ]
+  },
+  {
+    "file": "humans\\cobra_assassin.lua",
+    "removed": [
+      "ring of red plasma"
+    ]
+  },
+  {
+    "file": "humans\\cobra_scout.lua",
+    "removed": [
+      "sacred tree amulet",
+      "ring of red plasma"
+    ]
+  },
+  {
+    "file": "humans\\cobra_vizier.lua",
+    "removed": [
+      "terra rod",
+      "snakebite rod",
+      "terra hood",
+      "terra boots"
+    ]
+  },
+  {
+    "file": "humans\\dark_apprentice.lua",
+    "removed": [
+      "wand of decay",
+      "wand of dragonbreath"
+    ]
+  },
+  {
+    "file": "humans\\dark_carnisylvan.lua",
+    "removed": [
+      "underworld rod",
+      "wand of starstorm",
+      "hailstorm rod",
+      "springsprout rod",
+      "spellbook",
+      "spellbook of warding",
+      "butterfly ring"
+    ]
+  },
+  {
+    "file": "humans\\enlightened_of_the_cult.lua",
+    "removed": [
+      "wand of inferno",
+      "amber staff"
+    ]
+  },
+  {
+    "file": "humans\\gladiator.lua",
+    "removed": [
+      "belted cape"
+    ]
+  },
+  {
+    "file": "humans\\glooth_bandit.lua",
+    "removed": [
+      "glooth blade",
+      "glooth club",
+      "rubber cap",
+      "glooth spear",
+      "glooth cape",
+      "glooth axe",
+      "terra mantle",
+      "beastslayer axe",
+      "glooth amulet",
+      "terra boots",
+      "terra legs"
+    ]
+  },
+  {
+    "file": "humans\\glooth_brigand.lua",
+    "removed": [
+      "glooth club",
+      "glooth amulet",
+      "mercenary sword",
+      "terra mantle",
+      "terra amulet",
+      "butcher's axe",
+      "terra boots",
+      "dreaded cleaver",
+      "heat core",
+      "glooth spear",
+      "rubber cap",
+      "terra hood"
+    ]
+  },
+  {
+    "file": "humans\\hulking_carnisylvan.lua",
+    "removed": [
+      "terra hood",
+      "terra boots",
+      "lightning headband",
+      "dragonbone staff",
+      "diamond sceptre",
+      "epee"
+    ]
+  },
+  {
+    "file": "humans\\ice_witch.lua",
+    "removed": [
+      "diamond sceptre",
+      "crystal sword",
+      "pair of earmuffs",
+      "glacier shoes"
+    ]
+  },
+  {
+    "file": "humans\\infernalist.lua",
+    "removed": [
+      "magma boots",
+      "spellbook of mind control"
+    ]
+  },
+  {
+    "file": "humans\\necromancer.lua",
+    "removed": [
+      "noble axe",
+      "spellbook of warding"
+    ]
+  },
+  {
+    "file": "humans\\novice_of_the_cult.lua",
+    "removed": [
+      "wand of vortex"
+    ]
+  },
+  {
+    "file": "humans\\pirate_buccaneer.lua",
+    "removed": [
+      "pirate shirt"
+    ]
+  },
+  {
+    "file": "humans\\pirate_corsair.lua",
+    "removed": [
+      "pirate boots",
+      "pirate hat"
+    ]
+  },
+  {
+    "file": "humans\\pirate_cutthroat.lua",
+    "removed": [
+      "pirate knee breeches"
+    ]
+  },
+  {
+    "file": "humans\\pirate_marauder.lua",
+    "removed": [
+      "bandana"
+    ]
+  },
+  {
+    "file": "humans\\poisonous_carnisylvan.lua",
+    "removed": [
+      "collar of blue plasma",
+      "terra rod",
+      "underworld rod",
+      "diamond sceptre",
+      "wand of starstorm",
+      "sacred tree amulet"
+    ]
+  },
+  {
+    "file": "humans\\priestess.lua",
+    "removed": [
+      "hailstorm rod"
+    ]
+  },
+  {
+    "file": "humans\\priestess_of_the_wild_sun.lua",
+    "removed": [
+      "secret instruction",
+      "wand of decay",
+      "wand of everblazing",
+      "relic sword"
+    ]
+  },
+  {
+    "file": "humans\\shadow_pupil.lua",
+    "removed": [
+      "spellbook of enlightenment"
+    ]
+  },
+  {
+    "file": "humans\\usurper_archer.lua",
+    "removed": [
+      "mino shield",
+      "glacier shoes",
+      "assassin dagger",
+      "ornate crossbow",
+      "elvish bow"
+    ]
+  },
+  {
+    "file": "humans\\usurper_knight.lua",
+    "removed": [
+      "magma legs",
+      "collar of orange plasma"
+    ]
+  },
+  {
+    "file": "humans\\usurper_warlock.lua",
+    "removed": [
+      "terra hood",
+      "lightning headband",
+      "springsprout rod",
+      "magma monocle",
+      "wand of cosmic energy",
+      "underworld rod",
+      "wand of starstorm"
+    ]
+  },
+  {
+    "file": "humans\\valkyrie.lua",
+    "removed": [
+      "hunting spear"
+    ]
+  },
+  {
+    "file": "humans\\warlock.lua",
+    "removed": [
+      "assassin star",
+      "assassin star",
+      "lightning robe"
+    ]
+  },
+  {
+    "file": "humans\\witch.lua",
+    "removed": [
+      "necrotic rod",
+      "witch hat"
+    ]
+  },
+  {
+    "file": "inkborn\\bluebeak.lua",
+    "removed": [
+      "hailstorm rod",
+      "glacier amulet",
+      "glacier shoes"
+    ]
+  },
+  {
+    "file": "inkborn\\bramble_wyrmling.lua",
+    "removed": [
+      "terra hood"
+    ]
+  },
+  {
+    "file": "inkborn\\cinder_wyrmling.lua",
+    "removed": [
+      "wand of dragonbreath",
+      "magma coat",
+      "magma monocle"
+    ]
+  },
+  {
+    "file": "inkborn\\hawk_hopper.lua",
+    "removed": [
+      "royal star",
+      "butterfly ring",
+      "elvish bow"
+    ]
+  },
+  {
+    "file": "inkborn\\ink_splash.lua",
+    "removed": [
+      "terra amulet",
+      "terra hood",
+      "terra legs"
+    ]
+  },
+  {
+    "file": "inkborn\\lion_hydra.lua",
+    "removed": [
+      "titan axe",
+      "sacred tree amulet"
+    ]
+  },
+  {
+    "file": "inkborn\\shell_drake.lua",
+    "removed": [
+      "spiked squelcher",
+      "warrior's shield"
+    ]
+  },
+  {
+    "file": "lycanthropes\\cunning_werepanther.lua",
+    "removed": [
+      "lightning headband",
+      "ripper lance",
+      "lightning pendant",
+      "fur armor"
+    ]
+  },
+  {
+    "file": "lycanthropes\\feral_werecrocodile.lua",
+    "removed": [
+      "ornate crossbow",
+      "terra mantle",
+      "swamplair armor"
+    ]
+  },
+  {
+    "file": "lycanthropes\\werebadger.lua",
+    "removed": [
+      "badger boots",
+      "underworld rod",
+      "wand of voodoo",
+      "werewolf amulet"
+    ]
+  },
+  {
+    "file": "lycanthropes\\werebear.lua",
+    "removed": [
+      "dreaded cleaver",
+      "fur armor",
+      "furry club",
+      "werewolf amulet",
+      "relic sword",
+      "spiked squelcher"
+    ]
+  },
+  {
+    "file": "lycanthropes\\wereboar.lua",
+    "removed": [
+      "wereboar loincloth",
+      "furry club",
+      "dreaded cleaver",
+      "fur armor",
+      "werewolf amulet"
+    ]
+  },
+  {
+    "file": "lycanthropes\\werecrocodile.lua",
+    "removed": [
+      "crocodile boots",
+      "bonebreaker",
+      "glorious axe"
+    ]
+  },
+  {
+    "file": "lycanthropes\\werefox.lua",
+    "removed": [
+      "moonlight rod",
+      "assassin star",
+      "werewolf amulet"
+    ]
+  },
+  {
+    "file": "lycanthropes\\werehyaena.lua",
+    "removed": [
+      "life preserver",
+      "ratana"
+    ]
+  },
+  {
+    "file": "lycanthropes\\werehyaena_shaman.lua",
+    "removed": [
+      "hailstorm rod",
+      "wand of starstorm",
+      "wand of voodoo"
+    ]
+  },
+  {
+    "file": "lycanthropes\\werelion.lua",
+    "removed": [
+      "crystal sword",
+      "titan axe",
+      "spiked squelcher",
+      "glorious axe",
+      "spirit cloak",
+      "noble axe"
+    ]
+  },
+  {
+    "file": "lycanthropes\\werelioness.lua",
+    "removed": [
+      "crystal sword",
+      "lightning headband",
+      "magma legs"
+    ]
+  },
+  {
+    "file": "lycanthropes\\werepanther.lua",
+    "removed": [
+      "magma monocle",
+      "ripper lance",
+      "magma amulet",
+      "fur armor"
+    ]
+  },
+  {
+    "file": "lycanthropes\\weretiger.lua",
+    "removed": [
+      "furry club",
+      "angelic axe",
+      "magma amulet"
+    ]
+  },
+  {
+    "file": "lycanthropes\\werewolf.lua",
+    "removed": [
+      "epee",
+      "relic sword",
+      "dreaded cleaver",
+      "bonebreaker"
+    ]
+  },
+  {
+    "file": "lycanthropes\\white_weretiger.lua",
+    "removed": [
+      "beastslayer axe"
+    ]
+  },
+  {
+    "file": "magicals\\animated_feather.lua",
+    "removed": [
+      "glacier mask",
+      "hailstorm rod"
+    ]
+  },
+  {
+    "file": "magicals\\arachnophobica.lua",
+    "removed": [
+      "wand of cosmic energy",
+      "magma amulet",
+      "collar of red plasma",
+      "sacred tree amulet",
+      "underworld rod",
+      "ring of blue plasma",
+      "death ring",
+      "collar of green plasma",
+      "necklace of the deep"
+    ]
+  },
+  {
+    "file": "magicals\\armadile.lua",
+    "removed": [
+      "titan axe",
+      "bonebreaker",
+      "terra boots",
+      "crystalline armor",
+      "jade conical hat"
+    ]
+  },
+  {
+    "file": "magicals\\bashmu.lua",
+    "removed": [
+      "sacred tree amulet",
+      "terra amulet",
+      "glacier amulet",
+      "glorious axe",
+      "collar of red plasma",
+      "haunted blade",
+      "magma amulet",
+      "collar of blue plasma"
+    ]
+  },
+  {
+    "file": "magicals\\blue_djinn.lua",
+    "removed": [
+      "royal spear"
+    ]
+  },
+  {
+    "file": "magicals\\bog_raider.lua",
+    "removed": [
+      "belted cape",
+      "paladin armor",
+      "springsprout rod"
+    ]
+  },
+  {
+    "file": "magicals\\bonelord.lua",
+    "removed": [
+      "spellbook",
+      "terra rod",
+      "bonelord shield"
+    ]
+  },
+  {
+    "file": "magicals\\braindeath.lua",
+    "removed": [
+      "haunted blade",
+      "spellbook",
+      "spiked squelcher",
+      "bonelord shield",
+      "bonelord helmet"
+    ]
+  },
+  {
+    "file": "magicals\\brain_squid.lua",
+    "removed": [
+      "wand of defiance",
+      "lightning headband",
+      "lightning pendant",
+      "collar of red plasma",
+      "collar of blue plasma",
+      "collar of green plasma",
+      "ring of red plasma",
+      "ring of blue plasma",
+      "ring of green plasma"
+    ]
+  },
+  {
+    "file": "magicals\\burning_book.lua",
+    "removed": [
+      "magma coat",
+      "necrotic rod",
+      "magma monocle",
+      "death ring",
+      "shadow sceptre"
+    ]
+  },
+  {
+    "file": "magicals\\candy_horror.lua",
+    "removed": [
+      "dreaded cleaver",
+      "wand of decay"
+    ]
+  },
+  {
+    "file": "magicals\\choking_fear.lua",
+    "removed": [
+      "beastslayer axe",
+      "terra boots",
+      "spellbook of mind control",
+      "underworld rod",
+      "springsprout rod"
+    ]
+  },
+  {
+    "file": "magicals\\cursed_book.lua",
+    "removed": [
+      "terra boots",
+      "terra hood",
+      "diamond sceptre",
+      "terra mantle",
+      "terra legs",
+      "terra amulet",
+      "springsprout rod",
+      "sacred tree amulet",
+      "swamplair armor"
+    ]
+  },
+  {
+    "file": "magicals\\efreet.lua",
+    "removed": [
+      "wand of inferno",
+      "royal spear",
+      "magma monocle"
+    ]
+  },
+  {
+    "file": "magicals\\elder_bonelord.lua",
+    "removed": [
+      "spellbook",
+      "bonelord shield",
+      "bonelord helmet"
+    ]
+  },
+  {
+    "file": "magicals\\energetic_book.lua",
+    "removed": [
+      "lightning pendant",
+      "lightning boots",
+      "lightning headband",
+      "spellweaver's robe",
+      "wand of defiance",
+      "haunted blade",
+      "lightning legs"
+    ]
+  },
+  {
+    "file": "magicals\\energuardian_of_tales.lua",
+    "removed": [
+      "lightning legs",
+      "spellbook of warding",
+      "wand of starstorm"
+    ]
+  },
+  {
+    "file": "magicals\\enfeebled_silencer.lua",
+    "removed": [
+      "assassin star",
+      "diamond sceptre",
+      "haunted blade",
+      "shadow sceptre",
+      "glorious axe",
+      "terra legs",
+      "terra boots"
+    ]
+  },
+  {
+    "file": "magicals\\fahim_the_wise.lua",
+    "removed": [
+      "royal spear",
+      "magma monocle"
+    ]
+  },
+  {
+    "file": "magicals\\feral_sphinx.lua",
+    "removed": [
+      "magma amulet",
+      "wand of inferno",
+      "sphinx tiara",
+      "wand of draconia",
+      "magma monocle",
+      "magma boots",
+      "magma legs"
+    ]
+  },
+  {
+    "file": "magicals\\forest_fury.lua",
+    "removed": [
+      "elvish bow"
+    ]
+  },
+  {
+    "file": "magicals\\frazzlemaw.lua",
+    "removed": [
+      "assassin dagger",
+      "haunted blade",
+      "nightmare blade",
+      "traditional sai"
+    ]
+  },
+  {
+    "file": "magicals\\girtablilu_warrior.lua",
+    "removed": [
+      "diamond sceptre",
+      "magma coat",
+      "epee",
+      "dragonbone staff",
+      "beastslayer axe",
+      "focus cape",
+      "fur armor",
+      "glacier robe"
+    ]
+  },
+  {
+    "file": "magicals\\green_djinn.lua",
+    "removed": [
+      "royal spear"
+    ]
+  },
+  {
+    "file": "magicals\\guardian_of_tales.lua",
+    "removed": [
+      "spellbook of warding",
+      "wand of inferno",
+      "magma coat",
+      "magma legs"
+    ]
+  },
+  {
+    "file": "magicals\\guzzlemaw.lua",
+    "removed": [
+      "assassin dagger",
+      "haunted blade",
+      "nightmare blade",
+      "traditional sai"
+    ]
+  },
+  {
+    "file": "magicals\\icecold_book.lua",
+    "removed": [
+      "diamond sceptre",
+      "glacier mask",
+      "glacier kilt",
+      "glacier robe",
+      "glacier shoes",
+      "sapphire hammer",
+      "glacial rod",
+      "crystalline armor"
+    ]
+  },
+  {
+    "file": "magicals\\juvenile_bashmu.lua",
+    "removed": [
+      "lightning legs",
+      "diamond sceptre",
+      "lightning pendant",
+      "dragonbone staff",
+      "amber staff",
+      "lightning boots",
+      "spellweaver's robe",
+      "pair of iron fists",
+      "chaos mace"
+    ]
+  },
+  {
+    "file": "magicals\\lamassu.lua",
+    "removed": [
+      "terra amulet",
+      "terra hood",
+      "sacred tree amulet"
+    ]
+  },
+  {
+    "file": "magicals\\lumbering_carnivor.lua",
+    "removed": [
+      "glorious axe",
+      "fur armor",
+      "focus cape"
+    ]
+  },
+  {
+    "file": "magicals\\manticore.lua",
+    "removed": [
+      "magma coat",
+      "magma boots",
+      "magma monocle",
+      "wand of dragonbreath",
+      "wand of draconia",
+      "royal star",
+      "wand of everblazing",
+      "magma legs"
+    ]
+  },
+  {
+    "file": "magicals\\marid.lua",
+    "removed": [
+      "hailstorm rod",
+      "royal spear",
+      "magma monocle"
+    ]
+  },
+  {
+    "file": "magicals\\medusa.lua",
+    "removed": [
+      "titan axe",
+      "terra mantle",
+      "terra legs",
+      "terra amulet",
+      "sacred tree amulet"
+    ]
+  },
+  {
+    "file": "magicals\\menacing_carnivor.lua",
+    "removed": [
+      "crystal sword",
+      "terra rod",
+      "terra legs",
+      "wand of voodoo",
+      "wand of starstorm",
+      "wand of dragonbreath",
+      "wand of decay"
+    ]
+  },
+  {
+    "file": "magicals\\merikh_the_slaughterer.lua",
+    "removed": [
+      "magma monocle",
+      "royal spear"
+    ]
+  },
+  {
+    "file": "magicals\\nibblemaw.lua",
+    "removed": [
+      "assassin dagger"
+    ]
+  },
+  {
+    "file": "magicals\\nightmare.lua",
+    "removed": [
+      "death ring"
+    ]
+  },
+  {
+    "file": "magicals\\nightmare_scion.lua",
+    "removed": [
+      "death ring",
+      "diamond sceptre",
+      "shadow sceptre",
+      "focus cape"
+    ]
+  },
+  {
+    "file": "magicals\\nightstalker.lua",
+    "removed": [
+      "haunted blade",
+      "chaos mace",
+      "spirit cloak"
+    ]
+  },
+  {
+    "file": "magicals\\phantasm.lua",
+    "removed": [
+      "death ring",
+      "abyss hammer",
+      "shadow sceptre"
+    ]
+  },
+  {
+    "file": "magicals\\rage_squid.lua",
+    "removed": [
+      "demonrage sword",
+      "wand of everblazing"
+    ]
+  },
+  {
+    "file": "magicals\\retching_horror.lua",
+    "removed": [
+      "beastslayer axe",
+      "mercenary sword",
+      "spiked squelcher",
+      "underworld rod",
+      "wand of starstorm"
+    ]
+  },
+  {
+    "file": "magicals\\sight_of_surrender.lua",
+    "removed": [
+      "onyx flail",
+      "jade hammer",
+      "broken visor"
+    ]
+  },
+  {
+    "file": "magicals\\silencer.lua",
+    "removed": [
+      "assassin star",
+      "diamond sceptre",
+      "haunted blade",
+      "titan axe",
+      "shadow sceptre",
+      "glorious axe",
+      "terra legs",
+      "terra boots"
+    ]
+  },
+  {
+    "file": "magicals\\sphinx.lua",
+    "removed": [
+      "magma amulet",
+      "sphinx tiara",
+      "magma boots",
+      "lightning pendant",
+      "lightning headband",
+      "wand of starstorm",
+      "wand of defiance",
+      "magma monocle",
+      "magma legs"
+    ]
+  },
+  {
+    "file": "magicals\\spiky_carnivor.lua",
+    "removed": [
+      "glacier amulet",
+      "terra amulet",
+      "lightning pendant",
+      "terra mantle",
+      "buckle",
+      "shockwave amulet"
+    ]
+  },
+  {
+    "file": "magicals\\squid_warden.lua",
+    "removed": [
+      "glacier mask",
+      "crystal sword",
+      "glacier robe",
+      "glacier kilt"
+    ]
+  },
+  {
+    "file": "magicals\\terrorsleep.lua",
+    "removed": [
+      "collar of orange plasma"
+    ]
+  },
+  {
+    "file": "magicals\\thanatursus.lua",
+    "removed": [
+      "mino shield",
+      "terra boots",
+      "terra hood",
+      "beastslayer axe",
+      "titan axe",
+      "wand of cosmic energy",
+      "wand of defiance",
+      "warrior's axe",
+      "warrior's shield"
+    ]
+  },
+  {
+    "file": "magicals\\venerable_girtablilu.lua",
+    "removed": [
+      "northwind rod",
+      "wand of cosmic energy",
+      "underworld rod",
+      "wand of voodoo",
+      "ring of blue plasma",
+      "wand of defiance",
+      "necrotic rod",
+      "springsprout rod",
+      "wand of decay"
+    ]
+  },
+  {
+    "file": "magicals\\weakened_frazzlemaw.lua",
+    "removed": [
+      "nightmare blade",
+      "traditional sai"
+    ]
+  },
+  {
+    "file": "mammals\\clomp.lua",
+    "removed": [
+      "tusk shield",
+      "furry club"
+    ]
+  },
+  {
+    "file": "mammals\\crystal_wolf.lua",
+    "removed": [
+      "hailstorm rod",
+      "crystalline armor"
+    ]
+  },
+  {
+    "file": "mammals\\elephant.lua",
+    "removed": [
+      "tusk shield"
+    ]
+  },
+  {
+    "file": "mammals\\exotic_bat.lua",
+    "removed": [
+      "terra amulet"
+    ]
+  },
+  {
+    "file": "mammals\\gorerilla.lua",
+    "removed": [
+      "Magma Coat",
+      "Crystal Crossbow",
+      "Composite Hornbow",
+      "Ornate Crossbow"
+    ]
+  },
+  {
+    "file": "mammals\\gore_horn.lua",
+    "removed": [
+      "Metal Spats",
+      "Diamond Sceptre"
+    ]
+  },
+  {
+    "file": "mammals\\mammoth.lua",
+    "removed": [
+      "tusk shield",
+      "mammoth whopper",
+      "furry club"
+    ]
+  },
+  {
+    "file": "mammals\\merlkin.lua",
+    "removed": [
+      "wand of decay",
+      "banana staff"
+    ]
+  },
+  {
+    "file": "mammals\\mutated_bat.lua",
+    "removed": [
+      "mercenary sword",
+      "batwing hat"
+    ]
+  },
+  {
+    "file": "mammals\\mutated_rat.lua",
+    "removed": [
+      "spellbook of enlightenment"
+    ]
+  },
+  {
+    "file": "mammals\\mutated_tiger.lua",
+    "removed": [
+      "angelic axe",
+      "glorious axe"
+    ]
+  },
+  {
+    "file": "mammals\\nighthunter.lua",
+    "removed": [
+      "Crystal Sword",
+      "Warrior's Axe",
+      "Spellbook of Mind Control"
+    ]
+  },
+  {
+    "file": "mammals\\parder.lua",
+    "removed": [
+      "crimson sword"
+    ]
+  },
+  {
+    "file": "mammals\\sabretooth.lua",
+    "removed": [
+      "Wand of Inferno",
+      "Magma Coat",
+      "Sacred Tree Amulet",
+      "Wand of Dragonbreath",
+      "Metal Spats"
+    ]
+  },
+  {
+    "file": "mammals\\terrified_elephant.lua",
+    "removed": [
+      "tusk shield"
+    ]
+  },
+  {
+    "file": "mammals\\vulcongra.lua",
+    "removed": [
+      "wand of inferno",
+      "magma amulet",
+      "magma coat"
+    ]
+  },
+  {
+    "file": "mammals\\white_lion.lua",
+    "removed": [
+      "terra boots",
+      "twin hooks"
+    ]
+  },
+  {
+    "file": "newhaven_update_2025\\bosses\\muglex_clan_chief.lua",
+    "removed": [
+      "spellbook",
+      "wand of vortex",
+      "snakebite rod"
+    ]
+  },
+  {
+    "file": "newhaven_update_2025\\bosses\\the_corruptor.lua",
+    "removed": [
+      "wand of vortex"
+    ]
+  },
+  {
+    "file": "nostalgia\\old_bonelord.lua",
+    "removed": [
+      "spellbook"
+    ]
+  },
+  {
+    "file": "plants\\glooth_anemone.lua",
+    "removed": [
+      "glooth amulet",
+      "glooth cape",
+      "glooth whip",
+      "glooth blade",
+      "glooth club",
+      "glooth axe",
+      "glooth spear"
+    ]
+  },
+  {
+    "file": "plants\\hideous_fungus.lua",
+    "removed": [
+      "terra mantle",
+      "terra legs",
+      "terra boots",
+      "terra amulet",
+      "muck rod",
+      "mycological bow"
+    ]
+  },
+  {
+    "file": "plants\\humongous_fungus.lua",
+    "removed": [
+      "terra amulet",
+      "terra boots",
+      "angelic axe",
+      "terra legs",
+      "terra mantle",
+      "muck rod",
+      "mycological bow"
+    ]
+  },
+  {
+    "file": "plants\\leaf_golem.lua",
+    "removed": [
+      "swampling club"
+    ]
+  },
+  {
+    "file": "plants\\omnivora.lua",
+    "removed": [
+      "terra amulet",
+      "terra boots",
+      "necrotic rod",
+      "spellbook of enlightenment"
+    ]
+  },
+  {
+    "file": "plants\\rootthing_amber_shaper.lua",
+    "removed": [
+      "wooden spellbook",
+      "amber staff",
+      "jade hammer",
+      "skull helmet"
+    ]
+  },
+  {
+    "file": "plants\\rootthing_bug_tracker.lua",
+    "removed": [
+      "springsprout rod",
+      "composite hornbow"
+    ]
+  },
+  {
+    "file": "plants\\rootthing_nutshell.lua",
+    "removed": [
+      "epee",
+      "swamplair armor",
+      "ruthless axe",
+      "terra helmet"
+    ]
+  },
+  {
+    "file": "plants\\stalking_stalk.lua",
+    "removed": [
+      "Magma Coat",
+      "Warrior's Axe",
+      "Muck Rod"
+    ]
+  },
+  {
+    "file": "plants\\swampling.lua",
+    "removed": [
+      "swampling club"
+    ]
+  },
+  {
+    "file": "plants\\wilting_leaf_golem.lua",
+    "removed": [
+      "swampling club"
+    ]
+  },
+  {
+    "file": "quests\\adventures_of_galthen\\megasylvan_yselda.lua",
+    "removed": [
+      "terra amulet",
+      "terra rod",
+      "terra hood",
+      "terra legs",
+      "terra mantle"
+    ]
+  },
+  {
+    "file": "quests\\ancient_feud\\katex_blood_tongue.lua",
+    "removed": [
+      "skull helmet",
+      "ornate crossbow",
+      "assassin dagger",
+      "ring of green plasma",
+      "jade hammer",
+      "alloy legs",
+      "demonrage sword"
+    ]
+  },
+  {
+    "file": "quests\\ancient_feud\\srezz_yellow_eyes.lua",
+    "removed": [
+      "glacier kilt",
+      "skull helmet",
+      "glacier robe",
+      "ring of green plasma",
+      "demonrage sword"
+    ]
+  },
+  {
+    "file": "quests\\ancient_feud\\utua_stone_sting.lua",
+    "removed": [
+      "lightning legs",
+      "skull helmet",
+      "chaos mace",
+      "magma legs",
+      "mercenary sword",
+      "warrior's axe",
+      "glacier kilt",
+      "noble axe",
+      "ring of green plasma",
+      "guardian axe",
+      "spellweaver's robe",
+      "glacier robe"
+    ]
+  },
+  {
+    "file": "quests\\ancient_feud\\yirkas_blue_scales.lua",
+    "removed": [
+      "magma legs",
+      "skull helmet",
+      "jade hammer",
+      "assassin dagger",
+      "ring of green plasma",
+      "ornate crossbow",
+      "spellweaver's robe",
+      "demonrage sword",
+      "spellbook of mind control",
+      "alloy legs"
+    ]
+  },
+  {
+    "file": "quests\\ancient_tombs\\dipthrah.lua",
+    "removed": [
+      "pharaoh sword"
+    ]
+  },
+  {
+    "file": "quests\\ancient_tombs\\horestis.lua",
+    "removed": [
+      "pharaoh sword"
+    ]
+  },
+  {
+    "file": "quests\\ancient_tombs\\morguthis.lua",
+    "removed": [
+      "assassin star"
+    ]
+  },
+  {
+    "file": "quests\\ancient_tombs\\rahemos.lua",
+    "removed": [
+      "magician hat"
+    ]
+  },
+  {
+    "file": "quests\\annihilator\\angry_demon.lua",
+    "removed": [
+      "assassin star",
+      "demonrage sword"
+    ]
+  },
+  {
+    "file": "quests\\a_pirates_tail_quest\\ratmiral_blackwhiskers.lua",
+    "removed": [
+      "exotic amulet",
+      "throwing axe",
+      "bast legs",
+      "exotic legs",
+      "jungle bow",
+      "jungle quiver",
+      "jungle flail",
+      "jungle rod",
+      "jungle wand",
+      "makeshift boots",
+      "make-do boots",
+      "bambus jo",
+      "jungle survivor legs"
+    ]
+  },
+  {
+    "file": "quests\\between_the_lines\\blight_mariner.lua",
+    "removed": [
+      "crystalline armor",
+      "death ring",
+      "terra legs",
+      "terra boots"
+    ]
+  },
+  {
+    "file": "quests\\between_the_lines\\inkwing.lua",
+    "removed": [
+      "wand of dragonbreath",
+      "dragon slayer"
+    ]
+  },
+  {
+    "file": "quests\\between_the_lines\\sir_leonard.lua",
+    "removed": [
+      "gearwheel chain",
+      "death ring"
+    ]
+  },
+  {
+    "file": "quests\\between_the_lines\\sir_leopold.lua",
+    "removed": [
+      "death ring"
+    ]
+  },
+  {
+    "file": "quests\\between_the_lines\\wrathful_archivist.lua",
+    "removed": [
+      "spellweaver's robe"
+    ]
+  },
+  {
+    "file": "quests\\bigfoots_burden\\bosses\\abyssador.lua",
+    "removed": [
+      "crystal crossbow",
+      "crystalline axe",
+      "shiny blade",
+      "crystalline sword",
+      "mycological bow",
+      "mycological mace"
+    ]
+  },
+  {
+    "file": "quests\\bigfoots_burden\\bosses\\deathstrike.lua",
+    "removed": [
+      "shiny blade",
+      "mycological mace",
+      "crystalline sword",
+      "crystal crossbow",
+      "crystalline axe",
+      "mycological bow"
+    ]
+  },
+  {
+    "file": "quests\\bigfoots_burden\\bosses\\gnomevil.lua",
+    "removed": [
+      "crystalline axe",
+      "crystal crossbow",
+      "shiny blade",
+      "mycological bow",
+      "mycological mace",
+      "crystalline sword"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\animated_clomp.lua",
+    "removed": [
+      "tusk shield",
+      "furry club"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\animated_guzzlemaw.lua",
+    "removed": [
+      "assassin dagger",
+      "haunted blade",
+      "nightmare blade",
+      "traditional sai"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\animated_moohtant.lua",
+    "removed": [
+      "moohtant cudgel",
+      "spiked squelcher",
+      "chaos mace"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\animated_ogre_brute.lua",
+    "removed": [
+      "bonebreaker",
+      "ogre choppa",
+      "ogre klubba",
+      "shamanic mask"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\animated_ogre_savage.lua",
+    "removed": [
+      "shamanic mask"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\animated_ogre_shaman.lua",
+    "removed": [
+      "necrotic rod",
+      "wand of decay",
+      "ogre scepta",
+      "shamanic mask"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\bosses\\essence_of_malice.lua",
+    "removed": [
+      "lightning legs",
+      "shockwave amulet",
+      "witch hat",
+      "ring of blue plasma",
+      "blade of corruption"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\bosses\\ravenous_hunger.lua",
+    "removed": [
+      "lightning legs",
+      "sacred tree amulet",
+      "oriental shoes",
+      "wooden spellbook",
+      "muck rod",
+      "cobra crown",
+      "enchanted merudri brooch"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\bosses\\the_false_god.lua",
+    "removed": [
+      "mino shield",
+      "underworld rod",
+      "pair of iron fists",
+      "execowtioner axe",
+      "maimer",
+      "ornate mace",
+      "velvet mantle"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\bosses\\the_sandking.lua",
+    "removed": [
+      "cobra crown",
+      "hailstorm rod",
+      "grasshopper legs",
+      "assassin dagger",
+      "runed sword",
+      "crystalline axe"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\bosses\\the_souldespoiler.lua",
+    "removed": [
+      "wand of defiance",
+      "rift lance",
+      "rift crossbow",
+      "haunted blade",
+      "sapphire hammer",
+      "wand of defiance",
+      "underworld rod",
+      "blade of corruption",
+      "magma boots",
+      "spellbook of lost souls",
+      "shield of corruption",
+      "spiked squelcher"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\bosses\\the_source_of_corruption.lua",
+    "removed": [
+      "ring of red plasma",
+      "sapphire hammer",
+      "silkweaver bow",
+      "umbral slayer",
+      "demonwing axe",
+      "nightmare blade",
+      "crude umbral slayer",
+      "rift bow"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\bosses\\the_unarmored_voidborn.lua",
+    "removed": [
+      "berserker",
+      "abyss hammer",
+      "skull helmet",
+      "bonebreaker",
+      "collar of blue plasma",
+      "shadow sceptre",
+      "ring of red plasma",
+      "terra hood"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\misguided_bully.lua",
+    "removed": [
+      "rubbish amulet"
+    ]
+  },
+  {
+    "file": "quests\\cults_of_tibia\\misguided_thief.lua",
+    "removed": [
+      "rubbish amulet"
+    ]
+  },
+  {
+    "file": "quests\\dangerous_depth\\bosses\\ancient_spawn_of_morgathla.lua",
+    "removed": [
+      "butcher's axe",
+      "depth claws",
+      "execowtioner axe",
+      "titan axe"
+    ]
+  },
+  {
+    "file": "quests\\dangerous_depth\\bosses\\the_baron_from_below.lua",
+    "removed": [
+      "wand of inferno",
+      "calopteryx cape",
+      "magma coat",
+      "badger boots",
+      "spellbook of warding",
+      "gnome sword",
+      "gnome armor",
+      "gnomish footwraps"
+    ]
+  },
+  {
+    "file": "quests\\dangerous_depth\\bosses\\the_count_of_the_core.lua",
+    "removed": [
+      "amber staff",
+      "wand of inferno",
+      "gnome shield",
+      "gnome helmet",
+      "magma coat",
+      "gnome sword",
+      "crystalline armor",
+      "guardian axe",
+      "twiceslicer",
+      "gnomish footwraps"
+    ]
+  },
+  {
+    "file": "quests\\dangerous_depth\\bosses\\the_duke_of_the_depths.lua",
+    "removed": [
+      "wand of inferno",
+      "muck rod",
+      "gnome shield",
+      "crystalline armor",
+      "gnome sword",
+      "terra mantle",
+      "gnome legs",
+      "gnomish footwraps"
+    ]
+  },
+  {
+    "file": "quests\\dangerous_depth\\bosses\\the_duke_of_the_depths_immortal.lua",
+    "removed": [
+      "butcher's axe",
+      "execowtioner axe",
+      "titan axe"
+    ]
+  },
+  {
+    "file": "quests\\dark_trails\\death_priest_shargon.lua",
+    "removed": [
+      "necrotic rod"
+    ]
+  },
+  {
+    "file": "quests\\dark_trails\\the_ravager.lua",
+    "removed": [
+      "daramian waraxe"
+    ]
+  },
+  {
+    "file": "quests\\feaster_of_souls\\irgix_the_flimsy.lua",
+    "removed": [
+      "terra rod",
+      "necklace of the deep",
+      "wand of starstorm",
+      "wand of cosmic energy",
+      "pair of nightmare boots"
+    ]
+  },
+  {
+    "file": "quests\\feaster_of_souls\\the_dread_maiden.lua",
+    "removed": [
+      "pair of nightmare boots",
+      "spooky hood",
+      "jade legs"
+    ]
+  },
+  {
+    "file": "quests\\feaster_of_souls\\the_fear_feaster.lua",
+    "removed": [
+      "ghost chestplate",
+      "spooky hood"
+    ]
+  },
+  {
+    "file": "quests\\feaster_of_souls\\the_pale_worm.lua",
+    "removed": [
+      "ghost chestplate",
+      "spooky hood",
+      "fabulous legs",
+      "phantasmal axe",
+      "soulful legs",
+      "enchanted ring of souls",
+      "jade legs"
+    ]
+  },
+  {
+    "file": "quests\\feaster_of_souls\\the_unwelcome.lua",
+    "removed": [
+      "ghost chestplate",
+      "spooky hood",
+      "fabulous legs",
+      "soulful legs"
+    ]
+  },
+  {
+    "file": "quests\\feaster_of_souls\\unaz_the_mean.lua",
+    "removed": [
+      "pair of nightmare boots",
+      "warrior's axe"
+    ]
+  },
+  {
+    "file": "quests\\feaster_of_souls\\vok_the_freakish.lua",
+    "removed": [
+      "ornate crossbow",
+      "pair of nightmare boots"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\bosses\\death_dragon.lua",
+    "removed": [
+      "dragonbone staff",
+      "assassin star",
+      "spellweaver's robe",
+      "divine plate",
+      "skullcracker armor",
+      "death ring"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\bosses\\ferumbras_mortal_shell.lua",
+    "removed": [
+      "lightning legs",
+      "greenwood coat",
+      "bloody edge",
+      "chaos mace",
+      "emerald sword",
+      "boots of homecoming",
+      "velvet mantle",
+      "skullcrusher",
+      "Ferumbras' staff",
+      "jade hammer",
+      "nightmare blade",
+      "glacier kilt",
+      "death gaze",
+      "berserker",
+      "rift bow",
+      "demonwing axe",
+      "queen's sceptre",
+      "obsidian truncheon",
+      "abyss hammer",
+      "Ferumbras' hat",
+      "demonrage sword",
+      "impaler",
+      "Ferumbras' amulet",
+      "rift crossbow",
+      "divine plate",
+      "magma legs",
+      "havoc blade",
+      "ornamented axe"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\bosses\\mazoran.lua",
+    "removed": [
+      "impaler of the igniter",
+      "rift bow",
+      "rift crossbow",
+      "demonrage sword",
+      "magma amulet",
+      "magma legs",
+      "magma coat"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\bosses\\plagirath.lua",
+    "removed": [
+      "traditional sai",
+      "muck rod",
+      "rift lance",
+      "plague bite",
+      "rift bow",
+      "rift crossbow",
+      "mercenary sword",
+      "terra amulet",
+      "spellbook of warding"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\bosses\\ragiaz.lua",
+    "removed": [
+      "death gaze",
+      "rift bow",
+      "rift crossbow",
+      "reaper's axe",
+      "amber staff"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\bosses\\razzagorn.lua",
+    "removed": [
+      "terra rod",
+      "visage of the end days",
+      "maimer"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\bosses\\shulgrax.lua",
+    "removed": [
+      "rift shield",
+      "rift lance",
+      "treader of torment",
+      "rift crossbow",
+      "death ring",
+      "bloody edge",
+      "dreaded cleaver",
+      "chaos mace",
+      "shadow sceptre",
+      "lightning pendant",
+      "lightning legs"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\bosses\\sin_devourer.lua",
+    "removed": [
+      "haunted blade",
+      "chaos mace",
+      "spirit cloak"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\bosses\\tarbaz.lua",
+    "removed": [
+      "glacier amulet",
+      "glacier kilt",
+      "glacier robe",
+      "rift crossbow",
+      "rift lance",
+      "underworld rod",
+      "shroud of despair"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\bosses\\the_lord_of_the_lice.lua",
+    "removed": [
+      "epee",
+      "terra mantle"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\bosses\\zamulosh.lua",
+    "removed": [
+      "rift crossbow",
+      "crystalline armor",
+      "rift shield",
+      "maimer"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\disgusting_ooze.lua",
+    "removed": [
+      "death ring"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\lovely\\lovely_frazzlemaw.lua",
+    "removed": [
+      "assassin dagger",
+      "haunted blade",
+      "nightmare blade",
+      "traditional sai"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\lovely\\lovely_souleater.lua",
+    "removed": [
+      "wand of cosmic energy",
+      "necrotic rod",
+      "death ring"
+    ]
+  },
+  {
+    "file": "quests\\ferumbras_ascension\\lovely\\lovely_yielothax.lua",
+    "removed": [
+      "broken ring of ending",
+      "wand of cosmic energy",
+      "epee",
+      "shockwave amulet",
+      "lightning pendant",
+      "lightning legs"
+    ]
+  },
+  {
+    "file": "quests\\forgotten_knowledge\\bosses\\lady_tenebris.lua",
+    "removed": [
+      "onyx pendant",
+      "shadow sceptre",
+      "spellbook of lost souls",
+      "spellbook of warding",
+      "wand of defiance",
+      "book of lies",
+      "crude umbral spellbook",
+      "umbral spellbook"
+    ]
+  },
+  {
+    "file": "quests\\forgotten_knowledge\\bosses\\lloyd.lua",
+    "removed": [
+      "wand of starstorm",
+      "collar of blue plasma",
+      "spellbook of warding",
+      "lightning legs",
+      "spellweaver's robe"
+    ]
+  },
+  {
+    "file": "quests\\forgotten_knowledge\\bosses\\melting_frozen_horror.lua",
+    "removed": [
+      "crystal sword",
+      "pair of earmuffs",
+      "crystalline sword",
+      "shiny blade",
+      "ornate crossbow",
+      "frozen plate",
+      "runic ice shield"
+    ]
+  },
+  {
+    "file": "quests\\forgotten_knowledge\\bosses\\soul_of_dragonking_zyrtarch.lua",
+    "removed": [
+      "shield of corruption",
+      "drachaku",
+      "modified crossbow",
+      "spellbook of mind control",
+      "snake god's sceptre",
+      "zaoan monk robe"
+    ]
+  },
+  {
+    "file": "quests\\forgotten_knowledge\\bosses\\the_enraged_thorn_knight.lua",
+    "removed": [
+      "executioner",
+      "sacred tree amulet",
+      "swamplair armor"
+    ]
+  },
+  {
+    "file": "quests\\forgotten_knowledge\\bosses\\the_freezing_time_guardian.lua",
+    "removed": [
+      "runed sword"
+    ]
+  },
+  {
+    "file": "quests\\forgotten_knowledge\\bosses\\the_last_lore_keeper.lua",
+    "removed": [
+      "hammer of prophecy",
+      "crude umbral hammer",
+      "ring of red plasma",
+      "sapphire hammer",
+      "silkweaver bow",
+      "voltage armor",
+      "bonelord shield",
+      "spellscroll of prophecies",
+      "nightmare blade",
+      "crystalline sword",
+      "umbral hammer"
+    ]
+  },
+  {
+    "file": "quests\\forgotten_knowledge\\bosses\\the_time_guardian.lua",
+    "removed": [
+      "magma legs",
+      "guardian boots",
+      "guardian boots",
+      "spellscroll of prophecies",
+      "runed sword"
+    ]
+  },
+  {
+    "file": "quests\\grave_danger\\bosses\\count_vlarkorth.lua",
+    "removed": [
+      "collar of blue plasma",
+      "collar of red plasma",
+      "ring of blue plasma",
+      "ring of red plasma",
+      "ring of green plasma",
+      "bear skin",
+      "embrace of nature",
+      "terra helmet"
+    ]
+  },
+  {
+    "file": "quests\\grave_danger\\bosses\\duke_krule.lua",
+    "removed": [
+      "terra hood",
+      "bear skin",
+      "terra helmet"
+    ]
+  },
+  {
+    "file": "quests\\grave_danger\\bosses\\earl_osam.lua",
+    "removed": [
+      "collar of blue plasma",
+      "collar of red plasma",
+      "ring of blue plasma",
+      "ring of red plasma",
+      "guardian axe",
+      "embrace of nature",
+      "terra helmet"
+    ]
+  },
+  {
+    "file": "quests\\grave_danger\\bosses\\king_zelos.lua",
+    "removed": [
+      "collar of green plasma",
+      "magma coat",
+      "ring of blue plasma",
+      "ring of red plasma",
+      "mortal mace",
+      "golden hyaena pendant",
+      "bow of cataclysm",
+      "galea mortis",
+      "toga mortis",
+      "death oyoroi"
+    ]
+  },
+  {
+    "file": "quests\\grave_danger\\bosses\\lord_azaram.lua",
+    "removed": [
+      "collar of blue plasma",
+      "collar of red plasma",
+      "collar of green plasma",
+      "haunted blade",
+      "ring of green plasma",
+      "ring of red plasma",
+      "bear skin",
+      "terra helmet"
+    ]
+  },
+  {
+    "file": "quests\\grave_danger\\bosses\\scarlett_etzel.lua",
+    "removed": [
+      "royal star",
+      "magma coat",
+      "terra rod",
+      "terra legs",
+      "terra hood",
+      "terra mantle",
+      "magma amulet",
+      "terra amulet",
+      "magma monocle",
+      "cobra club",
+      "cobra axe",
+      "cobra crossbow",
+      "cobra hood",
+      "cobra rod",
+      "cobra sword",
+      "cobra wand",
+      "cobra amulet",
+      "cobra bo"
+    ]
+  },
+  {
+    "file": "quests\\grave_danger\\bosses\\sir_baeloc.lua",
+    "removed": [
+      "collar of blue plasma",
+      "collar of red plasma",
+      "ring of blue plasma",
+      "ring of red plasma",
+      "embrace of nature",
+      "terra helmet"
+    ]
+  },
+  {
+    "file": "quests\\heart_of_destruction\\anomaly.lua",
+    "removed": [
+      "collar of blue plasma",
+      "ring of blue plasma",
+      "ring of green plasma",
+      "crystalline sword",
+      "lightning headband",
+      "chaos mace",
+      "shadow sceptre",
+      "spellbook of warding",
+      "lightning legs",
+      "lightning robe",
+      "tiara of power",
+      "void boots",
+      "ruthless axe"
+    ]
+  },
+  {
+    "file": "quests\\heart_of_destruction\\eradicator.lua",
+    "removed": [
+      "spellbook of warding",
+      "ring of blue plasma",
+      "ring of green plasma",
+      "ring of red plasma",
+      "spellbook of lost souls"
+    ]
+  },
+  {
+    "file": "quests\\heart_of_destruction\\eradicator2.lua",
+    "removed": [
+      "spellbook of warding",
+      "ring of blue plasma",
+      "ring of green plasma",
+      "ring of red plasma",
+      "spellbook of lost souls"
+    ]
+  },
+  {
+    "file": "quests\\heart_of_destruction\\outburst.lua",
+    "removed": [
+      "chaos mace",
+      "ring of red plasma",
+      "tiara of power",
+      "void boots",
+      "crystalline sword"
+    ]
+  },
+  {
+    "file": "quests\\heart_of_destruction\\realityquake.lua",
+    "removed": [
+      "wand of cosmic energy",
+      "ring of green plasma",
+      "ring of red plasma"
+    ]
+  },
+  {
+    "file": "quests\\heart_of_destruction\\rupture.lua",
+    "removed": [
+      "chaos mace",
+      "ring of green plasma",
+      "ring of red plasma",
+      "tiara of power",
+      "void boots"
+    ]
+  },
+  {
+    "file": "quests\\heart_of_destruction\\world_devourer.lua",
+    "removed": [
+      "amber staff",
+      "lightning headband",
+      "ring of red plasma",
+      "tiara of power",
+      "void boots"
+    ]
+  },
+  {
+    "file": "quests\\isle_of_evil\\boogey.lua",
+    "removed": [
+      "heavy metal t-shirt",
+      "club of the fury",
+      "scythe of the reaper",
+      "musician's bow"
+    ]
+  },
+  {
+    "file": "quests\\isle_of_evil\\dirtbeard.lua",
+    "removed": [
+      "pointed rabbitslayer",
+      "helmet of nature",
+      "odd hat",
+      "shield Nevermourn"
+    ]
+  },
+  {
+    "file": "quests\\isle_of_evil\\doctor_perhaps.lua",
+    "removed": [
+      "mighty helm of green sparks",
+      "meat shield",
+      "glutton's mace",
+      "trousers of the ancients"
+    ]
+  },
+  {
+    "file": "quests\\isle_of_evil\\mephiles.lua",
+    "removed": [
+      "stale bread of ancientness",
+      "poet's fencing quill",
+      "rain coat"
+    ]
+  },
+  {
+    "file": "quests\\isle_of_evil\\monstor.lua",
+    "removed": [
+      "helmet of ultimate terror",
+      "farmer's avenger",
+      "shield of care",
+      "incredible mumpiz slayer"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\bretzecutioner.lua",
+    "removed": [
+      "assassin star",
+      "spiked squelcher",
+      "chaos mace",
+      "dreaded cleaver",
+      "death ring",
+      "skull helmet"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\bruise_payne.lua",
+    "removed": [
+      "mercenary sword",
+      "batwing hat"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\deathbine.lua",
+    "removed": [
+      "terra amulet",
+      "terra boots",
+      "springsprout rod"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\esmeralda.lua",
+    "removed": [
+      "epee",
+      "terra mantle"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\ethershreck.lua",
+    "removed": [
+      "Zaoan halberd",
+      "jade hat",
+      "Zaoan shoes",
+      "spellweaver's robe",
+      "Zaoan legs",
+      "Zaoan armor",
+      "Zaoan helmet",
+      "traditional sai",
+      "drakinata"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\fazzrah.lua",
+    "removed": [
+      "Zaoan shoes",
+      "Zaoan legs",
+      "Zaoan armor"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\flameborn.lua",
+    "removed": [
+      "assassin star",
+      "spiked squelcher",
+      "onyx flail"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\fleshcrawler.lua",
+    "removed": [
+      "terra mantle",
+      "springsprout rod",
+      "amber staff",
+      "ornamented brooch"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\gorgo.lua",
+    "removed": [
+      "sacred tree amulet",
+      "terra amulet",
+      "terra mantle",
+      "terra legs",
+      "titan axe"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\hemming.lua",
+    "removed": [
+      "traditional sai",
+      "dreaded cleaver",
+      "bonebreaker"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\hide.lua",
+    "removed": [
+      "terra hood"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\kerberos.lua",
+    "removed": [
+      "ruthless axe",
+      "magma amulet",
+      "executioner"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\leviathan.lua",
+    "removed": [
+      "leviathan's amulet",
+      "bonebreaker",
+      "frozen plate"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\paiz_the_pauperizer.lua",
+    "removed": [
+      "traditional sai",
+      "Zaoan sword",
+      "Zaoan armor",
+      "swamplair armor",
+      "twiceslicer",
+      "elite draken mail"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\ribstride.lua",
+    "removed": [
+      "skull helmet"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\stonecracker.lua",
+    "removed": [
+      "assassin star"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\the_bloodtusk.lua",
+    "removed": [
+      "furry club",
+      "tusk shield",
+      "mammoth fur cape"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\the_bloodweb.lua",
+    "removed": [
+      "glacier mask",
+      "glacier kilt",
+      "traditional sai",
+      "sapphire hammer"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\the_many.lua",
+    "removed": [
+      "sacred tree amulet"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\the_noxious_spawn.lua",
+    "removed": [
+      "mercenary sword",
+      "noble axe",
+      "assassin star",
+      "spellbook of mind control",
+      "swamplair armor"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\the_old_widow.lua",
+    "removed": [
+      "bloody edge",
+      "dreaded cleaver"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\the_snapper.lua",
+    "removed": [
+      "crocodile boots"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\thul.lua",
+    "removed": [
+      "relic sword"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\tormentor.lua",
+    "removed": [
+      "death ring",
+      "nightmare blade"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\tromphonyte.lua",
+    "removed": [
+      "spiked squelcher"
+    ]
+  },
+  {
+    "file": "quests\\killing_in_the_name_of\\zanakeph.lua",
+    "removed": [
+      "death ring",
+      "dragonbone staff",
+      "jade hat",
+      "skull helmet",
+      "divine plate"
+    ]
+  },
+  {
+    "file": "quests\\kilmaresh\\amenef_the_burning.lua",
+    "removed": [
+      "ring of blue plasma",
+      "epee",
+      "underworld rod",
+      "springsprout rod",
+      "wand of cosmic energy",
+      "wand of inferno",
+      "spellbook of warding",
+      "wand of starstorm",
+      "amber staff",
+      "assassin dagger",
+      "warrior's axe",
+      "focus cape",
+      "noble axe",
+      "sacred tree amulet",
+      "mercenary sword"
+    ]
+  },
+  {
+    "file": "quests\\kilmaresh\\bragrumol.lua",
+    "removed": [
+      "enchanted blister ring",
+      "winged boots",
+      "enchanted theurgic amulet",
+      "magma coat"
+    ]
+  },
+  {
+    "file": "quests\\kilmaresh\\earworm.lua",
+    "removed": [
+      "terra amulet",
+      "terra hood",
+      "sacred tree amulet"
+    ]
+  },
+  {
+    "file": "quests\\kilmaresh\\mozradek.lua",
+    "removed": [
+      "enchanted blister ring"
+    ]
+  },
+  {
+    "file": "quests\\kilmaresh\\neferi_the_spy.lua",
+    "removed": [
+      "terra rod",
+      "terra boots",
+      "hailstorm rod",
+      "lightning headband",
+      "terra hood",
+      "lightning legs",
+      "ring of red plasma",
+      "spellbook of warding",
+      "glacier shoes",
+      "glacier mask"
+    ]
+  },
+  {
+    "file": "quests\\kilmaresh\\sister_hetai.lua",
+    "removed": [
+      "sacred tree amulet",
+      "lightning headband",
+      "underworld rod",
+      "wand of cosmic energy",
+      "wand of inferno",
+      "lightning pendant",
+      "focus cape",
+      "magma coat",
+      "wand of starstorm",
+      "magma boots",
+      "metal spats",
+      "warrior's shield",
+      "terra hood",
+      "ring of green plasma",
+      "terra boots",
+      "lightning legs"
+    ]
+  },
+  {
+    "file": "quests\\kilmaresh\\urmahlullu_the_weakened.lua",
+    "removed": [
+      "lightning pendant",
+      "magma coat",
+      "royal star",
+      "magma amulet",
+      "magma monocle",
+      "tagralt blade",
+      "Ring of Secret Thoughts",
+      "winged boots",
+      "lightning legs",
+      "enchanted theurgic amulet",
+      "rainbow necklace",
+      "enchanted theurgic amulet",
+      "ring of orange plasma"
+    ]
+  },
+  {
+    "file": "quests\\kilmaresh\\xogixath.lua",
+    "removed": [
+      "winged boots",
+      "enchanted blister ring"
+    ]
+  },
+  {
+    "file": "quests\\liquid_black\\jaul.lua",
+    "removed": [
+      "deepling axe",
+      "depth calcei",
+      "depth galea",
+      "depth lorica",
+      "ornate chestplate",
+      "ornate legs",
+      "ornate mace",
+      "ornate shield"
+    ]
+  },
+  {
+    "file": "quests\\liquid_black\\obujos.lua",
+    "removed": [
+      "deepling axe",
+      "depth scutum",
+      "ornate legs"
+    ]
+  },
+  {
+    "file": "quests\\liquid_black\\tanjis.lua",
+    "removed": [
+      "depth ocrea",
+      "ornate mace",
+      "ornate shield"
+    ]
+  },
+  {
+    "file": "quests\\marapur\\timira_the_many-headed.lua",
+    "removed": [
+      "dawnfire sherwani",
+      "frostflower boots",
+      "feverbloom boots",
+      "enchanted turtle amulet",
+      "midnight tunic",
+      "midnight sarong",
+      "naga quiver",
+      "naga sword",
+      "naga axe",
+      "naga club",
+      "naga wand",
+      "naga rod",
+      "naga crossbow",
+      "naga katar",
+      "naga tanko"
+    ]
+  },
+  {
+    "file": "quests\\mysterious_ornate_chest\\reflection_of_mawhawk.lua",
+    "removed": [
+      "butcher's axe",
+      "execowtioner axe",
+      "titan axe"
+    ]
+  },
+  {
+    "file": "quests\\mysterious_ornate_chest\\reflection_of_obujos.lua",
+    "removed": [
+      "depth scutum",
+      "deepling axe",
+      "ornate legs"
+    ]
+  },
+  {
+    "file": "quests\\mysterious_ornate_chest\\ugly_monster.lua",
+    "removed": [
+      "cobra crossbow",
+      "cobra hood",
+      "cobra axe",
+      "cobra boots",
+      "cobra sword",
+      "cobra wand",
+      "cobra rod",
+      "cobra club"
+    ]
+  },
+  {
+    "file": "quests\\no_rest_for_the_wicked\\arbaziloth.lua",
+    "removed": [
+      "magma amulet",
+      "death ring",
+      "magma legs",
+      "spellweaver's robe",
+      "underworld rod",
+      "wand of inferno",
+      "demonrage sword",
+      "maliceforged helmet",
+      "hellstalker visor",
+      "dreadfire headpiece",
+      "demonfang mask",
+      "demon mengu"
+    ]
+  },
+  {
+    "file": "quests\\no_rest_for_the_wicked\\weakened_arbaziloth.lua",
+    "removed": [
+      "magma amulet",
+      "death ring",
+      "magma legs",
+      "spellweaver's robe",
+      "underworld rod",
+      "wand of inferno",
+      "demonrage sword",
+      "inferniarch arbalest",
+      "inferniarch battleaxe",
+      "inferniarch bow",
+      "inferniarch greataxe",
+      "inferniarch flail",
+      "inferniarch warhammer",
+      "inferniarch wand",
+      "inferniarch rod",
+      "inferniarch slayer"
+    ]
+  },
+  {
+    "file": "quests\\pits_of_inferno\\dracola.lua",
+    "removed": [
+      "skull helmet",
+      "reaper's axe",
+      "death ring"
+    ]
+  },
+  {
+    "file": "quests\\pits_of_inferno\\massacre.lua",
+    "removed": [
+      "berserker"
+    ]
+  },
+  {
+    "file": "quests\\pits_of_inferno\\the_imperor.lua",
+    "removed": [
+      "magma coat"
+    ]
+  },
+  {
+    "file": "quests\\primal_ordeal_quest\\magma_bubble.lua",
+    "removed": [
+      "arboreal tome",
+      "arboreal crown",
+      "spiritthorn armor",
+      "spiritthorn helmet",
+      "alicorn headguard",
+      "alicorn quiver",
+      "arcanomancer regalia",
+      "arcanomancer folio",
+      "ethereal coned hat",
+      "charged ethereal ring",
+      "charged arcanomancer sigil",
+      "charged arboreal ring",
+      "charged alicorn ring",
+      "charged spiritthorn ring"
+    ]
+  },
+  {
+    "file": "quests\\primal_ordeal_quest\\plunder_patriarch.lua",
+    "removed": [
+      "arboreal tome",
+      "arboreal crown",
+      "spiritthorn armor",
+      "spiritthorn helmet",
+      "alicorn headguard",
+      "alicorn quiver",
+      "arcanomancer regalia",
+      "arcanomancer folio",
+      "ethereal coned hat",
+      "charged ethereal ring",
+      "charged arcanomancer sigil",
+      "charged arboreal ring",
+      "charged alicorn ring",
+      "charged spiritthorn ring"
+    ]
+  },
+  {
+    "file": "quests\\roshamuul\\gaz'haragoth.lua",
+    "removed": [
+      "assassin star",
+      "crude umbral blade",
+      "crude umbral slayer",
+      "crude umbral axe",
+      "crude umbral chopper",
+      "crude umbral hammer",
+      "crude umbral mace",
+      "crude umbral bow",
+      "crude umbral crossbow",
+      "crude umbral spellbook",
+      "umbral blade",
+      "umbral slayer",
+      "umbral axe",
+      "umbral chopper",
+      "umbral hammer",
+      "umbral mace",
+      "umbral bow",
+      "umbral crossbow",
+      "umbral spellbook",
+      "umbral masterblade",
+      "umbral master slayer",
+      "umbral master axe",
+      "umbral master chopper",
+      "umbral master hammer",
+      "umbral master mace",
+      "umbral master bow",
+      "umbral master crossbow",
+      "umbral master spellbook"
+    ]
+  },
+  {
+    "file": "quests\\roshamuul\\horadron.lua",
+    "removed": [
+      "spellbook of lost souls",
+      "spellbook of warding",
+      "spellbook of mind control",
+      "beastslayer axe",
+      "noble axe",
+      "executioner",
+      "vile axe",
+      "demonwing axe",
+      "lightning legs"
+    ]
+  },
+  {
+    "file": "quests\\roshamuul\\omrafir.lua",
+    "removed": [
+      "lightning boots",
+      "lightning robe",
+      "skull helmet"
+    ]
+  },
+  {
+    "file": "quests\\roshamuul\\prince_drazzak.lua",
+    "removed": [
+      "skull helmet",
+      "runed sword",
+      "nightmare blade",
+      "lightning boots"
+    ]
+  },
+  {
+    "file": "quests\\roshamuul\\terofar.lua",
+    "removed": [
+      "paladin armor",
+      "voltage armor",
+      "lavos armor",
+      "earthborn titan armor",
+      "terra boots",
+      "skull helmet"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\ayana the crimson curse.lua",
+    "removed": [
+      "hailstorm rod",
+      "death ring",
+      "assassin star",
+      "terra mantle",
+      "terra legs"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\bloated_man-maggot.lua",
+    "removed": [
+      "terra rod",
+      "butcher's axe"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\converter.lua",
+    "removed": [
+      "wand of starstorm",
+      "focus cape"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\darklight_construct.lua",
+    "removed": [
+      "zaoan shoes",
+      "magma amulet"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\darklight_emitter.lua",
+    "removed": [
+      "zaoan armor",
+      "amber staff"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\darklight_matter.lua",
+    "removed": [
+      "rubber cap",
+      "collar of red plasma",
+      "shadow sceptre"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\darklight_source.lua",
+    "removed": [
+      "twiceslicer"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\darklight_striker.lua",
+    "removed": [
+      "zaoan helmet"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\meandering_mushroom.lua",
+    "removed": [
+      "wand of decay",
+      "terra amulet"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\mycobiontic_beetle.lua",
+    "removed": [
+      "glacier mask",
+      "buckle"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\oozing_carcass.lua",
+    "removed": [
+      "bloody edge",
+      "spellbook of warding"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\oozing_corpus.lua",
+    "removed": [
+      "terra boots",
+      "dragonbone staff",
+      "jade hammer"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\rotten_man-maggot.lua",
+    "removed": [
+      "death ring"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\sopping_corpus.lua",
+    "removed": [
+      "crimson sword",
+      "underworld rod",
+      "relic sword",
+      "skullcracker armor",
+      "ring of green plasma"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\walking_pillar.lua",
+    "removed": [
+      "magma legs"
+    ]
+  },
+  {
+    "file": "quests\\rotten_bood\\wandering_pillar.lua",
+    "removed": [
+      "magma boots",
+      "magma coat"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\dreadful_disruptor.lua",
+    "removed": [
+      "collar of red plasma",
+      "collar of blue plasma",
+      "ring of orange plasma",
+      "collar of orange plasma"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\hazardous_phantom.lua",
+    "removed": [
+      "hailstorm rod",
+      "northwind rod",
+      "glacier robe",
+      "wand of everblazing",
+      "collar of blue plasma"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\bony_sea_devil.lua",
+    "removed": [
+      "hailstorm rod",
+      "wand of voodoo",
+      "northwind rod",
+      "underworld rod",
+      "skullcracker armor",
+      "glacier kilt",
+      "glacial rod"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\brachiodemon.lua",
+    "removed": [
+      "epee",
+      "noble axe",
+      "spellbook of mind control",
+      "ring of green plasma",
+      "jade hammer",
+      "metal bat",
+      "crystalline sword",
+      "butcher's axe",
+      "assassin dagger",
+      "alloy legs"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\branchy_crawler.lua",
+    "removed": [
+      "terra legs",
+      "crystal crossbow",
+      "nightmare blade",
+      "twiceslicer",
+      "crystalline sword",
+      "ruthless axe"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\capricious_phantom.lua",
+    "removed": [
+      "ring of blue plasma",
+      "fur armor",
+      "collar of blue plasma",
+      "glacial rod",
+      "ornate crossbow"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\distorted_phantom.lua",
+    "removed": [
+      "ring of blue plasma",
+      "underworld rod",
+      "springsprout rod",
+      "ring of red plasma",
+      "spellbook of warding",
+      "ring of green plasma",
+      "glacial rod"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\druid's_apparition.lua",
+    "removed": [
+      "terra rod",
+      "glacier amulet",
+      "sacred tree amulet",
+      "springsprout rod",
+      "underworld rod",
+      "glacier robe",
+      "collar of red plasma"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\furious_crater\\cloak_of_terror.lua",
+    "removed": [
+      "wand of starstorm",
+      "wand of inferno",
+      "lightning headband",
+      "wand of voodoo",
+      "wand of defiance"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\furious_crater\\courage_leech.lua",
+    "removed": [
+      "lightning pendant",
+      "lightning legs",
+      "lightning headband",
+      "jade hammer",
+      "dreaded cleaver",
+      "onyx flail",
+      "butcher's axe",
+      "nightmare blade",
+      "demonrage sword"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\furious_crater\\poor_soul.lua",
+    "removed": [
+      "northwind rod",
+      "sacred tree amulet",
+      "hailstorm rod",
+      "glacier shoes",
+      "glacier robe",
+      "ring of red plasma",
+      "glacial rod"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\furious_crater\\vibrant_phantom.lua",
+    "removed": [
+      "terra rod",
+      "springsprout rod",
+      "hailstorm rod",
+      "underworld rod",
+      "ring of blue plasma"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\infernal_demon.lua",
+    "removed": [
+      "magma amulet",
+      "mercenary sword",
+      "magma boots"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\infernal_phantom.lua",
+    "removed": [
+      "terra rod",
+      "hailstorm rod",
+      "springsprout rod",
+      "underworld rod",
+      "wand of starstorm",
+      "glorious axe",
+      "chaos mace",
+      "titan axe",
+      "wand of voodoo",
+      "warrior's axe"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\knight's_apparition.lua",
+    "removed": [
+      "epee",
+      "glacier amulet"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\many_faces.lua",
+    "removed": [
+      "hailstorm rod",
+      "northwind rod",
+      "sacred tree amulet",
+      "ring of red plasma",
+      "glacier shoes",
+      "glacier robe",
+      "glacial rod"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\monk's_apparition.lua",
+    "removed": [
+      "epee",
+      "glacier amulet"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\mould_phantom.lua",
+    "removed": [
+      "wand of starstorm",
+      "wand of defiance",
+      "wand of voodoo",
+      "collar of blue plasma",
+      "ring of blue plasma",
+      "ornate crossbow",
+      "crystal crossbow"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\paladin's_apparition.lua",
+    "removed": [
+      "glacier mask",
+      "glacier amulet",
+      "skull helmet",
+      "collar of blue plasma",
+      "ring of blue plasma"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\rotten_golem.lua",
+    "removed": [
+      "sacred tree amulet",
+      "underworld rod",
+      "titan axe",
+      "terra amulet",
+      "mercenary sword",
+      "fur armor",
+      "terra mantle",
+      "rubber cap"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\sorcerer's_apparition.lua",
+    "removed": [
+      "ring of red plasma",
+      "wand of voodoo",
+      "ring of green plasma",
+      "ring of blue plasma",
+      "glacier amulet",
+      "wand of everblazing",
+      "wand of defiance",
+      "wand of starstorm",
+      "alloy legs"
+    ]
+  },
+  {
+    "file": "quests\\soul_war\\normal_monsters\\turbulent_elemental.lua",
+    "removed": [
+      "sacred tree amulet",
+      "springsprout rod",
+      "northwind rod",
+      "glacier amulet",
+      "glacier robe",
+      "fur armor",
+      "crystalline armor",
+      "rubber cap"
+    ]
+  },
+  {
+    "file": "quests\\the_curse_spreads\\black_vixen.lua",
+    "removed": [
+      "assassin star",
+      "moonlight rod",
+      "werewolf amulet",
+      "composite hornbow",
+      "traditional sai",
+      "foxtail amulet"
+    ]
+  },
+  {
+    "file": "quests\\the_curse_spreads\\bloodback.lua",
+    "removed": [
+      "furry club",
+      "spiked squelcher",
+      "wereboar loincloth",
+      "dreaded cleaver",
+      "fur armor",
+      "fur boots",
+      "foxtail amulet"
+    ]
+  },
+  {
+    "file": "quests\\the_curse_spreads\\darkfang.lua",
+    "removed": [
+      "bonebreaker",
+      "dreaded cleaver",
+      "werewolf amulet",
+      "traditional sai",
+      "foxtail amulet"
+    ]
+  },
+  {
+    "file": "quests\\the_curse_spreads\\feroxa5.lua",
+    "removed": [
+      "werewolf helmet",
+      "werewolf amulet",
+      "angelic axe",
+      "dreaded cleaver",
+      "fur armor",
+      "badger boots"
+    ]
+  },
+  {
+    "file": "quests\\the_curse_spreads\\shadowpelt.lua",
+    "removed": [
+      "furry club",
+      "spiked squelcher",
+      "dreaded cleaver",
+      "fur armor",
+      "relic sword",
+      "foxtail amulet"
+    ]
+  },
+  {
+    "file": "quests\\the_curse_spreads\\sharpclaw.lua",
+    "removed": [
+      "badger boots",
+      "underworld rod",
+      "wand of voodoo",
+      "foxtail amulet"
+    ]
+  },
+  {
+    "file": "quests\\the_dream_courts\\bosses\\alptramun.lua",
+    "removed": [
+      "ring of blue plasma",
+      "ring of green plasma",
+      "ring of red plasma",
+      "collar of blue plasma",
+      "collar of blue plasma",
+      "collar of green plasma",
+      "abyss hammer",
+      "chaos mace",
+      "dream shroud",
+      "pair of dreamwalkers",
+      "royal star"
+    ]
+  },
+  {
+    "file": "quests\\the_dream_courts\\bosses\\faceless_bane.lua",
+    "removed": [
+      "dream blossom staff",
+      "ectoplasmic shield",
+      "enchanted pendulet",
+      "hailstorm rod",
+      "lightning pendant",
+      "moonlight rod",
+      "necrotic rod",
+      "snakebite rod",
+      "spirit guide",
+      "springsprout rod",
+      "terra rod",
+      "twin hooks",
+      "underworld rod",
+      "wand of everblazing"
+    ]
+  },
+  {
+    "file": "quests\\the_dream_courts\\bosses\\izcandar_the_banished.lua",
+    "removed": [
+      "ring of blue plasma",
+      "ring of green plasma",
+      "ring of green plasma",
+      "collar of blue plasma",
+      "collar of blue plasma",
+      "collar of green plasma",
+      "collar of red plasma",
+      "chaos mace",
+      "royal star",
+      "summerblade",
+      "winterblade"
+    ]
+  },
+  {
+    "file": "quests\\the_dream_courts\\bosses\\malofur_mangrinder.lua",
+    "removed": [
+      "collar of red plasma",
+      "ring of blue plasma",
+      "ring of green plasma",
+      "collar of blue plasma",
+      "collar of green plasma",
+      "chaos mace",
+      "resizer",
+      "ring of red plasma",
+      "royal star"
+    ]
+  },
+  {
+    "file": "quests\\the_dream_courts\\bosses\\maxxenius.lua",
+    "removed": [
+      "ring of blue plasma",
+      "ring of blue plasma",
+      "ring of green plasma",
+      "ring of red plasma",
+      "ring of red plasma",
+      "collar of blue plasma",
+      "collar of blue plasma",
+      "collar of green plasma",
+      "collar of red plasma",
+      "abyss hammer",
+      "chaos mace",
+      "energized limb",
+      "royal star"
+    ]
+  },
+  {
+    "file": "quests\\the_dream_courts\\bosses\\plagueroot.lua",
+    "removed": [
+      "royal star",
+      "royal star",
+      "collar of blue plasma",
+      "ring of blue plasma",
+      "collar of green plasma",
+      "collar of red plasma",
+      "ring of green plasma",
+      "ring of red plasma",
+      "chaos mace",
+      "living vine bow",
+      "living armor",
+      "abyss hammer"
+    ]
+  },
+  {
+    "file": "quests\\the_dream_courts\\bosses\\the_nightmare_beast.lua",
+    "removed": [
+      "collar of blue plasma",
+      "ring of blue plasma",
+      "ring of green plasma",
+      "ring of red plasma",
+      "collar of green plasma",
+      "collar of red plasma",
+      "enchanted sleep shawl",
+      "abyss hammer",
+      "chaos mace",
+      "dark whispers",
+      "dark vision bandana",
+      "royal star"
+    ]
+  },
+  {
+    "file": "quests\\the_elemental_spheres\\blistering_fire_elemental.lua",
+    "removed": [
+      "wand of draconia"
+    ]
+  },
+  {
+    "file": "quests\\the_elemental_spheres\\earth_overlord.lua",
+    "removed": [
+      "terra mantle"
+    ]
+  },
+  {
+    "file": "quests\\the_elemental_spheres\\fire_overlord.lua",
+    "removed": [
+      "magma coat"
+    ]
+  },
+  {
+    "file": "quests\\the_elemental_spheres\\lord_of_the_elements.lua",
+    "removed": [
+      "earthborn titan armor",
+      "jade conical hat"
+    ]
+  },
+  {
+    "file": "quests\\the_elemental_spheres\\psychic_spirit_elemental.lua",
+    "removed": [
+      "moonlight rod"
+    ]
+  },
+  {
+    "file": "quests\\the_elemental_spheres\\roaring_water_elemental.lua",
+    "removed": [
+      "northwind rod"
+    ]
+  },
+  {
+    "file": "quests\\the_elemental_spheres\\spirit_overlord.lua",
+    "removed": [
+      "moonlight rod"
+    ]
+  },
+  {
+    "file": "quests\\the_first_dragon\\bosses\\gelidrazah_the_frozen.lua",
+    "removed": [
+      "glacier amulet",
+      "glacier mask",
+      "icicle bow",
+      "runic ice shield",
+      "northern star",
+      "glacial rod"
+    ]
+  },
+  {
+    "file": "quests\\the_first_dragon\\bosses\\zorvorax.lua",
+    "removed": [
+      "skull helmet",
+      "dragonbone staff",
+      "death ring"
+    ]
+  },
+  {
+    "file": "quests\\the_first_dragon\\haunted_dragon.lua",
+    "removed": [
+      "death ring",
+      "assassin star",
+      "dragon slayer",
+      "dragonbone staff",
+      "skullcracker armor",
+      "spellweaver's robe"
+    ]
+  },
+  {
+    "file": "quests\\the_first_dragon\\ice_dragon.lua",
+    "removed": [
+      "glacier mask",
+      "hailstorm rod",
+      "glacier amulet"
+    ]
+  },
+  {
+    "file": "quests\\the_inquisition\\annihilon.lua",
+    "removed": [
+      "viper star",
+      "assassin star",
+      "diamond sceptre",
+      "onyx flail",
+      "demonbone",
+      "lavos armor",
+      "paladin armor",
+      "obsidian truncheon"
+    ]
+  },
+  {
+    "file": "quests\\the_inquisition\\golgordan.lua",
+    "removed": [
+      "death ring",
+      "snakebite rod"
+    ]
+  },
+  {
+    "file": "quests\\the_inquisition\\hellgorak.lua",
+    "removed": [
+      "spellbook of warding",
+      "beastslayer axe",
+      "noble axe",
+      "magma legs",
+      "focus cape",
+      "spirit cloak",
+      "spellbook of mind control",
+      "spellbook of lost souls",
+      "butcher's axe",
+      "vile axe",
+      "spellscroll of prophecies",
+      "executioner",
+      "demonwing axe",
+      "voltage armor",
+      "spellbook of dark mysteries"
+    ]
+  },
+  {
+    "file": "quests\\the_inquisition\\latrivan.lua",
+    "removed": [
+      "death ring",
+      "snakebite rod"
+    ]
+  },
+  {
+    "file": "quests\\the_inquisition\\madareth.lua",
+    "removed": [
+      "death ring",
+      "hailstorm rod",
+      "assassin dagger",
+      "underworld rod",
+      "haunted blade",
+      "nightmare blade",
+      "springsprout rod",
+      "wand of inferno",
+      "wand of voodoo",
+      "bloody edge",
+      "crystal sword",
+      "relic sword",
+      "wand of starstorm",
+      "mercenary sword"
+    ]
+  },
+  {
+    "file": "quests\\the_inquisition\\ushuriel.lua",
+    "removed": [
+      "skull helmet",
+      "crimson sword",
+      "thaian sword",
+      "dragon slayer",
+      "runed sword"
+    ]
+  },
+  {
+    "file": "quests\\the_order_of_lion\\bosses\\ancient_lion_knight.lua",
+    "removed": [
+      "life preserver",
+      "lion spangenhelm",
+      "lion plate",
+      "lion longsword",
+      "lion hammer",
+      "lion axe",
+      "lion longbow",
+      "lion spellbook",
+      "lion wand",
+      "lion amulet",
+      "lion rod",
+      "lion claws"
+    ]
+  },
+  {
+    "file": "quests\\the_order_of_lion\\bosses\\drume.lua",
+    "removed": [
+      "royal star",
+      "terra rod",
+      "terra legs",
+      "terra mantle",
+      "wand of voodoo",
+      "terra hood",
+      "terra amulet",
+      "underworld rod",
+      "lion spangenhelm",
+      "lion plate",
+      "lion longsword",
+      "lion hammer",
+      "lion axe",
+      "lion longbow",
+      "lion spellbook",
+      "lion wand",
+      "lion amulet",
+      "lion rod",
+      "lion claws"
+    ]
+  },
+  {
+    "file": "quests\\the_percht_queens_island\\baleful_bunny.lua",
+    "removed": [
+      "terra amulet",
+      "snakebite rod",
+      "leaf star",
+      "lightning pendant",
+      "sacred tree amulet",
+      "yetislippers"
+    ]
+  },
+  {
+    "file": "quests\\the_percht_queens_island\\percht.lua",
+    "removed": [
+      "magma amulet",
+      "magma coat",
+      "magma monocle",
+      "magma legs"
+    ]
+  },
+  {
+    "file": "quests\\the_percht_queens_island\\schiach.lua",
+    "removed": [
+      "glacier kilt",
+      "glacier robe"
+    ]
+  },
+  {
+    "file": "quests\\the_percht_queens_island\\the_percht_queen.lua",
+    "removed": [
+      "royal star",
+      "chaos mace",
+      "frozen claw",
+      "crown of the percht queen",
+      "ring of blue plasma",
+      "ice hatchet",
+      "ring of red plasma",
+      "ring of green plasma",
+      "collar of red plasma",
+      "collar of green plasma",
+      "collar of blue plasma",
+      "abyss hammer"
+    ]
+  },
+  {
+    "file": "quests\\the_secret_library\\bosses\\brokul.lua",
+    "removed": [
+      "deepling ceremonial dagger",
+      "deepling fork"
+    ]
+  },
+  {
+    "file": "quests\\the_secret_library\\bosses\\ghulosh.lua",
+    "removed": [
+      "wand of voodoo",
+      "butcher's axe",
+      "dreaded cleaver",
+      "mercenary sword",
+      "unliving demonbone"
+    ]
+  },
+  {
+    "file": "quests\\the_secret_library\\bosses\\gorzindel.lua",
+    "removed": [
+      "chaos mace",
+      "dreaded cleaver",
+      "muck rod",
+      "spellbook of warding",
+      "wand of cosmic Energy"
+    ]
+  },
+  {
+    "file": "quests\\the_secret_library\\bosses\\grand_canon_dominus.lua",
+    "removed": [
+      "assassin star",
+      "falcon bow",
+      "falcon wand",
+      "falcon plate"
+    ]
+  },
+  {
+    "file": "quests\\the_secret_library\\bosses\\grand_chaplain_gaunder.lua",
+    "removed": [
+      "spiked squelcher",
+      "titan axe",
+      "falcon battleaxe",
+      "falcon longsword",
+      "falcon mace",
+      "falcon plate",
+      "falcon shield",
+      "falcon sai"
+    ]
+  },
+  {
+    "file": "quests\\the_secret_library\\bosses\\grand_commander_soeren.lua",
+    "removed": [
+      "falcon coif",
+      "falcon bow"
+    ]
+  },
+  {
+    "file": "quests\\the_secret_library\\bosses\\grand_master_oberon.lua",
+    "removed": [
+      "falcon battleaxe",
+      "falcon longsword",
+      "falcon mace",
+      "falcon bow",
+      "falcon circlet",
+      "falcon coif",
+      "falcon rod",
+      "falcon wand",
+      "falcon shield",
+      "falcon greaves",
+      "falcon plate",
+      "falcon sai"
+    ]
+  },
+  {
+    "file": "quests\\the_secret_library\\bosses\\preceptor_lazare.lua",
+    "removed": [
+      "assassin star",
+      "titan axe",
+      "falcon rod",
+      "falcon greaves"
+    ]
+  },
+  {
+    "file": "quests\\the_secret_library\\bosses\\the_scourge_of_oblivion.lua",
+    "removed": [
+      "royal star",
+      "collar of blue plasma",
+      "rift shield",
+      "skullcracker armor",
+      "chaos mace",
+      "calamity"
+    ]
+  },
+  {
+    "file": "quests\\the_secret_library\\lokathmor.lua",
+    "removed": [
+      "dreaded cleaver",
+      "wand of inferno"
+    ]
+  },
+  {
+    "file": "quests\\the_secret_library\\mazzinor.lua",
+    "removed": [
+      "lightning boots",
+      "wand of starstorm",
+      "assassin dagger",
+      "crystalline armor",
+      "dreaded cleaver",
+      "wand of dimensions"
+    ]
+  },
+  {
+    "file": "quests\\twenty_years_a_cook\\bosses\\dragon_hoard.lua",
+    "removed": [
+      "wand of inferno",
+      "drakinata",
+      "dragon slayer",
+      "dragonbone staff",
+      "divine plate",
+      "jade hat",
+      "arcane dragon robe",
+      "dauntless dragon scale armor",
+      "unerring dragon scale armor",
+      "mystical dragon robe",
+      "merudri battle mail"
+    ]
+  },
+  {
+    "file": "raids\\arachir_the_ancient_one.lua",
+    "removed": [
+      "bloody edge"
+    ]
+  },
+  {
+    "file": "raids\\barbaria.lua",
+    "removed": [
+      "hunting spear"
+    ]
+  },
+  {
+    "file": "raids\\battlemaster_zunzu.lua",
+    "removed": [
+      "zaoan armor",
+      "zaoan shoes",
+      "zaoan legs"
+    ]
+  },
+  {
+    "file": "raids\\captain_jones.lua",
+    "removed": [
+      "focus cape"
+    ]
+  },
+  {
+    "file": "raids\\draptor.lua",
+    "removed": [
+      "dragon robe"
+    ]
+  },
+  {
+    "file": "raids\\ferumbras.lua",
+    "removed": [
+      "Ferumbras' hat",
+      "spellbook of lost souls",
+      "spellbook of mind control",
+      "velvet mantle",
+      "divine plate",
+      "magma legs",
+      "glacier kilt",
+      "lightning legs",
+      "spellbook of dark mysteries",
+      "terra legs",
+      "emerald sword",
+      "havoc blade",
+      "shadow sceptre",
+      "runed sword",
+      "spellscroll of prophecies",
+      "chaos mace",
+      "demonwing axe",
+      "greenwood coat",
+      "haunted blade",
+      "hellforged axe",
+      "ornamented axe",
+      "demonrage sword",
+      "jade hammer",
+      "skullcrusher"
+    ]
+  },
+  {
+    "file": "raids\\furyosa.lua",
+    "removed": [
+      "death ring",
+      "furious frock"
+    ]
+  },
+  {
+    "file": "raids\\ghazbaran.lua",
+    "removed": [
+      "death ring",
+      "ruthless axe",
+      "assassin star",
+      "havoc blade",
+      "ravenwing",
+      "glacier kilt",
+      "oceanborn leviathan armor",
+      "frozen plate",
+      "spellbook of warding",
+      "spellbook of mind control",
+      "spellbook of lost souls",
+      "spellscroll of prophecies",
+      "spellbook of dark mysteries"
+    ]
+  },
+  {
+    "file": "raids\\glooth_battery.lua",
+    "removed": [
+      "metal spats"
+    ]
+  },
+  {
+    "file": "raids\\glooth_bomb.lua",
+    "removed": [
+      "gearwheel chain"
+    ]
+  },
+  {
+    "file": "raids\\glooth_fairy.lua",
+    "removed": [
+      "glooth amulet",
+      "glooth axe",
+      "glooth spear",
+      "heat core",
+      "glooth blade",
+      "glooth club",
+      "rubber cap"
+    ]
+  },
+  {
+    "file": "raids\\grand_mother_foulscale.lua",
+    "removed": [
+      "wand of inferno",
+      "dragonbone staff"
+    ]
+  },
+  {
+    "file": "raids\\hirintror.lua",
+    "removed": [
+      "runic ice shield",
+      "icicle bow",
+      "glacier shoes",
+      "glacier mask",
+      "crystal sword"
+    ]
+  },
+  {
+    "file": "raids\\man_in_the_cave.lua",
+    "removed": [
+      "mercenary sword",
+      "fur cap"
+    ]
+  },
+  {
+    "file": "raids\\mawhawk.lua",
+    "removed": [
+      "assassin dagger",
+      "haunted blade",
+      "nightmare blade"
+    ]
+  },
+  {
+    "file": "raids\\morgaroth.lua",
+    "removed": [
+      "devileye",
+      "death ring",
+      "chain bolter",
+      "dark lord's cape",
+      "ironworker",
+      "fireborn giant armor",
+      "royal crossbow",
+      "assassin star",
+      "demonbone",
+      "obsidian truncheon",
+      "stomper",
+      "dragon robe",
+      "molten plate"
+    ]
+  },
+  {
+    "file": "raids\\necropharus.lua",
+    "removed": [
+      "moonlight rod"
+    ]
+  },
+  {
+    "file": "raids\\ocyakao.lua",
+    "removed": [
+      "mammoth whopper"
+    ]
+  },
+  {
+    "file": "raids\\orc_armor.lua",
+    "removed": [
+      "hunting spear",
+      "magma boots"
+    ]
+  },
+  {
+    "file": "raids\\orc_helmet.lua",
+    "removed": [
+      "hunting spear",
+      "magma boots"
+    ]
+  },
+  {
+    "file": "raids\\orc_shield.lua",
+    "removed": [
+      "hunting spear",
+      "magma boots"
+    ]
+  },
+  {
+    "file": "raids\\orshabaal.lua",
+    "removed": [
+      "death ring",
+      "assassin star"
+    ]
+  },
+  {
+    "file": "raids\\ron_the_ripper.lua",
+    "removed": [
+      "Ron the Ripper's sabre"
+    ]
+  },
+  {
+    "file": "raids\\sir_valorcrest.lua",
+    "removed": [
+      "chaos mace"
+    ]
+  },
+  {
+    "file": "raids\\the_horned_fox.lua",
+    "removed": [
+      "mino lance",
+      "mino shield"
+    ]
+  },
+  {
+    "file": "raids\\the_pale_count.lua",
+    "removed": [
+      "vampire's signet ring",
+      "chaos mace",
+      "epee",
+      "dreaded cleaver",
+      "spellbook of lost souls",
+      "haunted mirror piece",
+      "vampire silk slippers"
+    ]
+  },
+  {
+    "file": "raids\\the_voice_of_ruin.lua",
+    "removed": [
+      "Zaoan shoes"
+    ]
+  },
+  {
+    "file": "raids\\the_welter.lua",
+    "removed": [
+      "triple bolt crossbow",
+      "shrunken head necklace",
+      "sacred tree amulet"
+    ]
+  },
+  {
+    "file": "raids\\tyrn.lua",
+    "removed": [
+      "assassin star",
+      "hibiscus dress"
+    ]
+  },
+  {
+    "file": "raids\\white_pale.lua",
+    "removed": [
+      "horn",
+      "albino plate",
+      "daramian mace"
+    ]
+  },
+  {
+    "file": "raids\\yakchal.lua",
+    "removed": [
+      "crystal sword",
+      "glacier kilt",
+      "glacier robe",
+      "pair of earmuffs",
+      "queen's sceptre"
+    ]
+  },
+  {
+    "file": "raids\\zulazza_the_corruptor.lua",
+    "removed": [
+      "dragon scale boots",
+      "viper star",
+      "earthborn titan armor",
+      "paladin armor"
+    ]
+  },
+  {
+    "file": "reptiles\\adult_goanna.lua",
+    "removed": [
+      "terra rod",
+      "terra hood",
+      "terra amulet",
+      "fur armor",
+      "sacred tree amulet"
+    ]
+  },
+  {
+    "file": "reptiles\\boar_man.lua",
+    "removed": [
+      "sapphire hammer",
+      "crystal sword"
+    ]
+  },
+  {
+    "file": "reptiles\\carnivostrich.lua",
+    "removed": [
+      "underworld rod",
+      "wand of voodoo",
+      "spellbook of mind control"
+    ]
+  },
+  {
+    "file": "reptiles\\crape_man.lua",
+    "removed": [
+      "lightning legs",
+      "warrior's shield",
+      "glacier kilt",
+      "noble axe"
+    ]
+  },
+  {
+    "file": "reptiles\\crocodile.lua",
+    "removed": [
+      "crocodile boots"
+    ]
+  },
+  {
+    "file": "reptiles\\harpy.lua",
+    "removed": [
+      "wand of defiance",
+      "focus cape",
+      "ornate crossbow",
+      "shockwave amulet"
+    ]
+  },
+  {
+    "file": "reptiles\\killer_caiman.lua",
+    "removed": [
+      "crocodile boots"
+    ]
+  },
+  {
+    "file": "reptiles\\liodile.lua",
+    "removed": [
+      "assassin dagger",
+      "terra legs",
+      "springsprout rod",
+      "sacred tree amulet",
+      "leviathan's amulet"
+    ]
+  },
+  {
+    "file": "reptiles\\lizard_chosen.lua",
+    "removed": [
+      "zaoan armor",
+      "zaoan helmet",
+      "zaoan shoes",
+      "zaoan legs",
+      "collar of orange plasma"
+    ]
+  },
+  {
+    "file": "reptiles\\lizard_dragon_priest.lua",
+    "removed": [
+      "terra rod",
+      "wand of inferno",
+      "focus cape",
+      "zaoan shoes",
+      "zaoan robe"
+    ]
+  },
+  {
+    "file": "reptiles\\lizard_high_guard.lua",
+    "removed": [
+      "zaoan armor",
+      "zaoan shoes",
+      "zaoan legs"
+    ]
+  },
+  {
+    "file": "reptiles\\lizard_legionnaire.lua",
+    "removed": [
+      "zaoan armor",
+      "zaoan shoes",
+      "drakinata",
+      "zaoan halberd"
+    ]
+  },
+  {
+    "file": "reptiles\\lizard_sentinel.lua",
+    "removed": [
+      "hunting spear",
+      "sentinel shield"
+    ]
+  },
+  {
+    "file": "reptiles\\lizard_snakecharmer.lua",
+    "removed": [
+      "terra rod",
+      "snakebite rod",
+      "charmer's tiara"
+    ]
+  },
+  {
+    "file": "reptiles\\lizard_templar.lua",
+    "removed": [
+      "templar scytheblade",
+      "salamander shield",
+      "zaoan monk robe"
+    ]
+  },
+  {
+    "file": "reptiles\\lizard_zaogun.lua",
+    "removed": [
+      "zaoan armor",
+      "zaoan shoes",
+      "zaoan legs"
+    ]
+  },
+  {
+    "file": "reptiles\\mercurial_menace.lua",
+    "removed": [
+      "Terra Boots",
+      "Terra Rod",
+      "Wand of Defiance",
+      "Dream Blossom Staff",
+      "Lightning Boots",
+      "Wand of Cosmic Energy",
+      "Butterfly Ring"
+    ]
+  },
+  {
+    "file": "reptiles\\naga_archer.lua",
+    "removed": [
+      "hunting spear",
+      "elvish bow",
+      "ornate crossbow",
+      "crystal crossbow"
+    ]
+  },
+  {
+    "file": "reptiles\\naga_warrior.lua",
+    "removed": [
+      "spiky club",
+      "relic sword"
+    ]
+  },
+  {
+    "file": "reptiles\\noxious_ripptor.lua",
+    "removed": [
+      "Sacred Tree Amulet",
+      "Muck Rod",
+      "Terra Legs",
+      "Wooden Spellbook"
+    ]
+  },
+  {
+    "file": "reptiles\\rhindeer.lua",
+    "removed": [
+      "titan axe",
+      "collar of green plasma"
+    ]
+  },
+  {
+    "file": "reptiles\\seacrest_serpent.lua",
+    "removed": [
+      "glacier mask",
+      "crest of the deep seas",
+      "glacier amulet",
+      "glacier kilt",
+      "glacier shoes",
+      "wand of defiance",
+      "wand of draconia"
+    ]
+  },
+  {
+    "file": "reptiles\\sea_serpent.lua",
+    "removed": [
+      "glacier amulet",
+      "glacier kilt",
+      "spirit cloak",
+      "focus cape",
+      "crystalline armor",
+      "northwind rod"
+    ]
+  },
+  {
+    "file": "reptiles\\serpent_spawn.lua",
+    "removed": [
+      "snakebite rod",
+      "charmer's tiara",
+      "mercenary sword",
+      "noble axe",
+      "swamplair armor",
+      "spellbook of mind control"
+    ]
+  },
+  {
+    "file": "reptiles\\stampor.lua",
+    "removed": [
+      "spiked squelcher"
+    ]
+  },
+  {
+    "file": "reptiles\\tortoise.lua",
+    "removed": [
+      "tortoise shield"
+    ]
+  },
+  {
+    "file": "reptiles\\two-headed_turtle.lua",
+    "removed": [
+      "glacier shoes",
+      "lightning headband",
+      "terra amulet",
+      "spellbook of enlightenment"
+    ]
+  },
+  {
+    "file": "reptiles\\wyvern.lua",
+    "removed": [
+      "wand of inferno",
+      "wyvern fang"
+    ]
+  },
+  {
+    "file": "reptiles\\young_goanna.lua",
+    "removed": [
+      "snakebite rod",
+      "terra rod",
+      "leaf star",
+      "springsprout rod",
+      "terra amulet",
+      "terra hood",
+      "sacred tree amulet",
+      "wooden spellbook",
+      "fur armor"
+    ]
+  },
+  {
+    "file": "slimes\\defiler.lua",
+    "removed": [
+      "death ring"
+    ]
+  },
+  {
+    "file": "slimes\\devourer.lua",
+    "removed": [
+      "glooth cape",
+      "glooth amulet",
+      "glooth blade",
+      "glooth club",
+      "glooth axe",
+      "glooth spear",
+      "springsprout rod",
+      "terra rod"
+    ]
+  },
+  {
+    "file": "slimes\\glooth_blob.lua",
+    "removed": [
+      "glooth amulet",
+      "glooth blade",
+      "glooth club",
+      "glooth axe"
+    ]
+  },
+  {
+    "file": "slimes\\ink_blob.lua",
+    "removed": [
+      "terra boots",
+      "terra hood",
+      "sacred tree amulet",
+      "springsprout rod",
+      "terra legs",
+      "terra mantle",
+      "terra amulet"
+    ]
+  },
+  {
+    "file": "undeads\\banshee.lua",
+    "removed": [
+      "spellbook",
+      "terra mantle"
+    ]
+  },
+  {
+    "file": "undeads\\betrayed_wraith.lua",
+    "removed": [
+      "skull helmet",
+      "death ring",
+      "assassin star",
+      "mercenary sword",
+      "bloody edge"
+    ]
+  },
+  {
+    "file": "undeads\\blightwalker.lua",
+    "removed": [
+      "hailstorm rod",
+      "death ring",
+      "assassin star",
+      "terra mantle",
+      "terra legs"
+    ]
+  },
+  {
+    "file": "undeads\\blood_beast.lua",
+    "removed": [
+      "glooth club",
+      "viper star",
+      "glooth amulet",
+      "glooth blade",
+      "glooth club",
+      "glooth axe",
+      "glooth spear"
+    ]
+  },
+  {
+    "file": "undeads\\burster_spectre.lua",
+    "removed": [
+      "wand of voodoo",
+      "wand of cosmic energy",
+      "glacier amulet",
+      "hailstorm rod",
+      "glacial rod",
+      "shockwave amulet"
+    ]
+  },
+  {
+    "file": "undeads\\crypt_warrior.lua",
+    "removed": [
+      "ruthless axe"
+    ]
+  },
+  {
+    "file": "undeads\\cursed_prospector.lua",
+    "removed": [
+      "lightning boots",
+      "lightning robe",
+      "lightning legs",
+      "shockwave amulet"
+    ]
+  },
+  {
+    "file": "undeads\\death_priest.lua",
+    "removed": [
+      "spellbook"
+    ]
+  },
+  {
+    "file": "undeads\\dworc_shadowstalker.lua",
+    "removed": [
+      "tribal mask"
+    ]
+  },
+  {
+    "file": "undeads\\evil_prospector.lua",
+    "removed": [
+      "wand of starstorm",
+      "lightning pendant",
+      "wand of defiance",
+      "lightning headband"
+    ]
+  },
+  {
+    "file": "undeads\\falcon_knight.lua",
+    "removed": [
+      "assassin star",
+      "titan axe",
+      "spiked squelcher"
+    ]
+  },
+  {
+    "file": "undeads\\falcon_paladin.lua",
+    "removed": [
+      "assassin star"
+    ]
+  },
+  {
+    "file": "undeads\\flimsy_lost_soul.lua",
+    "removed": [
+      "wand of cosmic energy",
+      "springsprout rod",
+      "terra rod",
+      "hailstorm rod",
+      "necklace of the deep",
+      "wand of starstorm",
+      "glacial rod",
+      "wand of voodoo"
+    ]
+  },
+  {
+    "file": "undeads\\freakish_lost_soul.lua",
+    "removed": [
+      "ring of blue plasma",
+      "ornate crossbow",
+      "crystal crossbow"
+    ]
+  },
+  {
+    "file": "undeads\\gazer_spectre.lua",
+    "removed": [
+      "wand of draconia",
+      "wand of inferno",
+      "magma coat"
+    ]
+  },
+  {
+    "file": "undeads\\gravedigger.lua",
+    "removed": [
+      "wand of inferno",
+      "death ring"
+    ]
+  },
+  {
+    "file": "undeads\\grave_guard.lua",
+    "removed": [
+      "daramian waraxe",
+      "death ring"
+    ]
+  },
+  {
+    "file": "undeads\\grim_reaper.lua",
+    "removed": [
+      "death ring",
+      "nightmare blade",
+      "glacier kilt",
+      "skullcracker armor",
+      "underworld rod"
+    ]
+  },
+  {
+    "file": "undeads\\hand_of_cursed_fate.lua",
+    "removed": [
+      "wand of inferno",
+      "death ring",
+      "assassin star",
+      "abyss hammer"
+    ]
+  },
+  {
+    "file": "undeads\\iks_ahpututu.lua",
+    "removed": [
+      "spellbook of enlightenment",
+      "broken iks faulds"
+    ]
+  },
+  {
+    "file": "undeads\\iks_aucar.lua",
+    "removed": [
+      "broken iks sandals"
+    ]
+  },
+  {
+    "file": "undeads\\iks_chuka.lua",
+    "removed": [
+      "royal spear",
+      "broken iks spear"
+    ]
+  },
+  {
+    "file": "undeads\\iks_pututu.lua",
+    "removed": [
+      "spellbook of enlightenment",
+      "ring of orange plasma"
+    ]
+  },
+  {
+    "file": "undeads\\iks_yapunac.lua",
+    "removed": [
+      "spellbook of enlightenment"
+    ]
+  },
+  {
+    "file": "undeads\\lich.lua",
+    "removed": [
+      "spellbook",
+      "lightning boots"
+    ]
+  },
+  {
+    "file": "undeads\\lost_soul.lua",
+    "removed": [
+      "skull helmet",
+      "death ring",
+      "haunted blade",
+      "titan axe"
+    ]
+  },
+  {
+    "file": "undeads\\mean_lost_soul.lua",
+    "removed": [
+      "mercenary sword",
+      "haunted blade",
+      "warrior's axe",
+      "twiceslicer"
+    ]
+  },
+  {
+    "file": "undeads\\ripper_spectre.lua",
+    "removed": [
+      "terra rod",
+      "twin hooks",
+      "springsprout rod",
+      "assassin dagger",
+      "wyvern fang"
+    ]
+  },
+  {
+    "file": "undeads\\rot_elemental.lua",
+    "removed": [
+      "glooth amulet",
+      "glooth axe",
+      "glooth spear"
+    ]
+  },
+  {
+    "file": "undeads\\skeleton_elite_warrior.lua",
+    "removed": [
+      "skull helmet",
+      "ruthless axe"
+    ]
+  },
+  {
+    "file": "undeads\\souleater.lua",
+    "removed": [
+      "necrotic rod",
+      "wand of cosmic energy",
+      "death ring"
+    ]
+  },
+  {
+    "file": "undeads\\spectre.lua",
+    "removed": [
+      "wand of cosmic energy",
+      "death ring",
+      "relic sword"
+    ]
+  },
+  {
+    "file": "undeads\\undead_dragon.lua",
+    "removed": [
+      "death ring",
+      "assassin star",
+      "dragon slayer",
+      "dragonbone staff",
+      "divine plate",
+      "skullcracker armor",
+      "spellweaver's robe"
+    ]
+  },
+  {
+    "file": "undeads\\undead_elite_gladiator.lua",
+    "removed": [
+      "belted cape",
+      "hunting spear",
+      "relic sword"
+    ]
+  },
+  {
+    "file": "undeads\\undead_gladiator.lua",
+    "removed": [
+      "hunting spear",
+      "belted cape"
+    ]
+  },
+  {
+    "file": "undeads\\vampire_bride.lua",
+    "removed": [
+      "moonlight rod",
+      "hibiscus dress"
+    ]
+  },
+  {
+    "file": "vermins\\afflicted_strider.lua",
+    "removed": [
+      "crystal sword",
+      "belted cape",
+      "spirit cloak",
+      "magma coat",
+      "focus cape",
+      "titan axe",
+      "haunted blade",
+      "mercenary sword"
+    ]
+  },
+  {
+    "file": "vermins\\ancient_scarab.lua",
+    "removed": [
+      "daramian waraxe",
+      "springsprout rod",
+      "terra hood"
+    ]
+  },
+  {
+    "file": "vermins\\blemished_spawn.lua",
+    "removed": [
+      "terra rod",
+      "hailstorm rod",
+      "dragonbone staff",
+      "wand of starstorm",
+      "northwind rod",
+      "sacred tree amulet",
+      "springsprout rod",
+      "diamond sceptre",
+      "wand of cosmic energy",
+      "fur armor"
+    ]
+  },
+  {
+    "file": "vermins\\cave_chimera.lua",
+    "removed": [
+      "glacier amulet",
+      "ring of blue plasma",
+      "glacier kilt",
+      "fur armor",
+      "ornate crossbow",
+      "crystal crossbow",
+      "composite hornbow",
+      "elvish bow"
+    ]
+  },
+  {
+    "file": "vermins\\cave_devourer.lua",
+    "removed": [
+      "suspicious device"
+    ]
+  },
+  {
+    "file": "vermins\\chasm_spawn.lua",
+    "removed": [
+      "suspicious device"
+    ]
+  },
+  {
+    "file": "vermins\\crawler.lua",
+    "removed": [
+      "springsprout rod",
+      "grasshopper legs"
+    ]
+  },
+  {
+    "file": "vermins\\crystal_spider.lua",
+    "removed": [
+      "sapphire hammer",
+      "crystal sword",
+      "glacier mask"
+    ]
+  },
+  {
+    "file": "vermins\\deepworm.lua",
+    "removed": [
+      "terra amulet",
+      "springsprout rod",
+      "sacred tree amulet",
+      "suspicious device"
+    ]
+  },
+  {
+    "file": "vermins\\diremaw.lua",
+    "removed": [
+      "suspicious device",
+      "mycological bow"
+    ]
+  },
+  {
+    "file": "vermins\\drillworm.lua",
+    "removed": [
+      "spiked squelcher",
+      "terra amulet"
+    ]
+  },
+  {
+    "file": "vermins\\exotic_cave_spider.lua",
+    "removed": [
+      "terra boots",
+      "terra mantle"
+    ]
+  },
+  {
+    "file": "vermins\\eyeless_devourer.lua",
+    "removed": [
+      "sacred tree amulet",
+      "glacier amulet",
+      "noble axe",
+      "warrior's axe",
+      "relic sword",
+      "mercenary sword",
+      "execowtioner axe",
+      "ornate crossbow",
+      "jade hammer",
+      "shadow sceptre",
+      "metal bat"
+    ]
+  },
+  {
+    "file": "vermins\\giant_spider.lua",
+    "removed": [
+      "lightning headband"
+    ]
+  },
+  {
+    "file": "vermins\\hive_overseer.lua",
+    "removed": [
+      "calopteryx cape",
+      "carapace shield",
+      "hive scythe",
+      "hive bow"
+    ]
+  },
+  {
+    "file": "vermins\\insectoid_scout.lua",
+    "removed": [
+      "ripper lance"
+    ]
+  },
+  {
+    "file": "vermins\\insectoid_worker.lua",
+    "removed": [
+      "epee"
+    ]
+  },
+  {
+    "file": "vermins\\kollos.lua",
+    "removed": [
+      "calopteryx cape",
+      "carapace shield",
+      "hive scythe"
+    ]
+  },
+  {
+    "file": "vermins\\lancer_beetle.lua",
+    "removed": [
+      "beetle necklace"
+    ]
+  },
+  {
+    "file": "vermins\\lavafungus.lua",
+    "removed": [
+      "terra rod",
+      "hailstorm rod",
+      "wand of inferno",
+      "metal spats",
+      "spellbook of warding",
+      "magma amulet",
+      "focus cape",
+      "wand of starstorm"
+    ]
+  },
+  {
+    "file": "vermins\\lavaworm.lua",
+    "removed": [
+      "butterfly ring",
+      "underworld rod",
+      "wand of voodoo"
+    ]
+  },
+  {
+    "file": "vermins\\scarab.lua",
+    "removed": [
+      "daramian mace"
+    ]
+  },
+  {
+    "file": "vermins\\spidris.lua",
+    "removed": [
+      "death ring",
+      "titan axe",
+      "calopteryx cape",
+      "carapace shield",
+      "hive scythe"
+    ]
+  },
+  {
+    "file": "vermins\\spidris_elite.lua",
+    "removed": [
+      "death ring",
+      "titan axe",
+      "calopteryx cape",
+      "carapace shield",
+      "hive scythe"
+    ]
+  },
+  {
+    "file": "vermins\\spitter.lua",
+    "removed": [
+      "crystal sword",
+      "calopteryx cape",
+      "grasshopper legs"
+    ]
+  },
+  {
+    "file": "vermins\\streaked_devourer.lua",
+    "removed": [
+      "mercenary sword",
+      "noble axe",
+      "ornate crossbow",
+      "relic sword",
+      "warrior's axe"
+    ]
+  },
+  {
+    "file": "vermins\\sulphider.lua",
+    "removed": [
+      "Magma Boots",
+      "Amber Staff"
+    ]
+  },
+  {
+    "file": "vermins\\swarmer.lua",
+    "removed": [
+      "epee"
+    ]
+  },
+  {
+    "file": "vermins\\tarantula.lua",
+    "removed": [
+      "monk robe"
+    ]
+  },
+  {
+    "file": "vermins\\tremendous_tyrant.lua",
+    "removed": [
+      "spellbook of warding",
+      "wand of starstorm",
+      "hailstorm rod",
+      "dragonbone staff",
+      "wand of cosmic energy",
+      "warrior's shield",
+      "focus cape",
+      "glacier robe"
+    ]
+  },
+  {
+    "file": "vermins\\tunnel_tyrant.lua",
+    "removed": [
+      "crystalline armor",
+      "suspicious device"
+    ]
+  },
+  {
+    "file": "vermins\\undertaker.lua",
+    "removed": [
+      "Terra Boots",
+      "Relic Sword",
+      "Terra Legs",
+      "Necrotic Rod",
+      "Butterfly Ring",
+      "Wand of Voodoo"
+    ]
+  },
+  {
+    "file": "vermins\\varnished_diremaw.lua",
+    "removed": [
+      "terra rod",
+      "hailstorm rod",
+      "diamond sceptre",
+      "wand of starstorm",
+      "springsprout rod",
+      "glacier shoes",
+      "spellbook of warding",
+      "fur armor",
+      "haunted blade",
+      "glacier kilt"
+    ]
+  },
+  {
+    "file": "vermins\\wailing_widow.lua",
+    "removed": [
+      "zaoan halberd",
+      "wailing widow's necklace"
+    ]
+  },
+  {
+    "file": "vermins\\waspoid.lua",
+    "removed": [
+      "grasshopper legs",
+      "carapace shield",
+      "hive scythe"
+    ]
+  },
+  {
+    "file": "vermins\\wiggler.lua",
+    "removed": [
+      "terra rod"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\bosses\\adlerauge.lua",
+    "removed": [
+      "assassin star",
+      "death ring",
+      "assassin dagger",
+      "red quiver",
+      "terra mantle",
+      "ornate crossbow",
+      "composite hornbow"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\bosses\\clavius.lua",
+    "removed": [
+      "death ring",
+      "wand of cosmic energy",
+      "spellbook",
+      "wand of starstorm",
+      "terra hood",
+      "magma monocle",
+      "wooden spellbook",
+      "lightning robe",
+      "shockwave amulet",
+      "magma amulet"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\bosses\\court_warlock.lua",
+    "removed": [
+      "wooden spellbook",
+      "death ring",
+      "magma coat",
+      "wand of defiance",
+      "lightning robe",
+      "terra mantle",
+      "glacier robe",
+      "terra hood",
+      "lightning headband",
+      "magma monocle",
+      "glacier mask"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\bosses\\eldritch_dragon_lord.lua",
+    "removed": [
+      "dragonbone staff",
+      "wand of inferno",
+      "dragon slayer"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\bosses\\ice_horror.lua",
+    "removed": [
+      "pair of earmuffs",
+      "glacier mask",
+      "glacial rod"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\bosses\\michael_the_stalwart.lua",
+    "removed": [
+      "death ring",
+      "fur armor",
+      "mercenary sword",
+      "terra legs",
+      "crystalline armor"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\bosses\\overseer_osverger.lua",
+    "removed": [
+      "death ring",
+      "wand of cosmic energy",
+      "spellbook",
+      "wand of starstorm",
+      "terra hood",
+      "wooden spellbook",
+      "magma monocle",
+      "terra helmet",
+      "lightning robe",
+      "magma amulet",
+      "shockwave amulet"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\bosses\\the_gravedigger.lua",
+    "removed": [
+      "terra rod",
+      "necrotic rod",
+      "bonelord shield"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\crypt_construct.lua",
+    "removed": [
+      "amber staff"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\crypt_mage.lua",
+    "removed": [
+      "spellbook of mind control"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\cyclursus.lua",
+    "removed": [
+      "crystal crossbow",
+      "skull helmet"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\haunted_hunter.lua",
+    "removed": [
+      "crystalline armor",
+      "crystal crossbow"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\quests\\bonelords_phylactery.lua",
+    "removed": [
+      "death ring",
+      "haunted blade",
+      "bonelord shield",
+      "skull helmet"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\quests\\fatal_bug.lua",
+    "removed": [
+      "wand of everblazing",
+      "composite hornbow",
+      "muck rod"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\raubritter_chastener.lua",
+    "removed": [
+      "magma monocle",
+      "wand of cosmic energy",
+      "wand of starstorm",
+      "wooden spellbook",
+      "lightning robe",
+      "ring of green plasma",
+      "shockwave amulet",
+      "magma amulet"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\raubritter_marksman.lua",
+    "removed": [
+      "terra mantle",
+      "ring of blue plasma",
+      "composite hornbow"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\raubritter_skirmisher.lua",
+    "removed": [
+      "fur armor",
+      "mercenary sword",
+      "ring of orange plasma",
+      "ring of red plasma"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\roaming_dread.lua",
+    "removed": [
+      "jade hammer",
+      "crystalline armor"
+    ]
+  },
+  {
+    "file": "winter_update_2025\\walking_dread.lua",
+    "removed": [
+      "relic sword",
+      "abyss hammer",
+      "onyx flail"
+    ]
+  }
+]

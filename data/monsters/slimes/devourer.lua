@@ -93,14 +93,6 @@ monster.loot = {
 	{ id = 3028, chance = 1050, maxCount = 3 }, -- small diamond
 	{ id = 3037, chance = 1090 }, -- yellow gem
 	{ id = 3038, chance = 100 }, -- green gem
-	{ id = 21164, chance = 210 }, -- glooth cape
-	{ id = 21183, chance = 130 }, -- glooth amulet
-	{ id = 21179, chance = 350 }, -- glooth blade
-	{ id = 21178, chance = 510 }, -- glooth club
-	{ id = 21180, chance = 390 }, -- glooth axe
-	{ id = 21158, chance = 370 }, -- glooth spear
-	{ id = 8084, chance = 250 }, -- springsprout rod
-	{ id = 3065, chance = 260 }, -- terra rod
 }
 
 monster.attacks = {

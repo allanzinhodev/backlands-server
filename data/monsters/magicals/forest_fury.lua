@@ -85,7 +85,6 @@ monster.loot = {
 	{ name = "bolt", chance = 48270, maxCount = 15 },
 	{ name = "meat", chance = 24930 },
 	{ name = "piercing bolt", chance = 14900, maxCount = 5 },
-	{ name = "elvish bow", chance = 90 },
 	{ name = "small topaz", chance = 470 },
 	{ name = "elven hoof", chance = 7030 },
 	{ name = "venison", chance = 13210 },

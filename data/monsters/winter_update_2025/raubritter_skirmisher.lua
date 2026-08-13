@@ -84,14 +84,10 @@ monster.loot = {
 	-- { name = "cuirass plate", chance = 4150 },
 	-- { name = "silver poniard", chance = 1950 },
 	{ name = "gold ring", chance = 1910 },
-	{ name = "fur armor", chance = 1180 },
-	{ name = "mercenary sword", chance = 1050 },
 	{ name = "crown shield", chance = 1030 },
 	{ name = "gold ingot", chance = 840 },
 	{ name = "crown armor", chance = 720 },
 	-- { name = "marinated sturgeon", chance = 270 },
-	{ id = 50150, chance = 170 }, -- ring of orange plasma
-	{ id = 23533, chance = 120 }, -- ring of red plasma
 }
 
 monster.attacks = {

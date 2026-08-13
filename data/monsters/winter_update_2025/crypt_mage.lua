@@ -84,7 +84,6 @@ monster.loot = {
 	{ name = "small emerald", chance = 2580, maxCount = 15 },
 	-- { name = "crystallized death", chance = 2150 },
 	-- { name = "toe nails", chance = 1940 },
-	{ name = "spellbook of mind control", chance = 860 },
 	-- { name = "cryptic fossil", chance = 650 },
 	{ name = "green gem", chance = 650, maxCount = 3 },
 	-- { name = "necromantic core", chance = 650 },

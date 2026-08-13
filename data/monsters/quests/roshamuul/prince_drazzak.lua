@@ -86,11 +86,7 @@ monster.loot = {
 	{ id = 20274, chance = 2500 }, -- nightmare horn
 	{ id = 20277, chance = 25000 }, -- psychedelic tapestry
 	{ id = 20278, chance = 25000 }, -- demonic tapestry
-	{ id = 5741, chance = 2500 }, -- skull helmet
-	{ id = 7417, chance = 2500, unique = true }, -- runed sword
 	{ id = 20276, chance = 7000, unique = true }, -- dream warden mask
-	{ id = 7418, chance = 1000 }, -- nightmare blade
-	{ id = 820, chance = 1000 }, -- lightning boots
 	{ id = 281, chance = 5000 }, -- giant shimmering pearl (green)
 	{ id = 282, chance = 5000 }, -- giant shimmering pearl (brown)
 }

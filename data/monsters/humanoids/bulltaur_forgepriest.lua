@@ -86,20 +86,15 @@ monster.loot = {
 	{ id = 44737, chance = 4545 }, -- stealth ring
 	{ id = 44738, chance = 4545 }, -- stealth ring
 	{ name = "might ring", chance = 14285 },
-	{ name = "mino shield", chance = 840 },
 	{ name = "dragon hammer", chance = 420 },
 	{ id = 3041, chance = 4545 }, -- stealth ring
 	{ name = "ultimate health potion", chance = 5285 },
 	{ name = "great mana potion", chance = 6285 },
-	{ name = "alloy legs", chance = 1285 },
 -- { name = "encrypted notes", chance = 985 },
 	{ name = "ultimate mana potion", chance = 1285 },
 	{ name = "gold ingot", chance = 1285 },
-	{ name = "lightning robe", chance = 500, maxCount = 1 },
 	{ name = "small topaz", chance = 1200, maxCount = 3 },
 	{ name = "stone skin amulet", chance = 1200, maxCount = 1 },
-	{ name = "spellbook of mind control", chance = 1200, maxCount = 1 },
-	{ name = "wand of defiance", chance = 1200, maxCount = 1 },
 }
 
 monster.attacks = {

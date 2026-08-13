@@ -93,9 +93,6 @@ monster.loot = {
 	{ id = 236, chance = 10100, maxCount = 2 }, -- strong health potion
 	{ id = 237, chance = 7170, maxCount = 2 }, -- strong mana potion
 	{ id = 3279, chance = 3580 }, -- war hammer
-	{ id = 7452, chance = 330 }, -- spiked squelcher
-	{ id = 21171, chance = 330 }, -- metal bat
-	{ id = 21170, chance = 2930 }, -- gearwheel chain
 	{ id = 8896, chance = 5860 }, -- slightly rusted armor
 	{ id = 8899, chance = 4230 }, -- slightly rusted legs
 }

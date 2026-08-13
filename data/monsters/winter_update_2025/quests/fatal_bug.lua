@@ -94,9 +94,6 @@ monster.loot = {
 	{ name = "transcendence potion", chance = 100000 }, -- Not confirmed (chance)
 	-- { name = "cryptic fossil", chance = 100000 }, -- Not confirmed (chance)
 	-- { name = "fetid heart", chance = 100000 }, -- Not confirmed (chance)
-	{ name = "wand of everblazing", chance = 100000 }, -- Not confirmed (chance)
-	{ name = "composite hornbow", chance = 100000 }, -- Not confirmed (chance)
-	{ name = "muck rod", chance = 100000 }, -- Not confirmed (chance)
 	-- { name = "worn guide book", chance = 100000 }, -- Not confirmed (chance)
 	-- { name = "ancient crypt rune", chance = 100000 }, -- Not confirmed (chance)
 }

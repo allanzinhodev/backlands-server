@@ -97,15 +97,6 @@ monster.loot = {
 -- { name = "broken mitmah necklace", chance = 548100 },
 -- { name = "broken mitmah chestplate", chance = 44400 },
 -- { name = "splintered mitmah gem", chance = 3700 },
-	{ name = "stoic iks boots", chance = 500 },
-	{ name = "stoic iks faulds", chance = 500 },
-	{ name = "stoic iks casque", chance = 500 },
-	{ name = "stoic iks cuirass", chance = 500 },
-	{ name = "stoic iks chestplate", chance = 500 },
-	{ name = "stoic iks sandals", chance = 500 },
-	{ name = "stoic iks headpiece", chance = 500 },
-	{ name = "stoic iks culet", chance = 500 },
-	{ name = "iks footwraps", chance = 500 },
 }
 
 monster.attacks = {

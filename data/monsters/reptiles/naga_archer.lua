@@ -80,13 +80,9 @@ monster.loot = {
 	{ name = "naga earring", chance = 12850, maxCount = 3 },
 	{ name = "naga armring", chance = 5960, maxCount = 3 },
 	{ id = 3007, chance = 5330 }, -- crystal ring
-	{ name = "hunting spear", chance = 3760 },
 	{ name = "crossbow", chance = 3130 },
 	{ name = "blue crystal shard", chance = 1880 },
 	{ name = "bow", chance = 1570 },
-	{ name = "elvish bow", chance = 750 },
-	{ name = "ornate crossbow", chance = 630 },
-	{ name = "crystal crossbow", chance = 420 },
 	{ id = 7441, chance = 630 }, -- ice cube
 	{ name = "emerald bangle", chance = 930 },
 	{ name = "silver brooch", chance = 310 },

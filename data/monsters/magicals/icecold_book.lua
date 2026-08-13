@@ -81,20 +81,12 @@ monster.loot = {
 	{ name = "quill", chance = 100000, maxCount = 8 },
 	{ name = "ultimate health potion", chance = 100000, maxCount = 8 },
 	{ name = "ultimate mana potion", chance = 100000, maxCount = 8 },
-	{ name = "diamond sceptre", chance = 100000 },
 	{ name = "frosty heart", chance = 100000, maxCount = 8 },
-	{ name = "glacier mask", chance = 350 },
 	{ name = "ice rapier", chance = 250 },
 	{ name = "silken bookmark", chance = 100000, maxCount = 8 },
 	{ name = "crystal mace", chance = 250 },
-	{ name = "glacier kilt", chance = 250 },
-	{ name = "glacier robe", chance = 250 },
-	{ name = "glacier shoes", chance = 350 },
 	{ name = "strange helmet", chance = 1000 },
-	{ name = "sapphire hammer", chance = 300 },
 	{ id = 7441, chance = 100000 }, -- ice cube
-	{ name = "glacial rod", chance = 150 },
-	{ name = "crystalline armor", chance = 250 },
 }
 
 monster.attacks = {

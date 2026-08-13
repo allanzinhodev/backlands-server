@@ -88,7 +88,6 @@ monster.loot = {
 	{ name = "royal helmet", chance = 20000 },
 	{ name = "brown mushroom", chance = 50000, maxCount = 30 },
 	{ name = "mysterious voodoo skull", chance = 12500 },
-	{ name = "skull helmet", chance = 20000 },
 	{ name = "iron ore", chance = 33333 },
 	{ id = 5884, chance = 4761 }, -- spirit container
 	{ name = "flask of warrior's sweat", chance = 5555 },
@@ -98,10 +97,6 @@ monster.loot = {
 	{ name = "demon horn", chance = 8333, maxCount = 2 },
 	{ id = 6103, chance = 2063 }, -- unholy book
 	{ name = "demonic essence", chance = 100000 },
-	{ id = 7385, chance = 10000 }, -- crimson sword
-	{ name = "thaian sword", chance = 25000 },
-	{ name = "dragon slayer", chance = 8333 },
-	{ name = "runed sword", chance = 6666 },
 	{ name = "great mana potion", chance = 20000 },
 	{ name = "great health potion", chance = 20000 },
 	{ name = "great spirit potion", chance = 20000 },

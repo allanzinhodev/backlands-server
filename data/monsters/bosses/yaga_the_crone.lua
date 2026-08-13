@@ -79,9 +79,7 @@ monster.loot = {
 	{ name = "star herb", chance = 20833 },
 	{ id = 3012, chance = 20833 }, -- wolf tooth chain
 	{ name = "garlic necklace", chance = 8333 },
-	{ name = "spellbook of mind control", chance = 8333 },
 	{ name = "coat", chance = 4170 },
-	{ name = "necrotic rod", chance = 4170 },
 	{ name = "silver dagger", chance = 4170 },
 }
 

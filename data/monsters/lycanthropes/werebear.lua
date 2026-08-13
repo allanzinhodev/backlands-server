@@ -91,12 +91,6 @@ monster.loot = {
 	{ id = 7439, chance = 800 }, -- berserk potion
 	{ id = 22056, chance = 560 }, -- werebear skull
 	{ id = 3081, chance = 430 }, -- stone skin amulet
-	{ id = 7419, chance = 120 }, -- dreaded cleaver
-	{ id = 22085, chance = 300 }, -- fur armor
-	{ id = 7432, chance = 400 }, -- furry club
-	{ id = 22060, chance = 100 }, -- werewolf amulet
-	{ id = 7383, chance = 200 }, -- relic sword
-	{ id = 7452, chance = 300 }, -- spiked squelcher
 	{ id = 3053, chance = 400 }, -- time ring
 	{ id = 22103, chance = 200 }, -- werebear trophy
 	{ id = 22083, chance = 200 }, -- moonlight crystals

@@ -75,7 +75,6 @@ monster.loot = {
 	{ name = "mastermind potion", chance = 100000 },
 	{ name = "stone skin amulet", chance = 100000 },
 	{ id = 27713, chance = 100000 }, -- heavy crystal fragment
-	{ name = "wand of inferno", chance = 75000 },
 	{ name = "great mana potion", chance = 64580, maxCount = 18 },
 	{ name = "blue crystal shard", chance = 60420 },
 	{ name = "fire axe", chance = 58330 },
@@ -100,16 +99,9 @@ monster.loot = {
 	{ id = 3039, chance = 12500 }, -- red gem
 	{ name = "small topaz", chance = 10420 },
 	{ name = "small emerald", chance = 10420 },
-	{ name = "muck rod", chance = 10420 },
 	{ name = "gold token", chance = 31960 },
 	{ name = "crystal coin", chance = 6250 },
-	{ name = "gnome shield", chance = 4170 },
-	{ name = "crystalline armor", chance = 4170 },
-	{ name = "gnome sword", chance = 4170 },
-	{ name = "terra mantle", chance = 2080 },
 	{ name = "violet gem", chance = 2080 },
-	{ name = "gnome legs", chance = 3390 },
-	{ name = "gnomish footwraps", chance = 3390 },
 }
 
 monster.attacks = {

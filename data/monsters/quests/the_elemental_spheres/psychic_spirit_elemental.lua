@@ -69,7 +69,6 @@ monster.loot = {
 	{ name = "holy ash", chance = 10800 },
 	{ name = "small topaz", chance = 4500, maxCount = 2 },
 -- { name = "spirited soil", chance = 2100 },
-	{ name = "moonlight rod", chance = 1935 },
 }
 
 monster.attacks = {

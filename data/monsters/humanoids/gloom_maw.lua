@@ -89,7 +89,6 @@ monster.loot = {
 	{ name = "black shield", chance = 1400 },
 	{ name = "bat wing", chance = 1560, maxCount = 3 },
 	{ name = "stone skin amulet", chance = 1540 },
-	{ name = "batwing hat", chance = 1000 },
 	{ id = 51470, chance = 1000 }, -- tiny bat coffin
 	{ id = 51487, chance = 800 }, -- new item // norcferatu talisman
 }

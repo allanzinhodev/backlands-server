@@ -87,7 +87,6 @@ monster.loot = {
 	{ name = "fish fin", chance = 1680 },
 	{ name = "warrior helmet", chance = 1550 },
 	{ name = "crown armor", chance = 260 },
-	{ name = "glacier robe", chance = 110 },
 	{ name = "giant shrimp", chance = 40 },
 }
 

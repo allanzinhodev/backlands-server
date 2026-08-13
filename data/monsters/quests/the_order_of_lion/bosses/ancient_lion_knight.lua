@@ -81,20 +81,8 @@ monster.loot = {
 	{ name = "studded shield", chance = 7500 },
 	{ name = "big bone", chance = 5000 },
 	{ name = "cape", chance = 5000 },
-	{ name = "life preserver", chance = 3750 },
 	{ name = "dwarven shield", chance = 1250 },
-	{ name = "lion spangenhelm", chance = 35 },
-	{ name = "lion plate", chance = 35 },
 	{ name = "lion shield", chance = 35 },
-	{ name = "lion longsword", chance = 35 },
-	{ name = "lion hammer", chance = 35 },
-	{ name = "lion axe", chance = 35 },
-	{ name = "lion longbow", chance = 35 },
-	{ name = "lion spellbook", chance = 35 },
-	{ name = "lion wand", chance = 35 },
-	{ name = "lion amulet", chance = 35 },
-	{ name = "lion rod", chance = 35 },
-	{ name = "lion claws", chance = 35 },
 }
 
 monster.attacks = {

@@ -73,7 +73,6 @@ monster.loot = {
 	{ id = 3725, chance = 9650 }, -- brown mushroom
 	{ id = 3091, chance = 3920 }, -- sword ring
 	{ id = 3285, chance = 2800 }, -- longsword
-	{ id = 7378, chance = 2600 }, -- royal spear
 	{ id = 3307, chance = 2100 }, -- scimitar
 	{ id = 10196, chance = 890 }, -- orc tooth
 	{ id = 3301, chance = 830 }, -- broadsword

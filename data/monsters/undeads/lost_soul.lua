@@ -87,14 +87,10 @@ monster.loot = {
 	{ name = "blank rune", chance = 35250, maxCount = 3 },
 	{ name = "skull staff", chance = 850 },
 	{ name = "tower shield", chance = 740 },
-	{ name = "skull helmet", chance = 170 },
 	{ id = 5806, chance = 4950 }, -- silver goblet
 	{ name = "soul orb", chance = 15000 },
-	{ id = 6299, chance = 2170 }, -- death ring
 	{ name = "demonic essence", chance = 7500 },
 	{ name = "skeleton decoration", chance = 1250 },
-	{ name = "haunted blade", chance = 740 },
-	{ name = "titan axe", chance = 1000 },
 	{ name = "great mana potion", chance = 14200, maxCount = 2 },
 	{ name = "great health potion", chance = 8800, maxCount = 2 },
 	{ id = 8896, chance = 3500 }, -- slightly rusted armor

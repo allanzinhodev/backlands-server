@@ -86,7 +86,6 @@ monster.loot = {
 	{ name = "bone sword", chance = 5000 },
 	{ name = "machete", chance = 2250 },
 	{ name = "carlin sword", chance = 2250 },
-	{ id = 23533, chance = 1690 }, -- ring of red plasma
 }
 
 monster.attacks = {

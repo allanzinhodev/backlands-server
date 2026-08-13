@@ -88,11 +88,9 @@ monster.loot = {
 	{ name = "dragon necklace", chance = 3800 },
 	{ id = 3039, chance = 3000 }, -- red gem
 	{ name = "strong health potion", chance = 3500 },
-	{ name = "wand of dragonbreath", chance = 3200 },
 	{ id = 3037, chance = 3000 }, -- yellow gem
 	{ name = "dragon shield", chance = 3000 },
 	{ name = "blank imbuement scroll", chance = 3000 },
-	{ name = "dragon slayer", chance = 3000 },
 }
 
 monster.attacks = {

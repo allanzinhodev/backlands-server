@@ -75,22 +75,12 @@ monster.loot = {
 	{ id = 31340, chance = 6590 }, -- lizard heart
 	{ id = 3038, chance = 3850 }, -- green gem
 	{ id = 3041, chance = 3300 }, -- blue gem
-	{ id = 821, chance = 3300 }, -- magma legs
-	{ id = 5741, chance = 3300 }, -- skull helmet
 	{ id = 3281, chance = 2750 }, -- giant sword
-	{ id = 7422, chance = 2750 }, -- jade hammer
 	{ id = 3342, chance = 2750 }, -- war axe
-	{ id = 7404, chance = 2200 }, -- assassin dagger
 	{ id = 3063, chance = 2200 }, -- gold ring
-	{ id = 23531, chance = 2200 }, -- ring of green plasma
 	{ id = 3366, chance = 1650 }, -- magic plate armor
 	{ id = 3420, chance = 1100 }, -- demon shield
 	{ id = 7440, chance = 1100 }, -- mastermind potion
-	{ id = 14247, chance = 1100 }, -- ornate crossbow
-	{ id = 10438, chance = 1100 }, -- spellweaver's robe
-	{ id = 7382, chance = 550 }, -- demonrage sword
-	{ id = 8074, chance = 550 }, -- spellbook of mind control
-	{ id = 21168, chance = 550 }, -- alloy legs
 	{ id = 33778, chance = 360 }, -- raw watermelon tourmaline
 	{ id = 34258, chance = 360 }, -- red silk flower
 }

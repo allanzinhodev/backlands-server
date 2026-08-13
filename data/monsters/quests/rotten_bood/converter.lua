@@ -76,10 +76,8 @@ monster.loot = {
 -- { name = "darklight obsidian axe", chance = 6963, maxCount = 1 },
 	{ name = "darklight matter", chance = 6927, maxCount = 1 },
 	{ name = "darklight core", chance = 10715, maxCount = 1 },
-	{ name = "wand of starstorm", chance = 8797, maxCount = 1 },
 	{ name = "blue gem", chance = 9372, maxCount = 1 },
 	{ name = "ultimate health potion", chance = 9851, maxCount = 5 },
-	{ name = "focus cape", chance = 6945, maxCount = 1 },
 	{ name = "white gem", chance = 14533, maxCount = 1 },
 }
 

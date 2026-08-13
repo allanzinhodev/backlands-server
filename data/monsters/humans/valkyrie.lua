@@ -86,7 +86,6 @@ monster.loot = {
 	{ name = "chain armor", chance = 10000 },
 	{ name = "red apple", chance = 7500, maxCount = 2 },
 	{ name = "girlish hair decoration", chance = 5900 },
-	{ name = "hunting spear", chance = 5155 },
 	{ name = "protective charm", chance = 3200 },
 	{ name = "protection amulet", chance = 1100 },
 	{ name = "plate armor", chance = 830 },

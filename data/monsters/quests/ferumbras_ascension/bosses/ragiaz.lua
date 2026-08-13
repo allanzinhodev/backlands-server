@@ -88,12 +88,7 @@ monster.loot = {
 	{ id = 3039, chance = 1000 }, -- red gem
 	{ id = 3041, chance = 1000 }, -- blue gem
 	{ id = 3324, chance = 4000 }, -- skull staff
-	{ id = 22758, chance = 100, unique = true }, -- death gaze
-	{ id = 22866, chance = 700 }, -- rift bow
-	{ id = 22867, chance = 700 }, -- rift crossbow
 	{ id = 6499, chance = 11000 }, -- demonic essence
-	{ id = 7420, chance = 500 }, -- reaper's axe
-	{ id = 7426, chance = 4000 }, -- amber staff
 	{ id = 238, chance = 3000, maxCount = 5 }, -- great mana potion
 	{ id = 239, chance = 3100, maxCount = 5 }, -- great health potion
 	{ id = 281, chance = 3000, maxCount = 5 }, -- giant shimmering pearl (green)

@@ -84,11 +84,9 @@ monster.loot = {
 	{ id = 3030, chance = 24500, maxCount = 5 },
 	{ name = "Demonic Core Essence", chance = 1500, maxCount = 1 },
 	{ name = "Sineater Wing", chance = 5500, maxCount = 1 },
-	{ name = "Wand of Defiance", chance = 12000, maxCount = 1 },
 	{ name = "Ruby Necklace", chance = 10000, maxCount = 1 },
 	{ name = "Mummified Demon Finger", chance = 1500, maxCount = 1 },
 	{ name = "Demonic Matter", chance = 1500, maxCount = 1 },
-	{ name = "Wooden Spellbook", chance = 3500, maxCount = 1 },
 	{ name = "broodrider inferniarch soul core", chance = 100 },
 }
 

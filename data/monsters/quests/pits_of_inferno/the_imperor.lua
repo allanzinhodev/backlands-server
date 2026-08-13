@@ -84,7 +84,6 @@ monster.loot = {
 	{ id = 3019, chance = 15380 }, -- demonbone amulet
 	{ id = 3442, chance = 7690 }, -- tempest shield
 	{ id = 3415, chance = 15400 }, -- guardian shield
-	{ id = 826, chance = 15380 }, -- magma coat
 	{ id = 3033, chance = 30770, maxCount = 4 }, -- small amethyst
 	{ id = 3030, chance = 7690, maxCount = 4 }, -- small ruby
 }

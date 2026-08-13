@@ -76,28 +76,17 @@ monster.loot = {
 	{ id = 3061, chance = 22727 }, -- Life Crystal
 	{ id = 3037, chance = 22727, maxCount = 2 }, -- Yellow Gem
 	{ id = 3392, chance = 18182 }, -- Royal Helmet
-	{ id = 3071, chance = 13636 }, -- Wand of Inferno
 	{ id = 7290, chance = 9091 }, -- Shard
 	{ id = 3297, chance = 9091 }, -- Serpent Sword
-	{ id = 10388, chance = 9091 }, -- Drakinata
-	{ id = 7402, chance = 9091 }, -- Dragon Slayer
 	{ id = 3280, chance = 9091 }, -- Fire Sword
 	{ id = 44603, chance = 4545, maxCount = 2 }, -- Guardian Gem
-	{ id = 7430, chance = 4545 }, -- Dragonbone Staff
 	{ id = 44609, chance = 4545, maxCount = 2 }, -- Sage Gem
 	{ id = 44605, chance = 4545, maxCount = 2 }, -- Lesser Marksman Gem
-	{ id = 8057, chance = 4545 }, -- Divine Plate
 	{ id = 32622, chance = 4245 }, -- Giant Amethyst
 	{ id = 32623, chance = 3245 }, -- Giant Topaz
-	{ id = 10451, chance = 2745 }, -- Jade Hat
 	{ id = 44602, chance = 5545, maxCount = 2 }, -- Lesser Guardian Gem
 	{ id = 30061, chance = 4545 }, -- Giant Sapphire
 	{ id = 3428, chance = 7545 }, -- Tower Shield
-	{ id = 44623, chance = 1143 }, -- Arcane Dragon Robe
-	{ id = 44621, chance = 1427 }, -- Dauntless Dragon Scale Armor
-	{ id = 44622, chance = 1556 }, -- Unerring Dragon Scale Armor
-	{ id = 44624, chance = 1285 }, -- Mystical Dragon Robe
-	{ id = 50264, chance = 1285 }, -- Merudri Battle Mail
 	{ id = 44753, chance = 862 }, -- Herald's Insignia
 	{ id = 44754, chance = 920 }, -- Herald's Wings
 }

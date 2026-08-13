@@ -67,10 +67,6 @@ monster.voices = {
 monster.loot = {
 	{ id = 237, chance = 100000 }, -- strong mana potion
 	{ id = 5879, chance = 50000 }, -- spider silk
-	{ id = 829, chance = 33333 }, -- glacier mask
-	{ id = 823, chance = 33333 }, -- glacier kilt
-	{ id = 10389, chance = 20000 }, -- sai
-	{ id = 7437, chance = 20000 }, -- sapphire hammer
 	{ id = 5801, chance = 7692 }, -- jewelled backpack
 	{ id = 3370, chance = 7692 }, -- knight armor
 	{ id = 3371, chance = 5555 }, -- knight legs

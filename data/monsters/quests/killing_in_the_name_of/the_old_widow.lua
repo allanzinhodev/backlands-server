@@ -83,8 +83,6 @@ monster.loot = {
 	{ id = 3371, chance = 25000 }, -- knight legs
 	{ id = 3055, chance = 25000 }, -- platinum amulet
 	{ id = 5886, chance = 25000 }, -- spool of yarn
-	{ id = 7416, chance = 3225 }, -- bloody edge
-	{ id = 7419, chance = 1639 }, -- dreaded cleaver
 }
 
 monster.attacks = {

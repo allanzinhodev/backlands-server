@@ -97,10 +97,7 @@ monster.loot = {
 	{ name = "blank rune", chance = 22500, maxCount = 2 },
 	{ name = "crown armor", chance = 660 },
 	{ name = "shadow herb", chance = 26930, maxCount = 2 },
-	{ id = 6299, chance = 330 }, -- death ring
 	{ name = "demonic essence", chance = 16320 },
-	{ name = "abyss hammer", chance = 110 },
-	{ name = "shadow sceptre", chance = 550 },
 	{ name = "great mana potion", chance = 32750, maxCount = 2 },
 	{ name = "ultimate health potion", chance = 14680 },
 	{ name = "small topaz", chance = 12810, maxCount = 3 },

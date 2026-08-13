@@ -72,9 +72,7 @@ monster.loot = {
 	{ name = "moonstone", chance = 1000, maxCount = 2 },
 	{ name = "diamond", chance = 100 },
 	{ name = "machete", chance = 400 },
-	{ name = "pair of nightmare boots", chance = 200 },
 	{ name = "skull staff", chance = 400 },
-	{ name = "warrior's axe", chance = 400 },
 	{ name = "death toll", chance = 150 },
 	{ name = "silver hand mirror", chance = 150 },
 	{ id = 3039, chance = 150, maxCount = 2 }, -- red gem

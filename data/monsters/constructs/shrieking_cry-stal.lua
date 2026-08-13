@@ -82,7 +82,6 @@ monster.loot = {
 	{ name = "Small Diamond", chance = 6020, minCount = 1, maxCount = 3 },
 	{ name = "Rusted Armor", chance = 5580 },
 	{ name = "Green Crystal Fragment", chance = 4290 },
-	{ name = "Terra Boots", chance = 4290 },
 	{ name = "Protection Amulet", chance = 2270 },
 	{ name = "Violet Gem", chance = 1250 },
 	{ name = "Gold Ring", chance = 600 },

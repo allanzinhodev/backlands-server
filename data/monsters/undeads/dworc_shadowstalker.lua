@@ -54,7 +54,6 @@ monster.loot = {
 	{ name = "green crystal shard", chance = 1560 },
 	{ name = "bone rattle", chance = 1540 }, -- new item
 	{ name = "stone skin amulet", chance = 1000 },
-	{ name = "tribal mask", chance = 800 },
 	{ id = 51487, chance = 600 }, -- new item rare // norcferatu talisman
 }
 

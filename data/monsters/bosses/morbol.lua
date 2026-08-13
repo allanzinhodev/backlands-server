@@ -67,17 +67,6 @@ monster.loot = {
 	{ id = 3043, chance = 100000, maxCount = 25 }, -- crystal coin
 	{ id = 11666, chance = 50000, maxCount = 4 }, -- tentacle pieice
 	{ id = 21292, chance = 1000 }, -- feedbag
-	{ id = 35514, chance = 4000 }, -- jungle flail
-	{ id = 35518, chance = 4000 }, -- jungle bow
-	{ id = 35521, chance = 4000 }, -- jungle rod
-	{ id = 35522, chance = 4000 }, -- jungle wand
-	{ id = 35524, chance = 4000 }, -- jungle quiver
-	{ id = 30393, chance = 4000 }, -- cobra crossbow
-	{ id = 30395, chance = 4000 }, -- cobra club
-	{ id = 30396, chance = 4000 }, -- cobra axe
-	{ id = 30398, chance = 4000 }, -- cobra sword
-	{ id = 30399, chance = 4000 }, -- cobra wand
-	{ id = 30400, chance = 4000 }, -- cobra rod
 	{ name = "bag you desire", chance = 1000, unique = true },
 	{ name = "gold token", minCount = 0, maxCount = 5, chance = 10000 },
 	{ name = "silver token", minCount = 0, maxCount = 5, chance = 20000 },

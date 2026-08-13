@@ -90,15 +90,11 @@ monster.loot = {
 	{ name = "clerical mace", chance = 5155 },
 	{ name = "great mana potion", chance = 591 },
 	{ name = "colourful snail shell", chance = 5800 },
-	{ name = "diamond sceptre", chance = 3400 },
 	{ name = "coral brooch", chance = 3400 },
-	{ name = "flower wreath", chance = 3400 },
 	{ name = "powder herb", chance = 3400 },
 	{ name = "silver brooch", chance = 3400 },
-	{ name = "summer dress", chance = 3400 },
 	{ name = "wild flowers", chance = 3400 },
 	{ name = "boots of haste", chance = 50 },
-	{ name = "butterfly ring", chance = 100 },
 }
 
 monster.attacks = {

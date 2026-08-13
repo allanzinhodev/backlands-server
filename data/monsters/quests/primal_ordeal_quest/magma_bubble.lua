@@ -78,20 +78,6 @@ monster.loot = {
 	{ name = "giant sapphire", chance = 2041 },
 	{ name = "giant topaz", chance = 2041 },
 	{ name = "fiery tear", chance = 1000 },
-	{ name = "arboreal tome", chance = 250 },
-	{ name = "arboreal crown", chance = 250 },
-	{ name = "spiritthorn armor", id = 39147, chance = 250 },
-	{ name = "spiritthorn helmet", id = 39148, chance = 250 },
-	{ name = "alicorn headguard", chance = 250 },
-	{ name = "alicorn quiver", chance = 250 },
-	{ name = "arcanomancer regalia", chance = 250 },
-	{ name = "arcanomancer folio", chance = 250 },
-	{ name = "ethereal coned hat", chance = 250 },
-	{ id = 50149, chance = 250 }, -- name = "charged ethereal ring"
-	{ id = 39183, chance = 250 }, -- name = "charged arcanomancer sigil"
-	{ id = 39186, chance = 250 }, -- name = "charged arboreal ring"
-	{ id = 39180, chance = 250 }, -- name = "charged alicorn ring"
-	{ id = 39177, chance = 250 }, -- name = "charged spiritthorn ring"
 	{ name = "portable flame", chance = 250 },
 	{ name = "firefighting axe", chance = 250 },
 }

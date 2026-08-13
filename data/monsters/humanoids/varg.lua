@@ -82,7 +82,6 @@ monster.voices = {
 monster.loot = {
 	{ name = "platinum coin", chance = 60000, minCount = 1, maxCount = 15 },
 	{ name = "onyx arrow", chance = 2800, minCount = 1, maxCount = 10 },
-	{ name = "ritual bone knife", chance = 2500 },
 	{ id = 281, chance = 2690 }, -- giant shimmering pearl
 	{ name = "bat wing", chance = 1800, minCount = 1, maxCount = 5 },
 	{ name = "vampire teeth", chance = 1600 },

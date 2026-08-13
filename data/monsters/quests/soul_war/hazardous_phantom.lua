@@ -68,18 +68,13 @@ monster.loot = {
 	{ name = "crystal coin", chance = 97640, maxCount = 4 },
 	{ name = "ultimate health potion", chance = 77950, maxCount = 5 },
 	{ name = "gold ingot", chance = 23620 },
-	{ name = "hailstorm rod", chance = 10240 },
 	{ name = "green gem", chance = 7090 },
 	{ name = "violet gem", chance = 5510 },
 	{ name = "gemmed figurine", chance = 4720 },
 	{ name = "hazardous robe", chance = 4720 },
 	{ name = "hazardous heart", chance = 3940 },
 	{ name = "blue gem", chance = 3150 },
-	{ name = "northwind rod", chance = 2360 },
-	{ name = "glacier robe", chance = 2360 },
 	{ id = 282, chance = 1570 }, -- giant shimmering pearl
-	{ name = "wand of everblazing", chance = 790 },
-	{ id = 23542, chance = 790 }, -- collar of blue plasma
 	{ name = "bag you desire", chance = 15 },
 }
 

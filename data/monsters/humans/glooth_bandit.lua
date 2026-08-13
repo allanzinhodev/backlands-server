@@ -87,23 +87,12 @@ monster.loot = {
 	{ id = 239, chance = 4545 }, -- great health potion
 	{ id = 21143, chance = 4000 }, -- glooth sandwich
 	{ id = 21814, chance = 3030 }, -- glooth capsule
-	{ id = 21179, chance = 2500 }, -- glooth blade
-	{ id = 21178, chance = 2500 }, -- glooth club
-	{ id = 21165, chance = 2000 }, -- rubber cap
 	{ id = 3032, chance = 1492, maxCount = 2 }, -- small emerald
-	{ id = 21158, chance = 1492 }, -- glooth spear
 	{ id = 7643, chance = 1492 }, -- ultimate health potion
 	{ id = 21146, chance = 1000 }, -- glooth steak
 	{ id = 3324, chance = 1000 }, -- skull staff
-	{ id = 21164, chance = 1000 }, -- glooth cape
 	{ id = 3038, chance = 1000 }, -- green gem
-	{ id = 21180, chance = 1000 }, -- glooth axe
 	{ id = 3342, chance = 1000 }, -- war axe
-	{ id = 811, chance = 1000 }, -- terra mantle
-	{ id = 3344, chance = 1000 }, -- beastslayer axe
-	{ id = 21183, chance = 500 }, -- glooth amulet
-	{ id = 813, chance = 500 }, -- terra boots
-	{ id = 812, chance = 500 }, -- terra legs
 }
 
 monster.attacks = {

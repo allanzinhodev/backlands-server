@@ -86,13 +86,9 @@ monster.loot = {
 	{ id = 3035, chance = 43280, maxCount = 2 }, -- platinum coin
 	{ id = 236, chance = 9700, maxCount = 2 }, -- strong health potion
 	{ id = 237, chance = 9700, maxCount = 2 }, -- strong mana potion
-	{ id = 21171, chance = 1490 }, -- metal bat
-	{ id = 8082, chance = 1490 }, -- underworld rod
 	{ id = 3051, chance = 2240 }, -- energy ring
 	{ id = 3052, chance = 750 }, -- life ring
 	{ id = 10310, chance = 2240 }, -- shiny stone
-	{ id = 21169, chance = 1490 }, -- metal spats
-	{ id = 21168, chance = 1490 }, -- alloy legs
 	{ id = 8896, chance = 2990 }, -- slightly rusted armor
 }
 

@@ -87,15 +87,12 @@ monster.loot = {
 	{ name = "gold coin", chance = 50000, maxCount = 78 },
 	{ name = "platinum coin", chance = 33333, maxCount = 4 },
 	{ id = 3049, chance = 5000 }, -- stealth ring
-	{ name = "wand of inferno", chance = 892 },
 	{ name = "steel boots", chance = 89 },
 	{ name = "brown mushroom", chance = 4545 },
 	{ name = "magic sulphur", chance = 534 },
-	{ name = "butcher's axe", chance = 357 },
 	{ name = "bullseye potion", chance = 714 },
 	{ name = "strong health potion", chance = 14285 },
 	{ name = "strong mana potion", chance = 14285 },
-	{ name = "magma coat", chance = 714 },
 	{ name = "demonic finger", chance = 178 },
 }
 

@@ -95,16 +95,10 @@ monster.loot = {
 	{ name = "great mana potion", chance = 7692 },
 	{ name = "great health potion", chance = 7220 },
 	{ name = "mana potion", chance = 9090 },
-	{ name = "terra mantle", chance = 800 },
-	{ name = "terra legs", chance = 920 },
-	{ name = "terra boots", chance = 2000 },
-	{ name = "terra amulet", chance = 2000 },
 	{ name = "mushroom backpack", chance = 20 },
 	{ name = "mushroom pie", chance = 14500, maxCount = 3 },
-	{ name = "muck rod", chance = 590 },
 	{ name = "hideous chunk", chance = 14285 },
 	{ name = "envenomed arrow", chance = 14500, maxCount = 15 },
-	{ name = "mycological bow", chance = 60 },
 }
 
 monster.attacks = {

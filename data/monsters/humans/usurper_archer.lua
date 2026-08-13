@@ -84,21 +84,16 @@ monster.loot = {
 	{ name = "lion cloak patch", chance = 10135 },
 	{ name = "black pearl", chance = 8784 },
 	{ name = "warrior helmet", chance = 8784 },
-	{ name = "mino shield", chance = 8514 },
 	{ name = "silver brooch", chance = 7838 },
 	{ name = "knife", chance = 7703 },
 	{ name = "lion crest", chance = 6892 },
 	{ id = 281, chance = 5676 }, -- giant shimmering pearl (green)
 	{ name = "gemmed figurine", chance = 4189 },
 	{ name = "white pearl", chance = 3514 },
-	{ name = "glacier shoes", chance = 2432 },
 	{ name = "knight armor", chance = 1892 },
 	{ name = "coral brooch", chance = 1757 },
-	{ name = "assassin dagger", chance = 1622 },
-	{ name = "ornate crossbow", chance = 946 },
 	{ name = "emerald bangle", chance = 811 },
 	{ name = "wood cape", chance = 405 },
-	{ name = "elvish bow", chance = 270 },
 }
 
 monster.attacks = {

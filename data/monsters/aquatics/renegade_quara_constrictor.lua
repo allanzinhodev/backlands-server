@@ -84,10 +84,8 @@ monster.loot = {
 	{ id = 3098, chance = 5330 }, -- ring of healing
 	{ name = "shrimp", chance = 4900, maxCount = 5 },
 	{ name = "small amethyst", chance = 4720, maxCount = 2 },
-	{ name = "assassin star", chance = 4510, maxCount = 7 },
 	{ name = "small ruby", chance = 4150, maxCount = 2 },
 	{ name = "vortex bolt", chance = 3270, maxCount = 10 },
-	{ name = "northwind rod", chance = 1030 },
 	{ name = "violet crystal shard", chance = 940 },
 	{ name = "fish fin", chance = 360 },
 	{ name = "piggy bank", chance = 240 },

@@ -88,25 +88,17 @@ monster.loot = {
 	{ id = 281, chance = 6000 }, -- giant shimmering pearl (green)
 	{ id = 3038, chance = 2000 }, -- green gem
 	{ id = 7440, chance = 2000 }, -- mastermind potion
-	{ id = 22195, chance = 2000 }, -- onyx pendant
 	{ id = 3039, chance = 1000 }, -- red gem
 	{ id = 3006, chance = 2000 }, -- ring of the sky
-	{ id = 7451, chance = 2000 }, -- shadow sceptre
-	{ id = 8075, chance = 1000 }, -- spellbook of lost souls
-	{ id = 8073, chance = 1000 }, -- spellbook of warding
 	{ id = 3324, chance = 1000 }, -- skull staff
 	{ id = 3037, chance = 1000 }, -- yellow gem
-	{ id = 16096, chance = 1000 }, -- wand of defiance
 	{ id = 22721, chance = 35710 }, -- gold token
 	{ id = 22516, chance = 28570 }, -- silver token
 	{ id = 3341, chance = 200 }, -- arcane staff
 	{ id = 24973, chance = 200 }, -- shadow mask
 	{ id = 24974, chance = 200 }, -- shadow paint
-	{ id = 22755, chance = 200 }, -- book of lies
-	{ id = 20088, chance = 200 }, -- crude umbral spellbook
 	{ id = 24957, chance = 500, unique = true }, -- part of a rune
 	{ id = 3021, chance = 200 }, -- sapphire amulet
-	{ id = 20089, chance = 200 }, -- umbral spellbook
 }
 
 monster.attacks = {

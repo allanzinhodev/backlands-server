@@ -92,12 +92,7 @@ monster.loot = {
 	{ id = 3289, chance = 6550 }, -- staff
 	{ name = "chain armor", chance = 9300 },
 	{ name = "corncob", chance = 10940, maxCount = 2 },
-	{ name = "hunting spear", chance = 5200 },
 	{ name = "fur bag", chance = 7590 },
-	{ name = "brutetamer's staff", chance = 340 },
-	{ name = "fur boots", chance = 170 },
-	{ name = "mammoth fur cape", chance = 150 },
-	{ name = "mammoth fur shorts", chance = 90 },
 	{ name = "mana potion", chance = 580 },
 }
 

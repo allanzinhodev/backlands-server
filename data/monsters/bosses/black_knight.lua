@@ -90,7 +90,6 @@ monster.loot = {
 	{ name = "knight legs", chance = 1030 },
 	{ name = "knight armor", chance = 750 },
 	{ name = "ruby necklace", chance = 730 },
-	{ name = "lightning legs", chance = 590 },
 	{ name = "boots of haste", chance = 390 },
 	{ name = "dragon lance", chance = 310 },
 	{ name = "piggy bank", chance = 110 },

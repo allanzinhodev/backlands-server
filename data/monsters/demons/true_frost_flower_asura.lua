@@ -86,25 +86,16 @@ monster.loot = {
 	{ id = 3041, chance = 1160 }, -- blue gem
 	{ id = 6499, chance = 15280 }, -- demonic essence
 	{ id = 21974, chance = 12080 }, -- golden lotus brooch
-	{ id = 21981, chance = 920 }, -- oriental shoes
 	{ id = 21975, chance = 10510 }, -- peacock feather fan
 	{ id = 3017, chance = 9640 }, -- silver brooch
 	{ id = 5944, chance = 18670 }, -- soul orb
-	{ id = 8074, chance = 940 }, -- spellbook of mind control
 	{ name = "small enchanted sapphire", chance = 9640, maxCount = 3 },
 	{ id = 3567, chance = 1540 }, -- blue robe
-	{ name = "royal star", chance = 4000, maxCount = 3 },
-	{ id = 7368, chance = 9640, maxCount = 5 }, -- assassin star
-	{ id = 3403, chance = 3590 }, -- tribal mask
 	{ id = 9058, chance = 2380 }, -- gold ingot
 	{ id = 3027, chance = 10360, maxCount = 2 }, -- black pearl
 	{ id = 3037, chance = 4510 }, -- yellow gem
 	{ id = 3026, chance = 8620, maxCount = 2 }, -- white pearl
-	{ name = "northwind rod", chance = 3180 },
 	{ id = 3054, chance = 2260 }, -- silver amulet
-	{ id = 7404, chance = 730 }, -- assassin dagger
-	{ id = 8061, chance = 730 }, -- skullcracker armor
-	{ id = 3067, chance = 1030 }, -- hailstorm rod
 	{ id = 3007, chance = 820 }, -- crystal ring
 }
 

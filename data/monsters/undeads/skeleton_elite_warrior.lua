@@ -81,8 +81,6 @@ monster.loot = {
 	{ name = "knight axe", chance = 3250 },
 	{ name = "pelvis bone", chance = 2630, maxCount = 10 },
 	{ name = "unholy bone", chance = 2630, maxCount = 5 },
-	{ name = "skull helmet", chance = 350 },
-	{ name = "ruthless axe", chance = 150 },
 }
 
 monster.attacks = {

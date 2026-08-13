@@ -91,7 +91,6 @@ monster.loot = {
 	{ name = "wad of fairy floss", chance = 1690 },
 	{ name = "violet gem", chance = 1500 },
 	{ name = "milk chocolate coin", chance = 920, maxCount = 10 },
-	{ name = "springsprout rod", chance = 650 },
 	{ id = 3093, chance = 310 },
 	{ name = "silver amulet", chance = 120 },
 }

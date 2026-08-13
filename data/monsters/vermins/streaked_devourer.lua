@@ -85,12 +85,7 @@ monster.loot = {
 	{ name = "streaked devourer legs", chance = 1540 },
 	{ name = "yellow gem", chance = 1540 },
 	{ name = "crystal mace", chance = 1540 },
-	{ name = "mercenary sword", chance = 1540 },
-	{ name = "noble axe", chance = 1280 },
-	{ name = "ornate crossbow", chance = 1100 },
-	{ name = "relic sword", chance = 1010 },
 	{ name = "guardian halberd", chance = 3080 },
-	{ name = "warrior's axe", chance = 1540 },
 	{ name = "giant sword", chance = 830 },
 	{ name = "war axe", chance = 4620 },
 }

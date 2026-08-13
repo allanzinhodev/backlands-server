@@ -90,7 +90,6 @@ monster.loot = {
 	{ name = "knight axe", chance = 7000 },
 	{ name = "ravager's axe", chance = 300 },
 	{ name = "steel boots", chance = 500 },
-	{ name = "assassin star", chance = 500, maxCount = 3 },
 	{ name = "great health potion", chance = 1500 },
 }
 

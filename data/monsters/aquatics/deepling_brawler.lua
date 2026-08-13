@@ -85,7 +85,6 @@ monster.loot = {
 	{ id = 3578, chance = 14980, maxCount = 3 }, -- fish
 	{ name = "deepling scales", chance = 10010 },
 	{ name = "eye of a deepling", chance = 8460 },
-	{ name = "heavy trident", chance = 970 },
 	{ name = "fish fin", chance = 840 },
 	{ name = "small emerald", chance = 520 },
 }

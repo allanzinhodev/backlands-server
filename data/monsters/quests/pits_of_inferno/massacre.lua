@@ -85,7 +85,6 @@ monster.loot = {
 	{ id = 6540, chance = 100000 }, -- piece of massacre's shell
 	{ id = 5944, chance = 100000 }, -- soul orb
 	{ id = 3340, chance = 1000 }, -- heavy mace
-	{ id = 7403, chance = 900 }, -- berserker
 	{ id = 3360, chance = 3500 }, -- golden armor
 	{ id = 6104, chance = 1200 }, -- jewel case
 }

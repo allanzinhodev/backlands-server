@@ -94,14 +94,11 @@ monster.loot = {
 	{ id = 7443, chance = 14460 }, -- bullseye potion
 	{ id = 281, chance = 7000 }, -- giant shimmering pearl (green)
 	{ id = 3295, chance = 20000 }, -- bright sword
-	{ id = 7453, chance = 100 }, -- executioner
 	{ id = 24966, chance = 100 }, -- forbidden fruit
 	{ id = 5014, chance = 500 }, -- mandrake
 	{ id = 3436, chance = 1000 }, -- medusa shield
-	{ id = 9302, chance = 500 }, -- sacred tree amulet
 	{ id = 5875, chance = 1000 }, -- sniper gloves
 	{ id = 5884, chance = 1000 }, -- spirit container
-	{ id = 8052, chance = 500 }, -- swamplair armor
 	{ id = 20203, chance = 1000 }, -- trapped bad dream monster
 	{ id = 24954, chance = 500, unique = true }, -- part of a rune
 	{ id = 22721, chance = 50000 }, -- gold token

@@ -88,16 +88,12 @@ monster.loot = {
 	{ name = "rainbow quartz", chance = 3810, maxCount = 3 },
 	{ name = "small sapphire", chance = 3590, maxCount = 2 },
 	{ id = 3039, chance = 2660 }, -- red gem
-	{ name = "spirit cloak", chance = 1740 },
 	{ name = "gummy rotworm", chance = 1690 },
 	{ name = "churro heart", chance = 1520 },
-	{ name = "glacier amulet", chance = 1020 },
 	{ id = 3606, chance = 1000 }, -- egg
 	{ name = "milk chocolate coin", chance = 780, maxCount = 15 },
 	{ name = "flour", chance = 690 },
 	{ name = "cookie", chance = 520, maxCount = 2 },
-	{ name = "glacier robe", chance = 500 },
-	{ name = "epee", chance = 400 },
 	{ name = "ice rapier", chance = 210 },
 	{ name = "cream cake", chance = 140 },
 }

@@ -92,7 +92,6 @@ monster.loot = {
 	{ name = "mystic turban", chance = 580 },
 	{ name = "brown mushroom", chance = 5170 },
 	{ name = "strong mana potion", chance = 470 },
-	{ name = "spellbook of enlightenment", chance = 290 },
 	{ name = "book of necromantic rituals", chance = 6920 },
 	{ name = "horoscope", chance = 15000 },
 	{ name = "incantation notes", chance = 9130 },

@@ -83,22 +83,12 @@ monster.loot = {
 	{ name = "small ruby", chance = 10750, maxCount = 5 },
 	{ name = "small topaz", chance = 9660, maxCount = 5 },
 	{ name = "small amethyst", chance = 9640, maxCount = 5 },
-	{ name = "underworld rod", chance = 6890 },
-	{ name = "wand of voodoo", chance = 4810 },
 	{ id = 3039, chance = 3930 }, -- red gem
 	{ name = "yellow gem", chance = 2900 },
 	{ name = "devil helmet", chance = 1360 },
-	{ name = "magma legs", chance = 1150 },
 	{ name = "demon shield", chance = 1010 },
-	{ name = "nightmare blade", chance = 930 },
 	{ name = "blue gem", chance = 780 },
-	{ name = "rift crossbow", chance = 720 },
 	{ name = "steel boots", chance = 640 },
-	{ name = "rift shield", chance = 620 },
-	{ name = "rift lance", chance = 580 },
-	{ name = "rift bow", chance = 370 },
-	{ name = "abyss hammer", chance = 210 },
-	{ name = "vile axe", chance = 180 },
 	{ name = "magic plate armor", chance = 60 },
 }
 

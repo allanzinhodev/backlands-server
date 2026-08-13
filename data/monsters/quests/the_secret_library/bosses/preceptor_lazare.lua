@@ -75,7 +75,6 @@ monster.loot = {
 	{ name = "great mana potion", chance = 100000, maxCount = 3 },
 	{ name = "demonic essence", chance = 100000, maxCount = 5 },
 	{ id = 3039, chance = 700, maxCount = 3 }, -- red gem
-	{ name = "assassin star", chance = 100000, maxCount = 5 },
 	{ name = "flask of demonic blood", chance = 100000, maxCount = 3 },
 	{ name = "ham", chance = 100000, maxCount = 2 },
 	{ name = "small emerald", chance = 100000, maxCount = 5 },
@@ -85,13 +84,10 @@ monster.loot = {
 	{ name = "golden armor", chance = 2200 },
 	{ name = "patch of fine cloth", chance = 1800, maxCount = 3 },
 	{ name = "violet gem", chance = 1800 },
-	{ name = "titan axe", chance = 1600 },
 	{ name = "war axe", chance = 1400 },
 	{ name = "demonbone amulet", chance = 800 },
 	{ name = "heavy mace", chance = 600 },
 	{ name = "mastermind shield", chance = 500 },
-	{ name = "falcon rod", chance = 200 },
-	{ name = "falcon greaves", chance = 110 },
 }
 
 monster.attacks = {

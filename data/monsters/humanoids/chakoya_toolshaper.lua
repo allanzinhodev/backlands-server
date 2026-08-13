@@ -86,7 +86,6 @@ monster.loot = {
 	{ name = "northern pike", chance = 70 },
 	{ name = "rainbow trout", chance = 140 },
 	{ name = "green perch", chance = 70 },
-	{ name = "mammoth whopper", chance = 160 },
 	{ id = 7441, chance = 450 }, -- ice cube
 	{ name = "fireproof horn", chance = 390 },
 }

@@ -80,11 +80,7 @@ monster.loot = {
 	{ name = "Gorerilla Tail", chance = 17060 },
 	{ name = "Ultimate Mana Potion", chance = 11210, minCount = 1, maxCount = 3 },
 	{ name = "Doublet", chance = 5880 },
-	{ name = "Magma Coat", chance = 2440 },
 	{ name = "Black Pearl", chance = 500, minCount = 1, maxCount = 2 },
-	{ name = "Crystal Crossbow", chance = 110 },
-	{ name = "Composite Hornbow", chance = 30 },
-	{ name = "Ornate Crossbow", chance = 30 },
 }
 
 monster.attacks = {

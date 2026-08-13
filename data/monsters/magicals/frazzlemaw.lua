@@ -88,13 +88,9 @@ monster.loot = {
 	{ name = "fish fin", chance = 4700 },
 	{ name = "hardened bone", chance = 5000 },
 	{ id = 5951, chance = 10800 }, -- fish tail
-	{ name = "assassin dagger", chance = 1000 },
-	{ name = "haunted blade", chance = 2240 },
-	{ name = "nightmare blade", chance = 1100 },
 	{ name = "great mana potion", chance = 15000, maxCount = 3 },
 	{ name = "great health potion", chance = 15000, maxCount = 2 },
 	{ name = "gold ingot", chance = 2300 },
-	{ name = "traditional sai", chance = 1460 },
 	{ name = "violet crystal shard", chance = 3000 },
 	{ name = "brown crystal splinter", chance = 16000 },
 	{ name = "red crystal fragment", chance = 7600 },

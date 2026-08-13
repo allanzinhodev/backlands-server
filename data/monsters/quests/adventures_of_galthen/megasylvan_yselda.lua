@@ -85,13 +85,8 @@ monster.loot = {
 	{ id = 3043, chance = 8570, count = 1 }, -- crystal coin
 	{ id = 36809, chance = 4290 }, -- curl of hair
 	{ id = 14112, chance = 4290 }, -- bar of gold
-	{ id = 814, chance = 2860 }, -- terra amulet
-	{ id = 3065, chance = 2860 }, -- terra rod
-	{ id = 830, chance = 2860 }, -- terra hood
 	{ id = 36811, chance = 1430 }, -- megasylvan sapling
 	{ id = 36808, chance = 1430 }, -- old royal diary
-	{ id = 812, chance = 1430 }, -- terra legs
-	{ id = 811, chance = 1430 }, -- terra mantle
 	{ id = 32623, chance = 1200, count = 1 }, -- giant topaz
 }
 

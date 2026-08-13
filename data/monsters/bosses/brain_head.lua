@@ -63,13 +63,9 @@ monster.loot = {
 	{ name = "moonstone", chance = 12810 },
 	{ name = "giant topaz", chance = 12280, maxCount = 1 },
 	{ name = "ghost claw", chance = 3700 },
-	{ id = 32621, chance = 3200 }, -- ring of souls
-	{ name = "phantasmal axe", chance = 3700 },
 	{ name = "brain head's giant neuron", chance = 3100 },
 	{ name = "brain head's left hemisphere", chance = 3100 },
 	{ name = "brain head's right hemisphere", chance = 3100 },
-	{ name = "pair of old bracers", chance = 3100 },
-	{ name = "spooky hood", chance = 8520 },
 }
 
 monster.attacks = {

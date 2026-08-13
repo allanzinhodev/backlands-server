@@ -89,18 +89,12 @@ monster.loot = {
 	{ id = 3415, chance = 22220 }, -- guardian shield
 	{ id = 3419, chance = 11110 }, -- crown shield
 	{ id = 3414, chance = 960 }, -- mastermind shield
-	{ id = 8063, chance = 5560 }, -- paladin armor
-	{ id = 8051, chance = 11110 }, -- voltage armor
-	{ id = 8049, chance = 6110 }, -- lavos armor
 	{ id = 3038, chance = 16670 }, -- green gem
 	{ id = 3041, chance = 11110 }, -- blue gem
-	{ id = 8054, chance = 410 }, -- earthborn titan armor
 	{ id = 3366, chance = 610 }, -- magic plate armor
 	{ id = 3554, chance = 910 }, -- steel boots
 	{ id = 3392, chance = 910 }, -- royal helmet
-	{ id = 813, chance = 2910 }, -- terra boots
 	{ id = 3079, chance = 1910 }, -- boots of haste
-	{ id = 5741, chance = 1910 }, -- skull helmet
 }
 
 monster.attacks = {

@@ -66,7 +66,6 @@ monster.voices = {
 monster.loot = {
 	{ id = 3081, chance = 90000 }, -- stone skin amulet
 	{ id = 237, chance = 83000, maxCount = 5 }, -- strong mana potion
-	{ id = 9302, chance = 80000 }, -- sacred tree amulet
 	{ id = 3369, chance = 79000 }, -- warrior helmet
 	{ id = 3029, chance = 77000, maxCount = 5 }, -- small sapphire
 	{ id = 9058, chance = 60000, maxCount = 3 }, -- gold ingot

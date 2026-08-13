@@ -83,10 +83,7 @@ monster.loot = {
 	{ name = "Slightly Rusted Legs", chance = 2420 },
 	{ name = "Knight Legs", chance = 2360 },
 	{ id = 3039, chance = 2190 }, -- Red Gem
-	{ name = "Warrior's Shield", chance = 1760 },
-	{ id = 23533, chance = 1110 }, -- Ring of Red Plasma
 	{ name = "Fire Sword", chance = 770 },
-	{ name = "Crystal Crossbow", chance = 510 },
 }
 
 monster.attacks = {

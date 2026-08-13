@@ -77,7 +77,6 @@ monster.loot = {
 	{ id = 10410, chance = 3800 }, -- cursed shoulder spikes
 	{ id = 9058, chance = 3800 }, -- gold ingot
 	{ id = 10408, chance = 3800 }, -- spiked iron ball
-	{ id = 10386, chance = 3800 }, -- zaoan shoes
 }
 
 monster.attacks = {

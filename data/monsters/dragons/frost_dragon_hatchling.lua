@@ -83,7 +83,6 @@ monster.loot = {
 	{ name = "dragon ham", chance = 82860 },
 	{ name = "frosty heart", chance = 8570 },
 	{ name = "health potion", chance = 510 },
-	{ name = "spellbook of enlightenment", chance = 430 },
 }
 
 monster.attacks = {

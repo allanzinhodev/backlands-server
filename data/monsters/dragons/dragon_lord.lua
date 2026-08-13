@@ -89,7 +89,6 @@ monster.loot = {
 	{ name = "dragon ham", chance = 79790, maxCount = 2 },
 	{ name = "green mushroom", chance = 12030 },
 	{ id = 2842, chance = 9590 }, -- gemmed book
-	{ name = "royal spear", chance = 9380, maxCount = 3 },
 	{ name = "power bolt", chance = 5920, maxCount = 7 },
 	{ name = "small sapphire", chance = 5590 },
 	{ id = 3051, chance = 4550 }, -- energy ring
@@ -102,7 +101,6 @@ monster.loot = {
 	{ name = "tower shield", chance = 410 },
 	{ name = "fire sword", chance = 350 },
 	{ name = "royal helmet", chance = 260 },
-	{ name = "dragon slayer", chance = 220 },
 	{ name = "dragon lord trophy", chance = 130 },
 	{ name = "dragon scale mail", chance = 90 },
 }

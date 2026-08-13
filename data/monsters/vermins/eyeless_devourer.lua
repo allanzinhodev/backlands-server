@@ -83,20 +83,9 @@ monster.loot = {
 	{ name = "eyeless devourer legs", chance = 7500, maxCount = 2 },
 	{ name = "green gem", chance = 6300 },
 	{ name = "eyeless devourer tongue", chance = 3590 },
-	{ name = "sacred tree amulet", chance = 3190 },
 	{ name = "crystal mace", chance = 1840 },
-	{ name = "glacier amulet", chance = 2790 },
-	{ name = "noble axe", chance = 1840 },
-	{ name = "warrior's axe", chance = 1440 },
-	{ name = "relic sword", chance = 880 },
 	{ name = "giant sword", chance = 880 },
-	{ name = "mercenary sword", chance = 640 },
 	{ name = "war axe", chance = 1360, maxCount = 1 },
-	{ name = "execowtioner axe", chance = 640 },
-	{ name = "ornate crossbow", chance = 1040 },
-	{ name = "jade hammer", chance = 1200 },
-	{ name = "shadow sceptre", chance = 400 },
-	{ name = "metal bat", chance = 320 },
 }
 
 monster.attacks = {

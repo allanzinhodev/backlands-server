@@ -94,12 +94,8 @@ monster.loot = {
 	{ name = "cat's paw", chance = 2222 },
 	{ name = "jewelled backpack", chance = 1192 },
 	{ name = "soul orb", chance = 23000 },
-	{ id = 6299, chance = 2008 }, -- death ring
 	{ name = "demonic essence", chance = 8520 },
 	{ name = "flask of demonic blood", chance = 33333, maxCount = 3 },
-	{ name = "assassin star", chance = 2222, maxCount = 5 },
-	{ name = "vile axe", chance = 480 },
-	{ name = "butcher's axe", chance = 850 },
 	{ name = "great mana potion", chance = 14830, maxCount = 2 },
 	{ name = "great health potion", chance = 10000, maxCount = 2 },
 	{ name = "gold ingot", chance = 3140 },

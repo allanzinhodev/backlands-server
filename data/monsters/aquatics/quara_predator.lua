@@ -81,16 +81,11 @@ monster.voices = {
 monster.loot = {
 	{ name = "gold coin", chance = 78040, maxCount = 154 },
 	{ name = "quara bone", chance = 9940 },
-	{ name = "royal spear", chance = 9320, maxCount = 7 },
 	{ name = "small diamond", chance = 5200, maxCount = 2 },
 	{ name = "shrimp", chance = 5070, maxCount = 5 },
 	{ name = "double axe", chance = 2990 },
 	{ name = "fish fin", chance = 1910 },
 	{ name = "great health potion", chance = 1040 },
-	{ name = "relic sword", chance = 640 },
-	{ name = "assassin star", chance = 520 },
-	{ name = "glacier robe", chance = 490 },
-	{ name = "skull helmet", chance = 380 },
 	{ name = "giant shrimp", chance = 20 },
 }
 

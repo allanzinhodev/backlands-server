@@ -90,13 +90,9 @@ monster.loot = {
 	{ name = "yellow piece of cloth", chance = 2980 },
 	{ name = "great mana potion", chance = 6500 },
 	{ name = "great health potion", chance = 7270 },
-	{ name = "magma amulet", chance = 3120 },
-	{ name = "magma boots", chance = 1820 },
-	{ name = "wand of draconia", chance = 4280 },
 	{ name = "fiery heart", chance = 7810 },
 	{ id = 12600, chance = 1675 }, -- coal
 	{ name = "crystalline arrow", chance = 5950, maxCount = 10 },
-	{ name = "wand of everblazing", chance = 690 },
 	{ name = "blue crystal shard", chance = 3930, maxCount = 2 },
 	{ name = "brown crystal splinter", chance = 8500, maxCount = 2 },
 	{ name = "green crystal fragment", chance = 7000 },

@@ -84,7 +84,6 @@ monster.loot = {
     { name = "Platinum Coin", chance = 9740, maxCount = 5 },
     { name = "Black Pearl", chance = 1850, maxCount = 1 },
     { name = "Vampire Shield", chance = 580, maxCount = 1 },
-    { name = "Dreaded Cleaver", chance = 490, maxCount = 1 }
 }
 
 monster.attacks = {

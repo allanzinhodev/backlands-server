@@ -86,7 +86,6 @@ monster.loot = {
 	{ name = "Onyx Chip", chance = 4650, minCount = 1, maxCount = 2 },
 	{ name = "Black Pearl", chance = 4000 },
 	{ name = "White Gem", chance = 1000 },
-	{ name = "Dragonbone Staff", chance = 740 },
 }
 
 monster.attacks = {

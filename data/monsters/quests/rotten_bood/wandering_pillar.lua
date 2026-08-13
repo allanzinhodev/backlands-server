@@ -84,10 +84,8 @@ monster.loot = {
 -- { name = "darklight obsidian axe", chance = 14652, maxCount = 1 },
 -- { name = "basalt crumbs", chance = 8184, maxCount = 1 },
 	{ name = "sulphurous stone", chance = 5873, maxCount = 1 },
-	{ name = "magma boots", chance = 5080, maxCount = 1 },
 	{ id = 12600, chance = 9802, maxCount = 4 }, -- coal
 	{ name = "dark helmet", chance = 7490, maxCount = 1 },
-	{ name = "magma coat", chance = 11753, maxCount = 1 },
 	{ name = "onyx chip", chance = 9311, maxCount = 2 },
 	{ name = "darklight core", chance = 5957, maxCount = 1 },
 	{ name = "fire sword", chance = 8319, maxCount = 1 },

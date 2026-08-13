@@ -85,7 +85,6 @@ monster.loot = {
 	{ id = 8192, chance = 100000 }, -- vampire lord token
 	{ id = 18927, chance = 100000 }, -- vampire's cape chain
 	{ id = 18936, chance = 5000 }, -- vampire count's medal
-	{ id = 18935, chance = 5000 }, -- vampire's signet ring
 	{ id = 11449, chance = 50000 }, -- blood preservation
 	{ id = 9685, chance = 50000 }, -- vampire teeth
 	{ id = 19083, chance = 5000 }, -- silver raid token
@@ -98,13 +97,7 @@ monster.loot = {
 	{ id = 5909, chance = 10000 }, -- white piece of cloth
 	{ id = 5911, chance = 10000 }, -- red piece of cloth
 	{ id = 5912, chance = 10000 }, -- blue piece of cloth
-	{ id = 7427, chance = 5000 }, -- chaos mace
-	{ id = 3326, chance = 10000 }, -- epee
-	{ id = 7419, chance = 5000 }, -- dreaded cleaver
-	{ id = 8075, chance = 5000 }, -- spellbook of lost souls
-	{ id = 19373, chance = 5000 }, -- haunted mirror piece
 	{ id = 3434, chance = 5000 }, -- vampire shield
-	{ id = 19374, chance = 5000 }, -- vampire silk slippers
 	{ id = 3028, chance = 50000, maxCount = 5 }, -- small diamond
 	{ id = 3027, chance = 50000, maxCount = 5 }, -- black pearl
 	{ id = 3029, chance = 50000, maxCount = 5 }, -- small sapphire

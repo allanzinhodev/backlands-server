@@ -93,9 +93,7 @@ monster.loot = {
 	{ name = "crown armor", chance = 400 },
 	{ id = 3053, chance = 540 }, -- time ring
 	{ name = "talon", chance = 300 },
-	{ name = "glacier robe", chance = 200 },
 	{ name = "giant shrimp", chance = 100 },
-	{ name = "twiceslicer", chance = 30 },
 }
 
 monster.attacks = {

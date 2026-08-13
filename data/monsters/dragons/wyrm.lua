@@ -87,15 +87,7 @@ monster.loot = {
 	{ name = "strong mana potion", chance = 15170 },
 	{ id = 3449, chance = 5690, maxCount = 10 }, -- burst arrow
 	{ name = "crossbow", chance = 5690 },
-	{ name = "focus cape", chance = 2370 },
 	{ name = "small diamond", chance = 1420, maxCount = 3 },
-	{ name = "wand of starstorm", chance = 1420 },
-	{ name = "wand of draconia", chance = 1420 },
-	{ name = "composite hornbow", chance = 950 },
-	{ name = "dragonbone staff", chance = 470 },
-	{ name = "lightning pendant", chance = 470 },
-	{ name = "shockwave amulet", chance = 470 },
-	{ name = "hibiscus dress", chance = 470 },
 }
 
 monster.attacks = {

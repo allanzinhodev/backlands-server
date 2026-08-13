@@ -82,12 +82,7 @@ monster.loot = {
 	{ name = "small amethyst", chance = 3270, maxCount = 3 },
 	{ name = "strong mana potion", chance = 17450 },
 	{ name = "great mana potion", chance = 5450 },
-	{ name = "lightning pendant", chance = 730 },
-	{ name = "lightning legs", chance = 150 },
-	{ name = "spellbook of warding", chance = 360 },
-	{ name = "wand of starstorm", chance = 730 },
 	{ id = 8895, chance = 730 }, -- rusted armor
-	{ name = "shockwave amulet", chance = 500 },
 }
 
 monster.attacks = {

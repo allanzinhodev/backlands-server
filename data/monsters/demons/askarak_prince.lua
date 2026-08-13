@@ -93,8 +93,6 @@ monster.loot = {
 	{ name = "mastermind potion", chance = 1315 },
 	{ name = "strong health potion", chance = 14285 },
 	{ name = "strong mana potion", chance = 14285 },
-	{ name = "terra mantle", chance = 840 },
-	{ name = "springsprout rod", chance = 950 },
 	{ name = "demonic finger", chance = 420 },
 }
 

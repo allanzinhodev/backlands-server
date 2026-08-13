@@ -77,12 +77,6 @@ monster.loot = {
 	{ id = 3028, chance = 4860, maxCount = 5 }, -- small diamond
 	{ id = 3034, chance = 950 }, -- talon
 	{ id = 3048, chance = 4020 }, -- might ring
-	{ id = 12737, chance = 270 }, -- broken ring of ending
-	{ id = 3073, chance = 510 }, -- wand of cosmic energy
-	{ id = 3326, chance = 520 }, -- epee
-	{ id = 9304, chance = 570 }, -- shockwave amulet
-	{ id = 816, chance = 830 }, -- lightning pendant
-	{ id = 822, chance = 480 }, -- lightning legs
 }
 
 monster.attacks = {

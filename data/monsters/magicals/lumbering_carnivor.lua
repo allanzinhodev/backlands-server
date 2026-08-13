@@ -85,13 +85,10 @@ monster.loot = {
 	{ id = 281, chance = 1830 }, -- giant shimmering pearl (green)
 	{ name = "green gem", chance = 1680 },
 	{ name = "violet gem", chance = 1560 },
-	{ name = "glorious axe", chance = 1530 },
 	{ name = "two handed sword", chance = 1490 },
 	{ name = "blue robe", chance = 760 },
 	{ name = "blue gem", chance = 990 },
-	{ name = "fur armor", chance = 950 },
 	{ name = "green crystal shard", chance = 920 },
-	{ name = "focus cape", chance = 80 },
 }
 
 monster.attacks = {

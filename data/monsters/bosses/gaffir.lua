@@ -82,15 +82,10 @@ monster.loot = {
 	{ name = "small sapphire", chance = 10530 },
 	{ name = "small topaz", chance = 11840 },
 	{ name = "small diamond", chance = 27630 },
-	{ name = "terra rod", chance = 24000 },
-	{ name = "springsprout rod", chance = 21000 },
 	{ name = "great spirit potion", chance = 26400 },
-	{ name = "spellbook of warding", chance = 6500 },
 	{ id = 3098, chance = 5400 }, -- ring of healing
 	{ name = "amulet of loss", chance = 3400 },
 	{ name = "cobra crest", chance = 900 },
-	{ name = "cobra wand", chance = 100 },
-	{ name = "cobra rod", chance = 100 },
 }
 
 monster.attacks = {

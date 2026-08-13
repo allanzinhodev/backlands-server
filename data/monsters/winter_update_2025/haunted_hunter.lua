@@ -93,9 +93,7 @@ monster.loot = {
 	-- { name = "toe nails", chance = 2520 },
 	{ name = "blue crystal shard", chance = 2330, maxCount = 4 },
 	-- { name = "crystallized death", chance = 2240 },
-	{ name = "crystalline armor", chance = 1920 },
 	{ name = "blue gem", chance = 1880, maxCount = 4 },
-	{ name = "crystal crossbow", chance = 1020 },
 }
 
 monster.attacks = {

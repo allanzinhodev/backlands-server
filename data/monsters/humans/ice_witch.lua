@@ -83,12 +83,8 @@ monster.loot = {
 	{ name = "mystic turban", chance = 430 },
 	{ name = "green mushroom", chance = 1310 },
 	{ name = "shard", chance = 530 },
-	{ name = "diamond sceptre", chance = 330 },
 	{ id = 7441, chance = 10000 }, -- ice cube
-	{ name = "crystal sword", chance = 400 },
-	{ name = "pair of earmuffs", chance = 90 },
 	{ name = "strong mana potion", chance = 820 },
-	{ name = "glacier shoes", chance = 280 },
 }
 
 monster.attacks = {

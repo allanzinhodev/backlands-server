@@ -67,7 +67,6 @@ monster.loot = {
 	{ name = "platinum coin", chance = 9240, maxCount = 10 },
 	{ id = 3039, chance = 18200 }, -- red gem
 	{ name = "gold ingot", chance = 29700, maxCount = 5 },
-	{ name = "assassin star", chance = 29700, maxCount = 13 },
 	{ name = "demonic essence", chance = 330 },
 	{ name = "great spirit potion", chance = 330 },
 	{ name = "soul orb", chance = 19530 },
@@ -76,10 +75,6 @@ monster.loot = {
 	{ name = "ultimate health potion", chance = 700, maxCount = 4 },
 	{ name = "golden lotus brooch", chance = 19740 },
 	{ name = "green gem", chance = 15780 },
-	{ name = "magma coat", chance = 1050 },
-	{ name = "moonlight rod", chance = 1050 },
-	{ name = "necrotic rod", chance = 1050 },
-	{ name = "oriental shoes", chance = 490 },
 	{ name = "peacock feather fan", chance = 16870 },
 }
 

@@ -92,17 +92,8 @@ monster.loot = {
 	{ name = "cyan crystal fragment", chance = 1200, maxCount = 4 },
 	{ name = "ultimate mana potion", chance = 1200, maxCount = 4 },
 	{ name = "piece of dead brain", chance = 1200, maxCount = 4 },
-	{ name = "wand of defiance", chance = 800 },
-	{ name = "lightning headband", chance = 950 },
-	{ name = "lightning pendant", chance = 850 },
 	{ name = "might ring", chance = 1300 },
 	{ name = "slime heart", chance = 1200, maxCount = 4 },
-	{ id = 23544, chance = 560 }, -- collar of red plasma
-	{ id = 23542, chance = 560 }, -- collar of blue plasma
-	{ id = 23543, chance = 560 }, -- collar of green plasma
-	{ id = 23533, chance = 560 }, -- ring of red plasma
-	{ id = 23529, chance = 560 }, -- ring of blue plasma
-	{ id = 23531, chance = 560 }, -- ring of green plasma
 }
 
 monster.attacks = {

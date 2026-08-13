@@ -96,7 +96,6 @@ monster.loot = {
 -- { name = "gold-brocaded cloth", chance = 1340 },
 	{ name = "drill bolt", chance = 1270, maxCount = 10 },
 	{ id = 3040, chance = 320 }, -- gold nugget
-	{ name = "ornate crossbow", chance = 140 },
 }
 
 monster.attacks = {

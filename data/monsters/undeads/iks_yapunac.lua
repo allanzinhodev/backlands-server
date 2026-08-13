@@ -80,7 +80,6 @@ monster.loot = {
 	{ name = "tiger eye", chance = 6910 },
 	{ name = "strong mana potion", chance = 6360, maxCount = 2 },
 	{ name = "small sapphire", chance = 5810, maxCount = 3 },
-	{ name = "spellbook of enlightenment", chance = 1920 },
 	{ name = "opal", chance = 1850 },
 -- { name = "gold-brocaded cloth", chance = 1780 },
 	{ name = "gold ingot", chance = 960 },

@@ -95,9 +95,7 @@ monster.loot = {
 	{ name = "silver token", chance = 57140, maxCount = 6 },
 	{ name = "gold token", chance = 42860, maxCount = 5 },
 	{ name = "blue robe", chance = 30000 },
-	{ name = "dreaded cleaver", chance = 30000 },
 	{ name = "slightly rusted shield", chance = 26670 },
-	{ name = "wand of inferno", chance = 30000 },
 	{ name = "sturdy book", chance = 1000 },
 }
 

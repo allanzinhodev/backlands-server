@@ -85,14 +85,12 @@ monster.loot = {
 	{ id = 3287, chance = 14500, maxCount = 18 }, -- throwing star
 	{ id = 3578, chance = 11300, maxCount = 2 }, -- fish
 	{ id = 3316, chance = 5700 }, -- orcish axe
-	{ id = 3347, chance = 5700 }, -- hunting spear
 	{ id = 3357, chance = 5610 }, -- plate armor
 	{ id = 3557, chance = 4680 }, -- plate legs
 	{ id = 3307, chance = 4050 }, -- scimitar
 	{ id = 3084, chance = 2690 }, -- protection amulet
 	{ id = 3265, chance = 2200 }, -- two handed sword
 	{ id = 3384, chance = 1900 }, -- dark helmet
-	{ id = 818, chance = 750 }, -- magma boots
 }
 
 monster.attacks = {

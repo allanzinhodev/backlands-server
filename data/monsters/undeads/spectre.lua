@@ -88,13 +88,10 @@ monster.loot = {
 	{ name = "gold coin", chance = 33000, maxCount = 97 },
 	{ name = "platinum coin", chance = 3850, maxCount = 7 },
 	{ id = 3049, chance = 190 }, -- stealth ring
-	{ name = "wand of cosmic energy", chance = 9800 },
 	{ name = "blank rune", chance = 30310, maxCount = 2 },
 	{ id = 5909, chance = 3000 }, -- white piece of cloth
 	{ name = "soul orb", chance = 6005 },
-	{ id = 6299, chance = 280 }, -- death ring
 	{ name = "demonic essence", chance = 6270 },
-	{ name = "relic sword", chance = 700 },
 	{ name = "great mana potion", chance = 920 },
 	{ name = "shiny stone", chance = 1000 },
 }

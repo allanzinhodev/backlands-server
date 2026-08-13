@@ -86,11 +86,7 @@ monster.loot = {
 	{ name = "small ruby", chance = 8470, maxCount = 3 },
 	{ name = "moonlight crystals", chance = 2550 },
 	{ id = 3039, chance = 1240 }, -- red gem
-	{ name = "magma monocle", chance = 3080 },
-	{ name = "ripper lance", chance = 850 },
 	{ name = "gemmed figurine", chance = 1770 },
-	{ id = 817, chance = 2770 }, -- magma amulet
-	{ name = "fur armor", chance = 2620 },
 	{ id = 43917, chance = 650 }, -- werepanther trophy
 }
 

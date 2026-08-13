@@ -90,17 +90,11 @@ monster.loot = {
 	{ id = 3315, chance = 15030 }, -- guardian halberd
 	{ id = 3041, chance = 15030 }, -- blue gem
 	{ id = 9058, chance = 15030 }, -- gold ingot
-	{ id = 7428, chance = 15030 }, -- bonebreaker
 	{ id = 3340, chance = 12940 }, -- heavy mace
 	{ id = 3419, chance = 11540 }, -- crown shield
 	{ id = 20276, chance = 10000 }, -- dream warden mask
-	{ id = 8063, chance = 9620 }, -- paladin armor
-	{ id = 7387, chance = 8390 }, -- diamond sceptre
 	{ id = 3420, chance = 6290 }, -- demon shield
 	{ id = 3414, chance = 1400 }, -- mastermind shield
-	{ id = 7431, chance = 700 }, -- demonbone
-	{ id = 8049, chance = 350 }, -- lavos armor
-	{ id = 8100, chance = 170 }, -- obsidian truncheon
 }
 
 monster.attacks = {

@@ -82,7 +82,6 @@ monster.loot = {
 	{ name = "poisonous slime", chance = 8333 },
 	{ name = "lump of dirt", chance = 4166 },
 	{ name = "lancer beetle shell", chance = 16666 },
-	{ name = "beetle necklace", chance = 1123 },
 }
 
 monster.attacks = {

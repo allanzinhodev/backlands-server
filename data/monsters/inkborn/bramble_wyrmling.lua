@@ -47,7 +47,6 @@ monster.loot = {
 	{ name = "small emerald", chance = 2500, maxCount = 4 },
 	{ name = "green crystal fragment", chance = 1900, maxCount = 2 },
 	{ name = "book with a dragon", chance = 1600 },
-	{ name = "terra hood", chance = 1200 },
 	{ id = 3038, chance = 800 }, -- green gem
 }
 

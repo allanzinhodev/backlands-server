@@ -81,7 +81,6 @@ monster.loot = {
 	{ id = 3003, chance = 5080 }, -- rope
 	{ name = "gold coin", chance = 84900, maxCount = 12 },
 	{ name = "white mushroom", chance = 10220, maxCount = 5 },
-	{ name = "swampling club", chance = 7410 },
 	{ name = "swampling moss", chance = 19900 },
 	{ name = "piece of swampling wood", chance = 14870 },
 }

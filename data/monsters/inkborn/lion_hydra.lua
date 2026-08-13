@@ -88,8 +88,6 @@ monster.loot = {
 	{ name = "ham", chance = 1600, minCount = 1, maxCount = 2 },
 	{ name = "hydra head", chance = 1400 },
 	{ name = "onyx chip", chance = 1200 },
-	{ name = "titan axe", chance = 1000 },
-	{ name = "sacred tree amulet", chance = 1000 },
 	{ name = "medusa shield", chance = 1000 },
 	{ name = "gold ingot", chance = 800 },
 }

@@ -81,7 +81,6 @@ monster.loot = {
 	{ name = "gold coin", chance = 13600000, maxCount = 100 },
 	{ name = "gold coin", chance = 13600000, maxCount = 100 },
 	{ name = "platinum coin", chance = 13600000, maxCount = 10 },
-	{ name = "assassin star", chance = 13600000, maxCount = 9 },
 	{ name = "black pearl", chance = 13600000, maxCount = 2 },
 	{ name = "great mana potion", chance = 13600000, maxCount = 2 },
 	{ name = "great spirit potion", chance = 13600000, maxCount = 2 },
@@ -89,19 +88,14 @@ monster.loot = {
 	{ name = "ultimate mana potion", chance = 13600000, maxCount = 2 },
 	{ name = "ultimate spirit potion", chance = 13600000, maxCount = 2 },
 	{ name = "fox paw", chance = 13600000, maxCount = 2 },
-	{ name = "moonlight rod", chance = 13600000 },
 	{ id = 3049, chance = 13600000 }, -- stealth ring
 	{ name = "werefox tail", chance = 13600000 },
 	{ name = "green gem", chance = 400 },
 	{ name = "troll green", chance = 400 },
-	{ name = "werewolf amulet", chance = 400 },
-	{ name = "composite hornbow", chance = 250 },
-	{ name = "traditional sai", chance = 250 },
 	{ name = "silver token", chance = 1540 },
 	{ id = 27706, chance = 250 }, -- werefox trophy
 	{ name = "foxtail", chance = 100 },
 	{ name = "wolf backpack", chance = 100 },
-	{ name = "foxtail amulet", chance = 100 },
 	{ name = "silver token", chance = 100 },
 }
 

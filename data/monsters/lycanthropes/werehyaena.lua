@@ -84,12 +84,10 @@ monster.loot = {
 	{ name = "halberd", chance = 11480 },
 	{ name = "red crystal fragment", chance = 9540 },
 	{ name = "small enchanted amethyst", chance = 5760, maxCount = 5 },
-	{ name = "life preserver", chance = 5670 },
 	{ id = 3039, chance = 5590 }, -- red gem
 	{ name = "yellow gem", chance = 5420 },
 	{ name = "combat knife", chance = 4700 },
 	{ name = "green crystal fragment", chance = 4580 },
-	{ name = "ratana", chance = 4280 },
 	{ name = "werehyaena talisman", chance = 750 },
 	{ name = "werehyaena trophy", chance = 190 },
 }

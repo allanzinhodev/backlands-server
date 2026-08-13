@@ -80,22 +80,13 @@ monster.loot = {
 	{ name = "cyan crystal fragment", chance = 3340 },
 	{ id = 3039, chance = 2390, maxCount = 1 }, -- red gem
 	{ name = "violet gem", chance = 2340, maxCount = 1 },
-	{ name = "lightning legs", chance = 2230 },
-	{ name = "diamond sceptre", chance = 2180 },
-	{ name = "lightning pendant", chance = 2180 },
 	{ name = "bashmu fang", chance = 2120 },
 	{ name = "yellow gem", chance = 2070 },
 	{ name = "war hammer", chance = 1540 },
 	{ name = "violet crystal shard", chance = 1490 },
-	{ name = "dragonbone staff", chance = 1430 },
-	{ name = "amber staff", chance = 1270 },
-	{ name = "lightning boots", chance = 1270 },
 	{ name = "green gem", chance = 1220 },
-	{ name = "spellweaver's robe", chance = 1110 },
-	{ name = "pair of iron fists", chance = 1010 },
 	{ name = "skull staff", chance = 960 },
 	{ name = "crystal mace", chance = 800 },
-	{ name = "chaos mace", chance = 530 },
 }
 
 monster.attacks = {

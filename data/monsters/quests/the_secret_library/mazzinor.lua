@@ -76,19 +76,13 @@ monster.loot = {
 	{ name = "onyx chip", chance = 70000, maxCount = 12 },
 	{ name = "small emerald", chance = 70000, maxCount = 12 },
 	{ name = "demon horn", chance = 70000 },
-	{ name = "lightning boots", chance = 70000 },
 	{ id = 3039, chance = 70000 }, -- red gem
 	{ name = "violet gem", chance = 70000 },
 	{ name = "stone skin amulet", chance = 70000 },
-	{ name = "wand of starstorm", chance = 70000 },
 	{ name = "silver token", chance = 85710, maxCount = 6 },
 	{ name = "gold token", chance = 28570, maxCount = 4 },
-	{ name = "assassin dagger", chance = 30000 },
-	{ name = "crystalline armor", chance = 30000 },
-	{ name = "dreaded cleaver", chance = 30000 },
 	{ name = "frozen lightning", chance = 30000 },
 	{ name = "sinister book", chance = 1000 },
-	{ name = "wand of dimensions", chance = 10 },
 }
 
 monster.attacks = {

@@ -84,7 +84,6 @@ monster.loot = {
 	{ name = "gold coin", chance = 75530, maxCount = 25 },
 	{ id = 3578, chance = 12000, maxCount = 3 }, -- fish
 	{ name = "deepling scales", chance = 7060 },
-	{ name = "heavy trident", chance = 500 },
 	{ name = "fish fin", chance = 330 },
 	{ name = "eye of a deepling", chance = 310 },
 	{ name = "small emerald", chance = 130 },

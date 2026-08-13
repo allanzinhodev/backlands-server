@@ -96,9 +96,7 @@ monster.loot = {
 	{ name = "great mana potion", chance = 19700 },
 	{ name = "great health potion", chance = 1900 },
 	{ name = "small enchanted ruby", chance = 4250 },
-	{ name = "magma boots", chance = 300 },
 	{ name = "raspberry", chance = 8500, maxCount = 5 },
-	{ name = "spellbook of mind control", chance = 370 },
 	{ name = "royal tapestry", chance = 520 },
 	{ id = 9056, chance = 820 }, -- black skull
 	{ name = "gold ingot", chance = 70 },

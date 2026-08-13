@@ -75,12 +75,10 @@ monster.loot = {
 	{ id = 27713, chance = 100000, maxCount = 7 }, -- heavy crystal fragment
 	{ name = "mastermind potion", chance = 100000, maxCount = 3 },
 	{ name = "stone skin amulet", chance = 100000 },
-	{ name = "amber staff", chance = 100000 },
 	{ name = "ultimate health potion", chance = 80000, maxCount = 15 },
 	{ name = "great mana potion", chance = 60000, maxCount = 23 },
 	{ name = "small topaz", chance = 60000, maxCount = 10 },
 	{ name = "green crystal shard", chance = 60000 },
-	{ name = "wand of inferno", chance = 60000 },
 	{ name = "huge spiky snail shell", chance = 60000 },
 	{ name = "small diamond", chance = 40000 },
 	{ name = "huge chunk of crude iron", chance = 40000, maxCount = 3 },
@@ -103,17 +101,9 @@ monster.loot = {
 	{ name = "luminous orb", chance = 8470 },
 	{ name = "crystal coin", chance = 6780 },
 	{ name = "harpoon of a giant snail", chance = 5080 },
-	{ name = "gnome shield", chance = 5080 },
-	{ name = "gnome helmet", chance = 3390 },
-	{ name = "magma coat", chance = 3390 },
-	{ name = "gnome sword", chance = 3390 },
 	{ name = "violet gem", chance = 3390 },
-	{ name = "crystalline armor", chance = 1690 },
 	{ name = "giant sword", chance = 1690 },
-	{ name = "guardian axe", chance = 1690 },
-	{ name = "twiceslicer", chance = 1690 },
 	{ name = "tinged pot", chance = 1690 },
-	{ name = "gnomish footwraps", chance = 1790 },
 }
 
 monster.attacks = {

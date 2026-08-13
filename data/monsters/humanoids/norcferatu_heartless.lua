@@ -88,8 +88,6 @@ monster.loot = {
 	{ name = "blue crystal splinter", chance = 1600 },
 	{ name = "pot of orcish warpaint", chance = 1500 }, -- new item
 	{ name = "war axe", chance = 1400 },
-	{ name = "chaos mace", chance = 1200 },
-	{ name = "greater garlic necklace", chance = 1200 }, -- new item
 	{ id = 51487, chance = 800 }, -- norcferatu talisman
 	{ name = "vampire shield", chance = 800 },
 }

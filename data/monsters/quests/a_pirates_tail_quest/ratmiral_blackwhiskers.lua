@@ -94,19 +94,6 @@ monster.loot = {
 	{ id = 35595, chance = 2680 }, -- soap
 	{ id = 35695, chance = 1790 }, -- scrubbing brush
 	{ id = 35614, chance = 890 }, -- cheesy membership card
-	{ id = 35523, chance = 890 }, -- exotic amulet
-	{ id = 35515, chance = 890 }, -- throwing axe
-	{ id = 35517, chance = 890 }, -- bast legs
-	{ id = 35516, chance = 890 }, -- exotic legs
-	{ id = 35518, chance = 890 }, -- jungle bow
-	{ id = 35524, chance = 890 }, -- jungle quiver
-	{ id = 35514, chance = 890 }, -- jungle flail
-	{ id = 35521, chance = 890 }, -- jungle rod
-	{ id = 35522, chance = 890 }, -- jungle wand
-	{ id = 35519, chance = 890 }, -- makeshift boots
-	{ id = 35520, chance = 890 }, -- make-do boots
-	{ id = 50270, chance = 890 }, -- bambus jo
-	{ id = 50186, chance = 890 }, -- jungle survivor legs
 }
 
 monster.attacks = {

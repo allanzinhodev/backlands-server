@@ -70,7 +70,6 @@ monster.voices = {
 }
 
 monster.loot = {
-	{ id = 6101, chance = 100000 }, -- ron the ripper's sabre
 	{ id = 3031, chance = 100000, maxCount = 128 }, -- gold coin
 	{ id = 3114, chance = 81000, maxCount = 2 }, -- skull
 	{ id = 3357, chance = 63000 }, -- plate armor

@@ -91,7 +91,6 @@ monster.loot = {
 	{ name = "meat", chance = 4970, maxCount = 2 },
 	{ name = "shard", chance = 60 },
 	{ id = 7441, chance = 2180 }, -- ice cube
-	{ name = "norse shield", chance = 250 },
 	{ name = "health potion", chance = 819 },
 	{ name = "frost giant pelt", chance = 5000 },
 }

@@ -91,10 +91,7 @@ monster.loot = {
 	{ name = "deepling ridge", chance = 18710 },
 	{ name = "small emerald", chance = 7210, maxCount = 2 },
 	{ id = 3052, chance = 5530 }, -- life ring
-	{ name = "heavy trident", chance = 3450 },
 	{ name = "fish fin", chance = 2340 },
-	{ name = "warrior's shield", chance = 1150 },
-	{ name = "warrior's axe", chance = 880 },
 }
 
 monster.attacks = {

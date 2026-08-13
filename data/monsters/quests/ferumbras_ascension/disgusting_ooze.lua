@@ -75,7 +75,6 @@ monster.loot = {
 	{ id = 3032, chance = 5400, maxCount = 3 }, -- small emerald
 	{ id = 3030, chance = 2750, maxCount = 2 }, -- small ruby
 	{ id = 3028, chance = 2650, maxCount = 2 }, -- small diamond
-	{ id = 6299, chance = 2440 }, -- death ring
 	{ id = 3039, chance = 1590 }, -- red gem
 	{ id = 3037, chance = 1380 }, -- yellow gem
 	{ id = 3038, chance = 640 }, -- green gem

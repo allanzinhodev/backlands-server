@@ -79,7 +79,6 @@ monster.loot = {
 	{ id = 3039, chance = 90000 }, -- red gem
 	{ name = "stone skin amulet", chance = 90000 },
 	{ name = "yellow gem", chance = 90000 },
-	{ name = "wand of voodoo", chance = 90000 },
 	{ name = "mastermind potion", chance = 30000, maxCount = 2 },
 	{ name = "onyx chip", chance = 30000, maxCount = 12 },
 	{ name = "small diamond", chance = 30000, maxCount = 12 },
@@ -89,14 +88,10 @@ monster.loot = {
 	{ name = "blue gem", chance = 30000 },
 	{ name = "solid rage", chance = 30000 },
 	{ name = "gold token", chance = 16670 },
-	{ name = "butcher's axe", chance = 1000 },
-	{ name = "dreaded cleaver", chance = 1000 },
-	{ name = "mercenary sword", chance = 1000 },
 	{ name = "slightly rusted shield", chance = 5880 },
 	{ name = "slightly rusted helmet", chance = 35290 },
 	{ name = "epaulette", chance = 500 },
 	{ name = "giant emerald", chance = 500 },
-	{ name = "unliving demonbone", chance = 500 },
 }
 
 monster.attacks = {

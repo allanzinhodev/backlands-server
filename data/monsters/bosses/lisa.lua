@@ -80,13 +80,6 @@ monster.loot = {
 	{ name = "small diamond", chance = 18000, maxCount = 5 },
 	{ name = "small ruby", chance = 16000, maxCount = 5 },
 	{ name = "small topaz", chance = 14800, maxCount = 5 },
-	{ name = "glooth club", chance = 10500 },
-	{ name = "glooth spear", chance = 9900 },
-	{ name = "glooth whip", chance = 9500 },
-	{ name = "glooth amulet", chance = 9000 },
-	{ name = "glooth axe", chance = 8000 },
-	{ name = "glooth blade", chance = 7000 },
-	{ name = "glooth cape", chance = 6000 },
 	{ id = 3039, chance = 2600 }, -- red gem
 	{ name = "yellow gem", chance = 2500 },
 	{ name = "lisa's doll", chance = 300 },

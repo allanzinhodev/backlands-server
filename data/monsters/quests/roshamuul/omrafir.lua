@@ -94,15 +94,12 @@ monster.loot = {
 	{ id = 16127, chance = 37500, maxCount = 3 }, -- green crystal fragment
 	{ id = 16121, chance = 18750, maxCount = 5 }, -- green crystal shard
 	{ id = 3038, chance = 18750 }, -- green gem
-	{ id = 820, chance = 12500 }, -- lightning boots
-	{ id = 825, chance = 18750 }, -- lightning robe
 	{ id = 20282, chance = 12500 }, -- nightmare hook
 	{ id = 20274, chance = 100000, unique = true }, -- nightmare horn
 	{ id = 3035, chance = 93750, maxCount = 20 }, -- platinum coin
 	{ id = 20277, chance = 6250 }, -- psychedelic tapestry
 	{ id = 16126, chance = 6250, maxCount = 3 }, -- red crystal fragment
 	{ id = 3098, chance = 6250 }, -- ring of healing
-	{ id = 5741, chance = 6250 }, -- skull helmet
 	{ id = 3554, chance = 6250 }, -- steel boots
 	{ id = 7643, chance = 31250, maxCount = 8 }, -- ultimate health potion
 	{ id = 20264, chance = 81250, maxCount = 3 }, -- unrealized dream

@@ -83,12 +83,9 @@ monster.loot = {
 	{ name = "short sword", chance = 9500 },
 	{ name = "steel helmet", chance = 2000 },
 	{ name = "plate armor", chance = 1000 },
-	{ name = "templar scytheblade", chance = 500 },
-	{ name = "salamander shield", chance = 110 },
 	{ name = "lizard leather", chance = 880 },
 	{ name = "lizard scale", chance = 990 },
 	{ name = "health potion", chance = 890 },
-	{ name = "zaoan monk robe", chance = 5 },
 }
 
 monster.attacks = {

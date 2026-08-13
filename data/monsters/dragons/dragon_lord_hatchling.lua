@@ -84,7 +84,6 @@ monster.loot = {
 	{ name = "gold coin", chance = 72690, maxCount = 121 },
 	{ name = "mana potion", chance = 1200 },
 	{ name = "green mushroom", chance = 490 },
-	{ name = "magma boots", chance = 100 },
 }
 
 monster.attacks = {

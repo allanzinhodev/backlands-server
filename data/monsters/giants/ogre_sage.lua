@@ -91,9 +91,7 @@ monster.loot = {
 	{ name = "shamanic talisman", chance = 10230 },
 	{ name = "broken shamanic staff", chance = 12500 },
 	{ name = "skull fetish", chance = 9090 },
-	{ name = "terra boots", chance = 4550 },
 	{ name = "bone fetish", chance = 2270 },
-	{ name = "sacred tree amulet", chance = 1140 },
 }
 
 monster.attacks = {

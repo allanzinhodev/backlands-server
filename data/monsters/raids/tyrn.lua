@@ -77,7 +77,6 @@ monster.loot = {
 	{ id = 3155, chance = 15000 }, -- sudden death rune
 	{ id = 3031, chance = 100000, maxCount = 50 }, -- gold coin
 	{ id = 3035, chance = 60000, maxCount = 8 }, -- platinum coin
-	{ id = 7368, chance = 30000, maxCount = 5 }, -- assassin star
 	{ id = 236, chance = 25000, maxCount = 5 }, -- strong health potion
 	{ id = 237, chance = 25000, maxCount = 5 }, -- strong mana potion
 	{ id = 9665, chance = 100000 }, -- wyrm scale
@@ -85,7 +84,6 @@ monster.loot = {
 	{ id = 3037, chance = 9000 }, -- yellow gem
 	{ id = 3036, chance = 9000 }, -- violet gem
 	{ id = 3415, chance = 9000 }, -- guardian shield
-	{ id = 8045, chance = 9000 }, -- hibiscus dress
 	{ id = 3028, chance = 15000, maxCount = 5 }, -- small diamond
 	{ id = 3033, chance = 15000, maxCount = 5 }, -- small amethyst
 	{ id = 3032, chance = 15000, maxCount = 5 }, -- small emerald

@@ -84,7 +84,6 @@ monster.loot = {
 	{ name = "dowser", chance = 11880 },
 	{ name = "small emerald", chance = 1050 },
 	{ name = "white mushroom", chance = 5040, maxCount = 3 },
-	{ name = "swampling club", chance = 4890 },
 }
 
 monster.attacks = {

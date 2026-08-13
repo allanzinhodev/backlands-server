@@ -86,14 +86,9 @@ monster.loot = {
 	{ name = "platinum coin", chance = 74810, maxCount = 6 },
 	{ name = "knight armor", chance = 1840 },
 	{ name = "medusa shield", chance = 3040 },
-	{ name = "titan axe", chance = 1160 },
 	{ name = "great mana potion", chance = 10000, maxCount = 2 },
-	{ name = "terra mantle", chance = 870 },
-	{ name = "terra legs", chance = 420 },
-	{ name = "terra amulet", chance = 4060 },
 	{ name = "ultimate health potion", chance = 9290, maxCount = 2 },
 	{ id = 8896, chance = 500 }, -- slightly rusted armor
-	{ name = "sacred tree amulet", chance = 850 },
 	{ name = "strand of medusa hair", chance = 9900 },
 }
 

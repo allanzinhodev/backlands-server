@@ -83,10 +83,8 @@ monster.loot = {
 	{ name = "meat", chance = 6670 },
 	{ name = "plate legs", chance = 2670 },
 	{ id = 3049, chance = 5330 }, -- stealth ring
-	{ name = "magma amulet", chance = 4000 },
 	{ name = "giant sword", chance = 3160 },
 	{ name = "crusader helmet", chance = 1330 },
-	{ name = "butcher's axe", chance = 1270 },
 	{ id = 7395, chance = 1330 }, -- orc trophy
 }
 

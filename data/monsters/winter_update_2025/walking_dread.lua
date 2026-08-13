@@ -87,9 +87,6 @@ monster.loot = {
 	-- { name = "crystallized death", chance = 1890 },
 	{ name = "blue gem", chance = 1020, maxCount = 4 },
 	-- { name = "necromantic core", chance = 770 },
-	{ name = "relic sword", chance = 370 },
-	{ name = "abyss hammer", chance = 270 },
-	{ name = "onyx flail", chance = 200 },
 }
 
 monster.attacks = {

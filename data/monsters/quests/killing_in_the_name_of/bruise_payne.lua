@@ -72,8 +72,6 @@ monster.loot = {
 	{ id = 3736, chance = 100000 }, -- star herb
 	{ id = 3429, chance = 92000 }, -- black shield
 	{ id = 3027, chance = 85000, maxCount = 5 }, -- black pearl
-	{ id = 7386, chance = 25000 }, -- mercenary sword
-	{ id = 9103, chance = 16000 }, -- batwing hat
 }
 
 monster.attacks = {

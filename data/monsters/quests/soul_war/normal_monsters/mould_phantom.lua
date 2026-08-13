@@ -83,18 +83,11 @@ monster.voices = {
 monster.loot = {
 	{ name = "crystal coin", chance = 57370 },
 	{ name = "gold ingot", chance = 11840 },
-	{ name = "wand of starstorm", chance = 4440 },
 	{ name = "green gem", chance = 3800 },
 	{ name = "violet gem", chance = 3550 },
 	{ name = "mould heart", chance = 3490 },
-	{ name = "wand of defiance", chance = 2930 },
 	{ name = "blue gem", chance = 2440 },
-	{ name = "wand of voodoo", chance = 2360 },
 	{ name = "mould robe", chance = 2200 },
-	{ id = 23542, chance = 1070 }, -- collar of blue plasma
-	{ id = 23529, chance = 1040 }, -- ring of blue plasma
-	{ name = "ornate crossbow", chance = 840 },
-	{ name = "crystal crossbow", chance = 620 },
 	{ name = "bag you desire", chance = 15 },
 }
 

@@ -85,11 +85,8 @@ monster.loot = {
 	{ name = "platinum coin", chance = 85000, maxCount = 6 },
 	{ id = 5902, chance = 3870 }, -- honeycomb
 	{ id = 48253, chance = 1180 }, -- beijinho
-	{ id = 818, chance = 1070 }, -- magma boots
-	{ id = 821, chance = 756 }, -- magma legs
 	{ name = "strong health potion", chance = 4620 },
 	{ id = 3280, chance = 430 }, -- fire sword
-	{ name = "terra amulet", chance = 540 },
 	{ id = 48250, chance = 433, maxCount = 6 }, -- dark chocolate coin
 }
 

@@ -90,12 +90,9 @@ monster.loot = {
 	{ id = 3051, chance = 961 }, -- energy ring
 	{ name = "brown mushroom", chance = 3846, maxCount = 5 },
 	{ name = "magic sulphur", chance = 102 },
-	{ name = "assassin star", chance = 4761, maxCount = 5 },
 	{ name = "mastermind potion", chance = 431 },
 	{ name = "strong health potion", chance = 5263 },
 	{ name = "strong mana potion", chance = 5263 },
-	{ name = "terra legs", chance = 123 },
-	{ name = "springsprout rod", chance = 512 },
 }
 
 monster.attacks = {

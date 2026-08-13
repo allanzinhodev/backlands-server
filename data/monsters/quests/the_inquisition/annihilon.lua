@@ -92,11 +92,6 @@ monster.loot = {
 	{ name = "soul orb", chance = 20000, maxCount = 5 },
 	{ name = "demon horn", chance = 12500, maxCount = 2 },
 	{ name = "infernal bolt", chance = 20000, maxCount = 46 },
-	{ name = "viper star", chance = 16666, maxCount = 70 },
-	{ name = "assassin star", chance = 16666, maxCount = 50 },
-	{ name = "diamond sceptre", chance = 7142 },
-	{ name = "onyx flail", chance = 14285 },
-	{ name = "demonbone", chance = 1234 },
 	{ name = "berserk potion", chance = 16666 },
 	{ name = "mastermind potion", chance = 14285 },
 	{ name = "great mana potion", chance = 11111 },
@@ -105,9 +100,6 @@ monster.loot = {
 	{ name = "flaming arrow", chance = 20000, maxCount = 46 },
 	{ name = "great spirit potion", chance = 14285 },
 	{ name = "ultimate health potion", chance = 14285 },
-	{ name = "lavos armor", chance = 1851 },
-	{ name = "paladin armor", chance = 10000 },
-	{ name = "obsidian truncheon", chance = 1234 },
 	{ id = 8894, chance = 1234 }, -- heavily rusted armor
 	{ id = 8896, chance = 50000 }, -- slightly rusted armor
 	{ name = "gold ingot", chance = 20000 },

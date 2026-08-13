@@ -85,10 +85,7 @@ monster.loot = {
 	{ name = "ultimate health potion", chance = 6553, maxCount = 6 },
 	{ id = 3039, chance = 1430 }, -- red gem
 	{ name = "darklight matter", chance = 8849, maxCount = 1 },
-	{ name = "rubber cap", chance = 7180, maxCount = 1 },
-	{ id = 23544, chance = 3500, maxCount = 1 }, -- collar of red plasma
 	{ name = "green gem", chance = 3500, maxCount = 1 },
-	{ name = "shadow sceptre", chance = 3500, maxCount = 1 },
 }
 
 monster.attacks = {

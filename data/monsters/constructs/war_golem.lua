@@ -98,17 +98,12 @@ monster.loot = {
 	{ id = 238, chance = 8860 }, -- great mana potion
 	{ id = 5880, chance = 1920 }, -- iron ore
 	{ id = 7439, chance = 900 }, -- berserk potion
-	{ id = 3326, chance = 6400 }, -- epee
 	{ id = 8895, chance = 260 }, -- rusted armor
 	{ id = 3093, chance = 810 }, -- club ring
 	{ id = 3097, chance = 1210 }, -- dwarven ring
 	{ id = 9067, chance = 130 }, -- crystal of power
 	{ id = 9065, chance = 1080 }, -- crystal pedestal
-	{ id = 820, chance = 90 }, -- lightning boots
 	{ id = 3554, chance = 620 }, -- steel boots
-	{ id = 7403, chance = 50 }, -- berserker
-	{ id = 7422, chance = 120 }, -- jade hammer
-	{ id = 7428, chance = 770 }, -- bonebreaker
 	{ id = 3061, chance = 1000 }, -- life crystal
 	{ id = 12305, chance = 100 }, -- tin key
 }

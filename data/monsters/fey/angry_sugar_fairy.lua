@@ -86,16 +86,12 @@ monster.loot = {
 	{ name = "green crystal splinter", chance = 5820 },
 	{ name = "violet crystal shard", chance = 4040 },
 	{ name = "small enchanted ruby", chance = 3840, maxCount = 3 },
-	{ name = "wand of cosmic energy", chance = 3770 },
 	{ name = "white pearl", chance = 2710, maxCount = 3 },
 	{ name = "prismatic quartz", chance = 2320 },
 	{ name = "ruby necklace", chance = 1890 },
 	{ name = "wafer paper flower", chance = 1650 },
-	{ name = "spellbook of enlightenment", chance = 960 },
-	{ name = "butterfly ring", chance = 760 },
 	{ name = "milk chocolate coin", chance = 760, maxCount = 10 },
 	{ id = 3098, chance = 730 }, -- ring of healing
-	{ name = "hibiscus dress", chance = 360 },
 	{ id = 3040, chance = 230 }, -- gold nugget
 }
 

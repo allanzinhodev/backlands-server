@@ -72,10 +72,8 @@ monster.loot = {
 	{ name = "white gem", chance = 40000, maxCount = 2 },
 	{ name = "moonstone", chance = 30000 },
 	{ name = "gemmed figurine", chance = 20000 },
-	{ name = "ornate crossbow", chance = 10000 },
 	{ name = "silver hand mirror", chance = 150 },
 	{ name = "death toll", chance = 150 },
-	{ name = "pair of nightmare boots", chance = 150 },
 }
 
 monster.attacks = {

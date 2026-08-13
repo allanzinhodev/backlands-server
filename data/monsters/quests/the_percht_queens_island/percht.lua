@@ -81,10 +81,6 @@ monster.loot = {
 	{ name = "percht horns", chance = 9790 },
 	{ name = "broken bell", chance = 5390 },
 	{ id = 30325, chance = 3190 }, -- dark bell
-	{ name = "magma amulet", chance = 1320 },
-	{ name = "magma coat", chance = 1320 },
-	{ name = "magma monocle", chance = 950 },
-	{ name = "magma legs", chance = 510 },
 }
 
 monster.attacks = {

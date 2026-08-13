@@ -86,7 +86,6 @@ monster.loot = {
 	{ name = "bow", chance = 4000 },
 	{ name = "grapes", chance = 20000 },
 	{ id = 5921, chance = 930 }, -- heaven blossom
-	{ name = "elvish bow", chance = 100 },
 	{ name = "flaming arrow", chance = 30000, maxCount = 12 },
 	{ name = "elvish talisman", chance = 5000 },
 	{ id = 12600, chance = 15280 }, -- coal

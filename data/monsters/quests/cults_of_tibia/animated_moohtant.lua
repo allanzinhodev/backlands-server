@@ -76,10 +76,7 @@ monster.loot = {
 	{ id = 3028, chance = 4400, maxCount = 2 }, -- small diamond
 	{ id = 3098, chance = 2410 }, -- ring of healing
 	{ id = 5911, chance = 900 }, -- red piece of cloth
-	{ id = 21173, chance = 860 }, -- moohtant cudgel
 	{ id = 3037, chance = 710 }, -- yellow gem
-	{ id = 7452, chance = 430 }, -- spiked squelcher
-	{ id = 7427, chance = 280 }, -- chaos mace
 	{ id = 9058, chance = 280 }, -- gold ingot
 	{ id = 7401, chance = 280 }, -- minotaur trophy
 }

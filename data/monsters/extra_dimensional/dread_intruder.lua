@@ -97,12 +97,6 @@ monster.loot = {
 	{ id = 3033, chance = 5000, maxCount = 2 }, -- small amethyst
 	{ id = 16120, chance = 4500 }, -- violet crystal shard
 	{ id = 3036, chance = 1000 }, -- violet gem
-	{ id = 23533, chance = 450 }, -- ring of red plasma
-	{ id = 23542, chance = 230 }, -- collar of blue plasma
-	{ id = 23543, chance = 230 }, -- collar of green plasma
-	{ id = 23529, chance = 230 }, -- ring of blue plasma
-	{ id = 50150, chance = 560 }, -- ring of orange plasma
-	{ id = 50152, chance = 560 }, -- collar of orange plasma
 }
 
 monster.attacks = {

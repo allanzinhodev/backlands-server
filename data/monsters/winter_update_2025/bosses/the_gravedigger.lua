@@ -104,9 +104,6 @@ monster.loot = {
 	{ name = "small flask of eyedrops", chance = 15000, maxCount = 2 }, -- Not confirmed
 	{ name = "bonelord eye", chance = 10000 }, -- Not confirmed
 	{ id = 3457, chance = 10000 }, -- shovel (não confirmado)
-	{ name = "terra rod", chance = 10000 }, -- Not confirmed
-	{ name = "necrotic rod", chance = 10000 }, -- Not confirmed
-	{ name = "bonelord shield", chance = 8000 }, -- Not confirmed
 	-- { name = "shrunken head", chance = 5000 }, -- Not confirmed
 	-- { name = "cryptic fossil", chance = 5000 }, -- Not confirmed
 	-- { name = "fetid heart", chance = 5000 }, -- Not confirmed

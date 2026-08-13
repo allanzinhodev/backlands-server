@@ -89,13 +89,9 @@ monster.loot = {
 	{ name = "deepling ridge", chance = 9400 },
 	{ name = "great health potion", chance = 8770 },
 	{ name = "great mana potion", chance = 8280 },
-	{ name = "heavy trident", chance = 5570 },
 	{ name = "eye of a deepling", chance = 5500 },
-	{ name = "warrior's axe", chance = 2890 },
-	{ name = "warrior's shield", chance = 2610 },
 	{ id = 3052, chance = 2320 }, -- life ring
 	{ name = "fish fin", chance = 790 },
-	{ name = "necklace of the deep", chance = 510 },
 }
 
 monster.attacks = {

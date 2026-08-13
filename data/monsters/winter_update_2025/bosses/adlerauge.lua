@@ -75,7 +75,6 @@ monster.loot = {
 	{ name = "yellow gem", chance = 29070 },
 	{ name = "small sapphire", chance = 22090, maxCount = 5 },
 	-- { name = "repair kit for boats", chance = 22090 },
-	{ name = "assassin star", chance = 19770, maxCount = 20 },
 	{ name = "small diamond", chance = 19770, maxCount = 5 },
 	{ name = "small ruby", chance = 18600, maxCount = 5 },
 	{ name = "black pearl", chance = 18600 },
@@ -84,20 +83,14 @@ monster.loot = {
 	-- { name = "stag parchment", chance = 11630 },
 	{ name = "white pearl", chance = 11630 },
 	{ name = "green gem", chance = 11630 },
-	{ id = 6299, chance = 11630 }, -- death ring
 	-- { name = "cuirass plate", chance = 10470 },
 	-- { name = "personal letter of adlerauge i", chance = 9300 },
 	{ name = "gold ingot", chance = 9300 },
-	{ name = "assassin dagger", chance = 8140 },
 	{ name = "dark armor", chance = 8140 },
 	-- { name = "salvaged silver parts", chance = 6980 },
 	{ name = "violet gem", chance = 6980 },
 	{ name = "white gem", chance = 3490 },
-	{ name = "red quiver", chance = 3490 },
 	{ name = "strange helmet", chance = 3490 },
-	{ name = "terra mantle", chance = 3490 },
-	{ name = "ornate crossbow", chance = 3490 },
-	{ name = "composite hornbow", chance = 2330 },
 	{ name = "crystalline arrow", chance = 1160, maxCount = 30 },
 	-- { name = "personal letter of adlerauge ii", chance = 4170 }, -- Not confirmed
 	-- { name = "personal letter of adlerauge iii", chance = 2080 }, -- Not confirmed

@@ -88,10 +88,8 @@ monster.loot = {
 	{ name = "chain helmet", chance = 10520 },
 	{ name = "chain armor", chance = 10420 },
 	{ name = "ham", chance = 4900 },
-	{ name = "beastslayer axe", chance = 380 },
 	{ name = "red piece of cloth", chance = 540 },
 	{ name = "shard", chance = 300 },
-	{ name = "fur boots", chance = 100 },
 	{ name = "health potion", chance = 980 },
 }
 

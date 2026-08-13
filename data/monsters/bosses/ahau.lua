@@ -85,16 +85,7 @@ monster.loot = {
 	{ name = "diamond", chance = 2700, maxCount = 8 },
 	{ name = "amber with a bug", chance = 3380 },
 	{ name = "amber", chance = 7430 },
-	{ id = 23533, chance = 3380 }, --ring of red plasma
-	{ id = 23531, chance = 1350 }, --ring of green plasma
-	{ id = 23529, chance = 3380 }, --ring of blue plasma
-	{ id = 23544, chance = 4730 }, --collar of red plasma
-	{ id = 23542, chance = 4050 }, --collar of blue plasma
-	{ id = 23543, chance = 3380 }, --collar of green plasma
 	{ name = "broken iks headpiece", chance = 1000 },
-	{ name = "broken macuahuitl", chance = 1000 },
-	{ name = "broken iks faulds", chance = 1000 },
-	{ name = "broken iks cuirass", chance = 1000 },
 }
 
 monster.attacks = {

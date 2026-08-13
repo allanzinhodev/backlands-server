@@ -84,8 +84,6 @@ monster.loot = {
 	{ name = "crusader helmet", chance = 920 },
 	{ name = "tower shield", chance = 1380 },
 	{ name = "steel boots", chance = 920 },
-	{ name = "onyx flail", chance = 920 },
-	{ name = "jade hammer", chance = 920 },
 	{ name = "great mana potion", chance = 78000, maxCount = 5 },
 	{ name = "great spirit potion", chance = 72000, maxCount = 5 },
 	{ name = "ultimate health potion", chance = 30000, maxCount = 5 },
@@ -97,7 +95,6 @@ monster.loot = {
 	{ name = "blue crystal splinter", chance = 40000, maxCount = 5 },
 	{ name = "cluster of solace", chance = 11800 },
 	{ name = "sight of surrender's eye", chance = 100000 },
-	{ name = "broken visor", chance = 100000 },
 	{ id = 20208, chance = 460 }, -- string of mending
 }
 

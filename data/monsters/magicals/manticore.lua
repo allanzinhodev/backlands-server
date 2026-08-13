@@ -83,15 +83,7 @@ monster.loot = {
 	{ name = "flaming arrow", chance = 4870, maxCount = 9 },
 	{ name = "prismatic quartz", chance = 4370 },
 	{ name = "rainbow quartz", chance = 3700, maxCount = 3 },
-	{ name = "magma coat", chance = 3190 },
 	{ name = "violet gem", chance = 3030 },
-	{ name = "magma boots", chance = 2860 },
-	{ name = "magma monocle", chance = 2020 },
-	{ name = "wand of dragonbreath", chance = 1680 },
-	{ name = "wand of draconia", chance = 1180 },
-	{ name = "royal star", chance = 1010, maxCount = 3 },
-	{ name = "wand of everblazing", chance = 1010 },
-	{ name = "magma legs", chance = 340 },
 }
 
 monster.attacks = {

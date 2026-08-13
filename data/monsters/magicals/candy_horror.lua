@@ -90,8 +90,6 @@ monster.loot = {
 	{ id = 48252, chance = 1250 }, -- brigadeiro
 	{ id = 23535, chance = 5550 }, -- energy bar
 	{ id = 8012, chance = 1240, maxCount = 2 }, -- raspberry
-	{ id = 7419, chance = 502 }, -- dreaded cleaver
-	{ id = 3072, chance = 1840 }, -- wand of decay
 	{ id = 3429, chance = 2830 }, -- black shield
 }
 

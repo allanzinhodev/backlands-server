@@ -83,16 +83,12 @@ monster.loot = {
 	{ name = "gold coin", chance = 50000, maxCount = 45 },
 	{ id = 3607, chance = 20000 }, -- cheese
 	{ name = "bola", chance = 7692 },
-	{ name = "spike shield", chance = 645 },
-	{ name = "ratana", chance = 2702 },
-	{ name = "life preserver", chance = 2941 },
 	{ name = "cheese cutter", chance = 8333 },
 	{ name = "cheesy figurine", chance = 854 },
 	{ name = "earflap", chance = 9090 },
 	{ name = "soft cheese", chance = 14285 },
 	{ name = "rat cheese", chance = 16666 },
 	{ name = "rat god doll", chance = 12 },
-	{ name = "leather harness", chance = 561 },
 }
 
 monster.attacks = {

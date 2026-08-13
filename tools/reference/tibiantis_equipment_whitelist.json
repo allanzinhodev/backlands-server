@@ -1,0 +1,2552 @@
+[
+  {
+    "name": "Amazon Armor",
+    "sprite": "3394",
+    "category": "armors",
+    "armor": 13,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 45
+  },
+  {
+    "name": "Amazon Helmet",
+    "sprite": "3393",
+    "category": "helmets",
+    "armor": 7,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 29.5
+  },
+  {
+    "name": "Amazon Shield",
+    "sprite": "3437",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 32,
+    "handed": null,
+    "weight": 62
+  },
+  {
+    "name": "Amulet of Loss",
+    "sprite": "3057",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 4.2
+  },
+  {
+    "name": "Ancient Amulet",
+    "sprite": "3025",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 8.4
+  },
+  {
+    "name": "Ancient Shield",
+    "sprite": "3432",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 27,
+    "handed": null,
+    "weight": 61
+  },
+  {
+    "name": "Ancient Tiara",
+    "sprite": "3022",
+    "category": "helmets",
+    "armor": 0,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 8.2
+  },
+  {
+    "name": "Arcane Staff",
+    "sprite": "3341",
+    "category": "clubs",
+    "armor": null,
+    "attack": 50,
+    "defense": 30,
+    "handed": 2,
+    "weight": 40
+  },
+  {
+    "name": "Axe",
+    "sprite": "3274",
+    "category": "axes",
+    "armor": null,
+    "attack": 12,
+    "defense": 6,
+    "handed": 1,
+    "weight": 40
+  },
+  {
+    "name": "Axe Ring",
+    "sprite": "3092",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0.9
+  },
+  {
+    "name": "Ball Gown",
+    "sprite": "3570",
+    "category": "armors",
+    "armor": 0,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0
+  },
+  {
+    "name": "Barbarian Axe",
+    "sprite": "3317",
+    "category": "axes",
+    "armor": null,
+    "attack": 28,
+    "defense": 18,
+    "handed": 1,
+    "weight": 51
+  },
+  {
+    "name": "Battle Axe",
+    "sprite": "3266",
+    "category": "axes",
+    "armor": null,
+    "attack": 25,
+    "defense": 10,
+    "handed": 2,
+    "weight": 50
+  },
+  {
+    "name": "Battle Hammer",
+    "sprite": "3208",
+    "category": "clubs",
+    "armor": null,
+    "attack": 24,
+    "defense": 14,
+    "handed": 1,
+    "weight": 68
+  },
+  {
+    "name": "Battle Shield",
+    "sprite": "3413",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 23,
+    "handed": null,
+    "weight": 62
+  },
+  {
+    "name": "Beholder Shield",
+    "sprite": "3418",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 28,
+    "handed": null,
+    "weight": 47
+  },
+  {
+    "name": "Black Shield",
+    "sprite": "3429",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 18,
+    "handed": null,
+    "weight": 41.5
+  },
+  {
+    "name": "Blessed Shield",
+    "sprite": "3423",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 40,
+    "handed": null,
+    "weight": 68
+  },
+  {
+    "name": "Blue Robe",
+    "sprite": "3567",
+    "category": "armors",
+    "armor": 11,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 22
+  },
+  {
+    "name": "Bone Club",
+    "sprite": "3337",
+    "category": "clubs",
+    "armor": null,
+    "attack": 12,
+    "defense": 8,
+    "handed": 1,
+    "weight": 39
+  },
+  {
+    "name": "Bone Shield",
+    "sprite": "3441",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 20,
+    "handed": null,
+    "weight": 55
+  },
+  {
+    "name": "Bone Sword",
+    "sprite": "3338",
+    "category": "swords",
+    "armor": null,
+    "attack": 14,
+    "defense": 10,
+    "handed": 1,
+    "weight": 19
+  },
+  {
+    "name": "Boots of haste",
+    "sprite": "3079",
+    "category": "boots",
+    "armor": 0,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 7.5
+  },
+  {
+    "name": "Bow",
+    "sprite": "3350",
+    "category": "distance",
+    "range": "6",
+    "attack": 0,
+    "defense": null,
+    "handed": 2,
+    "weight": 31
+  },
+  {
+    "name": "Brass Armor",
+    "sprite": "3359",
+    "category": "armors",
+    "armor": 8,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 80
+  },
+  {
+    "name": "Brass Helmet",
+    "sprite": "3354",
+    "category": "helmets",
+    "armor": 3,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 27
+  },
+  {
+    "name": "Brass Legs",
+    "sprite": "3372",
+    "category": "legs",
+    "armor": 5,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 38
+  },
+  {
+    "name": "Brass Shield",
+    "sprite": "3411",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 16,
+    "handed": null,
+    "weight": 60
+  },
+  {
+    "name": "Bright Sword",
+    "sprite": "3295",
+    "category": "swords",
+    "armor": null,
+    "attack": 36,
+    "defense": 30,
+    "handed": 1,
+    "weight": 29
+  },
+  {
+    "name": "Broad Sword",
+    "sprite": "3301",
+    "category": "swords",
+    "armor": null,
+    "attack": 26,
+    "defense": 23,
+    "handed": 2,
+    "weight": 52.5
+  },
+  {
+    "name": "Broken Amulet",
+    "sprite": "3080",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 4.2
+  },
+  {
+    "name": "Bronze Amulet",
+    "sprite": "3056",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 5
+  },
+  {
+    "name": "Bunnyslippers",
+    "sprite": "3553",
+    "category": "boots",
+    "armor": 0,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 6
+  },
+  {
+    "name": "Cape",
+    "sprite": "3565",
+    "category": "armors",
+    "armor": 1,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 32
+  },
+  {
+    "name": "Carlin Sword",
+    "sprite": "3283",
+    "category": "swords",
+    "armor": null,
+    "attack": 15,
+    "defense": 13,
+    "handed": 1,
+    "weight": 40
+  },
+  {
+    "name": "Castle Shield",
+    "sprite": "3435",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 28,
+    "handed": null,
+    "weight": 49
+  },
+  {
+    "name": "Ceremonial Mask",
+    "sprite": "3395",
+    "category": "helmets",
+    "armor": 9,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 40
+  },
+  {
+    "name": "Chain Armor",
+    "sprite": "3358",
+    "category": "armors",
+    "armor": 6,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 100
+  },
+  {
+    "name": "Chain Helmet",
+    "sprite": "3352",
+    "category": "helmets",
+    "armor": 2,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 42
+  },
+  {
+    "name": "Chain Legs",
+    "sprite": "3558",
+    "category": "legs",
+    "armor": 3,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 35
+  },
+  {
+    "name": "Clerical Mace",
+    "sprite": "3311",
+    "category": "clubs",
+    "armor": null,
+    "attack": 28,
+    "defense": 15,
+    "handed": 1,
+    "weight": 58
+  },
+  {
+    "name": "Club",
+    "sprite": "3270",
+    "category": "clubs",
+    "armor": null,
+    "attack": 7,
+    "defense": 7,
+    "handed": 1,
+    "weight": 25
+  },
+  {
+    "name": "Club Ring",
+    "sprite": "3093",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0.9
+  },
+  {
+    "name": "Coat",
+    "sprite": "3562",
+    "category": "armors",
+    "armor": 1,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 27
+  },
+  {
+    "name": "Combat Knife",
+    "sprite": "3292",
+    "category": "swords",
+    "armor": null,
+    "attack": 8,
+    "defense": 6,
+    "handed": 1,
+    "weight": 8.7
+  },
+  {
+    "name": "Conjurer Wand",
+    "sprite": "3070",
+    "category": "wands",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 19.5
+  },
+  {
+    "name": "Copper Shield",
+    "sprite": "3430",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 19,
+    "handed": null,
+    "weight": 63
+  },
+  {
+    "name": "Crossbow",
+    "sprite": "3349",
+    "category": "distance",
+    "range": "5",
+    "attack": 0,
+    "defense": null,
+    "handed": 2,
+    "weight": 40
+  },
+  {
+    "name": "Crowbar",
+    "sprite": "3304",
+    "category": "clubs",
+    "armor": null,
+    "attack": 6,
+    "defense": 6,
+    "handed": 1,
+    "weight": 21
+  },
+  {
+    "name": "Crown",
+    "sprite": "3011",
+    "category": "helmets",
+    "armor": 0,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 19
+  },
+  {
+    "name": "Crown Armor",
+    "sprite": "3381",
+    "category": "armors",
+    "armor": 15,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 99
+  },
+  {
+    "name": "Crown Helmet",
+    "sprite": "3385",
+    "category": "helmets",
+    "armor": 7,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 29.5
+  },
+  {
+    "name": "Crown Legs",
+    "sprite": "3382",
+    "category": "legs",
+    "armor": 9,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 45
+  },
+  {
+    "name": "Crown Shield",
+    "sprite": "3419",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 32,
+    "handed": null,
+    "weight": 62
+  },
+  {
+    "name": "Crusader Helmet",
+    "sprite": "3391",
+    "category": "helmets",
+    "armor": 9,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 52
+  },
+  {
+    "name": "Crystal Mace",
+    "sprite": "3333",
+    "category": "clubs",
+    "armor": null,
+    "attack": 38,
+    "defense": 16,
+    "handed": 1,
+    "weight": 80
+  },
+  {
+    "name": "Crystal Necklace",
+    "sprite": "3008",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 4.9
+  },
+  {
+    "name": "Crystal Ring",
+    "sprite": "3007",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0.9
+  },
+  {
+    "name": "Crystal Wand",
+    "sprite": "3068",
+    "category": "wands",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 28
+  },
+  {
+    "name": "Dagger",
+    "sprite": "3267",
+    "category": "swords",
+    "armor": null,
+    "attack": 8,
+    "defense": 6,
+    "handed": 1,
+    "weight": 9.5
+  },
+  {
+    "name": "Daramanian Mace",
+    "sprite": "3327",
+    "category": "clubs",
+    "armor": null,
+    "attack": 21,
+    "defense": 12,
+    "handed": 1,
+    "weight": 68
+  },
+  {
+    "name": "Daramanian Waraxe",
+    "sprite": "3328",
+    "category": "axes",
+    "armor": null,
+    "attack": 39,
+    "defense": 15,
+    "handed": 2,
+    "weight": 52.5
+  },
+  {
+    "name": "Daramian Axe",
+    "sprite": "3329",
+    "category": "axes",
+    "armor": null,
+    "attack": 17,
+    "defense": 8,
+    "handed": 1,
+    "weight": 41
+  },
+  {
+    "name": "Dark Armor",
+    "sprite": "3383",
+    "category": "armors",
+    "armor": 10,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 120
+  },
+  {
+    "name": "Dark Helmet",
+    "sprite": "3384",
+    "category": "helmets",
+    "armor": 6,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 46
+  },
+  {
+    "name": "Dark Shield",
+    "sprite": "3421",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 25,
+    "handed": null,
+    "weight": 52
+  },
+  {
+    "name": "Demon Armor<br/><small>[3% fire protection]</small>",
+    "sprite": "3388",
+    "category": "armors",
+    "armor": 21,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 80
+  },
+  {
+    "name": "Demon Helmet",
+    "sprite": "3387",
+    "category": "helmets",
+    "armor": 13,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 29.5
+  },
+  {
+    "name": "Demon Legs",
+    "sprite": "3389",
+    "category": "legs",
+    "armor": 13,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 50
+  },
+  {
+    "name": "Demon Shield",
+    "sprite": "3420",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 35,
+    "handed": null,
+    "weight": 26
+  },
+  {
+    "name": "Demonbone Amulet",
+    "sprite": "3019",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 6.9
+  },
+  {
+    "name": "Devil Helmet",
+    "sprite": "3356",
+    "category": "helmets",
+    "armor": 7,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 50
+  },
+  {
+    "name": "Djinn Blade",
+    "sprite": "3339",
+    "category": "swords",
+    "armor": null,
+    "attack": 38,
+    "defense": 22,
+    "handed": 1,
+    "weight": 24.5
+  },
+  {
+    "name": "Double Axe",
+    "sprite": "3275",
+    "category": "axes",
+    "armor": null,
+    "attack": 35,
+    "defense": 12,
+    "handed": 2,
+    "weight": 70
+  },
+  {
+    "name": "Doublet",
+    "sprite": "3379",
+    "category": "armors",
+    "armor": 2,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 25
+  },
+  {
+    "name": "Dragon Hammer",
+    "sprite": "3322",
+    "category": "clubs",
+    "armor": null,
+    "attack": 32,
+    "defense": 20,
+    "handed": 1,
+    "weight": 97
+  },
+  {
+    "name": "Dragon Lance",
+    "sprite": "3302",
+    "category": "axes",
+    "armor": null,
+    "attack": 47,
+    "defense": 16,
+    "handed": 2,
+    "weight": 67
+  },
+  {
+    "name": "Dragon Necklace",
+    "sprite": "3085",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 6.3
+  },
+  {
+    "name": "Dragon Scale Helmet",
+    "sprite": "3400",
+    "category": "helmets",
+    "armor": 11,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 29.5
+  },
+  {
+    "name": "Dragon Scale Legs",
+    "sprite": "3363",
+    "category": "legs",
+    "armor": 15,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 48
+  },
+  {
+    "name": "Dragon Scale Mail",
+    "sprite": "3386",
+    "category": "armors",
+    "armor": 19,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 114
+  },
+  {
+    "name": "Dragon Shield",
+    "sprite": "3416",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 31,
+    "handed": null,
+    "weight": 60
+  },
+  {
+    "name": "Dragonfetish",
+    "sprite": "3058",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 4.9
+  },
+  {
+    "name": "Dwarven Armor",
+    "sprite": "3397",
+    "category": "armors",
+    "armor": 10,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 130
+  },
+  {
+    "name": "Dwarven Axe",
+    "sprite": "3323",
+    "category": "axes",
+    "armor": null,
+    "attack": 31,
+    "defense": 19,
+    "handed": 1,
+    "weight": 82
+  },
+  {
+    "name": "Dwarven Helmet",
+    "sprite": "3396",
+    "category": "helmets",
+    "armor": 6,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 42
+  },
+  {
+    "name": "Dwarven Legs",
+    "sprite": "3398",
+    "category": "legs",
+    "armor": 7,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 49
+  },
+  {
+    "name": "Dwarven Ring",
+    "sprite": "3097",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 1.1
+  },
+  {
+    "name": "Dwarven Shield",
+    "sprite": "3425",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 26,
+    "handed": null,
+    "weight": 55
+  },
+  {
+    "name": "Eagle Shield",
+    "sprite": "3438",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 32,
+    "handed": null,
+    "weight": 62
+  },
+  {
+    "name": "Elven Amulet",
+    "sprite": "3082",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 2.7
+  },
+  {
+    "name": "Elven Legs",
+    "sprite": "3401",
+    "category": "legs",
+    "armor": 4,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 33
+  },
+  {
+    "name": "Elven Mail",
+    "sprite": "3399",
+    "category": "armors",
+    "armor": 9,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 90
+  },
+  {
+    "name": "Elven Wand",
+    "sprite": "3067",
+    "category": "wands",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 21
+  },
+  {
+    "name": "Energy Ring",
+    "sprite": "3051",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0.8
+  },
+  {
+    "name": "Fire Axe",
+    "sprite": "3320",
+    "category": "axes",
+    "armor": null,
+    "attack": 38,
+    "defense": 16,
+    "handed": 1,
+    "weight": 40
+  },
+  {
+    "name": "Fire Sword",
+    "sprite": "3280",
+    "category": "swords",
+    "armor": null,
+    "attack": 35,
+    "defense": 20,
+    "handed": 1,
+    "weight": 23
+  },
+  {
+    "name": "Foil",
+    "sprite": "3326",
+    "category": "swords",
+    "armor": null,
+    "attack": 9,
+    "defense": 11,
+    "handed": 1,
+    "weight": 14.5
+  },
+  {
+    "name": "Garlic Necklace",
+    "sprite": "3083",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 3.8
+  },
+  {
+    "name": "Giant Smithhammer",
+    "sprite": "3305",
+    "category": "clubs",
+    "armor": null,
+    "attack": 24,
+    "defense": 14,
+    "handed": 1,
+    "weight": 68
+  },
+  {
+    "name": "Giant Sword",
+    "sprite": "3281",
+    "category": "swords",
+    "armor": null,
+    "attack": 46,
+    "defense": 22,
+    "handed": 2,
+    "weight": 180
+  },
+  {
+    "name": "Gold Ring",
+    "sprite": "3063",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 1
+  },
+  {
+    "name": "Golden Amulet",
+    "sprite": "3013",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 8.3
+  },
+  {
+    "name": "Golden Armor<br/><small>[shinning]</small>",
+    "sprite": "3360",
+    "category": "armors",
+    "armor": 17,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 80
+  },
+  {
+    "name": "Golden Boots",
+    "sprite": "3555",
+    "category": "boots",
+    "armor": 8,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 32
+  },
+  {
+    "name": "Golden Helmet",
+    "sprite": "3365",
+    "category": "helmets",
+    "armor": 17,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 32
+  },
+  {
+    "name": "Golden Legs",
+    "sprite": "3364",
+    "category": "legs",
+    "armor": 12,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 56
+  },
+  {
+    "name": "Golden Mace",
+    "sprite": "3325",
+    "category": "clubs",
+    "armor": null,
+    "attack": 0,
+    "defense": 0,
+    "handed": 1,
+    "weight": 0
+  },
+  {
+    "name": "Golden Sickle",
+    "sprite": "3306",
+    "category": "axes",
+    "armor": null,
+    "attack": 13,
+    "defense": 6,
+    "handed": 1,
+    "weight": 19.5
+  },
+  {
+    "name": "Golden Wand",
+    "sprite": "3066",
+    "category": "wands",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 43
+  },
+  {
+    "name": "Great Axe",
+    "sprite": "3303",
+    "category": "axes",
+    "armor": null,
+    "attack": 52,
+    "defense": 22,
+    "handed": 2,
+    "weight": 90
+  },
+  {
+    "name": "Great Shield",
+    "sprite": "3422",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 38,
+    "handed": null,
+    "weight": 84
+  },
+  {
+    "name": "Green Spell Wand",
+    "sprite": "3072",
+    "category": "wands",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 23
+  },
+  {
+    "name": "Green Tunic",
+    "sprite": "3563",
+    "category": "armors",
+    "armor": 1,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 9.3
+  },
+  {
+    "name": "Griffin Shield",
+    "sprite": "3433",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 29,
+    "handed": null,
+    "weight": 50
+  },
+  {
+    "name": "Guardian Halberd",
+    "sprite": "3315",
+    "category": "axes",
+    "armor": null,
+    "attack": 46,
+    "defense": 15,
+    "handed": 2,
+    "weight": 110
+  },
+  {
+    "name": "Guardian Shield",
+    "sprite": "3415",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 30,
+    "handed": null,
+    "weight": 55
+  },
+  {
+    "name": "Halberd",
+    "sprite": "3269",
+    "category": "axes",
+    "armor": null,
+    "attack": 35,
+    "defense": 14,
+    "handed": 2,
+    "weight": 90
+  },
+  {
+    "name": "Hammer of Wrath",
+    "sprite": "3332",
+    "category": "clubs",
+    "armor": null,
+    "attack": 48,
+    "defense": 12,
+    "handed": 2,
+    "weight": 70
+  },
+  {
+    "name": "Hand Axe",
+    "sprite": "3268",
+    "category": "axes",
+    "armor": null,
+    "attack": 10,
+    "defense": 5,
+    "handed": 1,
+    "weight": 18
+  },
+  {
+    "name": "Hat of the Mad",
+    "sprite": "3573",
+    "category": "helmets",
+    "armor": 3,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 7
+  },
+  {
+    "name": "Hatchet",
+    "sprite": "3276",
+    "category": "axes",
+    "armor": null,
+    "attack": 15,
+    "defense": 8,
+    "handed": 1,
+    "weight": 35
+  },
+  {
+    "name": "Heavy Mace",
+    "sprite": "3340",
+    "category": "clubs",
+    "armor": null,
+    "attack": 49,
+    "defense": 15,
+    "handed": 2,
+    "weight": 110
+  },
+  {
+    "name": "Heavy Machete",
+    "sprite": "3330",
+    "category": "swords",
+    "armor": null,
+    "attack": 16,
+    "defense": 10,
+    "handed": 1,
+    "weight": 18.4
+  },
+  {
+    "name": "Helmet of the Ancients",
+    "sprite": "3229",
+    "category": "helmets",
+    "armor": 11,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 27.6
+  },
+  {
+    "name": "Horned Helmet",
+    "sprite": "3390",
+    "category": "helmets",
+    "armor": 16,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 51
+  },
+  {
+    "name": "Ice Rapier",
+    "sprite": "3284",
+    "category": "swords",
+    "armor": null,
+    "attack": 100,
+    "defense": 1,
+    "handed": 1,
+    "weight": 15
+  },
+  {
+    "name": "Iron Hammer",
+    "sprite": "3310",
+    "category": "clubs",
+    "armor": null,
+    "attack": 18,
+    "defense": 10,
+    "handed": 1,
+    "weight": 66
+  },
+  {
+    "name": "Iron Helmet",
+    "sprite": "3353",
+    "category": "helmets",
+    "armor": 5,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 30
+  },
+  {
+    "name": "Jacket",
+    "sprite": "3561",
+    "category": "armors",
+    "armor": 1,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 24
+  },
+  {
+    "name": "Katana",
+    "sprite": "3300",
+    "category": "swords",
+    "armor": null,
+    "attack": 16,
+    "defense": 12,
+    "handed": 1,
+    "weight": 31
+  },
+  {
+    "name": "Knife",
+    "sprite": "3291",
+    "category": "swords",
+    "armor": null,
+    "attack": 7,
+    "defense": 5,
+    "handed": 1,
+    "weight": 4.2
+  },
+  {
+    "name": "Knight Armor",
+    "sprite": "3370",
+    "category": "armors",
+    "armor": 13,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 120
+  },
+  {
+    "name": "Knight Axe",
+    "sprite": "3318",
+    "category": "axes",
+    "armor": null,
+    "attack": 33,
+    "defense": 21,
+    "handed": 1,
+    "weight": 59
+  },
+  {
+    "name": "Knight Legs",
+    "sprite": "3371",
+    "category": "legs",
+    "armor": 9,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 70
+  },
+  {
+    "name": "Leather Armor",
+    "sprite": "3361",
+    "category": "armors",
+    "armor": 4,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 60
+  },
+  {
+    "name": "Leather Boots",
+    "sprite": "3552",
+    "category": "boots",
+    "armor": 1,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 9
+  },
+  {
+    "name": "Leather Helmet",
+    "sprite": "3355",
+    "category": "helmets",
+    "armor": 1,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 22
+  },
+  {
+    "name": "Leather Legs",
+    "sprite": "3559",
+    "category": "legs",
+    "armor": 1,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 18
+  },
+  {
+    "name": "Legion Helmet",
+    "sprite": "3374",
+    "category": "helmets",
+    "armor": 4,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 31
+  },
+  {
+    "name": "Life Ring",
+    "sprite": "3052",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0.8
+  },
+  {
+    "name": "Longsword",
+    "sprite": "3285",
+    "category": "swords",
+    "armor": null,
+    "attack": 17,
+    "defense": 14,
+    "handed": 1,
+    "weight": 42
+  },
+  {
+    "name": "Mace",
+    "sprite": "3286",
+    "category": "clubs",
+    "armor": null,
+    "attack": 16,
+    "defense": 11,
+    "handed": 1,
+    "weight": 38
+  },
+  {
+    "name": "Machete",
+    "sprite": "3308",
+    "category": "swords",
+    "armor": null,
+    "attack": 12,
+    "defense": 9,
+    "handed": 1,
+    "weight": 16.5
+  },
+  {
+    "name": "Magic Hat",
+    "sprite": "3210",
+    "category": "helmets",
+    "armor": 1,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 7.5
+  },
+  {
+    "name": "Magic Light Wand",
+    "sprite": "3046",
+    "category": "wands",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 15
+  },
+  {
+    "name": "Magic Longsword",
+    "sprite": "3278",
+    "category": "swords",
+    "armor": null,
+    "attack": 55,
+    "defense": 40,
+    "handed": 2,
+    "weight": 43
+  },
+  {
+    "name": "Magic Plate Armor<br/><small>[30% mana drain protection]</small>",
+    "sprite": "3366",
+    "category": "armors",
+    "armor": 22,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 85
+  },
+  {
+    "name": "Magic Sword",
+    "sprite": "3288",
+    "category": "swords",
+    "armor": null,
+    "attack": 48,
+    "defense": 35,
+    "handed": 1,
+    "weight": 42
+  },
+  {
+    "name": "Mastermind Shield",
+    "sprite": "3414",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 37,
+    "handed": null,
+    "weight": 57
+  },
+  {
+    "name": "Medusa Shield",
+    "sprite": "3436",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 33,
+    "handed": null,
+    "weight": 58
+  },
+  {
+    "name": "Might Ring",
+    "sprite": "3048",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 1
+  },
+  {
+    "name": "Morning Star",
+    "sprite": "3282",
+    "category": "clubs",
+    "armor": null,
+    "attack": 25,
+    "defense": 11,
+    "handed": 1,
+    "weight": 54
+  },
+  {
+    "name": "Mystic Turban",
+    "sprite": "3574",
+    "category": "helmets",
+    "armor": 1,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 8.5
+  },
+  {
+    "name": "Naginata",
+    "sprite": "3314",
+    "category": "axes",
+    "armor": null,
+    "attack": 39,
+    "defense": 25,
+    "handed": 2,
+    "weight": 78
+  },
+  {
+    "name": "Native Armor",
+    "sprite": "3402",
+    "category": "armors",
+    "armor": 7,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 80
+  },
+  {
+    "name": "Noble Armor",
+    "sprite": "3380",
+    "category": "armors",
+    "armor": 11,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 120
+  },
+  {
+    "name": "Obsidian Lance",
+    "sprite": "3313",
+    "category": "axes",
+    "armor": null,
+    "attack": 34,
+    "defense": 10,
+    "handed": 2,
+    "weight": 80
+  },
+  {
+    "name": "Orcish Axe",
+    "sprite": "3316",
+    "category": "axes",
+    "armor": null,
+    "attack": 23,
+    "defense": 12,
+    "handed": 1,
+    "weight": 45
+  },
+  {
+    "name": "Ornamented Shield",
+    "sprite": "3424",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 22,
+    "handed": null,
+    "weight": 72
+  },
+  {
+    "name": "Patched Boots",
+    "sprite": "3550",
+    "category": "boots",
+    "armor": 2,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 10
+  },
+  {
+    "name": "Paw Amulet",
+    "sprite": "3102",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 4.2
+  },
+  {
+    "name": "Pharao Sword",
+    "sprite": "3334",
+    "category": "swords",
+    "armor": null,
+    "attack": 41,
+    "defense": 23,
+    "handed": 1,
+    "weight": 150
+  },
+  {
+    "name": "Phoenix Shield",
+    "sprite": "3439",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 34,
+    "handed": null,
+    "weight": 35
+  },
+  {
+    "name": "Plate Armor",
+    "sprite": "3357",
+    "category": "armors",
+    "armor": 10,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 120
+  },
+  {
+    "name": "Plate Legs",
+    "sprite": "3557",
+    "category": "legs",
+    "armor": 7,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 50
+  },
+  {
+    "name": "Plate Shield",
+    "sprite": "3410",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 17,
+    "handed": null,
+    "weight": 65
+  },
+  {
+    "name": "Platinum Amulet",
+    "sprite": "3055",
+    "category": "amulets",
+    "armor": 2,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 6
+  },
+  {
+    "name": "Poison Dagger",
+    "sprite": "3299",
+    "category": "swords",
+    "armor": null,
+    "attack": 18,
+    "defense": 8,
+    "handed": 1,
+    "weight": 8.8
+  },
+  {
+    "name": "Post Officers Hat",
+    "sprite": "3576",
+    "category": "helmets",
+    "armor": 1,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 7
+  },
+  {
+    "name": "Power Ring",
+    "sprite": "3050",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0.8
+  },
+  {
+    "name": "Protection Amulet",
+    "sprite": "3084",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 5.5
+  },
+  {
+    "name": "Rangers Cloak",
+    "sprite": "3571",
+    "category": "armors",
+    "armor": 7,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 48
+  },
+  {
+    "name": "Rapier",
+    "sprite": "3272",
+    "category": "swords",
+    "armor": null,
+    "attack": 10,
+    "defense": 8,
+    "handed": 1,
+    "weight": 15
+  },
+  {
+    "name": "Ravagers Axe",
+    "sprite": "3331",
+    "category": "axes",
+    "armor": null,
+    "attack": 49,
+    "defense": 14,
+    "handed": 2,
+    "weight": 52.5
+  },
+  {
+    "name": "Red Robe",
+    "sprite": "3566",
+    "category": "armors",
+    "armor": 1,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 26
+  },
+  {
+    "name": "Red Spell Wand",
+    "sprite": "3075",
+    "category": "wands",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 23
+  },
+  {
+    "name": "Red Tunic",
+    "sprite": "3564",
+    "category": "armors",
+    "armor": 2,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0
+  },
+  {
+    "name": "Ring ???",
+    "sprite": "3010",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0
+  },
+  {
+    "name": "Ring of Healing",
+    "sprite": "3098",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0.8
+  },
+  {
+    "name": "Ring of the Sky",
+    "sprite": "3245",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0.4
+  },
+  {
+    "name": "Ring of Wishes",
+    "sprite": "3006",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0.5
+  },
+  {
+    "name": "Ritual Wand",
+    "sprite": "3071",
+    "category": "wands",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0
+  },
+  {
+    "name": "Rose Shield",
+    "sprite": "3427",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 27,
+    "handed": null,
+    "weight": 52
+  },
+  {
+    "name": "Royal Helmet",
+    "sprite": "3392",
+    "category": "helmets",
+    "armor": 11,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 48
+  },
+  {
+    "name": "Ruby Necklace",
+    "sprite": "3016",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 5.7
+  },
+  {
+    "name": "Sabre",
+    "sprite": "3273",
+    "category": "swords",
+    "armor": null,
+    "attack": 12,
+    "defense": 10,
+    "handed": 1,
+    "weight": 25
+  },
+  {
+    "name": "Sandals",
+    "sprite": "3551",
+    "category": "boots",
+    "armor": 0,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 6
+  },
+  {
+    "name": "Sapphire Amulet",
+    "sprite": "3021",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 6.8
+  },
+  {
+    "name": "Scale Armor",
+    "sprite": "3377",
+    "category": "armors",
+    "armor": 9,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 105
+  },
+  {
+    "name": "Scarab Amulet",
+    "sprite": "3018",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 7.7
+  },
+  {
+    "name": "Scarab Shield",
+    "sprite": "3440",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 25,
+    "handed": null,
+    "weight": 47
+  },
+  {
+    "name": "Scarf",
+    "sprite": "3572",
+    "category": "amulets",
+    "armor": 1,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 2
+  },
+  {
+    "name": "Scimitar",
+    "sprite": "3307",
+    "category": "swords",
+    "armor": null,
+    "attack": 19,
+    "defense": 13,
+    "handed": 1,
+    "weight": 29
+  },
+  {
+    "name": "Scythe",
+    "sprite": "3453",
+    "category": "clubs",
+    "armor": null,
+    "attack": 8,
+    "defense": 3,
+    "handed": 2,
+    "weight": 30
+  },
+  {
+    "name": "Serpent Sword",
+    "sprite": "3297",
+    "category": "swords",
+    "armor": null,
+    "attack": 26,
+    "defense": 15,
+    "handed": 1,
+    "weight": 41
+  },
+  {
+    "name": "Shield of Honour",
+    "sprite": "3417",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 33,
+    "handed": null,
+    "weight": 54
+  },
+  {
+    "name": "Short Sword",
+    "sprite": "3294",
+    "category": "swords",
+    "armor": null,
+    "attack": 11,
+    "defense": 11,
+    "handed": 1,
+    "weight": 35
+  },
+  {
+    "name": "Sickle",
+    "sprite": "3293",
+    "category": "axes",
+    "armor": null,
+    "attack": 7,
+    "defense": 4,
+    "handed": 1,
+    "weight": 10.5
+  },
+  {
+    "name": "Silver Amulet",
+    "sprite": "3054",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 5
+  },
+  {
+    "name": "Silver Dagger",
+    "sprite": "3290",
+    "category": "swords",
+    "armor": null,
+    "attack": 8,
+    "defense": 7,
+    "handed": 1,
+    "weight": 10.2
+  },
+  {
+    "name": "Silver Mace",
+    "sprite": "3312",
+    "category": "clubs",
+    "armor": null,
+    "attack": 40,
+    "defense": 30,
+    "handed": 1,
+    "weight": 67
+  },
+  {
+    "name": "Silver Necklace",
+    "sprite": "3015",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 4.8
+  },
+  {
+    "name": "Simple Dress",
+    "sprite": "3568",
+    "category": "armors",
+    "armor": 0,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 24
+  },
+  {
+    "name": "Skull Staff",
+    "sprite": "3324",
+    "category": "clubs",
+    "armor": null,
+    "attack": 36,
+    "defense": 12,
+    "handed": 1,
+    "weight": 17
+  },
+  {
+    "name": "Small Stone",
+    "sprite": "1781",
+    "category": "distance",
+    "range": "7",
+    "attack": 20,
+    "defense": null,
+    "handed": 1,
+    "weight": 3.6
+  },
+  {
+    "name": "Snowball",
+    "sprite": "2992",
+    "category": "distance",
+    "range": "7",
+    "attack": 0,
+    "defense": null,
+    "handed": 1,
+    "weight": 0.8
+  },
+  {
+    "name": "Soft Boots",
+    "sprite": "3246",
+    "category": "boots",
+    "armor": 0,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0
+  },
+  {
+    "name": "Soldier Helmet",
+    "sprite": "3375",
+    "category": "helmets",
+    "armor": 5,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 32
+  },
+  {
+    "name": "Spear",
+    "sprite": "3277",
+    "category": "distance",
+    "range": "7",
+    "attack": 30,
+    "defense": null,
+    "handed": 1,
+    "weight": 20
+  },
+  {
+    "name": "Spike Sword",
+    "sprite": "3271",
+    "category": "swords",
+    "armor": null,
+    "attack": 24,
+    "defense": 21,
+    "handed": 1,
+    "weight": 50
+  },
+  {
+    "name": "Staff",
+    "sprite": "3289",
+    "category": "clubs",
+    "armor": null,
+    "attack": 10,
+    "defense": 25,
+    "handed": 2,
+    "weight": 38
+  },
+  {
+    "name": "Star Amulet",
+    "sprite": "3014",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 6.1
+  },
+  {
+    "name": "Stealth Ring",
+    "sprite": "3049",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 1
+  },
+  {
+    "name": "Steel Boots",
+    "sprite": "3554",
+    "category": "boots",
+    "armor": 5,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 29
+  },
+  {
+    "name": "Steel Helmet",
+    "sprite": "3351",
+    "category": "helmets",
+    "armor": 6,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 46
+  },
+  {
+    "name": "Steel Shield",
+    "sprite": "3409",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 21,
+    "handed": null,
+    "weight": 69
+  },
+  {
+    "name": "Stone Skin Amulet",
+    "sprite": "3081",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 7
+  },
+  {
+    "name": "Stonecutter Axe",
+    "sprite": "3319",
+    "category": "axes",
+    "armor": null,
+    "attack": 50,
+    "defense": 30,
+    "handed": 1,
+    "weight": 99
+  },
+  {
+    "name": "Strange Helmet",
+    "sprite": "3373",
+    "category": "helmets",
+    "armor": 6,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 46
+  },
+  {
+    "name": "Strange Symbol",
+    "sprite": "3206",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 2
+  },
+  {
+    "name": "Strange Talisman",
+    "sprite": "3045",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 2.9
+  },
+  {
+    "name": "Studded Armor",
+    "sprite": "3378",
+    "category": "armors",
+    "armor": 5,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 71
+  },
+  {
+    "name": "Studded Club",
+    "sprite": "3336",
+    "category": "clubs",
+    "armor": null,
+    "attack": 9,
+    "defense": 8,
+    "handed": 1,
+    "weight": 35
+  },
+  {
+    "name": "Studded Helmet",
+    "sprite": "3376",
+    "category": "helmets",
+    "armor": 2,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 24.5
+  },
+  {
+    "name": "Studded Legs",
+    "sprite": "3362",
+    "category": "legs",
+    "armor": 2,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 26
+  },
+  {
+    "name": "Studded Shield",
+    "sprite": "3426",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 15,
+    "handed": null,
+    "weight": 59
+  },
+  {
+    "name": "Sword",
+    "sprite": "3264",
+    "category": "swords",
+    "armor": null,
+    "attack": 14,
+    "defense": 12,
+    "handed": 1,
+    "weight": 35
+  },
+  {
+    "name": "Sword Ring",
+    "sprite": "3091",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0.9
+  },
+  {
+    "name": "Tempest Shield",
+    "sprite": "3442",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 36,
+    "handed": null,
+    "weight": 51
+  },
+  {
+    "name": "Throwing Knife",
+    "sprite": "3298",
+    "category": "distance",
+    "range": "7",
+    "attack": 30,
+    "defense": null,
+    "handed": 1,
+    "weight": 2.1
+  },
+  {
+    "name": "Throwing Star",
+    "sprite": "3287",
+    "category": "distance",
+    "range": "7",
+    "attack": 25,
+    "defense": null,
+    "handed": 1,
+    "weight": 1
+  },
+  {
+    "name": "Thunder Hammer",
+    "sprite": "3309",
+    "category": "clubs",
+    "armor": null,
+    "attack": 49,
+    "defense": 35,
+    "handed": 1,
+    "weight": 125
+  },
+  {
+    "name": "Time Ring",
+    "sprite": "3053",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0.9
+  },
+  {
+    "name": "Tower Shield",
+    "sprite": "3428",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 32,
+    "handed": null,
+    "weight": 88
+  },
+  {
+    "name": "Twin Axe",
+    "sprite": "3335",
+    "category": "axes",
+    "armor": null,
+    "attack": 45,
+    "defense": 24,
+    "handed": 2,
+    "weight": 64
+  },
+  {
+    "name": "Two-handed Sword",
+    "sprite": "3265",
+    "category": "swords",
+    "armor": null,
+    "attack": 30,
+    "defense": 25,
+    "handed": 2,
+    "weight": 70
+  },
+  {
+    "name": "Unholy Shield",
+    "sprite": "0",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 0,
+    "handed": null,
+    "weight": 0
+  },
+  {
+    "name": "Vampire Shield",
+    "sprite": "3434",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 34,
+    "handed": null,
+    "weight": 38
+  },
+  {
+    "name": "Viking Helmet",
+    "sprite": "3367",
+    "category": "helmets",
+    "armor": 4,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 39
+  },
+  {
+    "name": "Viking Shield",
+    "sprite": "3431",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 22,
+    "handed": null,
+    "weight": 66
+  },
+  {
+    "name": "Wand of Might",
+    "sprite": "3069",
+    "category": "wands",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 29
+  },
+  {
+    "name": "War Axe",
+    "sprite": "3342",
+    "category": "axes",
+    "armor": null,
+    "attack": 48,
+    "defense": 10,
+    "handed": 2,
+    "weight": 61.5
+  },
+  {
+    "name": "War Hammer",
+    "sprite": "3279",
+    "category": "clubs",
+    "armor": null,
+    "attack": 45,
+    "defense": 10,
+    "handed": 2,
+    "weight": 85
+  },
+  {
+    "name": "Warlord Sword",
+    "sprite": "3296",
+    "category": "swords",
+    "armor": null,
+    "attack": 53,
+    "defense": 38,
+    "handed": 2,
+    "weight": 64
+  },
+  {
+    "name": "Warrior Helmet",
+    "sprite": "3369",
+    "category": "helmets",
+    "armor": 9,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 68
+  },
+  {
+    "name": "Wedding Ring",
+    "sprite": "3004",
+    "category": "rings",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0.4
+  },
+  {
+    "name": "White Dress",
+    "sprite": "3569",
+    "category": "armors",
+    "armor": 0,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 0
+  },
+  {
+    "name": "Winged Helmet<br/><small>[+40 speed]</small>",
+    "sprite": "3368",
+    "category": "helmets",
+    "armor": 14,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 12
+  },
+  {
+    "name": "Wolf Tooth Chain",
+    "sprite": "3012",
+    "category": "amulets",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 3.3
+  },
+  {
+    "name": "Wood Cape",
+    "sprite": "3575",
+    "category": "helmets",
+    "armor": 2,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 11
+  },
+  {
+    "name": "Wooden Shield",
+    "sprite": "3412",
+    "category": "shields",
+    "armor": null,
+    "attack": null,
+    "defense": 14,
+    "handed": null,
+    "weight": 40
+  },
+  {
+    "name": "Wooden Wand",
+    "sprite": "3065",
+    "category": "wands",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 26.5
+  },
+  {
+    "name": "Yellow Spell Wand",
+    "sprite": "3073",
+    "category": "wands",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 23
+  },
+  {
+    "name": "Yellow Spell Wand",
+    "sprite": "3074",
+    "category": "wands",
+    "armor": null,
+    "attack": null,
+    "defense": null,
+    "handed": null,
+    "weight": 23
+  }
+]

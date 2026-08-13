@@ -75,13 +75,7 @@ monster.loot = {
 	{ id = 7643, chance = 10000, maxCount = 5 }, -- ultimate health potion
 	{ id = 238, chance = 10000, maxCount = 5 }, -- great mana potion
 	{ id = 239, chance = 10000, maxCount = 5 }, -- great health potion
-	{ id = 22062, chance = 10000, unique = true }, -- werewolf helmet
-	{ id = 22060, chance = 1500 }, -- werewolf amulet
 	{ id = 22084, chance = 1500 }, -- wolf backpack
-	{ id = 7436, chance = 1500 }, -- angelic axe
-	{ id = 7419, chance = 1500 }, -- dreaded cleaver
-	{ id = 22085, chance = 1500 }, -- fur armor
-	{ id = 22086, chance = 1500 }, -- badger boots
 	{ id = 22104, chance = 12000 }, -- trophy of feroxa
 }
 

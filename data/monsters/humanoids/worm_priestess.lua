@@ -82,8 +82,6 @@ monster.loot = {
 	{ id = 3035, chance = 41130, maxCount = 3 }, -- platinum coin
 	{ id = 11473, chance = 15850 }, -- purple robe
 	{ id = 237, chance = 12380, maxCount = 3 }, -- strong mana potion
-	{ id = 3066, chance = 11470 }, -- snakebite rod
-	{ id = 7425, chance = 5210 }, -- taurus mace
 	{ id = 2920, chance = 4760 }, -- torch
 	{ id = 5878, chance = 4640 }, -- minotaur leather
 	{ id = 11472, chance = 2940, maxCount = 2 }, -- minotaur horn
@@ -95,7 +93,6 @@ monster.loot = {
 	{ id = 5911, chance = 1350 }, -- red piece of cloth
 	{ id = 5910, chance = 1400 }, -- green piece of cloth
 	{ id = 5912, chance = 1820 }, -- blue piece of cloth
-	{ id = 8082, chance = 1590 }, -- underworld rod
 	{ id = 3037, chance = 560 }, -- yellow gem
 	{ id = 3039, chance = 430 }, -- red gem
 	{ id = 7401, chance = 160 }, -- minotaur trophy

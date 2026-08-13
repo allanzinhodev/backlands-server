@@ -90,7 +90,6 @@ monster.loot = {
 	{ name = "plate legs", chance = 440 },
 	{ id = 3578, chance = 29400 }, -- fish
 	{ name = "brown mushroom", chance = 9650 },
-	{ name = "royal spear", chance = 2400 },
 	{ name = "health potion", chance = 550 },
 	{ name = "orc tooth", chance = 1030 },
 	{ name = "orc leather", chance = 19510 },

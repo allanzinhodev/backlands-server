@@ -80,8 +80,6 @@ monster.loot = {
 	{ name = "small emerald", chance = 9133, maxCount = 5 },
 	{ name = "rotten roots", chance = 8637, maxCount = 1 },
 -- { name = "bloated maggot", chance = 8133, maxCount = 1 },
-	{ name = "terra rod", chance = 8078, maxCount = 1 },
-	{ name = "butcher's axe", chance = 7967, maxCount = 1 },
 	{ name = "blue gem", chance = 7808, maxCount = 1 },
 	{ name = "violet gem", chance = 7084, maxCount = 1 },
 }

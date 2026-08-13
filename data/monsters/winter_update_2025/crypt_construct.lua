@@ -86,7 +86,6 @@ monster.loot = {
 	-- { name = "cluster of crystallized death", chance = 1750 },
 	{ name = "blue gem", chance = 1460, maxCount = 4 },
 	{ name = "amber", chance = 1090 },
-	{ name = "amber staff", chance = 710 },
 	{ name = "amber with a bug", chance = 490 },
 	{ name = "amber with a dragonfly", chance = 180 },
 	-- { name = "fetid heart", chance = 160 },

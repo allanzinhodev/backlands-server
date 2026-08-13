@@ -83,10 +83,6 @@ monster.loot = {
 	{ name = "great health potion", chance = 2000, maxCount = 5 },
 	{ id = 281, chance = 1700 }, -- giant shimmering pearl (green)
 	{ name = "guardian halberd", chance = 2400 },
-	{ name = "lightning legs", chance = 900 },
-	{ name = "warrior's shield", chance = 900 },
-	{ name = "glacier kilt", chance = 750 },
-	{ name = "noble axe", chance = 700 },
 	{ name = "hammer of wrath", chance = 400 },
 	{ name = "ring of the sky", chance = 300 },
 }

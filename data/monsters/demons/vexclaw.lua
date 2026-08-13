@@ -95,7 +95,6 @@ monster.loot = {
 	{ name = "small ruby", chance = 9590, maxCount = 5 },
 	{ name = "talon", chance = 5400 },
 	{ name = "yellow gem", chance = 5090 },
-	{ name = "wand of voodoo", chance = 4940 },
 	{ id = 3039, chance = 4730 }, -- red gem
 	{ name = "ice rapier", chance = 4730 },
 	{ name = "fire axe", chance = 3520 },
@@ -103,17 +102,12 @@ monster.loot = {
 	{ name = "giant sword", chance = 1880 },
 	{ id = 3049, chance = 1790 }, -- stealth ring
 	{ id = 3051, chance = 1790 }, -- energy ring
-	{ name = "rift lance", chance = 1360 },
 	{ id = 3098, chance = 1320 }, -- ring of healing
 	{ name = "platinum amulet", chance = 940 },
 	{ name = "devil helmet", chance = 520 },
-	{ name = "rift crossbow", chance = 370 },
-	{ name = "rift bow", chance = 370 },
-	{ name = "rift shield", chance = 370 },
 	{ name = "demon shield", chance = 370 },
 	{ name = "magic plate armor", chance = 70 },
 	{ name = "golden legs", chance = 50 },
-	{ name = "demonrage sword", chance = 30 },
 }
 
 monster.attacks = {

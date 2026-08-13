@@ -82,16 +82,11 @@ monster.loot = {
 	{ name = "platinum coin", chance = 85000, maxCount = 13 },
 	{ name = "elven astral observer", chance = 30000, maxCount = 2 },
 	{ name = "dream essence egg", chance = 8600 },
-	{ name = "belted cape", chance = 9500 },
 	{ name = "two handed sword", chance = 7400 },
 	{ name = "seeds", chance = 8600 },
 	{ id = 3307, chance = 6800 }, -- scimitar
 	{ name = "knife", chance = 6600 },
 	{ name = "dragon necklace", chance = 7150 },
-	{ name = "magma amulet", chance = 5500 },
-	{ name = "wand of dragonbreath", chance = 4800 },
-	{ name = "wand of draconia", chance = 4800 },
-	{ name = "magma boots", chance = 2900 },
 	{ name = "sun fruit", chance = 900 },
 	{ name = "bullseye potion", chance = 300 },
 }

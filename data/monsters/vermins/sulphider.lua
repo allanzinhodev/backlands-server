@@ -81,9 +81,7 @@ monster.loot = {
 	{ name = "Crystal Coin", chance = 14430, minCount = 1, maxCount = 3 },
 	{ name = "White Pearl", chance = 5010 },
 	{ name = "Fire Axe", chance = 2450 },
-	{ name = "Magma Boots", chance = 1600 },
 	{ name = "Crown Shield", chance = 1230 },
-	{ name = "Amber Staff", chance = 1150 },
 	{ name = "Amulet of Loss", chance = 850 },
 }
 

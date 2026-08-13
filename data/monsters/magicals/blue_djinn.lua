@@ -90,7 +90,6 @@ monster.loot = {
 	{ id = 3595, chance = 23480 }, -- carrot
 	{ name = "blue rose", chance = 440 },
 	{ name = "blue piece of cloth", chance = 1920 },
-	{ name = "royal spear", chance = 4500, maxCount = 2 },
 	{ name = "mana potion", chance = 860 },
 	{ name = "dirty turban", chance = 1890 },
 }

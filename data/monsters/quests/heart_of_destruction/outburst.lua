@@ -82,11 +82,6 @@ monster.loot = {
 	{ id = 22721, chance = 100000 }, -- gold token
 	{ id = 23509, chance = 100000 }, -- mysterious remains
 	{ id = 3038, chance = 8000 }, -- green gem
-	{ id = 7427, chance = 6000 }, -- chaos mace
-	{ id = 23533, chance = 5000 }, -- ring of red plasma
-	{ id = 23474, chance = 2000, unique = true }, -- tiara of power
-	{ id = 23477, chance = 2000, unique = true }, -- void boots
-	{ id = 16160, chance = 2000, unique = true }, -- crystalline sword
 }
 
 monster.attacks = {

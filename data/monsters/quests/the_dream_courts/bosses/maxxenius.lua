@@ -69,23 +69,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{ id = 23529, chance = 14290 }, -- ring of blue plasma
-	{ id = 23529, chance = 3570 }, -- ring of blue plasma
-	{ id = 23531, chance = 10710 }, -- ring of green plasma
-	{ id = 23533, chance = 14290 }, -- ring of red plasma
-	{ id = 23533, chance = 7140 }, -- ring of red plasma
-	{ id = 23542, chance = 14290 }, -- collar of blue plasma
-	{ id = 23542, chance = 3570 }, -- collar of blue plasma
-	{ id = 23543, chance = 10710 }, -- collar of green plasma
-	{ id = 23544, chance = 17860 }, -- collar of red plasma
 	{ id = 3039, chance = 28570 }, -- red gem
-	{ name = "abyss hammer", chance = 3570 },
 	{ name = "berserk potion", chance = 28570, maxCount = 19 },
 	{ name = "blue gem", chance = 10710 },
 	{ name = "bullseye potion", chance = 10710 },
-	{ name = "chaos mace", chance = 7140 },
 	{ name = "crystal coin", chance = 14290, maxCount = 3 },
-	{ name = "energized limb", chance = 3570 },
 	{ name = "energy bar", chance = 82140 },
 	{ name = "giant ruby", chance = 17860 },
 	{ id = 282, chance = 21430 }, -- giant shimmering pearl
@@ -102,7 +90,6 @@ monster.loot = {
 	{ name = "platinum coin", chance = 100000, maxCount = 6 },
 	{ name = "pomegranate", chance = 21430 },
 	{ name = "ring of the sky", chance = 7140 },
-	{ name = "royal star", chance = 57140, maxCount = 194 },
 	{ name = "silver token", chance = 100000, maxCount = 3 },
 	{ name = "skull staff", chance = 21430 },
 	{ name = "soul stone", chance = 14290 },

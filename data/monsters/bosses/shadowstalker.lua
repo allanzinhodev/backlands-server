@@ -76,7 +76,6 @@ monster.loot = {
     { id = 14225, chance = 41330, maxCount = 2 },
     { name = "Small Emerald", chance = 40000, maxCount = 2 },
     { name = "Yellow Gem", chance = 13330, maxCount = 1 },
-    { name = "Springsprout Rod", chance = 2670, maxCount = 1 },
     { name = "War Hammer", chance = 2670, maxCount = 1 }
 }
 

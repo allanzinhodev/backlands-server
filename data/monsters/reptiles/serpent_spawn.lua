@@ -86,7 +86,6 @@ monster.loot = {
 	{ id = 3051, chance = 590 }, -- energy ring
 	{ id = 3052, chance = 6250 }, -- life ring
 	{ name = "life crystal", chance = 800 },
-	{ name = "snakebite rod", chance = 930 },
 	{ name = "warrior helmet", chance = 560 },
 	{ name = "strange helmet", chance = 670 },
 	{ name = "crown armor", chance = 510 },
@@ -95,12 +94,7 @@ monster.loot = {
 	{ name = "tower shield", chance = 920 },
 	{ name = "power bolt", chance = 6200 },
 	{ name = "green mushroom", chance = 18200 },
-	{ name = "charmer's tiara", chance = 180 },
-	{ name = "mercenary sword", chance = 2070 },
-	{ name = "noble axe", chance = 750 },
 	{ name = "great mana potion", chance = 2000 },
-	{ name = "swamplair armor", chance = 90 },
-	{ name = "spellbook of mind control", chance = 90 },
 	{ name = "snake skin", chance = 14800 },
 	{ name = "winged tail", chance = 960 },
 }

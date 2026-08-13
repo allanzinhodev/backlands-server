@@ -93,8 +93,6 @@ monster.loot = {
 	{ id = 3483, chance = 7410 }, -- fishing rod
 	{ id = 236, chance = 7410 }, -- strong health potion
 	{ id = 7401, chance = 900 }, -- minotaur trophy,
-	{ id = 21174, chance = 12000 }, -- mino lance
-	{ id = 21175, chance = 6000 }, -- mino shield
 }
 
 monster.attacks = {

@@ -83,11 +83,7 @@ monster.loot = {
 	{ name = "ultimate health potion", chance = 10003, maxCount = 4 },
 	{ name = "ultimate mana potion", chance = 10003, maxCount = 4 },
 	{ name = "ice rapier", chance = 500 },
-	{ name = "glacier mask", chance = 400 },
 	{ name = "piece of dead brain", chance = 10001, maxCount = 4 },
-	{ name = "crystal sword", chance = 300 },
-	{ name = "glacier robe", chance = 150 },
-	{ name = "glacier kilt", chance = 150 },
 	{ name = "slime heart", chance = 10002, maxCount = 4 },
 }
 

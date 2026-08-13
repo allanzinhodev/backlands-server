@@ -78,12 +78,8 @@ monster.loot = {
 	{ id = 5895, chance = 4650 }, -- fish fin
 	{ id = 5925, chance = 5190 }, -- hardened bone
 	{ id = 5951, chance = 10670 }, -- fish tail
-	{ id = 7404, chance = 990 }, -- assassin dagger
-	{ id = 7407, chance = 2110 }, -- haunted blade
 	{ id = 3265, chance = 3170 }, -- two handed sword
-	{ id = 7418, chance = 1030 }, -- nightmare blade
 	{ id = 9058, chance = 2330 }, -- gold ingot
-	{ id = 10389, chance = 1600 }, -- sai
 	{ id = 16120, chance = 3000 }, -- violet crystal shard
 	{ id = 16123, chance = 15640 }, -- brown crystal splinter
 	{ id = 16126, chance = 5230 }, -- red crystal fragment

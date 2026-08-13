@@ -82,20 +82,13 @@ monster.loot = {
 	{ name = "curious matter", chance = 8920, maxCount = 10 },
 	{ id = 23516, chance = 20000 }, -- instable proto matter
 	{ id = 282, chance = 26900 }, -- giant shimmering pearl (brown)
-	{ name = "wand of defiance", chance = 8920 },
-	{ name = "rift lance", chance = 13200 },
-	{ name = "rift crossbow", chance = 7620 },
-	{ name = "haunted blade", chance = 9700 },
 	{ name = "silver token", chance = 45450 },
 	{ name = "gold token", chance = 18180 },
-	{ name = "sapphire hammer", chance = 14000 },
 	{ name = "gold coin", chance = 100000, maxCount = 200 },
 	{ name = "platinum coin", chance = 29840, maxCount = 35 },
-	{ name = "wand of defiance", chance = 8723 },
 	{ name = "yellow gem", chance = 29460 },
 	{ name = "blue gem", chance = 21892 },
 	{ name = "medusa shield", chance = 7270 },
-	{ name = "underworld rod", chance = 9510 },
 	{ name = "mysterious remains", chance = 100000 },
 	{ name = "prismatic quartz", chance = 13390, maxCount = 10 },
 	{ name = "small diamond", chance = 12760, maxCount = 10 },
@@ -109,13 +102,8 @@ monster.loot = {
 	{ name = "ultimate health potion", chance = 27652, maxCount = 10 },
 	{ name = "great mana potion", chance = 33721, maxCount = 10 },
 	{ name = "great spirit potion", chance = 25690, maxCount = 10 },
-	{ name = "blade of corruption", chance = 3775 },
-	{ name = "magma boots", chance = 15890 },
 	{ name = "spark sphere", chance = 80000 },
-	{ name = "spellbook of lost souls", chance = 7890 },
-	{ name = "shield of corruption", chance = 150 },
 	{ name = "plasma pearls", chance = 100000 },
-	{ name = "spiked squelcher", chance = 16892, maxCount = 2 },
 }
 
 monster.attacks = {

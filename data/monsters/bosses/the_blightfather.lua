@@ -74,7 +74,6 @@ monster.loot = {
 	{ id = 9692, chance = 17500 }, -- lump of dirt
 	{ id = 9640, chance = 12500 }, -- poisonous slime
 	{ id = 10455, chance = 7000 }, -- lancer beetle shell
-	{ id = 10457, chance = 400 }, -- beetle necklace
 	{ id = 3033, chance = 800 }, -- small amethyst
 }
 

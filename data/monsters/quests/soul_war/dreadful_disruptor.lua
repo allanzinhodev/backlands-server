@@ -84,10 +84,6 @@ monster.loot = {
 	{ id = 16125, chance = 6500 }, -- cyan crystal fragment
 	{ id = 16119, chance = 4400 }, -- blue crystal shard
 	{ id = 16121, chance = 4100 }, -- green crystal shard
-	{ id = 23544, chance = 4470 }, -- collar of red plasma
-	{ id = 23542, chance = 4470 }, -- collar of blue plasma
-	{ id = 50150, chance = 350 }, -- ring of orange plasma
-	{ id = 50152, chance = 350 }, -- collar of orange plasma
 	{ name = "spark sphere", chance = 14870 },
 }
 

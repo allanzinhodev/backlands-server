@@ -86,11 +86,7 @@ monster.loot = {
 	{ name = "small topaz", chance = 7120, maxCount = 4 },
 	{ name = "moonlight crystals", chance = 2550 },
 	{ id = 3037, chance = 5130 }, -- yellow gem
-	{ name = "lightning headband", chance = 7200 },
-	{ name = "ripper lance", chance = 850 },
 	{ name = "gemmed figurine", chance = 1770 },
-	{ id = 816, chance = 4710 }, -- lightning pendant
-	{ name = "fur armor", chance = 2620 },
 	{ id = 43917, chance = 600 }, -- werepanther trophy
 }
 

@@ -79,13 +79,7 @@ monster.loot = {
 	{ name = "Undertaker Fangs", chance = 25740 },
 	{ name = "Crystal Coin", chance = 15100, minCount = 1, maxCount = 3 },
 	{ name = "Spider Silk", chance = 3520 },
-	{ name = "Terra Boots", chance = 3390 },
 	{ name = "Blue Crystal Shard", chance = 1840 },
-	{ name = "Relic Sword", chance = 1650 },
-	{ name = "Terra Legs", chance = 1640 },
-	{ name = "Necrotic Rod", chance = 1400 },
-	{ name = "Butterfly Ring", chance = 1240 },
-	{ name = "Wand of Voodoo", chance = 960 },
 	{ name = "Violet Gem", chance = 850 },
 }
 

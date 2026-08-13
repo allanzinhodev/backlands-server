@@ -79,13 +79,10 @@ monster.loot = {
 	{ name = "werehyaena nose", chance = 15550 },
 	{ name = "small amethyst", chance = 10840 },
 	{ name = "green crystal splinter", chance = 9120 },
-	{ name = "hailstorm rod", chance = 6430 },
 	{ name = "doublet", chance = 5390 },
 	{ name = "brown crystal splinter", chance = 5030 },
-	{ name = "wand of starstorm", chance = 4920 },
 	{ name = "small enchanted emerald", chance = 4630 },
 	{ id = 3091, chance = 4490 }, -- sword ring
-	{ name = "wand of voodoo", chance = 3990 },
 	{ name = "protection amulet", chance = 2660 },
 	{ name = "werehyaena talisman", chance = 650 },
 	{ name = "moonlight crystals", chance = 610 },

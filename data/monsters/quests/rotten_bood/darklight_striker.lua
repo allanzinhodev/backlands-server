@@ -80,7 +80,6 @@ monster.loot = {
 	{ name = "dark obsidian splinter", chance = 14185, maxCount = 1 },
 	{ name = "blue gem", chance = 7355, maxCount = 1 },
 	{ name = "crystal mace", chance = 8812, maxCount = 1 },
-	{ name = "zaoan helmet", chance = 5572, maxCount = 1 },
 }
 
 monster.attacks = {

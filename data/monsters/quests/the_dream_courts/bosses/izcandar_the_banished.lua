@@ -69,19 +69,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{ id = 23529, chance = 6250 }, -- ring of blue plasma
-	{ id = 23531, chance = 16670 }, -- ring of green plasma
-	{ id = 23531, chance = 3130 }, -- ring of green plasma
-	{ id = 23542, chance = 33330 }, -- collar of blue plasma
-	{ id = 23542, chance = 9380 }, -- collar of blue plasma
-	{ id = 23543, chance = 12500 }, -- collar of green plasma
-	{ id = 23544, chance = 9380 }, -- collar of red plasma
 	{ id = 3039, chance = 33330 }, -- red gem
 	{ id = 3341, chance = 3130 }, -- arcane staff
 	{ name = "berserk potion", chance = 18750 },
 	{ name = "blue gem", chance = 50000 },
 	{ name = "bullseye potion", chance = 25000 },
-	{ name = "chaos mace", chance = 9380 },
 	{ name = "crystal coin", chance = 33330, maxCount = 3 },
 	{ name = "energy bar", chance = 100000 },
 	{ name = "energy bar", chance = 93750 },
@@ -100,16 +92,13 @@ monster.loot = {
 	{ name = "platinum coin", chance = 100000, maxCount = 9 },
 	{ name = "pomegranate", chance = 16670 },
 	{ name = "ring of the sky", chance = 12500 },
-	{ name = "royal star", chance = 50000, maxCount = 199 },
 	{ name = "silver token", chance = 100000, maxCount = 2 },
 	{ name = "skull staff", chance = 6250 },
 	{ name = "soul stone", chance = 16670 },
-	{ name = "summerblade", chance = 3130 },
 	{ name = "supreme health potion", chance = 66670, maxCount = 14 },
 	{ name = "ultimate mana potion", chance = 56250, maxCount = 20 },
 	{ name = "ultimate spirit potion", chance = 66670, maxCount = 5 },
 	{ name = "violet gem", chance = 3130 },
-	{ name = "winterblade", chance = 6250 },
 	{ name = "yellow gem", chance = 34380, maxCount = 2 },
 }
 

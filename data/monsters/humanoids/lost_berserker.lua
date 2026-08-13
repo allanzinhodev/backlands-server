@@ -93,11 +93,8 @@ monster.loot = {
 	{ name = "brown mushroom", chance = 15190, maxCount = 2 },
 	{ name = "iron ore", chance = 8490 },
 	{ name = "magic sulphur", chance = 720 },
-	{ name = "chaos mace", chance = 550 },
-	{ name = "spiked squelcher", chance = 810 },
 	{ name = "great mana potion", chance = 13650 },
 	{ name = "great health potion", chance = 13650 },
-	{ name = "terra boots", chance = 640 },
 	{ name = "small topaz", chance = 7970, maxCount = 2 },
 	{ name = "clay lump", chance = 930 },
 	{ id = 12600, chance = 2050 }, -- coal

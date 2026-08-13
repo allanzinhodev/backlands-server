@@ -91,14 +91,11 @@ monster.loot = {
 	{ id = 24382, chance = 1800, maxCount = 2 }, -- bug meat
 	{ id = 3027, chance = 12750, maxCount = 2 }, -- black pearl
 	{ id = 3030, chance = 2510, maxCount = 3 }, -- small ruby
-	{ id = 7452, chance = 1940 }, -- spiked squelcher
 	{ id = 8015, chance = 1000, maxCount = 2 }, -- onion
 	{ id = 9057, chance = 8870, maxCount = 3 }, -- small topaz
 	{ id = 16123, chance = 9700 }, -- brown crystal splinter
-	{ id = 17828, chance = 15290, maxCount = 3 }, -- pair of iron fists
 	{ id = 2966, chance = 910 }, -- war drum
 	{ id = 7439, chance = 910 }, -- berserk potion
-	{ id = 10457, chance = 910 }, -- beetle necklace
 	{ id = 23811, chance = 300 }, -- reinvigorating seeds
 }
 

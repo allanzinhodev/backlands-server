@@ -97,11 +97,8 @@ monster.loot = {
 	{ name = "sniper arrow", chance = 8780, maxCount = 5 },
 	{ name = "two handed sword", chance = 2980 },
 	{ name = "steel shield", chance = 2040 },
-	{ id = 3059, chance = 1030 }, -- spellbook
 	{ name = "strong mana potion", chance = 830 },
 	{ name = "giant eye", chance = 460 },
-	{ name = "bonelord shield", chance = 90 },
-	{ name = "bonelord helmet", chance = 90 },
 	{ name = "bonelord eye", chance = 1920 },
 }
 

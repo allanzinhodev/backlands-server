@@ -72,9 +72,6 @@ monster.loot = {
 	{ name = "magic sulphur", chance = 8920, maxCount = 10 },
 	{ name = "gold ingot", chance = 21200, maxCount = 10 },
 	{ id = 282, chance = 26900 }, -- giant shimmering pearl (brown)
-	{ name = "berserker", chance = 8920 },
-	{ name = "abyss hammer", chance = 7620 },
-	{ name = "skull helmet", chance = 9700 },
 	{ name = "silver token", chance = 30770 },
 	{ name = "gold token", chance = 23080 },
 	{ name = "gold coin", chance = 100000, maxCount = 200 },
@@ -82,7 +79,6 @@ monster.loot = {
 	{ name = "yellow gem", chance = 29460 },
 	{ name = "blue gem", chance = 21892 },
 	{ name = "skull fetish", chance = 7270 },
-	{ name = "bonebreaker", chance = 9510 },
 	{ name = "mysterious remains", chance = 100000 },
 	{ name = "small diamond", chance = 12760, maxCount = 10 },
 	{ name = "small amethyst", chance = 14700, maxCount = 10 },
@@ -94,11 +90,7 @@ monster.loot = {
 	{ name = "ultimate health potion", chance = 27652, maxCount = 10 },
 	{ name = "great mana potion", chance = 33721, maxCount = 10 },
 	{ name = "great spirit potion", chance = 25690, maxCount = 5 },
-	{ id = 23542, chance = 12798 }, -- collar of blue plasma
 	{ name = "piece of royal steel", chance = 15890 },
-	{ name = "shadow sceptre", chance = 7890 },
-	{ id = 23533, chance = 14542 }, -- ring of red plasma
-	{ name = "terra hood", chance = 16892 },
 }
 
 monster.attacks = {

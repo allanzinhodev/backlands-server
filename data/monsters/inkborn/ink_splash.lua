@@ -48,9 +48,6 @@ monster.loot = {
 	{ id = 3509, chance = 1600 }, -- inkwell
 	{ name = "candlestick", chance = 1200 },
 	{ name = "black pearl", chance = 1000 },
-	{ name = "terra amulet", chance = 800 },
-	{ name = "terra hood", chance = 800 },
-	{ name = "terra legs", chance = 800 },
 }
 
 monster.attacks = {

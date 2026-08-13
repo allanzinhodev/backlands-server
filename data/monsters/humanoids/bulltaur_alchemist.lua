@@ -86,12 +86,10 @@ monster.loot = {
 	{ id = 44737, chance = 4545 }, -- stealth ring
 	{ id = 44738, chance = 4545 }, -- stealth ring
 	{ name = "might ring", chance = 4285 },
-	{ name = "mino shield", chance = 840 },
 	{ name = "dragon hammer", chance = 420 },
 	{ id = 3041, chance = 4545 }, -- stealth ring
 	{ name = "ultimate health potion", chance = 5285 },
 	{ name = "great mana potion", chance = 6285 },
-	{ name = "alloy legs", chance = 1285 },
 -- { name = "encrypted notes", chance = 985 },
 	{ name = "ultimate mana potion", chance = 1285 },
 	{ name = "gold ingot", chance = 1285 },

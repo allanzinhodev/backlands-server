@@ -64,9 +64,6 @@ monster.loot = {
 	{ name = "gold coin", chance = 90000, maxCount = 40 },
 	{ name = "meat", chance = 39000 },
 	{ name = "ham", chance = 30000, maxCount = 3 },
-	{ name = "tusk shield", chance = 500 },
-	{ name = "mammoth whopper", chance = 2800 },
-	{ name = "furry club", chance = 500 },
 	{ name = "thick fur", chance = 7280 },
 	{ id = 37531, chance = 5155 }, -- candy floss
 	{ name = "bottle of champagne", chance = 7280 },

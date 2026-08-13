@@ -87,20 +87,13 @@ monster.loot = {
 	{ id = 3029, chance = 12000, maxCount = 9 }, -- small sapphire
 	{ id = 3026, chance = 12000, maxCount = 8 }, -- white pearl
 	{ id = 3038, chance = 1000 }, -- green gem
-	{ id = 815, chance = 4000 }, -- glacier amulet
-	{ id = 823, chance = 1000 }, -- glacier kilt
-	{ id = 824, chance = 1000 }, -- glacier robe
 	{ id = 3033, chance = 10000, maxCount = 5 }, -- small amethyst
 	{ id = 3035, chance = 8000, maxCount = 58 }, -- platinum coin
 	{ id = 16119, chance = 10000, maxCount = 5 }, -- blue crystal shard
 	{ id = 16120, chance = 10000, maxCount = 5 }, -- violet crystal shard
 	{ id = 16121, chance = 10000, maxCount = 5 }, -- green crystal shard
 	{ id = 3036, chance = 1000 }, -- violet gem
-	{ id = 22867, chance = 800 }, -- rift crossbow
-	{ id = 22727, chance = 800 }, -- rift lance
 	{ id = 3038, chance = 1000 }, -- green gem
-	{ id = 8082, chance = 4000 }, -- underworld rod
-	{ id = 22757, chance = 500, unique = true }, -- shroud of despair
 }
 
 monster.attacks = {

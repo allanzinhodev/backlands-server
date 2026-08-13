@@ -83,10 +83,8 @@ monster.loot = {
 	{ name = "cluster of solace", chance = 19960 },
 	{ name = "red crystal fragment", chance = 9960 },
 	{ name = "small enchanted sapphire", chance = 8900 },
-	{ name = "assassin star", chance = 8540 },
 	{ name = "gold token", chance = 5470 },
 	{ name = "gold ingot", chance = 6410 },
-	{ name = "nightmare blade", chance = 3020 },
 }
 
 monster.attacks = {

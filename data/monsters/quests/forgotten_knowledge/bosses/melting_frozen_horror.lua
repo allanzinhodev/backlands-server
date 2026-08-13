@@ -75,21 +75,14 @@ monster.loot = {
 	{ id = 9661, chance = 14111 }, -- frosty heart
 	{ id = 7441, chance = 5100 }, -- ice cube
 	{ id = 3284, chance = 320 }, -- ice rapier
-	{ id = 7449, chance = 580 }, -- crystal sword
 	{ id = 3028, chance = 730 }, -- small diamond
 	{ id = 16120, chance = 9660, maxCount = 5 }, -- violet crystal shard
 	{ id = 3041, chance = 5000 }, -- blue gem
 	{ id = 7643, chance = 19500, maxCount = 3 }, -- ultimate health potion
 	{ id = 16121, chance = 9660, maxCount = 5 }, -- green crystal shard
-	{ id = 7459, chance = 9660 }, -- pair of earmuffs
 	{ id = 23516, chance = 9660 }, -- instable proto matter
 	{ id = 3333, chance = 9660 }, -- crystal mace
-	{ id = 16160, chance = 9660 }, -- crystalline sword
-	{ id = 16175, chance = 200 }, -- shiny blade
-	{ id = 14247, chance = 200 }, -- ornate crossbow
-	{ id = 8059, chance = 500 }, -- frozen plate
 	{ id = 24958, chance = 500, unique = true }, -- part of a rune
-	{ id = 19363, chance = 200 }, -- runic ice shield
 	{ id = 22721, chance = 16670 }, -- gold token
 	{ id = 22516, chance = 12500 }, -- silver token
 	{ name = "spark sphere", chance = 100000 },

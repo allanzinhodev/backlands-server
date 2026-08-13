@@ -77,14 +77,11 @@ monster.loot = {
 	{ name = "Crystal Coin", chance = 35340 },
 	{ name = "Headpecker Beak", chance = 11350 },
 	{ name = "Headpecker Feather", chance = 7560, minCount = 1, maxCount = 5 },
-	{ name = "Furry Club", chance = 5540 },
 	{ id = 3595, chance = 4950 }, -- Carrot
 	{ name = "Knife", chance = 4240 },
 	{ name = "Spike Sword", chance = 4060 },
 	{ name = "War Hammer", chance = 2290 },
-	{ name = "Titan Axe", chance = 1720 },
 	{ name = "Blue Gem", chance = 1560 },
-	{ name = "Wand of Starstorm", chance = 1000 },
 	{ name = "Gold Ingot", chance = 910 },
 }
 

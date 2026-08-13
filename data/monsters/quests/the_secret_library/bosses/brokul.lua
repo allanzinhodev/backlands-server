@@ -85,8 +85,6 @@ monster.loot = {
 	{ name = "small diamond", chance = 498, maxCount = 10 },
 	{ name = "blue gem", chance = 2500 },
 	{ id = 3039, chance = 2000 }, -- red gem
-	{ name = "deepling ceremonial dagger", chance = 200 },
-	{ name = "deepling fork", chance = 200 },
 	{ name = "true book of death", chance = 70000 },
 }
 

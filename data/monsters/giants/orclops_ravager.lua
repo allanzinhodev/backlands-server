@@ -91,14 +91,11 @@ monster.loot = {
 	{ id = 24382, chance = 12750 }, -- bug meat
 	{ id = 3027, chance = 2510, maxCount = 2 }, -- black pearl
 	{ id = 3030, chance = 1940, maxCount = 2 }, -- small ruby
-	{ id = 7452, chance = 1000 }, -- spiked squelcher
 	{ id = 8015, chance = 8870 }, -- onion
 	{ id = 9057, chance = 9700 }, -- small topaz
 	{ id = 16123, chance = 15290, maxCount = 3 }, -- brown crystal splinter
-	{ id = 17828, chance = 910 }, -- pair of iron fists
 	{ id = 2966, chance = 910 }, -- war drum
 	{ id = 7439, chance = 910 }, -- berserk potion
-	{ id = 7419, chance = 300 }, -- dreaded cleaver
 }
 
 monster.attacks = {

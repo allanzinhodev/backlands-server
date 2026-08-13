@@ -86,7 +86,6 @@ monster.loot = {
 	{ id = 3017, chance = 12000 }, -- silver brooch
 	{ id = 238, chance = 10000, maxCount = 3 }, -- great mana potion
 	{ id = 239, chance = 5000, maxCount = 4 }, -- great health potion
-	{ id = 3334, chance = 5000 }, -- pharaoh sword
 	{ id = 10290, chance = 2500 }, -- mini mummy
 	{ id = 8897, chance = 2500 }, -- heavily rusted legs
 	{ id = 3335, chance = 2500 }, -- twin axe

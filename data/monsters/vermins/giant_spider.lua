@@ -101,7 +101,6 @@ monster.loot = {
 	{ name = "plate legs", chance = 8333 },
 	{ name = "spider silk", chance = 1990 },
 	{ name = "strong health potion", chance = 3550 },
-	{ name = "lightning headband", chance = 270 },
 }
 
 monster.attacks = {

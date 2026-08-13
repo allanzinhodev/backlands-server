@@ -95,10 +95,8 @@ monster.loot = {
 	{ name = "crusader helmet", chance = 280 },
 	{ name = "plate legs", chance = 4280 },
 	{ id = 3578, chance = 10800, maxCount = 2 }, -- fish
-	{ name = "hunting spear", chance = 5260 },
 	{ id = 7395, chance = 50 }, -- orc trophy
 	{ name = "health potion", chance = 470 },
-	{ name = "magma boots", chance = 280 },
 	{ name = "orc tooth", chance = 9640 },
 	{ name = "broken helmet", chance = 24350 },
 	{ name = "orc leather", chance = 20620 },

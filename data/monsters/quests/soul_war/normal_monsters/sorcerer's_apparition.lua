@@ -83,17 +83,8 @@ monster.loot = {
 	{ name = "great mana potion", chance = 62450, maxCount = 3 },
 	-- {name = "giant shimmering pearl", chance = 10040}, -- unknown item: giant shimmering pearl
 	{ name = "blue gem", chance = 5240 },
-	{ id = 23533, chance = 4370 }, -- ring of red plasma
-	{ name = "wand of voodoo", chance = 4370 },
-	{ id = 23531, chance = 3490 }, -- ring of green plasma
-	{ id = 23529, chance = 3060 }, -- ring of blue plasma
 	{ name = "violet gem", chance = 2620 },
-	{ name = "glacier amulet", chance = 2620 },
-	{ name = "wand of everblazing", chance = 2180 },
-	{ name = "wand of defiance", chance = 1750 },
-	{ name = "wand of starstorm", chance = 1310 },
 	{ name = "stone skin amulet", chance = 1310 },
-	{ name = "alloy legs", chance = 440 },
 	{ name = "bag you desire", chance = 15 },
 }
 

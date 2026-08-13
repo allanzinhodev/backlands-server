@@ -83,14 +83,9 @@ monster.loot = {
 	{ id = 236, chance = 5790 }, -- strong health potion
 	{ id = 9063, chance = 5320 }, -- crystal pedestal
 	{ id = 3048, chance = 940 }, -- might ring
-	{ id = 816, chance = 710 }, -- lightning pendant
 	{ id = 3037, chance = 550 }, -- yellow gem
-	{ id = 3073, chance = 530 }, -- wand of cosmic energy
 	{ id = 12601, chance = 480 }, -- slime mould
 	{ id = 7440, chance = 400 }, -- mastermind potion
-	{ id = 9304, chance = 110 }, -- shockwave amulet
-	{ id = 8050, chance = 20 }, -- crystalline armor
-	{ id = 7428, chance = 13 }, -- bonebreaker
 }
 
 monster.attacks = {

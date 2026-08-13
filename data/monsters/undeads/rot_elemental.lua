@@ -89,9 +89,6 @@ monster.loot = {
 	{ id = 9057, chance = 1140, maxCount = 2 }, -- small topaz
 	{ id = 3032, chance = 940, maxCount = 2 }, -- small emerald
 	{ id = 3038, chance = 80 }, -- green gem
-	{ id = 21183, chance = 130 }, -- glooth amulet
-	{ id = 21180, chance = 60 }, -- glooth axe
-	{ id = 21158, chance = 460 }, -- glooth spear
 }
 
 monster.attacks = {

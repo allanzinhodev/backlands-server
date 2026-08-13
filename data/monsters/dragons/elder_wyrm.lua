@@ -88,18 +88,7 @@ monster.loot = {
 	{ name = "crossbow", chance = 14290 },
 	{ name = "small diamond", chance = 4760 },
 	{ name = "soul orb", chance = 4760 },
-	{ name = "wand of draconia", chance = 1510 },
 	{ name = "power bolt", chance = 1030, maxCount = 10 },
-	{ name = "wand of starstorm", chance = 830 },
-	{ name = "lightning pendant", chance = 750 },
-	{ name = "lightning legs", chance = 600 },
-	{ name = "lightning robe", chance = 290 },
-	{ name = "dragonbone staff", chance = 240 },
-	{ name = "composite hornbow", chance = 220 },
-	{ name = "shadow sceptre", chance = 170 },
-	{ name = "lightning boots", chance = 150 },
-	{ name = "shockwave amulet", chance = 120 },
-	{ name = "legs of wisdom", chance = 700 },
 }
 
 monster.attacks = {

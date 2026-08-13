@@ -77,11 +77,7 @@ monster.loot = {
 	{ id = 3050, chance = 2200 }, -- power ring
 	{ id = 22191, chance = 1200 }, -- skull fetish
 	{ id = 236, chance = 6200, maxCount = 3 }, -- strong health potion
-	{ id = 7428, chance = 500 }, -- bonebreaker
-	{ id = 22172, chance = 600 }, -- ogre choppa
-	{ id = 22171, chance = 800 }, -- ogre klubba
 	{ id = 3465, chance = 500 }, -- pot
-	{ id = 22192, chance = 300 }, -- shamanic mask
 }
 
 monster.attacks = {

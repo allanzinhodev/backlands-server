@@ -81,17 +81,9 @@ monster.loot = {
 	{ name = "small amethyst", chance = 9810 },
 	{ name = "small ruby", chance = 7700 },
 	{ id = 3039, chance = 5350 }, -- red gem
-	{ name = "magma monocle", chance = 3710 },
-	{ name = "wand of cosmic energy", chance = 2520 },
 	-- { name = "stag parchment", chance = 2050 },
 	-- { name = "silver poniard", chance = 1530 },
-	{ name = "wand of starstorm", chance = 1390 },
 	{ name = "violet gem", chance = 1090 },
-	{ name = "wooden spellbook", chance = 1050 },
-	{ name = "lightning robe", chance = 780 },
-	{ id = 23531, chance = 580 }, -- ring of green plasma
-	{ name = "shockwave amulet", chance = 560 },
-	{ name = "magma amulet", chance = 280 },
 	-- { name = "bottle of raubritter lager", chance = 110 },
 	{ name = "crystal coin", chance = 50, minCount = 56, maxCount = 128 },
 }

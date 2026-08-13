@@ -89,11 +89,7 @@ monster.loot = {
 	{ id = 27593, chance = 13210, maxCount = 2 }, -- deepworm spike roots
 	{ name = "deepworm spikes", chance = 9880 },
 	{ name = "small enchanted amethyst", chance = 3430, maxCount = 2 },
-	{ name = "terra amulet", chance = 5060 },
-	{ name = "springsprout rod", chance = 1120 },
-	{ name = "sacred tree amulet", chance = 2390 },
 	{ id = 281, chance = 860 }, -- giant shimmering pearl (green)
-	{ name = "suspicious device", chance = 530 },
 }
 
 monster.attacks = {

@@ -73,8 +73,6 @@ monster.loot = {
 	{ id = 3370, chance = 54000 }, -- knight armor
 	{ id = 3428, chance = 34000 }, -- tower shield
 	{ id = 3269, chance = 31050 }, -- halberd
-	{ id = 3326, chance = 26000 }, -- epee
-	{ id = 811, chance = 8200 }, -- terra mantle
 	{ id = 3735, chance = 6500 }, -- stone herb
 }
 

@@ -89,9 +89,7 @@ monster.loot = {
 	{ name = "yellow gem", chance = 3060 },
 	{ name = "green gem", chance = 1210 },
 	{ id = 3039, chance = 4800 }, -- red gem
-	{ name = "sacred tree amulet", chance = 5100 },
 	{ name = "green crystal shard", chance = 2130 },
-	{ id = 23533, chance = 740 }, -- ring of red plasma
 }
 
 monster.attacks = {

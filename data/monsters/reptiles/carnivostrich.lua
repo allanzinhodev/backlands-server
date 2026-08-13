@@ -83,10 +83,7 @@ monster.loot = {
 	{ name = "small emerald", chance = 8330, maxCount = 8 },
 	{ name = "strong mana potion", chance = 4910, maxCount = 4 },
 	{ name = "carnivostrich feather", chance = 3470, maxCount = 4 },
-	{ name = "underworld rod", chance = 2420 },
-	{ name = "wand of voodoo", chance = 2110 },
 	{ name = "blue gem", chance = 2090 },
-	{ name = "spellbook of mind control", chance = 810 },
 	{ name = "boots of haste", chance = 620 },
 }
 

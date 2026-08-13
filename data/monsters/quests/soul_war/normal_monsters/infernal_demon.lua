@@ -89,12 +89,9 @@ monster.loot = {
 	{ name = "small diamond", chance = 4570 },
 	{ name = "blue gem", chance = 4570 },
 	{ name = "green crystal fragment", chance = 3430 },
-	{ name = "magma amulet", chance = 3430 },
-	{ name = "mercenary sword", chance = 2860 },
 	{ name = "onyx chip", chance = 2860 },
 	{ name = "war axe", chance = 2860 },
 	{ name = "giant sword", chance = 2860 },
-	{ name = "magma boots", chance = 2290 },
 	{ name = "stone skin amulet", chance = 570 },
 	{ name = "bag you desire", chance = 15 },
 }

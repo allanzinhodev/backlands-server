@@ -86,18 +86,7 @@ monster.loot = {
 	{ name = "draken sulphur", chance = 6480 },
 	{ name = "draken wristbands", chance = 6480 },
 	{ name = "small diamond", chance = 1850, maxCount = 2 },
-	{ name = "zaoan legs", chance = 1850 },
 	{ name = "magic sulphur", chance = 1850 },
-	{ name = "draken boots", chance = 930 },
-	{ name = "assassin dagger", chance = 930 },
-	{ name = "twiceslicer", chance = 930 },
-	{ name = "zaoan armor", chance = 650 },
-	{ name = "zaoan sword", chance = 550 },
-	{ name = "zaoan helmet", chance = 220 },
-	{ name = "elite draken mail", chance = 110 },
-	{ name = "blade of corruption", chance = 60 },
-	{ name = "snake god's wristguard", chance = 40 },
-	{ name = "cobra crown", chance = 0 },
 }
 
 monster.attacks = {

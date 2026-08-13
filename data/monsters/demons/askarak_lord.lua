@@ -89,13 +89,9 @@ monster.loot = {
 	{ id = 3051, chance = 606 }, -- energy ring
 	{ name = "brown mushroom", chance = 5263, maxCount = 5 },
 	{ name = "magic sulphur", chance = 620 },
-	{ name = "assassin star", chance = 70, maxCount = 5 },
-	{ name = "dreaded cleaver", chance = 30 },
 	{ name = "mastermind potion", chance = 750 },
 	{ name = "strong health potion", chance = 6250 },
 	{ name = "strong mana potion", chance = 7692 },
-	{ name = "terra mantle", chance = 70 },
-	{ name = "springsprout rod", chance = 1010 },
 }
 
 monster.attacks = {

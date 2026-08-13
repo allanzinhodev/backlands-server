@@ -95,14 +95,12 @@ monster.loot = {
 	{ name = "gold coin", chance = 64550, maxCount = 70 },
 	{ id = 3051, chance = 450 }, -- energy ring
 	{ name = "platinum amulet", chance = 200 },
-	{ name = "wand of inferno", chance = 180 },
 	{ name = "protection amulet", chance = 790 },
 	{ name = "skull staff", chance = 350 },
 	{ name = "blue robe", chance = 40 },
 	{ name = "jewelled backpack", chance = 100 },
 	{ name = "pirate voodoo doll", chance = 430 },
 	{ id = 6090, chance = 490 }, -- music sheet
-	{ name = "amber staff", chance = 100 },
 	{ name = "strong mana potion", chance = 740 },
 	{ name = "cultish mask", chance = 10250 },
 	{ name = "cultish symbol", chance = 890 },

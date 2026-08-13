@@ -82,8 +82,6 @@ monster.loot = {
 	{ name = "obsidian lance", chance = 1120 },
 	{ name = "chain armor", chance = 8560 },
 	{ name = "scale armor", chance = 7730 },
-	{ name = "hunting spear", chance = 4700 },
-	{ name = "sentinel shield", chance = 320 },
 	{ name = "lizard leather", chance = 990 },
 	{ name = "lizard scale", chance = 960 },
 	{ name = "health potion", chance = 590 },

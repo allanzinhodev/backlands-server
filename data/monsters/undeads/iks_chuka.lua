@@ -81,12 +81,10 @@ monster.loot = {
 	{ name = "violet crystal shard", chance = 15870 },
 	{ name = "green crystal splinter", chance = 12350 },
 	{ name = "small sapphire", chance = 9940 },
-	{ name = "royal spear", chance = 3960, maxCount = 1 },
 	{ id = 3007, chance = 1760 }, -- crystal ring
 -- { name = "rotten feather", chance = 1710 },
 -- { name = "ritual tooth", chance = 1340 },
 -- { name = "gold-brocaded cloth", chance = 960 },
-	{ name = "broken iks spear", chance = 110 },
 	{ name = "broken iks headpiece", chance = 50 },
 }
 

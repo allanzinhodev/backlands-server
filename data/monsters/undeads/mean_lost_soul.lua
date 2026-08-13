@@ -82,10 +82,6 @@ monster.loot = {
 	{ name = "ensouled essence", chance = 2760 },
 	{ name = "fire axe", chance = 1400 },
 	{ name = "ivory comb", chance = 1200 },
-	{ name = "mercenary sword", chance = 1050 },
-	{ name = "haunted blade", chance = 960 },
-	{ name = "warrior's axe", chance = 730 },
-	{ name = "twiceslicer", chance = 310 },
 }
 
 monster.attacks = {

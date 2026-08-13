@@ -110,10 +110,7 @@ monster.loot = {
 	{ id = 2992, chance = 10000, maxCount = 6 }, -- snowball (não confirmado)
 	{ name = "frosty heart", chance = 8000 }, -- Not confirmed
 	{ id = 3007, chance = 5000 }, -- crystal ring (não confirmado)
-	{ name = "pair of earmuffs", chance = 5000 }, -- Not confirmed
 	{ name = "crystal mace", chance = 5000 }, -- Not confirmed
-	{ name = "glacier mask", chance = 5000 }, -- Not confirmed
-	{ name = "glacial rod", chance = 5000 }, -- Not confirmed
 	{ name = "ice rapier", chance = 5000 },
 	-- { name = "cryptic fossil", chance = 5000 }, -- Not confirmed
 	-- { name = "fetid heart", chance = 5000 }, -- Not confirmed

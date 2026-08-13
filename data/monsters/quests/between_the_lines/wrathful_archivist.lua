@@ -88,7 +88,6 @@ monster.loot = {
 	{ name = "small sapphire", chance = 3800, maxCount = 3 },
 	{ name = "small emerald", chance = 3500, maxCount = 3 },
 	{ name = "small amethyst", chance = 3200, maxCount = 3 },
-	{ name = "spellweaver's robe", chance = 3000 },
 	{ name = "proficiency catalyst", chance = 3000 },
 	{ name = "blank imbuement scroll", chance = 3000 },
 	{ id = 3041, chance = 3000 }, -- blue gem

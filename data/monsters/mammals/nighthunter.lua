@@ -82,9 +82,6 @@ monster.loot = {
 	{ name = "Green Crystal Shard", chance = 3670 },
 	{ name = "Cyan Crystal Fragment", chance = 3080 },
 	{ name = "Yellow Gem", chance = 2940 },
-	{ name = "Crystal Sword", chance = 1590 },
-	{ name = "Warrior's Axe", chance = 1400 },
-	{ name = "Spellbook of Mind Control", chance = 960 },
 	{ name = "Stone Skin Amulet", chance = 850 },
 }
 

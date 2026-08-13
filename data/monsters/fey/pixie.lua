@@ -82,9 +82,6 @@ monster.voices = {
 
 monster.loot = {
 	{ name = "gold coin", chance = 30000, maxCount = 90 },
-	{ name = "butterfly ring", chance = 492 },
-	{ name = "wooden spellbook", chance = 92 },
-	{ name = "dream blossom staff", chance = 92 },
 	{ id = 3046, chance = 492 }, -- magic light wand
 	{ name = "green mushroom", chance = 492 },
 	{ name = "small enchanted amethyst", chance = 492, maxCount = 2 },
@@ -92,7 +89,6 @@ monster.loot = {
 	{ name = "rainbow quartz", chance = 719, maxCount = 3 },
 	{ name = "colourful snail shell", chance = 719 },
 	{ name = "star herb", chance = 719 },
-	{ name = "leaf star", chance = 10000, maxCount = 5 },
 	{ name = "red rose", chance = 30100 },
 	{ name = "strong mana potion", chance = 6800 },
 	{ name = "wild flowers", chance = 5155 },

@@ -73,15 +73,10 @@ monster.loot = {
     { name = "Great Health Potion", chance = 49060, maxCount = 2 },
     { name = "Small Sapphire", chance = 43400, maxCount = 2 },
     { name = "Small Emerald", chance = 37740, maxCount = 2 },
-    { name = "Ripper Lance", chance = 32079, maxCount = 1 },
     { id = 3097, chance = 20750, maxCount = 1 },
     { name = "Yellow Gem", chance = 16980, maxCount = 1 },
-    { name = "Twin Hooks", chance = 11320, maxCount = 1 },
     { name = "Spike Sword", chance = 5660, maxCount = 1 },
-    { name = "Epee", chance = 3769, maxCount = 1 },
-    { name = "Carapace Shield", chance = 1890, maxCount = 1 },
     { id = 282, chance = 1890, maxCount = 1 },
-    { name = "Grasshopper Legs", chance = 1890, maxCount = 1 }
 }
 
 monster.attacks = {

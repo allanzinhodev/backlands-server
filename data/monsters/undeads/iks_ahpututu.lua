@@ -82,10 +82,8 @@ monster.loot = {
 -- { name = "daedal chisel", chance = 2910 },
 	{ name = "opal", chance = 1640, maxCount = 2 },
 -- { name = "ritual tooth", chance = 1460 },
-	{ name = "spellbook of enlightenment", chance = 1090 },
 	{ name = "gold ingot", chance = 730 },
 -- { name = "rotten feather", chance = 730 },
-	{ name = "broken iks faulds", chance = 360 },
 -- { name = "gold-brocaded cloth", chance = 360 },
 }
 

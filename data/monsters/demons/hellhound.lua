@@ -79,8 +79,6 @@ monster.voices = {
 }
 
 monster.loot = {
-	{ id = 7426, chance = 2000 }, -- amber staff
-	{ id = 7368, chance = 25000, maxCount = 10 }, -- assassin star
 	{ id = 3116, chance = 900 }, -- big bone
 	{ id = 3027, chance = 9200, maxCount = 4 }, -- black pearl
 	{ id = 16131, chance = 12500 }, -- blazing bone
@@ -98,21 +96,13 @@ monster.loot = {
 	{ id = 5925, chance = 10000 }, -- hardened bone
 	{ id = 9637, chance = 20000 }, -- hellhound slobber
 	{ id = 3318, chance = 7500 }, -- knight axe
-	{ id = 817, chance = 3000 }, -- magma amulet
-	{ id = 818, chance = 1500 }, -- magma boots
-	{ id = 826, chance = 800 }, -- magma coat
-	{ id = 821, chance = 1000 }, -- magma legs
-	{ id = 827, chance = 900 }, -- magma monocle
-	{ id = 7421, chance = 1000 }, -- onyx flail
 	{ id = 3035, chance = 100000, maxCount = 7 }, -- platinum coin
 	{ id = 3039, chance = 4500 }, -- red gem
-	{ id = 6553, chance = 1000 }, -- ruthless axe
 	{ id = 3032, chance = 10000, maxCount = 3 }, -- small emerald
 	{ id = 3030, chance = 10000, maxCount = 3 }, -- small ruby
 	{ id = 9057, chance = 10000, maxCount = 3 }, -- small topaz
 	{ id = 5944, chance = 20000 }, -- soul orb
 	{ id = 7643, chance = 16000 }, -- ultimate health potion
-	{ id = 3071, chance = 7000 }, -- wand of inferno
 	{ id = 3037, chance = 4500 }, -- yellow gem
 	{ id = 5911, chance = 3000 }, -- red piece of cloth
 	{ id = 5910, chance = 5000 }, -- green piece of cloth

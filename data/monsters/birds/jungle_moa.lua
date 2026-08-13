@@ -83,7 +83,6 @@ monster.loot = {
 	{ name = "Strong Mana Potion", chance = 9780, minCount = 1, maxCount = 2 },
 	{ name = "Jungle Moa Egg", chance = 8370 },
 	{ name = "Doublet", chance = 4420 },
-	{ name = "Spellbook of Enlightenment", chance = 1900 },
 }
 
 monster.attacks = {

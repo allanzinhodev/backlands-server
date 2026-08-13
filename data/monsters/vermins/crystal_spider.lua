@@ -93,10 +93,7 @@ monster.loot = {
 	{ name = "spider silk", chance = 2010 },
 	{ name = "shard", chance = 740 },
 	{ name = "sniper arrow", chance = 5840, maxCount = 6 },
-	{ name = "sapphire hammer", chance = 140 },
-	{ name = "crystal sword", chance = 2490 },
 	{ name = "strong mana potion", chance = 14950 },
-	{ name = "glacier mask", chance = 670 },
 }
 
 monster.attacks = {

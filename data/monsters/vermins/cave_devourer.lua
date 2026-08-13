@@ -89,7 +89,6 @@ monster.loot = {
 	{ name = "slime heart", chance = 13770, maxCount = 4 },
 	{ name = "cave devourer legs", chance = 17160 },
 	{ id = 3049, chance = 2540 }, -- stealth ring
-	{ name = "suspicious device", chance = 850 },
 }
 
 monster.attacks = {

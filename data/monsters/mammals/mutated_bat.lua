@@ -87,10 +87,8 @@ monster.loot = {
 	{ name = "obsidian lance", chance = 7260 },
 	{ name = "star herb", chance = 5060 },
 	{ name = "bat wing", chance = 4900, maxCount = 2 },
-	{ name = "mercenary sword", chance = 110 },
 	{ id = 8894, chance = 12530 }, -- heavily rusted armor
 	{ id = 8895, chance = 12530, maxCount = 2 }, -- rusted armor
-	{ name = "batwing hat", chance = 80 },
 	{ name = "mutated bat ear", chance = 4900 },
 }
 

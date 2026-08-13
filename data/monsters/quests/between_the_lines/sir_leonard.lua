@@ -81,7 +81,6 @@ monster.loot = {
 	{ name = "silver amulet", chance = 5000 },
 	{ name = "protection amulet", chance = 4800 },
 	{ name = "proficiency catalyst", chance = 4000 },
-	{ name = "gearwheel chain", chance = 3800 },
 	{ name = "knight axe", chance = 3800 },
 	{ name = "knight armor", chance = 3800 },
 	{ name = "knight legs", chance = 3500 },
@@ -94,7 +93,6 @@ monster.loot = {
 	{ id = 3038, chance = 3000 }, -- green gem
 	{ id = 3053, chance = 3000 }, -- time ring
 	{ id = 3092, chance = 3000 }, -- axe ring
-	{ id = 6299, chance = 3000 }, -- death ring
 }
 
 -- missing spells

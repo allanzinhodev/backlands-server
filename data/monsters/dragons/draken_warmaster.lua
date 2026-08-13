@@ -80,16 +80,11 @@ monster.loot = {
 	{ name = "platinum coin", chance = 47640, maxCount = 5 },
 	{ name = "meat", chance = 30390 },
 	{ name = "bone shoulderplate", chance = 12840 },
-	{ name = "zaoan halberd", chance = 8930 },
 	{ name = "warmaster's wristguards", chance = 7020 },
 	{ name = "great health potion", chance = 3710, maxCount = 3 },
 	{ name = "ultimate health potion", chance = 3410 },
-	{ name = "zaoan shoes", chance = 2610 },
 	{ name = "tower shield", chance = 2310 },
 	{ name = "small ruby", chance = 1810, maxCount = 5 },
-	{ name = "zaoan legs", chance = 1300 },
-	{ name = "zaoan armor", chance = 600 },
-	{ name = "drakinata", chance = 600 },
 	{ name = "ring of the sky", chance = 220 },
 }
 

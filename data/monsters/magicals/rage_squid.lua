@@ -94,13 +94,11 @@ monster.loot = {
 	{ name = "talon", chance = 8990 },
 	{ name = "might ring", chance = 4990 },
 	{ name = "devil helmet", chance = 6990 },
-	{ name = "demonrage sword", chance = 400 },
 	{ id = 7393, chance = 390 }, -- demon trophy
 	{ name = "giant sword", chance = 250 },
 	{ name = "demon shield", chance = 250 },
 	{ name = "magic plate armor", chance = 150 },
 	{ name = "platinum amulet", chance = 350 },
-	{ name = "wand of everblazing", chance = 300 },
 	{ name = "fire axe", chance = 500 },
 }
 

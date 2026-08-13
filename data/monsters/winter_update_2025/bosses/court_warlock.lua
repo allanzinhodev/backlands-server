@@ -87,26 +87,15 @@ monster.loot = {
 	{ name = "supreme health potion", chance = 37500, maxCount = 8 },
 	{ name = "strong mana potion", chance = 31250, maxCount = 25 },
 	{ name = "ultimate health potion", chance = 31250, maxCount = 16 },
-	{ name = "wooden spellbook", chance = 31250 },
-	{ id = 6299, chance = 31250 }, -- death ring
 	{ name = "mind stone", chance = 25000 },
 	{ name = "skull staff", chance = 18750 },
-	{ name = "magma coat", chance = 18750 },
 	{ name = "giant sapphire", chance = 18750 },
-	{ name = "wand of defiance", chance = 18750 },
 	{ name = "ultimate spirit potion", chance = 12500, maxCount = 11 },
 	{ name = "giant ruby", chance = 12500 },
-	{ name = "lightning robe", chance = 12500 },
 	{ name = "might ring", chance = 12500 },
-	{ name = "terra mantle", chance = 12500 },
-	{ name = "glacier robe", chance = 6250 },
-	{ name = "terra hood", chance = 6250 },
-	{ name = "lightning headband", chance = 6250 },
 	{ name = "giant amethyst", chance = 5000 }, -- Not confirmed
 	{ name = "giant emerald", chance = 5000 }, -- Not confirmed
 	{ id = 37335, chance = 5000 }, -- black skull (não confirmado)
-	{ name = "magma monocle", chance = 5000 }, -- Not confirmed
-	{ name = "glacier mask", chance = 5000 }, -- Not confirmed
 	-- { name = "broken staff of mind control", chance = 5000 }, -- Not confirmed
 	-- { name = "twisted marionette", chance = 5000 }, -- Not confirmed
 	-- { name = "stag shinguards", chance = 3000 }, -- Not confirmed

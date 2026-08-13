@@ -84,10 +84,7 @@ monster.loot = {
 	{ id = 3027, chance = 62000, maxCount = 5 }, -- black pearl
 	{ id = 5479, chance = 31000 }, -- cat's paw
 	{ id = 3741, chance = 21000 }, -- troll green
-	{ id = 10389, chance = 15000 }, -- sai
-	{ id = 7419, chance = 9800 }, -- dreaded cleaver
 	{ id = 3053, chance = 6000 }, -- time ring
-	{ id = 7428, chance = 2000 }, -- bonebreaker
 }
 
 monster.attacks = {

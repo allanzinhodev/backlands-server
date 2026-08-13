@@ -69,7 +69,6 @@ monster.voices = {
 
 monster.loot = {
 	{ id = 6558, chance = 100000 }, -- flask of demonic blood
-	{ id = 6299, chance = 100000 }, -- death ring
 	{ id = 6499, chance = 100000 }, -- demonic essence
 	{ id = 10306, chance = 100000 }, -- essence of a bad dream
 	{ id = 3582, chance = 100000, maxCount = 2 }, -- ham
@@ -79,7 +78,6 @@ monster.loot = {
 	{ id = 5668, chance = 40000 }, -- mysterious voodoo skull
 	{ id = 6525, chance = 28000 }, -- skeleton decoration
 	{ id = 3342, chance = 14000 }, -- war axe
-	{ id = 7418, chance = 10000 }, -- nightmare blade
 	{ id = 3079, chance = 8000 }, -- boots of haste
 }
 

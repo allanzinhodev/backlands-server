@@ -89,8 +89,6 @@ monster.loot = {
 	{ name = "minotaur horn", chance = 4550, maxCount = 2 },
 	{ name = "small topaz", chance = 4350 },
 	{ id = 3094, chance = 1580 }, -- sword ring
-	{ name = "cowtana", chance = 1380 },
-	{ id = 21166, chance = 1380 }, -- mooh'tah plate
 	{ name = "knight armor", chance = 990 },
 	{ name = "red piece of cloth", chance = 790 },
 	{ name = "knight legs", chance = 590 },

@@ -94,12 +94,9 @@ monster.loot = {
 	{ id = 3037, chance = 1000 }, -- yellow gem
 	{ id = 3039, chance = 1000 }, -- red gem
 	{ id = 3041, chance = 1000 }, -- blue gem
-	{ id = 3065, chance = 13000 }, -- terra rod
 	{ id = 3356, chance = 8000 }, -- devil helmet
 	{ id = 22193, chance = 46100, maxCount = 5 }, -- onyx chip
 	{ id = 22194, chance = 46100, maxCount = 5 }, -- opal
-	{ id = 22754, chance = 500 }, -- visage of the end days
-	{ id = 22762, chance = 500, unique = true }, -- maimer
 	{ id = 5021, chance = 46100, maxCount = 5 }, -- orichalcum pearl
 	{ id = 6499, chance = 11000 }, -- demonic essence
 	{ id = 7439, chance = 8000 }, -- berserk potion

@@ -77,7 +77,6 @@ monster.loot = {
 	{ name = "disgusting trophy", chance = 5420 },
 	{ name = "bow", chance = 4220 },
 	{ name = "orc tooth", chance = 2410 },
-	{ name = "silkweaver bow", chance = 1810 },
 	{ name = "crossbow", chance = 1200 },
 	{ name = "orc leather", chance = 500 },
 }

@@ -90,20 +90,15 @@ monster.loot = {
 	{ id = 12306, chance = 2000 }, -- leather whip
 	{ id = 11454, chance = 2000 }, -- luminous orb
 	{ id = 5904, chance = 2000 }, -- magic sulphur
-	{ id = 821, chance = 1000 }, -- magma legs
 	{ id = 7440, chance = 2000 }, -- mastermind potion
 	{ id = 3098, chance = 2000 }, -- ring of healing
 	{ id = 3036, chance = 2000 }, -- violet gem
 	{ id = 3037, chance = 2000 }, -- yellow gem
-	{ id = 10323, chance = 1000 }, -- guardian boots
 	{ id = 3324, chance = 1000 }, -- skull staff
 	{ id = 3081, chance = 1000 }, -- stone skin amulet
-	{ id = 10323, chance = 1000 }, -- guardian boots
 	{ id = 24956, chance = 500, unique = true }, -- part of a rune
-	{ id = 8076, chance = 1000 }, -- spellscroll of prophecies
 	{ id = 5809, chance = 100, unique = true }, -- soul stone
 	{ id = 3439, chance = 100 }, -- phoenix shield
-	{ id = 7417, chance = 100 }, -- runed sword
 	{ id = 22721, chance = 37500 }, -- gold token
 	{ id = 22516, chance = 12500 }, -- silver token
 }

@@ -112,11 +112,8 @@ monster.loot = {
 	-- { name = "golden claw", chance = 5000 }, -- Not confirmed
 	-- { name = "cryptic fossil", chance = 5000 }, -- Not confirmed
 	-- { name = "fetid heart", chance = 5000 }, -- Not confirmed
-	{ name = "dragonbone staff", chance = 5000 }, -- Not confirmed
 	{ name = "dragon shield", chance = 5000 }, -- Not confirmed
-	{ name = "wand of inferno", chance = 5000 }, -- Not confirmed
 	{ name = "fire sword", chance = 5000 }, -- Not confirmed
-	{ name = "dragon slayer", chance = 27270 }, -- Not confirmed
 	-- { name = "fiery crypt rune", chance = 100000 },
 }
 

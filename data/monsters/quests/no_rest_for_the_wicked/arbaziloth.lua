@@ -94,8 +94,6 @@ monster.loot = {
 	{ id = 3320, chance = 20000, maxCount = 1 }, --  fire axe
 	{ id = 3281, chance = 20000, maxCount = 1 }, --  giant sword
 	{ id = 3081, chance = 20000, maxCount = 1 }, --  stone skin amulet
-	{ id = 817, chance = 20000, maxCount = 1 }, --  magma amulet
-	{ id = 6299, chance = 20000, maxCount = 1 }, -- death ring
 	{ id = 3052, chance = 20000, maxCount = 1 }, --  life ring
 	{ id = 3373, chance = 20000, maxCount = 1 }, --  strange helmet
 	{ id = 3356, chance = 20000, maxCount = 1 }, --  devil helmet
@@ -103,20 +101,15 @@ monster.loot = {
 	{ id = 3280, chance = 20000, maxCount = 1 }, --  fire sword
 	{ id = 3063, chance = 20000, maxCount = 1 }, --  gold ring
 	{ id = 3306, chance = 20000, maxCount = 1 }, --  golden sickle
-	{ id = 821, chance = 20000, maxCount = 1 }, --  magma legs
 	{ id = 3048, chance = 20000, maxCount = 1 }, --  might ring
 	{ id = 3055, chance = 20000, maxCount = 1 }, --  platinum amulet
 	{ id = 2848, chance = 20000, maxCount = 1 }, --  purple tome
 	{ id = 3098, chance = 20000, maxCount = 1 }, --  ring of healing
 	{ id = 3054, chance = 20000, maxCount = 1 }, --  silver amulet
 	{ id = 3324, chance = 20000, maxCount = 1 }, --  skull staff
-	{ id = 10438, chance = 20000, maxCount = 1 }, --  spellweaver's robe
-	{ id = 8082, chance = 20000, maxCount = 1 }, --  underworld rod
-	{ id = 3071, chance = 20000, maxCount = 1 }, --  wand of inferno
 	{ id = 3420, chance = 10000, maxCount = 1 }, -- demon shield
 	{ id = 50067, chance = 10000, maxCount = 1 }, -- arbaziloth shoulder piece
 	{ id = 3019, chance = 10000, maxCount = 1 }, -- demonbone amulet
-	{ id = 7382, chance = 10000, maxCount = 1 }, -- demonrage sword
 	{ id = 32622, chance = 10000, maxCount = 1 }, -- giant amethyst
 	{ id = 30060, chance = 10000, maxCount = 1 }, -- giant emerald
 	{ id = 30061, chance = 10000, maxCount = 1 }, -- giant sapphire
@@ -125,11 +118,6 @@ monster.loot = {
 	{ id = 3366, chance = 10000, maxCount = 1 }, -- magic plate armor
 	{ id = 50061, chance = 700, maxCount = 1 }, -- demon skull
 	{ id = 50064, chance = 700, maxCount = 1 }, -- demon in a green box
-	{ id = 49531, chance = 400, maxCount = 1 }, -- maliceforged helmet
-	{ id = 49532, chance = 400, maxCount = 1 }, -- hellstalker visor
-	{ id = 49533, chance = 400, maxCount = 1 }, -- dreadfire headpiece
-	{ id = 49534, chance = 400, maxCount = 1 }, -- demonfang mask
-	{ id = 50189, chance = 800, maxCount = 1 }, -- demon mengu
 }
 
 monster.attacks = {

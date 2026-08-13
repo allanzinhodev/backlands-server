@@ -70,7 +70,6 @@ monster.voices = {
 }
 
 monster.loot = {
-	{ id = 5903, chance = 100000, unique = true }, -- ferumbras' hat
 }
 
 monster.attacks = {

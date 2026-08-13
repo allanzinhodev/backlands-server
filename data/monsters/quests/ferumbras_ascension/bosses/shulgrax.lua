@@ -91,22 +91,11 @@ monster.loot = {
 	{ id = 3366, chance = 700 }, -- magic plate armor
 	{ id = 22193, chance = 46100, maxCount = 5 }, -- onyx chip
 	{ id = 22194, chance = 46100, maxCount = 5 }, -- opal
-	{ id = 22726, chance = 700 }, -- rift shield
-	{ id = 22727, chance = 700 }, -- rift lance
-	{ id = 22756, chance = 500, unique = true }, -- treader of torment
-	{ id = 22867, chance = 700 }, -- rift crossbow
 	{ id = 5021, chance = 46100, maxCount = 5 }, -- orichalcum pearl
-	{ id = 6299, chance = 1300 }, -- death ring
 	{ id = 6499, chance = 11000 }, -- demonic essence
-	{ id = 7416, chance = 1000 }, -- bloody edge
-	{ id = 7419, chance = 1300 }, -- dreaded cleaver
-	{ id = 7427, chance = 1000 }, -- chaos mace
-	{ id = 7451, chance = 1900 }, -- shadow sceptre
 	{ id = 238, chance = 23000, maxCount = 5 }, -- great mana potion
 	{ id = 281, chance = 14000, maxCount = 5 }, -- giant shimmering pearl (green)
 	{ id = 282, chance = 14000, maxCount = 5 }, -- giant shimmering pearl (brown)
-	{ id = 816, chance = 1000 }, -- lightning pendant
-	{ id = 822, chance = 1000 }, -- lightning legs
 	{ id = 7642, chance = 46100, maxCount = 10 }, -- great spirit potion
 	{ id = 7643, chance = 23000, maxCount = 5 }, -- ultimate health potion
 	{ id = 9057, chance = 10000, maxCount = 5 }, -- small topaz

@@ -79,8 +79,6 @@ monster.loot = {
 	{ name = "damaged armor plates", chance = 1800, maxCount = 3 },
 	{ name = "falcon crest", chance = 400, maxCount = 3 },
 	{ name = "patch of fine cloth", chance = 2500 },
-	{ name = "falcon coif", chance = 200 },
-	{ name = "falcon bow", chance = 200 },
 }
 
 monster.attacks = {

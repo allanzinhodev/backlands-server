@@ -98,7 +98,6 @@ monster.loot = {
 	{ name = "tower shield", chance = 290 },
 	{ name = "royal helmet", chance = 230 },
 	{ name = "dragon scale mail", chance = 100 },
-	{ name = "dragon slayer", chance = 100 },
 }
 
 monster.attacks = {

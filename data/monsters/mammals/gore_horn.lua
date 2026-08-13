@@ -79,9 +79,7 @@ monster.loot = {
 	{ name = "Crystal Coin", chance = 30050 },
 	{ name = "Big Bone", chance = 5270 },
 	{ id = 3097, chance = 3590 }, -- Dwarven Ring
-	{ name = "Metal Spats", chance = 3100 },
 	{ name = "Knight Legs", chance = 2330 },
-	{ name = "Diamond Sceptre", chance = 2060 },
 	{ name = "Doublet", chance = 1390 },
 	{ name = "Hammer of Wrath", chance = 1070 },
 }

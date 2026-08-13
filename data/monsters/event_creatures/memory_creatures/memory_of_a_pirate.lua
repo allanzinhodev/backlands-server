@@ -67,7 +67,6 @@ monster.loot = {
 	{ name = "throwing knife", chance = 9000, maxCount = 5 },
 	{ name = "plate armor", chance = 1130 },
 	{ name = "battle shield", chance = 3850 },
-	{ name = "pirate shirt", chance = 1200 },
 	{ id = 37531, chance = 5155 }, -- candy floss
 	{ name = "strong health potion", chance = 670 },
 }

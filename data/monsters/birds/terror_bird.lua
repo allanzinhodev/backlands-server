@@ -85,7 +85,6 @@ monster.loot = {
 	{ name = "colourful feather", chance = 2940 },
 	{ name = "health potion", chance = 800 },
 	{ name = "seeds", chance = 290 },
-	{ name = "feather headdress", chance = 110 },
 }
 
 monster.attacks = {

@@ -84,11 +84,7 @@ monster.loot = {
 	{ name = "strong mana potion", chance = 2800, minCount = 1, maxCount = 3 },
 	{ name = "piece of frozen night", chance = 2500 }, -- new item
 	{ name = "blood hood", chance = 2200 }, -- new item
-	{ name = "magma amulet", chance = 2000 },
 	{ name = "rainbow quartz", chance = 1800, minCount = 1, maxCount = 2 },
-	{ id = 6299, chance = 1400 }, -- death ring
-	{ name = "wand of defiance", chance = 1200 },
-	{ name = "greater garlic necklace", chance = 1200 }, -- new item
 	{ id = 51487, chance = 1000 }, -- new item // norcferatu talisman
 }
 

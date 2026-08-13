@@ -83,11 +83,7 @@ monster.loot = {
 	{ name = "blue crystal shard", chance = 4530 },
 	{ name = "great spirit potion", chance = 2970, maxCount = 3 },
 	{ name = "gold ring", chance = 1720 },
-	{ name = "wand of defiance", chance = 1720 },
-	{ name = "focus cape", chance = 1560 },
 	{ name = "violet gem", chance = 1200 },
-	{ name = "ornate crossbow", chance = 500 },
-	{ name = "shockwave amulet", chance = 470 },
 	{ name = "magic plate armor", chance = 440 },
 }
 

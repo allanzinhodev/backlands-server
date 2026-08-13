@@ -73,7 +73,6 @@ monster.loot = {
 	{ id = 3041, chance = 5000, maxCount = 2 }, -- blue gem
 	{ id = 32769, chance = 5000 }, -- white gem
 	{ name = "etcher", chance = 6000 },
-	{ id = 6299, chance = 4500 }, -- death ring
 	{ name = "silver amulet", chance = 4800 },
 	{ name = "bronze amulet", chance = 4000 },
 	{ id = 3092, chance = 3800 }, -- axe ring

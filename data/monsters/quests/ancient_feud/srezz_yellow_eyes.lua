@@ -80,14 +80,9 @@ monster.loot = {
 	{ id = 3041, chance = 6670 }, -- blue gem
 	{ id = 24392, chance = 5560 }, -- gemmed figurine
 	{ id = 10313, chance = 5000 }, -- winged tail
-	{ id = 823, chance = 4440 }, -- glacier kilt
 	{ id = 34103, chance = 3890 }, -- srezz' eye
-	{ id = 5741, chance = 3330 }, -- skull helmet
-	{ id = 824, chance = 2780 }, -- glacier robe
 	{ id = 3342, chance = 2220 }, -- war axe
-	{ id = 23531, chance = 1670 }, -- ring of green plasma
 	{ id = 3281, chance = 1110 }, -- giant sword
-	{ id = 7382, chance = 560 }, -- demonrage sword
 	{ id = 3040, chance = 560 }, -- gold nugget
 	{ id = 34258, chance = 360 }, -- red silk flower
 	{ id = 33778, chance = 360 }, -- raw watermelon tourmaline

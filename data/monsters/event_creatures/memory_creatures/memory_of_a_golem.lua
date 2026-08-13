@@ -71,7 +71,6 @@ monster.loot = {
 	{ name = "small emerald", chance = 7430, maxCount = 2 },
 	{ id = 37531, chance = 5155 }, -- candy floss
 	{ name = "special fx box", chance = 1500 },
-	{ name = "heat core", chance = 5155 },
 }
 
 monster.attacks = {

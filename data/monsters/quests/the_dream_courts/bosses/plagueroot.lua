@@ -75,7 +75,6 @@ monster.loot = {
 	{ name = "huge chunk of crude iron", chance = 100000 },
 	{ name = "piggy bank", chance = 100000 },
 	{ name = "energy bar", chance = 100000 },
-	{ name = "royal star", chance = 80000, maxCount = 184 },
 	{ name = "ultimate mana potion", chance = 80000, maxCount = 22 },
 	{ name = "supreme health potion", chance = 60000, maxCount = 13 },
 	{ name = "gold token", chance = 60000, maxCount = 3 },
@@ -100,7 +99,6 @@ monster.loot = {
 	{ name = "gold token", chance = 80000 },
 	{ name = "ultimate spirit potion", chance = 59180, maxCount = 20 },
 	{ name = "ultimate mana potion", chance = 57140, maxCount = 20 },
-	{ name = "royal star", chance = 48980 },
 	{ name = "supreme health potion", chance = 46940, maxCount = 20 },
 	{ name = "yellow gem", chance = 40820, maxCount = 2 },
 	{ name = "huge chunk of crude iron", chance = 38780 },
@@ -111,25 +109,15 @@ monster.loot = {
 	{ name = "berserk potion", chance = 16329 },
 	{ name = "skull staff", chance = 16329 },
 	{ name = "pomegranate", chance = 16329 },
-	{ id = 23542, chance = 14290 }, -- collar of blue plasma
 	{ name = "blue gem", chance = 12240 },
 	{ name = "green gem", chance = 12240 },
-	{ id = 23529, chance = 10200 }, -- ring of blue plasma
 	{ name = "violet gem", chance = 8160, maxCount = 2 },
-	{ id = 23543, chance = 8160 }, -- collar of green plasma
-	{ id = 23544, chance = 8160 }, -- collar of red plasma
-	{ id = 23531, chance = 8160 }, -- ring of green plasma
-	{ id = 23533, chance = 6120 }, -- ring of red plasma
-	{ name = "chaos mace", chance = 6120 },
 	{ name = "plagueroot offshoot", chance = 6120 },
 	{ name = "magic sulphur", chance = 6120 },
-	{ name = "living vine bow", chance = 4080 },
 	{ name = "giant emerald", chance = 4080 },
 	{ name = "soul stone", chance = 4080 },
-	{ name = "living armor", chance = 4080 },
 	{ name = "turquoise tendril lantern", chance = 2040 },
 	{ name = "ring of the sky", chance = 2040 },
-	{ name = "abyss hammer", chance = 2040 },
 	{ id = 3341, chance = 3130 }, -- arcane staff
 }
 

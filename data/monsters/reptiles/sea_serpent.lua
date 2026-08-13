@@ -89,12 +89,6 @@ monster.loot = {
 	{ name = "strong health potion", chance = 5500 },
 	{ name = "strong mana potion", chance = 3850 },
 	{ name = "great mana potion", chance = 920 },
-	{ name = "glacier amulet", chance = 880 },
-	{ name = "glacier kilt", chance = 430 },
-	{ name = "spirit cloak", chance = 2900 },
-	{ name = "focus cape", chance = 370 },
-	{ name = "crystalline armor", chance = 90 },
-	{ name = "northwind rod", chance = 930 },
 	{ name = "sea serpent scale", chance = 10200 },
 }
 

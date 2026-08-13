@@ -79,7 +79,6 @@ monster.loot = {
 	{ name = "platinum coin", chance = 9920, maxCount = 2 },
 	{ name = "war hammer", chance = 1010 },
 	{ name = "knight armor", chance = 870 },
-	{ name = "spiked squelcher", chance = 160 },
 	{ name = "strong health potion", chance = 5000, maxCount = 2 },
 	{ name = "strong mana potion", chance = 5000, maxCount = 2 },
 	{ name = "small topaz", chance = 7940, maxCount = 2 },

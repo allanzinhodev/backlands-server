@@ -70,11 +70,8 @@ monster.loot = {
 	{ id = 3079, chance = 120 }, -- boots of haste
 	{ id = 237, chance = 1600 }, -- strong mana potion
 	{ id = 3031, chance = 89840, maxCount = 110 }, -- gold coin
-	{ id = 7407, chance = 320 }, -- haunted blade
-	{ id = 7427, chance = 120 }, -- chaos mace
 	{ id = 9028, chance = 130 }, -- crystal of balance
 	{ id = 3007, chance = 1030 }, -- crystal ring
-	{ id = 8042, chance = 520 }, -- spirit cloak
 }
 
 monster.attacks = {

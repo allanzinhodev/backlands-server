@@ -76,12 +76,8 @@ monster.loot = {
 	{ id = 3050, chance = 3000 }, -- power ring
 	{ id = 3091, chance = 3000 }, -- sword ring
 	{ name = "proficiency catalyst", chance = 3500 },
-	{ name = "crystalline armor", chance = 3200 },
 	{ name = "two handed sword", chance = 3000 },
-	{ id = 6299, chance = 3000 }, -- death ring
 	{ name = "moonstone", chance = 3000 },
-	{ name = "terra legs", chance = 3000 },
-	{ name = "terra boots", chance = 3000 },
 	{ name = "small topaz", chance = 3000, maxCount = 5 },
 	{ name = "strange helmet", chance = 2000 },
 	{ name = "cyan crystal fragment", chance = 2000 },

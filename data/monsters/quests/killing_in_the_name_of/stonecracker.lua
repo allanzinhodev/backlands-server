@@ -69,7 +69,6 @@ monster.loot = {
 	{ id = 5893, chance = 64800 }, -- perfect behemoth fang
 	{ id = 3577, chance = 36200 }, -- meat
 	{ id = 5930, chance = 50500 }, -- behemoth claw
-	{ id = 7368, chance = 11225, maxCount = 2 }, -- assassin star
 	{ id = 3383, chance = 7650 }, -- dark armor
 	{ id = 3304, chance = 14800 }, -- crowbar
 	{ id = 3033, chance = 7650, maxCount = 2 }, -- small amethyst

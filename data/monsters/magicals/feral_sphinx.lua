@@ -79,20 +79,13 @@ monster.loot = {
 	{ name = "green crystal shard", chance = 8740 },
 	{ name = "cyan crystal fragment", chance = 8620 },
 	{ id = 3039, chance = 8390 }, -- red gem
-	{ name = "magma amulet", chance = 6060 },
-	{ name = "wand of inferno", chance = 5710 },
 	{ name = "small sapphire", chance = 5590, maxCount = 2 },
 	{ name = "dragon necklace", chance = 5590 },
 	{ name = "blue gem", chance = 5480 },
 	{ name = "sphinx feather", chance = 5480 },
-	{ name = "sphinx tiara", chance = 5240 },
 	{ name = "fire axe", chance = 4200 },
-	{ name = "wand of draconia", chance = 2910 },
 	{ name = "green gem", chance = 2680 },
-	{ name = "magma monocle", chance = 1400 },
-	{ name = "magma boots", chance = 1280 },
 	{ name = "small enchanted emerald", chance = 1050, maxCount = 2 },
-	{ name = "magma legs", chance = 930 },
 }
 
 monster.attacks = {

@@ -79,8 +79,6 @@ monster.loot = {
     { name = "Gooey Mass", chance = 20590, maxCount = 2 },
     { id = 282, chance = 8820, maxCount = 1 },
     { name = "Gold Ingot", chance = 7350, maxCount = 1 },
-    { name = "Calopteryx Cape", chance = 4410, maxCount = 1 },
-    { name = "Hive Bow", chance = 1470, maxCount = 1 }
 }
 
 monster.attacks = {

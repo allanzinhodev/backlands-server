@@ -79,12 +79,8 @@ monster.voices = {
 monster.loot = {
 	{ name = "great mana potion", chance = 30000, maxCount = 2 },
 	{ name = "pirate coin", chance = 7000, maxCount = 10 },
-	{ name = "terra boots", chance = 6000 },
 	{ name = "pirat's tail", chance = 4000 },
-	{ name = "magma boots", chance = 3000 },
 -- { name = "mouldy powder", chance = 4000 },
-	{ id = 23529, chance = 2000 }, -- ring of blue plasma
-	{ name = "lightning boots", chance = 1000 },
 	{ name = "wood cape", chance = 1000 },
 }
 

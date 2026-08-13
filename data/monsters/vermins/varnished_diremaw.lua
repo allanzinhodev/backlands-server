@@ -78,7 +78,6 @@ monster.voices = {
 
 monster.loot = {
 	{ name = "platinum coin", chance = 70000, maxCount = 18 },
-	{ name = "terra rod", chance = 30090 },
 	{ name = "emerald bangle", chance = 18580, maxCount = 1 },
 	{ name = "brown crystal splinter", chance = 8850, maxCount = 3 },
 	{ id = 3039, chance = 10620, maxCount = 1 }, -- red gem
@@ -91,16 +90,7 @@ monster.loot = {
 	{ name = "green gem", chance = 6190, maxCount = 1 },
 	{ name = "small emerald", chance = 9730, maxCount = 5 },
 	{ name = "green crystal shard", chance = 11500, maxCount = 3 },
-	{ name = "hailstorm rod", chance = 6190 },
-	{ name = "diamond sceptre", chance = 2650 },
-	{ name = "wand of starstorm", chance = 2650 },
-	{ name = "springsprout rod", chance = 7080 },
-	{ name = "glacier shoes", chance = 2650 },
-	{ name = "spellbook of warding", chance = 1770 },
-	{ name = "fur armor", chance = 1640 },
 	{ name = "wood cape", chance = 2650 },
-	{ name = "haunted blade", chance = 1370 },
-	{ name = "glacier kilt", chance = 880 },
 	{ name = "crown shield", chance = 880 },
 }
 

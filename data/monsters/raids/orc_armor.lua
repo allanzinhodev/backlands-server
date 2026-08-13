@@ -73,7 +73,6 @@ monster.loot = {
 	{ id = 3578, chance = 10800, maxCount = 2 }, -- fish
 	{ id = 10196, chance = 9500 }, -- orc tooth
 	{ id = 3316, chance = 5200 }, -- orcish axe
-	{ id = 3347, chance = 5200 }, -- hunting spear
 	{ id = 3357, chance = 5110 }, -- plate armor
 	{ id = 11480, chance = 4610 }, -- skull belt
 	{ id = 3557, chance = 4180 }, -- plate legs
@@ -85,7 +84,6 @@ monster.loot = {
 	{ id = 266, chance = 420 }, -- health potion
 	{ id = 3391, chance = 340 }, -- crusader helmet
 	{ id = 3322, chance = 290 }, -- dragon hammer
-	{ id = 818, chance = 250 }, -- magma boots
 	{ id = 7395, chance = 80 }, -- orc trophy
 	{ id = 3049, chance = 80 }, -- stealth ring
 	{ id = 3394, chance = 5000 }, -- amazon armor

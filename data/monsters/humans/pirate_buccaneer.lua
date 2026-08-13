@@ -88,7 +88,6 @@ monster.loot = {
 	{ name = "rum flask", chance = 120 },
 	{ id = 5792, chance = 40 }, -- die
 	{ name = "pirate backpack", chance = 430 },
-	{ name = "pirate shirt", chance = 1200 },
 	{ name = "hook", chance = 450 },
 	{ name = "eye patch", chance = 420 },
 	{ name = "peg leg", chance = 510 },

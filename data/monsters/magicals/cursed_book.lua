@@ -81,16 +81,7 @@ monster.loot = {
 	{ name = "small stone", chance = 10000, maxCount = 7 },
 	{ name = "small topaz", chance = 10000, maxCount = 7 },
 	{ name = "protection amulet", chance = 10000 },
-	{ name = "terra boots", chance = 350 },
-	{ name = "terra hood", chance = 600 },
-	{ name = "diamond sceptre", chance = 600 },
-	{ name = "terra mantle", chance = 250 },
-	{ name = "terra legs", chance = 250 },
-	{ name = "terra amulet", chance = 500 },
 	{ name = "stone skin amulet", chance = 350 },
-	{ name = "springsprout rod", chance = 350 },
-	{ name = "sacred tree amulet", chance = 350 },
-	{ name = "swamplair armor", chance = 250 },
 }
 
 monster.attacks = {

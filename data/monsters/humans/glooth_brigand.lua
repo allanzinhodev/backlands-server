@@ -87,20 +87,8 @@ monster.loot = {
 	{ id = 7642, chance = 2500 }, -- great spirit potion
 	{ id = 21146, chance = 2000 }, -- glooth steak
 	{ id = 7643, chance = 2000 }, -- ultimate health potion
-	{ id = 21178, chance = 1515 }, -- glooth club
-	{ id = 21183, chance = 1515 }, -- glooth amulet
-	{ id = 7386, chance = 1000 }, -- mercenary sword
-	{ id = 811, chance = 1000 }, -- terra mantle
 	{ id = 281, chance = 1000 }, -- giant shimmering pearl (green)
-	{ id = 814, chance = 1000 }, -- terra amulet
-	{ id = 7412, chance = 1000 }, -- butcher's axe
 	{ id = 3038, chance = 1000 }, -- green gem
-	{ id = 813, chance = 502 }, -- terra boots
-	{ id = 7419, chance = 502 }, -- dreaded cleaver
-	{ id = 21167, chance = 502 }, -- heat core
-	{ id = 21158, chance = 502 }, -- glooth spear
-	{ id = 21165, chance = 502 }, -- rubber cap
-	{ id = 830, chance = 502 }, -- terra hood
 }
 
 monster.attacks = {

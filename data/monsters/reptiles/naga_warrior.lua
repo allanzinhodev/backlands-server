@@ -83,11 +83,9 @@ monster.loot = {
 	{ id = 3307, chance = 5520 }, -- scimitar
 	{ name = "naga armring", chance = 3730 },
 	{ name = "plate armor", chance = 2990 },
-	{ name = "spiky club", chance = 2090 },
 	{ name = "serpent sword", chance = 1940 },
 	{ name = "violet crystal shard", chance = 2640 },
 	{ name = "katana", chance = 1490 },
-	{ name = "relic sword", chance = 600 },
 	{ name = "knight armor", chance = 1100 },
 	{ id = 7441, chance = 300 }, -- ice cube
 }

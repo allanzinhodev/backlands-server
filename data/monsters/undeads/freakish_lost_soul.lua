@@ -80,10 +80,7 @@ monster.loot = {
 	{ name = "emerald bangle", chance = 5980 },
 	{ name = "gemmed figurine", chance = 3800 },
 	{ name = "ensouled essence", chance = 2720 },
-	{ id = 23529, chance = 1220 }, -- ring of blue plasma
 	{ name = "silver hand mirror", chance = 1090 },
-	{ name = "ornate crossbow", chance = 1090 },
-	{ name = "crystal crossbow", chance = 270 },
 }
 
 monster.attacks = {

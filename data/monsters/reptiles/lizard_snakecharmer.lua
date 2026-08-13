@@ -88,10 +88,7 @@ monster.loot = {
 	{ name = "yellow gem", chance = 150 },
 	{ id = 3052, chance = 340 }, -- life ring
 	{ name = "life crystal", chance = 1430 },
-	{ name = "terra rod", chance = 920 },
-	{ name = "snakebite rod", chance = 230 },
 	{ name = "cape", chance = 8640 },
-	{ name = "charmer's tiara", chance = 230 },
 	{ name = "lizard leather", chance = 1320 },
 	{ name = "lizard scale", chance = 860 },
 	{ name = "mana potion", chance = 860 },

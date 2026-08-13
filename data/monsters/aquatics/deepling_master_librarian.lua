@@ -85,11 +85,8 @@ monster.loot = {
 	{ name = "eye of a deepling", chance = 10130 },
 	{ id = 3578, chance = 9040, maxCount = 2 }, -- fish
 	{ name = "small sapphire", chance = 7730, maxCount = 3 },
-	{ name = "deepling staff", chance = 3030 },
 	{ id = 3052, chance = 2690 }, -- life ring
 	{ name = "fish fin", chance = 2060 },
-	{ name = "necklace of the deep", chance = 1370 },
-	{ name = "ornate crossbow", chance = 290 },
 }
 
 monster.attacks = {

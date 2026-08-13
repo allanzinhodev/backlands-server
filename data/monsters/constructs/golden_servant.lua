@@ -88,7 +88,6 @@ monster.loot = {
 	{ name = "green mushroom", chance = 1450 },
 	{ name = "health potion", chance = 4930 },
 	{ name = "mana potion", chance = 4950 },
-	{ name = "spellbook of enlightenment", chance = 520 },
 	{ name = "gear wheel", chance = 940 },
 	{ name = "slime mould", chance = 340 },
 	{ name = "golden can of oil", chance = 40 },

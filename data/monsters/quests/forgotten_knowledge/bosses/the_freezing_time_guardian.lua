@@ -82,7 +82,6 @@ monster.loot = {
 	{ id = 3324, chance = 1000 }, -- skull staff
 	{ id = 3081, chance = 1000 }, -- stone skin amulet
 	{ id = 3439, chance = 100 }, -- phoenix shield
-	{ id = 7417, chance = 100 }, -- runed sword
 	{ id = 22721, chance = 38460 }, -- gold token
 	{ id = 22516, chance = 30770 }, -- silver token
 }

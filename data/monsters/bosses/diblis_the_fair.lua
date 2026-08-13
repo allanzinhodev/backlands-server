@@ -89,7 +89,6 @@ monster.loot = {
 	{ name = "black pearl", chance = 990 },
 	{ id = 3098, chance = 10890 }, -- ring of healing
 	{ id = 3114, chance = 11880 }, -- skull
-	{ name = "spellbook of lost souls", chance = 1980 },
 }
 
 monster.attacks = {

@@ -74,7 +74,6 @@ monster.loot = {
 	{ id = 37531, chance = 5155 }, -- candy floss
 	{ name = "white pearl", chance = 530 },
 	{ name = "opal", chance = 5155 },
-	{ name = "bonebreaker", chance = 400 },
 	{ name = "bottle of champagne", chance = 600 },
 }
 

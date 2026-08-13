@@ -86,14 +86,12 @@ monster.loot = {
 -- { name = "crystal of the mitmah", chance = 11410 }, -- 280gp yasir
 	{ name = "strong health potion", chance = 5810, maxCount = 3 },
 	{ name = "opal", chance = 4990 },
-	{ name = "wand of cosmic energy", chance = 3920 },
 	{ id = 3039, chance = 2280 }, -- red gem
 -- { name = "gold-brocaded cloth", chance = 1450 },
 	{ name = "gold ring", chance = 1190 },
 	{ name = "ruby necklace", chance = 1100 },
 	{ id = 3038, chance = 570 }, -- green gem
 	{ id = 3040, chance = 470 }, -- gold nugget
-	{ name = "wooden spellbook", chance = 280 },
 }
 
 monster.attacks = {

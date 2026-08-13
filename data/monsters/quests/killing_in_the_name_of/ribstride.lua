@@ -71,7 +71,6 @@ monster.loot = {
 	{ id = 3441, chance = 60000 }, -- bone shield
 	{ id = 3732, chance = 60000, maxCount = 4 }, -- green mushroom
 	{ id = 10244, chance = 29000 }, -- bonebeast trophy
-	{ id = 5741, chance = 8700 }, -- skull helmet
 	{ id = 12304, chance = 2000 }, -- maxilla maximus
 }
 

@@ -70,7 +70,6 @@ monster.loot = {
 	{ name = "great health potion", chance = 7070 },
 	{ name = "red lantern", chance = 1220 },
 	{ name = "bunch of ripe rice", chance = 4950 },
-	{ name = "zaoan legs", chance = 720 },
 	{ name = "special fx box", chance = 1500 },
 	{ id = 37531, chance = 5155 }, -- candy floss
 }

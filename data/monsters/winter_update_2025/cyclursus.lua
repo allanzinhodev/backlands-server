@@ -82,10 +82,8 @@ monster.loot = {
 	{ name = "small sapphire", chance = 3470, maxCount = 15 },
 	{ name = "blue crystal shard", chance = 2380, maxCount = 4 },
 	-- { name = "deadly fangs", chance = 1090 },
-	{ name = "crystal crossbow", chance = 890 },
 	{ name = "blue gem", chance = 790, maxCount = 4 },
 	-- { name = "necromantic core", chance = 690 },
-	{ name = "skull helmet", chance = 400 },
 	{ name = "honeycomb", chance = 100 },
 }
 

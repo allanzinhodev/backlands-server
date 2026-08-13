@@ -82,9 +82,6 @@ monster.loot = {
 	{ id = 23510, chance = 100000 }, -- odd organ
 	{ id = 281, chance = 4000 }, -- giant shimmering pearl (green)
 	{ id = 282, chance = 4000 }, -- giant shimmering pearl (brown)
-	{ id = 3073, chance = 8000 }, -- wand of cosmic energy
-	{ id = 23531, chance = 6000 }, -- ring of green plasma
-	{ id = 23533, chance = 6000 }, -- ring of red plasma
 }
 
 monster.attacks = {

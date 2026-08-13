@@ -79,7 +79,6 @@ monster.loot = {
 	{ name = "small emerald", chance = 413 },
 	{ name = "small amethyst", chance = 540 },
 	{ name = "scarab coin", chance = 1098 },
-	{ name = "daramian mace", chance = 245 },
 	{ name = "meat", chance = 40000, maxCount = 2 },
 	{ name = "piece of scarab shell", chance = 4950 },
 }

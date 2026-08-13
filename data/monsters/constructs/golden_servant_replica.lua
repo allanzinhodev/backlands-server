@@ -80,7 +80,6 @@ monster.loot = {
 	{ id = 266, chance = 4930 }, -- health potion
 	{ id = 268, chance = 4950 }, -- mana potion
 	{ id = 3269, chance = 3030 }, -- halberd
-	{ id = 8072, chance = 520 }, -- spellbook of enlightenment
 	{ id = 3049, chance = 450 }, -- stealth ring
 	{ id = 12601, chance = 340 }, -- slime mould
 	{ id = 12801, chance = 36 }, -- golden can of oil

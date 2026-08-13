@@ -88,13 +88,10 @@ monster.loot = {
 	{ name = "crusader helmet", chance = 6400 },
 	{ name = "gold ingot", minCount = 0, maxCount = 1, chance = 10000 },
 	{ id = 3039, chance = 11000 }, -- red gem
-	{ name = "terra hood", chance = 7800 },
 	{ name = "yellow gem", chance = 9500 },
 	{ name = "young lich worm", chance = 5800 },
-	{ name = "bear skin", chance = 1800 },
 	{ name = "noble amulet", chance = 1100 },
 	{ name = "rotten heart", chance = 1700 },
-	{ name = "terra helmet", chance = 700 },
 	{ name = "final judgement", chance = 460 },
 }
 

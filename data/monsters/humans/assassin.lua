@@ -89,9 +89,6 @@ monster.loot = {
 	{ name = "steel shield", chance = 970 },
 	{ name = "plate shield", chance = 1900 },
 	{ name = "battle shield", chance = 1600 },
-	{ name = "leopard armor", chance = 480 },
-	{ name = "horseman helmet", chance = 230 },
-	{ name = "viper star", chance = 4200, maxCount = 7 },
 }
 
 monster.attacks = {

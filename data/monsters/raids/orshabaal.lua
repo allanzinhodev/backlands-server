@@ -119,9 +119,7 @@ monster.loot = {
 	{ name = "Orshabaal's brain", chance = 6666 },
 	{ name = "thunder hammer", chance = 6666 },
 	{ name = "demon horn", chance = 50000 },
-	{ id = 6299, chance = 50000 }, -- death ring
 	{ name = "demonic essence", chance = 100000 },
-	{ name = "assassin star", chance = 12500, maxCount = 42 },
 	{ name = "great mana potion", chance = 33333 },
 	{ name = "great health potion", chance = 20000 },
 	{ name = "great spirit potion", chance = 12500 },

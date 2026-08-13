@@ -71,14 +71,9 @@ monster.loot = {
 	{ name = "diamond", chance = 400 },
 	{ name = "silver hand mirror", chance = 1000, maxCount = 2 },
 	{ name = "white gem", chance = 33333 },
-	{ name = "terra rod", chance = 16670 },
 	{ name = "yellow gem", chance = 16670 },
 	{ id = 3039, chance = 16670 }, -- red gem
-	{ name = "necklace of the deep", chance = 1000 },
-	{ name = "wand of starstorm", chance = 1000 },
-	{ name = "wand of cosmic energy", chance = 1000 },
 	{ name = "death toll", chance = 1000 },
-	{ name = "pair of nightmare boots", chance = 230 },
 }
 
 monster.attacks = {

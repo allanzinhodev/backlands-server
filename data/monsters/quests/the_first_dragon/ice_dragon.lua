@@ -85,11 +85,8 @@ monster.loot = {
 	{ id = 24937, chance = 18680 }, -- dragon blood
 	{ id = 24938, chance = 11400 }, -- dragon tongue
 	{ id = 3051, chance = 49900 }, -- energy ring
-	{ id = 829, chance = 11900 }, -- glacier mask
 	{ id = 2903, chance = 21700 }, -- golden mug
-	{ id = 3067, chance = 21700 }, -- hailstorm rod
 	{ id = 7441, chance = 43400 }, -- ice cube
-	{ id = 815, chance = 540 }, -- glacier amulet
 	{ id = 3061, chance = 540 }, -- life crystal
 	{ id = 7290, chance = 1090 }, -- shard
 	{ id = 3386, chance = 330 }, -- dragon scale mail

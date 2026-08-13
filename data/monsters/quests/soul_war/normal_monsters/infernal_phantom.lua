@@ -81,22 +81,12 @@ monster.voices = {
 
 monster.loot = {
 	{ name = "crystal coin", chance = 61900 },
-	{ name = "terra rod", chance = 34070 },
 	{ name = "ultimate health potion", chance = 24400, maxCount = 4 },
-	{ name = "hailstorm rod", chance = 7460 },
-	{ name = "springsprout rod", chance = 4640 },
 	{ name = "infernal heart", chance = 4440 },
-	{ name = "underworld rod", chance = 3830 },
 	{ name = "fire axe", chance = 3630 },
-	{ name = "wand of starstorm", chance = 3430 },
-	{ name = "glorious axe", chance = 3230 },
 	{ name = "infernal robe", chance = 2620 },
-	{ name = "chaos mace", chance = 2420 },
-	{ name = "titan axe", chance = 2020 },
-	{ name = "wand of voodoo", chance = 1610 },
 	{ name = "crystal mace", chance = 1610 },
 	{ name = "war axe", chance = 1410 },
-	{ name = "warrior's axe", chance = 1410 },
 	{ name = "bag you desire", chance = 15 },
 }
 

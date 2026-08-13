@@ -81,8 +81,6 @@ monster.loot = {
 	{ id = 238, chance = 94830, maxCount = 10 }, -- great mana potion
 	{ id = 239, chance = 94830, maxCount = 10 }, -- great health potion
 	{ id = 3098, chance = 100000 }, -- ring of healing
-	{ id = 3326, chance = 25860 }, -- epee
-	{ id = 811, chance = 86200 }, -- terra mantle
 }
 
 monster.attacks = {

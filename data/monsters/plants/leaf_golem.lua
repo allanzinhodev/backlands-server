@@ -83,7 +83,6 @@ monster.loot = {
 	{ name = "gold coin", chance = 87460, maxCount = 27 },
 	{ name = "fir cone", chance = 14930 },
 	{ name = "dowser", chance = 12190 },
-	{ name = "swampling club", chance = 5130 },
 	{ name = "white mushroom", chance = 4920, maxCount = 3 },
 	{ name = "small emerald", chance = 950 },
 }

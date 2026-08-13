@@ -85,12 +85,10 @@ monster.loot = {
 	{ name = "paper plane", chance = 2800 }, -- new item
 	{ name = "great mana potion", chance = 2000 },
 	{ name = "small enchanted amethyst", chance = 1800 },
-	{ name = "spiked squelcher", chance = 1600 },
 	{ name = "violet crystal shard", chance = 1500 },
 	{ name = "cave turnip", chance = 1400 },
 	{ name = "prismatic quartz", chance = 1200 },
 	{ name = "blank imbuement scroll", chance = 1200 },
-	{ name = "warrior's shield", chance = 800 },
 }
 
 monster.attacks = {

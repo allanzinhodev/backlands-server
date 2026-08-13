@@ -93,10 +93,8 @@ monster.loot = {
 	{ name = "dark helmet", chance = 1460 },
 	{ name = "crusader helmet", chance = 100 },
 	{ name = "plate legs", chance = 2444 },
-	{ name = "hunting spear", chance = 4200 },
 	{ name = "flask of warrior's sweat", chance = 210 },
 	{ name = "health potion", chance = 350 },
-	{ name = "belted cape", chance = 5000 },
 	{ name = "broken gladiator shield", chance = 5200 },
 }
 

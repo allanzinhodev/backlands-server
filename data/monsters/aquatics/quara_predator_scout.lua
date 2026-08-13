@@ -86,7 +86,6 @@ monster.loot = {
 	{ name = "small diamond", chance = 5010, maxCount = 2 },
 	{ name = "two handed sword", chance = 2980 },
 	{ name = "fish fin", chance = 1060 },
-	{ name = "northwind rod", chance = 950 },
 }
 
 monster.attacks = {

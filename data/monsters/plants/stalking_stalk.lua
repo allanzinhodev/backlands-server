@@ -81,11 +81,8 @@ monster.loot = {
 	{ name = "Green Crystal Fragment", chance = 5030 },
 	{ name = "Dragon Necklace", chance = 4540 },
 	{ name = "Opal", chance = 3960, minCount = 1, maxCount = 2 },
-	{ name = "Magma Coat", chance = 2160 },
 	{ name = "Bow", chance = 2000 },
 	{ name = "Green Gem", chance = 1780 },
-	{ name = "Warrior's Axe", chance = 1700 },
-	{ name = "Muck Rod", chance = 1310 },
 }
 
 monster.attacks = {

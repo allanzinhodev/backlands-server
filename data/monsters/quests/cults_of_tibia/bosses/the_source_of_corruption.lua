@@ -94,9 +94,7 @@ monster.loot = {
 	{ id = 22194, chance = 18640, maxCount = 2 }, -- opal
 	{ id = 281, chance = 16950 }, -- giant shimmering pearl
 	{ id = 24392, chance = 16950 }, -- gemmed figurine
-	{ id = 23533, chance = 15250 }, -- ring of red plasma
 	{ id = 5906, chance = 13560 }, -- demon dust
-	{ id = 7437, chance = 13560 }, -- sapphire hammer
 	{ id = 3041, chance = 11860 }, -- blue gem
 	{ id = 5891, chance = 10170 }, -- enchanted chicken wing
 	{ id = 3324, chance = 10170 }, -- skull staff
@@ -104,16 +102,10 @@ monster.loot = {
 	{ id = 3032, chance = 5080, maxCount = 23 }, -- small emerald
 	{ id = 16120, chance = 3390, maxCount = 7 }, -- violet crystal shard
 	{ id = 3356, chance = 3390 }, -- devil helmet
-	{ id = 8029, chance = 3390 }, -- silkweaver bow
-	{ id = 20068, chance = 3390 }, -- umbral slayer
 	{ id = 3340, chance = 1690 }, -- heavy mace
-	{ id = 8098, chance = 1690 }, -- demonwing axe
 	{ id = 9068, chance = 1690 }, -- yalahari figurine
 	{ id = 236, chance = 80000, maxCount = 2 }, -- strong health potion
 	{ id = 239, chance = 80000, maxCount = 3 }, -- great health potion
-	{ id = 7418, chance = 1780 }, -- nightmare blade
-	{ id = 20067, chance = 8280 }, -- crude umbral slayer
-	{ id = 22866, chance = 980, maxCount = 1 }, -- rift bow
 	{ id = 25360, chance = 6315 }, -- heart of the mountain
 	{ id = 25361, chance = 7050 }, -- blood of the mountain
 }

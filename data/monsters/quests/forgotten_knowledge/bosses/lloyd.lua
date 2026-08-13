@@ -72,7 +72,6 @@ monster.loot = {
 	{ name = "gold coin", chance = 100000, maxCount = 329 },
 	{ name = "platinum coin", chance = 100000, maxCount = 35 },
 	{ id = 3100, chance = 100000 }, -- ring of healing
-	{ name = "wand of starstorm", chance = 100000 },
 	{ name = "mastermind potion", chance = 100000 },
 	{ name = "violet crystal shard", chance = 71790, maxCount = 5 },
 	{ name = "blue crystal shard", chance = 69230, maxCount = 5 },
@@ -81,7 +80,6 @@ monster.loot = {
 	{ name = "green crystal shard", chance = 56410, maxCount = 5 },
 	{ name = "great mana potion", chance = 46150, maxCount = 10 },
 	{ name = "luminous orb", chance = 41030 },
-	{ id = 23542, chance = 38460 }, -- collar of blue plasma
 	{ name = "gold token", chance = 3103 },
 	{ id = 282, chance = 30770 }, -- giant shimmering pearl
 	{ name = "rusted armor", chance = 28210 },
@@ -91,16 +89,13 @@ monster.loot = {
 	{ name = "silver token", chance = 22410, maxCount = 2 },
 	{ name = "small topaz", chance = 20510, maxCount = 10 },
 	{ name = "small ruby", chance = 17950, maxCount = 18 },
-	{ name = "spellbook of warding", chance = 15380 },
 	{ name = "yellow gem", chance = 12820 },
 	{ name = "small diamond", chance = 10260, maxCount = 10 },
 	{ id = 5909, chance = 10260, maxCount = 3 },
 	{ name = "piece of hell steel", chance = 10260, maxCount = 3 },
 	{ name = "blue gem", chance = 10260 },
 	{ name = "green gem", chance = 10260 },
-	{ name = "lightning legs", chance = 7690 },
 	{ name = "violet gem", chance = 7690 },
-	{ name = "spellweaver's robe", chance = 5130 },
 	{ name = "demon helmet", chance = 5130 },
 	{ name = "boots of haste", chance = 2560 },
 	{ id = 24959, chance = 500, unique = true }, -- part of a rune

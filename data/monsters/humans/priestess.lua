@@ -89,7 +89,6 @@ monster.loot = {
 	{ name = "piggy bank", chance = 90 },
 	{ name = "crystal necklace", chance = 640 },
 	{ name = "talon", chance = 750 },
-	{ name = "hailstorm rod", chance = 1100 },
 	{ id = 3076, chance = 1250 }, -- crystal ball
 	{ id = 2948, chance = 1400 }, -- wooden flute
 	{ name = "clerical mace", chance = 1500 },

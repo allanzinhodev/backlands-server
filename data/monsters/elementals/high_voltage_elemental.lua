@@ -84,7 +84,6 @@ monster.loot = {
 	{ id = 3007, chance = 7142 }, -- crystal ring
 	{ id = 3313, chance = 4761 }, -- obsidian lance
 	{ id = 268, chance = 4761 }, -- mana potion
-	{ id = 7449, chance = 4761 }, -- crystal sword
 }
 
 monster.attacks = {

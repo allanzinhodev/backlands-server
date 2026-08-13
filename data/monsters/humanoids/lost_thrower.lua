@@ -85,9 +85,7 @@ monster.loot = {
 	{ name = "great mana potion", chance = 13470 },
 	{ name = "great health potion", chance = 14730 },
 	{ id = 12600, chance = 12180 }, -- coal
-	{ name = "buckle", chance = 850 },
 	{ name = "broken throwing axe", chance = 1390 },
-	{ name = "helmet of the lost", chance = 13560 },
 	{ name = "lost bracers", chance = 14860 },
 	{ name = "mad froth", chance = 11810 },
 	{ name = "basalt fetish", chance = 6150 },

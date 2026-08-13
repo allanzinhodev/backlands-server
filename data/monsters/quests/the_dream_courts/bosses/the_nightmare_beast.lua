@@ -69,24 +69,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{ id = 23542, chance = 6450 }, -- collar of blue plasma
-	{ id = 23529, chance = 3230 }, -- ring of blue plasma
-	{ id = 23531, chance = 16129 }, -- ring of green plasma
-	{ id = 23533, chance = 9680 }, -- ring of red plasma
-	{ id = 23543, chance = 9680 }, -- collar of green plasma
-	{ id = 23544, chance = 12900 }, -- collar of red plasma
-	{ id = 30342, chance = 2830 }, -- enchanted sleep shawl
 	{ id = 3039, chance = 41940, maxCount = 2 }, -- red gem
-	{ name = "abyss hammer", chance = 2830 },
 	{ id = 3341, chance = 3130 }, -- arcane staff
 	{ name = "beast's nightmare-cushion", chance = 3770 },
 	{ name = "berserk potion", chance = 16129, maxCount = 9 },
 	{ name = "blue gem", chance = 6450 },
 	{ name = "bullseye potion", chance = 32259, maxCount = 19 },
-	{ name = "chaos mace", chance = 10380 },
 	{ name = "crystal coin", chance = 22580, maxCount = 3 },
-	{ name = "dark whispers", chance = 3230 },
-	{ name = "dark vision bandana", chance = 2830 },
 	{ name = "dragon figurine", chance = 7550 },
 	{ name = "energy bar", chance = 91510 },
 	{ name = "giant emerald", chance = 1890 },
@@ -106,7 +95,6 @@ monster.loot = {
 	{ name = "platinum coin", chance = 100000, maxCount = 9 },
 	{ name = "purple tendril lantern", chance = 6600 },
 	{ name = "ring of the sky", chance = 4720 },
-	{ name = "royal star", chance = 48390, maxCount = 193 },
 	{ name = "silver token", chance = 91670, maxCount = 4 },
 	{ name = "skull staff", chance = 12900 },
 	{ name = "soul stone", chance = 4720 },

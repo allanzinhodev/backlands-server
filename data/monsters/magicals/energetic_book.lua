@@ -83,14 +83,7 @@ monster.loot = {
 	{ name = "ultimate mana potion", chance = 10000, maxCount = 7 },
 	{ name = "energy ball", chance = 900, maxCount = 7 },
 	{ id = 28566, chance = 800, maxCount = 7 }, -- silken bookmark
-	{ name = "lightning pendant", chance = 500 },
-	{ name = "lightning boots", chance = 500 },
-	{ name = "lightning headband", chance = 500 },
 	{ name = "might ring", chance = 500 },
-	{ name = "spellweaver's robe", chance = 350 },
-	{ name = "wand of defiance", chance = 350 },
-	{ name = "haunted blade", chance = 550 },
-	{ name = "lightning legs", chance = 350 },
 }
 
 monster.attacks = {
