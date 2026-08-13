@@ -155,7 +155,6 @@ npcConfig.shop = {
 	{ itemName = "axe", clientId = 3274, buy = 20, sell = 7 },
 	{ itemName = "battle axe", clientId = 3266, buy = 235, sell = 80 },
 	{ itemName = "battle hammer", clientId = 3305, buy = 350, sell = 120 },
-	{ itemName = "blue quiver", clientId = 35848, buy = 400 },
 	{ itemName = "bolt", clientId = 3446, buy = 4 },
 	{ itemName = "bone club", clientId = 3337, sell = 5 },
 	{ itemName = "bone sword", clientId = 3338, buy = 75, sell = 20 },
@@ -192,9 +191,7 @@ npcConfig.shop = {
 	{ itemName = "longsword", clientId = 3285, buy = 160, sell = 51 },
 	{ itemName = "mace", clientId = 3286, buy = 90 },
 	{ itemName = "morning star", clientId = 3282, buy = 430 },
-	{ itemName = "quiver", clientId = 35562, buy = 400 },
 	{ itemName = "rapier", clientId = 3272, buy = 15 },
-	{ itemName = "red quiver", clientId = 35849, buy = 400 },
 	{ itemName = "sabre", clientId = 3273, buy = 35 },
 	{ itemName = "short sword", clientId = 3294, buy = 26 },
 	{ itemName = "sickle", clientId = 3293, buy = 7 },
@@ -204,9 +201,6 @@ npcConfig.shop = {
 	{ itemName = "throwing knife", clientId = 3298, buy = 25 },
 	{ itemName = "two handed sword", clientId = 3265, buy = 950 },
 	{ itemName = "war hammer", clientId = 3279, buy = 10000 },
-	{ itemName = "pair of monk fists", clientId = 50181, buy = 270, sell = 90 },
-	{ itemName = "nunchaku", clientId = 50182, buy = 405, sell = 135 },
-	{ itemName = "sai", clientId = 50183, buy = 540, sell = 180 },
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)

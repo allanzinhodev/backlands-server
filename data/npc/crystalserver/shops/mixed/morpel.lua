@@ -72,7 +72,6 @@ npcConfig.shop = {
 	{ itemName = "club", clientId = 3270, buy = 5, sell = 1 },
 	{ itemName = "coat", clientId = 3562, buy = 8, sell = 1 },
 	{ itemName = "copper shield", clientId = 3430, sell = 50 },
-	{ itemName = "crimson sword", clientId = 7385, buy = 610 },
 	{ itemName = "crowbar", clientId = 3304, buy = 260, sell = 50 },
 	{ itemName = "dagger", clientId = 3267, buy = 5, sell = 2 },
 	{ itemName = "double axe", clientId = 3275, sell = 260 },
@@ -135,9 +134,6 @@ npcConfig.shop = {
 	{ itemName = "viking shield", clientId = 3431, buy = 260 },
 	{ itemName = "war hammer", clientId = 3279, buy = 10000 },
 	{ itemName = "wooden shield", clientId = 3412, buy = 15 },
-	{ itemName = "pair of monk fists", clientId = 50181, buy = 270, sell = 90 },
-	{ itemName = "nunchaku", clientId = 50182, buy = 405, sell = 135 },
-	{ itemName = "sai", clientId = 50183, buy = 540, sell = 180 },
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)

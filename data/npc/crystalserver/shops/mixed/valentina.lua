@@ -34,7 +34,6 @@ npcConfig.shop = {
 	{ itemName = "flower bouquet", clientId = 649, buy = 20 },
 	{ itemName = "heart backpack", clientId = 10202, buy = 500 },
 	{ itemName = "present", clientId = 2856, buy = 10 },
-	{ itemName = "sweetheart ring", clientId = 21955, buy = 500 },
 	{ itemName = "truelove teddy", clientId = 21953, buy = 1000 },
 	{ itemName = "valentines cake", clientId = 6392, buy = 30 },
 	{ itemName = "valentines card", clientId = 6538, buy = 5 },

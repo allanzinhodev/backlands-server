@@ -69,8 +69,6 @@ npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, true)
 
 npcConfig.shop = {
 	{ itemName = "arrow", clientId = 3447, buy = 3 },
-	{ itemName = "assassin star", clientId = 7368, buy = 100 },
-	{ itemName = "blue quiver", clientId = 35848, buy = 400 },
 	{ itemName = "bolt", clientId = 3446, buy = 4 },
 	{ itemName = "bow", clientId = 3350, buy = 400 },
 	{ itemName = "burst arrow", clientId = 3449, buy = 15 },
@@ -87,9 +85,6 @@ npcConfig.shop = {
 	{ itemName = "piercing bolt", clientId = 7363, buy = 5 },
 	{ itemName = "power bolt", clientId = 3450, buy = 7 },
 	{ itemName = "prismatic bolt", clientId = 16141, buy = 20 },
-	{ itemName = "quiver", clientId = 35562, buy = 400 },
-	{ itemName = "red quiver", clientId = 35849, buy = 400 },
-	{ itemName = "royal spear", clientId = 7378, buy = 15 },
 	{ itemName = "shiver arrow", clientId = 762, buy = 5 },
 	{ itemName = "small stone", clientId = 1781, buy = 100 },
 	{ itemName = "sniper arrow", clientId = 7364, buy = 5 },

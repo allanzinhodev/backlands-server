@@ -66,7 +66,6 @@ npcConfig.shop = {
 	{ itemName = "parchment", clientId = 2814, buy = 8, sell = 5 },
 	{ itemName = "parchment", clientId = 2817, buy = 8 },
 	{ itemName = "scroll", clientId = 2815, buy = 5 },
-	{ itemName = "spellbook", clientId = 3059, buy = 150 },
 	{ itemName = "valentines card", clientId = 6538, buy = 30 },
 }
 -- On buy npc shop message

@@ -113,7 +113,6 @@ npcConfig.shop = {
 	{ itemName = "bronze goblet", clientId = 5807, buy = 2000 },
 	{ itemName = "brown crystal splinter", clientId = 16123, sell = 400 },
 	{ itemName = "brown giant shimmering pearl", clientId = 282, sell = 3000 },
-	{ itemName = "butterfly ring", clientId = 25698, sell = 2000 },
 	{ itemName = "chameleon rune", clientId = 3178, buy = 210 },
 	{ itemName = "colourful snail shell", clientId = 25696, sell = 250 },
 	{ itemName = "convince creature rune", clientId = 3177, buy = 80 },
@@ -126,7 +125,6 @@ npcConfig.shop = {
 	{ itemName = "diamond", clientId = 32770, sell = 15000 },
 	{ itemName = "disintegrate rune", clientId = 3197, buy = 26 },
 	{ itemName = "dragon figurine", clientId = 30053, sell = 45000 },
-	{ itemName = "dream blossom staff", clientId = 25700, sell = 5000 },
 	{ itemName = "empty potion flask", clientId = 283, sell = 5 },
 	{ itemName = "empty potion flask", clientId = 284, sell = 5 },
 	{ itemName = "empty potion flask", clientId = 285, sell = 5 },
@@ -168,11 +166,9 @@ npcConfig.shop = {
 	{ itemName = "health potion", clientId = 266, buy = 50 },
 	{ itemName = "heavy magic missile rune", clientId = 3198, buy = 12 },
 	{ itemName = "hexagonal ruby", clientId = 30180, sell = 30000 },
-	{ itemName = "hibiscus dress", clientId = 8045, sell = 3000 },
 	{ itemName = "holy missile rune", clientId = 3182, buy = 16 },
 	{ itemName = "icicle rune", clientId = 3158, buy = 30 },
 	{ itemName = "intense healing rune", clientId = 3152, buy = 95 },
-	{ itemName = "leaf star", clientId = 25735, sell = 50 },
 	{ itemName = "lesser guardian gem", clientId = 44602, sell = 1000 },
 	{ itemName = "lesser marksman gem", clientId = 44605, sell = 1000 },
 	{ itemName = "lesser mystic gem", clientId = 44611, sell = 1000 },
@@ -222,7 +218,6 @@ npcConfig.shop = {
 	{ itemName = "strong health potion", clientId = 236, buy = 115 },
 	{ itemName = "strong mana potion", clientId = 237, buy = 108 },
 	{ itemName = "sudden death rune", clientId = 3155, buy = 162 },
-	{ itemName = "summer dress", clientId = 8046, sell = 1500 },
 	{ itemName = "supreme health potion", clientId = 23375, buy = 650 },
 	{ itemName = "swan feather", clientId = 26181, buy = 500 },
 	{ itemName = "thunderstorm rune", clientId = 3202, buy = 52 },
@@ -243,7 +238,6 @@ npcConfig.shop = {
 	{ itemName = "wild flowers", clientId = 25691, sell = 120 },
 	{ itemName = "wild growth rune", clientId = 3156, buy = 160 },
 	{ itemName = "wood cape", clientId = 3575, sell = 5000 },
-	{ itemName = "wooden spellbook", clientId = 25699, sell = 12000 },
 }
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)

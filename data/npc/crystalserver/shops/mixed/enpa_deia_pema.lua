@@ -121,17 +121,6 @@ local function creatureSayCallback(npc, creature, type, message)
 end
 
 npcConfig.shop = {
-	{ itemName = "boots of enlightenment", clientId = 50267, buy = 8000, sell = 80 },
-	{ itemName = "coned hat of enlightenment", clientId = 50274, buy = 70000, sell = 700 },
-	{ itemName = "fists of enlightenment", clientId = 50271, buy = 20000, sell = 200 },
-	{ itemName = "legs of enlightenment", clientId = 50269, buy = 40000, sell = 400 },
-	{ itemName = "nunchaku of enlightenment", clientId = 50273, buy = 50000, sell = 500 },
-	{ itemName = "robe of enlightenment", clientId = 50268, buy = 150000, sell = 150 },
-	{ itemName = "sai of enlightenment", clientId = 50272, buy = 100000, sell = 100 },
-	{ itemName = "harmony amulet", clientId = 50195, buy = 1000 },
-	{ itemName = "light jo staff", clientId = 50166, buy = 250 },
-	{ itemName = "jo staff", clientId = 50171, buy = 500 },
-	{ itemName = "plain monk robe", clientId = 50257, buy = 450 },
 }
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)

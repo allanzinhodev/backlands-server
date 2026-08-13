@@ -37,6 +37,62 @@ item in the current `items.xml` at all, so there was nothing to protect or
 strip for them — see the script output for the full match/no-match picture if
 that needs re-checking later.
 
+## NPC shops (buy/sell)
+
+- `strip_non_classic_npc_shop_items.js` — same whitelist/policy as the loot
+  script, applied to every `itemName = "..."` shop entry under `data/npc/`
+  (both the common `npcConfig.shop = { {...}, ... }` table and the
+  category-grouped `local itemsTable = { ["wands"] = {...}, ... }` style a
+  few NPCs use), single- or multi-line. Re-run with
+  `node tools/reference/strip_non_classic_npc_shop_items.js [--dry-run]`.
+- `npc_shop_removal_report.json` / `npc_shop_removed_item_counts.json` —
+  output of the last run.
+
+Result of the initial run (2026-08-12): 91 NPC files edited, 1434 shop
+entries removed (349 distinct items — modern rods/wands like Necrotic Rod
+and Terra Rod, quivers, Monk weapons like Nunchaku/Sai/Pair of Monk Fists,
+Spellbook, Helmet of the Deep, etc.). Classic items (e.g. sword, leather
+armor, crossbow, Giant Smithhammer) and non-equipment goods (potions, runes,
+food, containers, tools) were left untouched.
+
+## Map items (data/world/world.otbm)
+
+`world.otbm` is a binary OTBM node tree, not text, so it can't be grepped/sed
+like the Lua files above. Two small tools handle it:
+
+- `otbm.js` — minimal OTBM reader/writer (parse a file into a node tree /
+  serialize it back). Verified with a byte-for-byte lossless round-trip
+  (parse then re-serialize with zero changes reproduces the original file
+  exactly) before ever being used to remove anything.
+- `otbm_roundtrip_test.js` — re-run this lossless check
+  (`node tools/reference/otbm_roundtrip_test.js [mapPath]`) against **any
+  new map** before trusting the removal script on it — if the map editor
+  that produced it writes OTBM slightly differently, the check will fail
+  loudly instead of silently corrupting the map.
+- `strip_non_classic_map_items.js` — walks every `OTBM_ITEM` node in the
+  tree (tiles, house tiles, and nested inside containers) and deletes any
+  whose item id is classified as equipment but isn't in the whitelist — same
+  policy as the loot/NPC scripts, just matched by numeric id instead of
+  name (OTBM stores raw server ids). Always writes
+  `world.otbm.backup-before-removal` next to the map and re-parses the new
+  buffer to confirm it's structurally valid and the item count dropped by
+  exactly the expected amount *before* overwriting the real file. Run with
+  `node tools/reference/strip_non_classic_map_items.js [--dry-run] [mapPath]`
+  — defaults to `data/world/world.otbm` if no path is given, so this is
+  ready to point at the new map once it's swapped in.
+- `map_removal_report.json` — exact `(x, y, z)` position of every item the
+  last run removed.
+
+Result of the initial run (2026-08-12): only **17 item instances** on the
+current map were non-classic equipment (mino shield, blacksteel sword,
+pharaoh sword, skullcracker armor, prismatic armor, royal crossbow, etc.),
+all clustered around a couple of areas — likely shop/display items rather
+than widespread loot. File went from 4,295,262 to 4,295,173 bytes
+(605,004 → 604,987 nodes). `git diff` won't show anything meaningful for a
+binary file like this — if a rollback is ever needed, `git checkout <prior
+commit> -- data/world/world.otbm` restores the exact previous map, since it
+was already committed before this change.
+
 ## Classic creature reference
 
 - `tibiantis_creatures.json` — full creature catalog scraped from

@@ -57,17 +57,6 @@ npcHandler:setMessage(MESSAGE_WALKAWAY, "Please come back from time to time.")
 npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, true)
 
 npcConfig.shop = {
-	{ itemName = "norcferatu skullguard", clientId = 51260, buy = 1 },
-	{ itemName = "norcferatu bonehood", clientId = 51261, buy = 1 },
-	{ itemName = "norcferatu tuskplate", clientId = 51262, buy = 1 },
-	{ itemName = "norcferatu bloodhide", clientId = 51263, buy = 1 },
-	{ itemName = "norcferatu bonecloak", clientId = 51264, buy = 1 },
-	{ itemName = "norcferatu thornwraps", clientId = 51265, buy = 1 },
-	{ itemName = "norcferatu bloodstrider", clientId = 51266, buy = 1 },
-	{ itemName = "norcferatu fleshguards", clientId = 51267, buy = 1 },
-	{ itemName = "norcferatu goretrampers", clientId = 51268, buy = 1 },
-	{ itemName = "norcferatu fangstompers", clientId = 51269, buy = 1 },
-	{ itemName = "greater garlic necklace", clientId = 51275, buy = 1 },
 	{ itemName = "blank imbuement scroll", clientId = 51442, buy = 1 },
 	{ itemName = "etcher", clientId = 51443, buy = 1 },
 	{ itemName = "powerful bash scroll", clientId = 51444, buy = 1 },

@@ -315,7 +315,6 @@ npcConfig.shop = {
 	{ itemName = "book of necromantic rituals", clientId = 10320, sell = 180 },
 	{ itemName = "book of prayers", clientId = 9646, sell = 120 },
 	{ itemName = "broken key ring", clientId = 11652, sell = 8000 },
-	{ itemName = "broken ring of ending", clientId = 12737, sell = 4000 },
 	{ itemName = "cultish mask", clientId = 9638, sell = 280 },
 	{ itemName = "cultish robe", clientId = 9639, sell = 150 },
 	{ itemName = "cultish symbol", clientId = 11455, sell = 500 },

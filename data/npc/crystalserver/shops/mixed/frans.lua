@@ -26,14 +26,6 @@ npcConfig.voices = {
 
 local itemsTable = {
 	["wands"] = {
-		{ itemName = "moonlight rod", clientId = 3070, buy = 1000 },
-		{ itemName = "necrotic rod", clientId = 3069, buy = 5000 },
-		{ itemName = "snakebite rod", clientId = 3066, buy = 500 },
-		{ itemName = "terra rod", clientId = 3065, buy = 10000 },
-		{ itemName = "wand of cosmic energy", clientId = 3073, buy = 10000 },
-		{ itemName = "wand of decay", clientId = 3072, buy = 5000 },
-		{ itemName = "wand of dragonbreath", clientId = 3075, buy = 1000 },
-		{ itemName = "wand of vortex", clientId = 3074, buy = 500 },
 	},
 	["runes"] = {
 		{ itemName = "avalanche rune", clientId = 3161, buy = 64 },
@@ -70,7 +62,6 @@ local itemsTable = {
 		{ itemName = "spellwand", clientId = 651, sell = 299 },
 	},
 	["shields"] = {
-		{ itemName = "spellbook", clientId = 3059, buy = 150 },
 	},
 }
 

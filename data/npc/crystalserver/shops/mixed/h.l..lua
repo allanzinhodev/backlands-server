@@ -61,7 +61,6 @@ npcConfig.shop = {
 	{ itemName = "battle shield", clientId = 3413, sell = 50 },
 	{ itemName = "black shield", clientId = 3429, sell = 5 },
 	{ itemName = "blessed shield", clientId = 3423, sell = 650 },
-	{ itemName = "bonelord shield", clientId = 3418, sell = 79 },
 	{ itemName = "bow", clientId = 3350, sell = 15 },
 	{ itemName = "brass armor", clientId = 3359, sell = 50 },
 	{ itemName = "brass helmet", clientId = 3354, sell = 8 },

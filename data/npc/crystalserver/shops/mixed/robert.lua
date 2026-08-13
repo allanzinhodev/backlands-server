@@ -58,7 +58,6 @@ npcConfig.shop = {
 	{ itemName = "battle axe", clientId = 3266, buy = 235, sell = 80 },
 	{ itemName = "battle hammer", clientId = 3305, buy = 350, sell = 120 },
 	{ itemName = "battle shield", clientId = 3413, sell = 95 },
-	{ itemName = "blue quiver", clientId = 35848, buy = 400 },
 	{ itemName = "bolt", clientId = 3446, buy = 4 },
 	{ itemName = "bone club", clientId = 3337, sell = 5 },
 	{ itemName = "bone sword", clientId = 3338, buy = 75, sell = 20 },
@@ -75,7 +74,6 @@ npcConfig.shop = {
 	{ itemName = "club", clientId = 3270, buy = 5, sell = 1 },
 	{ itemName = "coat", clientId = 3562, buy = 8, sell = 1 },
 	{ itemName = "copper shield", clientId = 3430, sell = 50 },
-	{ itemName = "crimson sword", clientId = 7385, buy = 610 },
 	{ itemName = "crossbow", clientId = 3349, buy = 500, sell = 120 },
 	{ itemName = "crowbar", clientId = 3304, buy = 260, sell = 50 },
 	{ itemName = "crystalline arrow", clientId = 15793, buy = 20 },
@@ -130,10 +128,7 @@ npcConfig.shop = {
 	{ itemName = "plate shield", clientId = 3410, buy = 125 },
 	{ itemName = "power bolt", clientId = 3450, buy = 7 },
 	{ itemName = "prismatic bolt", clientId = 16141, buy = 20 },
-	{ itemName = "quiver", clientId = 35562, buy = 400 },
 	{ itemName = "rapier", clientId = 3272, buy = 15 },
-	{ itemName = "red quiver", clientId = 35849, buy = 400 },
-	{ itemName = "royal spear", clientId = 7378, buy = 15 },
 	{ itemName = "sabre", clientId = 3273, buy = 35 },
 	{ itemName = "scale armor", clientId = 3377, buy = 260 },
 	{ itemName = "shiver arrow", clientId = 762, buy = 5 },
@@ -160,9 +155,6 @@ npcConfig.shop = {
 	{ itemName = "vortex bolt", clientId = 14252, buy = 6 },
 	{ itemName = "war hammer", clientId = 3279, buy = 10000 },
 	{ itemName = "wooden shield", clientId = 3412, buy = 15 },
-	{ itemName = "pair of monk fists", clientId = 50181, buy = 270, sell = 90 },
-	{ itemName = "nunchaku", clientId = 50182, buy = 405, sell = 135 },
-	{ itemName = "sai", clientId = 50183, buy = 540, sell = 180 },
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)

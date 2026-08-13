@@ -1,0 +1,155 @@
+[
+  {
+    "id": 21175,
+    "name": "mino shield",
+    "x": 1021,
+    "y": 958,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 7406,
+    "name": "blacksteel sword",
+    "x": 1021,
+    "y": 958,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 7774,
+    "name": "jagged sword",
+    "x": 1004,
+    "y": 1023,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 9215,
+    "name": "gold medal",
+    "x": 1037,
+    "y": 993,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 7388,
+    "name": "vile axe",
+    "x": 1038,
+    "y": 999,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 3334,
+    "name": "pharaoh sword",
+    "x": 1035,
+    "y": 1000,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 13991,
+    "name": "deepling axe",
+    "x": 1035,
+    "y": 1000,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 8061,
+    "name": "skullcracker armor",
+    "x": 1036,
+    "y": 1000,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 7408,
+    "name": "wyvern fang",
+    "x": 1036,
+    "y": 1001,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 7429,
+    "name": "blessed sceptre",
+    "x": 1036,
+    "y": 1001,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 16110,
+    "name": "prismatic armor",
+    "x": 1037,
+    "y": 1000,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 8103,
+    "name": "epiphany",
+    "x": 1038,
+    "y": 1000,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 16162,
+    "name": "mycological mace",
+    "x": 1038,
+    "y": 1000,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 8097,
+    "name": "solar axe",
+    "x": 1038,
+    "y": 1001,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 7416,
+    "name": "bloody edge",
+    "x": 1038,
+    "y": 1001,
+    "z": 6,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 8023,
+    "name": "royal crossbow",
+    "x": 990,
+    "y": 1110,
+    "z": 7,
+    "insideContainer": false,
+    "containerPath": []
+  },
+  {
+    "id": 7436,
+    "name": "angelic axe",
+    "x": 1015,
+    "y": 1135,
+    "z": 7,
+    "insideContainer": false,
+    "containerPath": []
+  }
+]

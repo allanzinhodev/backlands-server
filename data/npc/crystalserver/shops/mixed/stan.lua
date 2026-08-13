@@ -54,7 +54,6 @@ npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, true)
 
 npcConfig.shop = {
 	{ itemName = "costume bag", clientId = 654, buy = 1000 },
-	{ itemName = "party hat", clientId = 6578, buy = 600 },
 	{ itemName = "party trumpet", clientId = 6572, buy = 80 },
 }
 -- On buy npc shop message

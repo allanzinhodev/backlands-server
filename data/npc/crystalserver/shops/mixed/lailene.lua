@@ -59,14 +59,7 @@ npcHandler:setMessage(MESSAGE_SENDTRADE, "Here.")
 npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, true)
 
 npcConfig.shop = {
-	{ itemName = "batwing hat", clientId = 9103, sell = 8000 },
-	{ itemName = "ethno coat", clientId = 8064, buy = 750, sell = 200 },
-	{ itemName = "focus cape", clientId = 8043, sell = 6000 },
-	{ itemName = "jade hat", clientId = 10451, sell = 9000 },
-	{ itemName = "magicians robe", clientId = 7991, buy = 450 },
 	{ itemName = "spellweavers rob", clientId = 10438, sell = 12000 },
-	{ itemName = "spirit cloak", clientId = 8042, buy = 1000, sell = 350 },
-	{ itemName = "zaoan robe", clientId = 10439, sell = 12000 },
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)

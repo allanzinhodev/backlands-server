@@ -420,11 +420,6 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 		elseif npcHandler:getTopic(playerId) == 4 then
 			local vocationRewards = {
-				[VOCATION.BASE_ID.SORCERER] = { itemId = 26190, itemName = "reflecting crown" },
-				[VOCATION.BASE_ID.DRUID] = { itemId = 26187, itemName = "leaf crown" },
-				[VOCATION.BASE_ID.PALADIN] = { itemId = 26189, itemName = "incandescent crown" },
-				[VOCATION.BASE_ID.KNIGHT] = { itemId = 26188, itemName = "iron crown" },
-				[VOCATION.BASE_ID.MONK] = { itemId = 50313, itemName = "sensing crown" },
 			}
 			local vocationId = player:getVocation():getBaseId()
 			local reward = vocationRewards[vocationId]

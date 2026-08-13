@@ -46,8 +46,6 @@ npcConfig.shop = {
 	{ itemName = "blue crystal splinter", clientId = 16124, sell = 400 },
 	{ itemName = "blue gem", clientId = 3041, sell = 5000 },
 	{ itemName = "broken longbow", clientId = 34161, sell = 130 },
-	{ itemName = "broken ring of ending", clientId = 12737, sell = 4000 },
-	{ itemName = "broken visor", clientId = 20184, sell = 1900 },
 	{ itemName = "bronze goblet", clientId = 5807, buy = 2000 },
 	{ itemName = "brown crystal splinter", clientId = 16123, sell = 400 },
 	{ itemName = "carnisylvan bark", clientId = 36806, sell = 230 },
