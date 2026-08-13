@@ -23,7 +23,7 @@ npcConfig.voices = {
 	chance = 50,
 	{ text = "Feeling lost, my child? Ask me for hints or help!" },
 	{ text = "Come to me if you need healing!" },
-	{ text = "Welcome to the temple of Rookgaard!" },
+	{ text = "Welcome to the temple of Asha!" },
 	{ text = "Don't despair! Help is near!" },
 }
 
@@ -83,7 +83,7 @@ keywordHandler:addKeyword({ "time" }, StdModule.say, { npcHandler = npcHandler, 
 keywordHandler:addKeyword({ "monk" }, StdModule.say, { npcHandler = npcHandler, text = "I have sacrificed my life to serve the good gods of {Tibia} and to help newcomers in this world." })
 keywordHandler:addKeyword({ "bank" }, StdModule.say, { npcHandler = npcHandler, text = "You can deposit your money at the bank. That way you won't lose it if you get {killed}. The bank is just under the academy and to the right." })
 keywordHandler:addKeyword({ "destiny" }, StdModule.say, { npcHandler = npcHandler, text = "Your near destiny will be to choose a {vocation} once you are level 8. Whether you will become a {knight}, {sorcerer}, {paladin} or {druid} is a big decision!" })
-keywordHandler:addKeyword({ "tibia" }, StdModule.say, { npcHandler = npcHandler, text = "That's where we are - the world of Tibia, in a village called {Rookgaard}, to be precise, with many {monsters}, {quests} and {citizens} around." })
+keywordHandler:addKeyword({ "tibia" }, StdModule.say, { npcHandler = npcHandler, text = "That's where we are - the world of Tibia, in a village called {Asha}, to be precise, with many {monsters}, {quests} and {citizens} around." })
 keywordHandler:addKeyword({ "help" }, StdModule.say, { npcHandler = npcHandler, text = "How can I help you? I can tell you about specific {citizens} if you tell me their name. I can also give you general {hints} about {Tibia}. " })
 keywordHandler:addKeyword({ "citizen" }, StdModule.say, { npcHandler = npcHandler, text = "Only a few people live in our village, most of them are {merchants}. You can either ask them for a {trade} or about various other topics, like the names of other citizens, their {job} or Tibia in general." })
 keywordHandler:addKeyword({ "trade" }, StdModule.say, { npcHandler = npcHandler, text = "I don't have any goods for trade, but if you ask one of the {merchants}, he or she will gladly show you what you can buy or sell." })
@@ -106,8 +106,8 @@ keywordHandler:addKeyword({ "premium" }, StdModule.say, { npcHandler = npcHandle
 keywordHandler:addKeyword({ "ship" }, StdModule.say, { npcHandler = npcHandler, text = { "Ships are a comfortable way of travelling to distant cities. At any harbour, you can board the ship and ask its captain where he sails to.", "Travelling by ship will cost you some gold, though, so be sure to have money with you." } })
 keywordHandler:addKeyword({ "potion" }, StdModule.say, { npcHandler = npcHandler, text = "Potions will come in handy once you are in a fight deep in a dungeon. If you aren't in immediate danger, you can simply eat {food} to regain health, though." })
 keywordHandler:addKeyword({ "academy" }, StdModule.say, { npcHandler = npcHandler, text = "The academy is just north of here. You can learn helpful things there from {Seymour}, if you wish to!" })
-keywordHandler:addKeyword({ "king" }, StdModule.say, { npcHandler = npcHandler, text = "Well, King Tibianus of course. The island of {Rookgaard} belongs to his kingdom." })
-keywordHandler:addKeyword({ "rookgaard" }, StdModule.say, { npcHandler = npcHandler, text = "The {gods} have chosen this isle as the point of arrival for newborn souls. The {citizens} will help you if you ask them." })
+keywordHandler:addKeyword({ "king" }, StdModule.say, { npcHandler = npcHandler, text = "Well, King Tibianus of course. The island of {Asha} belongs to his kingdom." })
+keywordHandler:addKeyword({ "asha" }, StdModule.say, { npcHandler = npcHandler, text = "The {gods} have chosen this isle as the point of arrival for newborn souls. The {citizens} will help you if you ask them." })
 keywordHandler:addKeyword({ "god" }, StdModule.say, { npcHandler = npcHandler, text = "They created {Tibia} and all life on it. Visit our {academy} and learn about them." })
 keywordHandler:addKeyword({ "monster" }, StdModule.say, { npcHandler = npcHandler, text = "Monsters are a constant threat to this village. You would tremendously help us by fighting them, starting with {rats} in the {sewers}, then turning to {spiders} or {wolves}." })
 keywordHandler:addKeyword({ "merchant" }, StdModule.say, { npcHandler = npcHandler, text = "You can buy and sell goods from merchants. To do so, simply talk to them and ask them for a {trade}. They will gladly show you their offers and also the things they buy from you." })

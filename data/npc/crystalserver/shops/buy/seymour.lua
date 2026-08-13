@@ -61,7 +61,7 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 -- Greeting and Farewell
-local hiKeyword = keywordHandler:addGreetKeyword({ "hi" }, { npcHandler = npcHandler, text = "Hello, |PLAYERNAME|. Welcome to the Academy of Rookgaard. May I sign you up as a {student}?" })
+local hiKeyword = keywordHandler:addGreetKeyword({ "hi" }, { npcHandler = npcHandler, text = "Hello, |PLAYERNAME|. Welcome to the Academy of Asha. May I sign you up as a {student}?" })
 hiKeyword:addChildKeyword({ "student" }, StdModule.say, { npcHandler = npcHandler, text = "Brilliant! We need fine adventurers like you! If you are ready to learn, just ask me for a lesson. You can always ask for the differently coloured words - such as this one - to continue the lesson.", reset = true })
 hiKeyword:addChildKeyword({ "yes" }, StdModule.say, { npcHandler = npcHandler, text = "Brilliant! We need fine adventurers like you! If you are ready to learn, just ask me for a lesson. You can always ask for the differently coloured words - such as this one - to continue the lesson.", reset = true })
 hiKeyword:addChildKeyword({ "" }, StdModule.say, { npcHandler = npcHandler, text = "Only nonsense on your mind, eh?", reset = true })
@@ -129,7 +129,7 @@ keywordHandler:addKeyword({ "time" }, StdModule.say, { npcHandler = npcHandler, 
 keywordHandler:addKeyword({ "name" }, StdModule.say, { npcHandler = npcHandler, text = "My name is Seymour, but for you I am 'Sir' Seymour." })
 keywordHandler:addKeyword({ "sir" }, StdModule.say, { npcHandler = npcHandler, text = "At least you know how to address a man of my importance." })
 keywordHandler:addKeyword({ "job" }, StdModule.say, { npcHandler = npcHandler, text = "I'm the master of this fine {academy}, giving {lessons} to my students." })
-keywordHandler:addKeyword({ "lesson" }, StdModule.say, { npcHandler = npcHandler, text = "Oh, which lesson did you want to attend again? Was it {Rookgaard}, {fighting}, {equipment}, {citizens}, the {academy} or the {oracle}?" })
+keywordHandler:addKeyword({ "lesson" }, StdModule.say, { npcHandler = npcHandler, text = "Oh, which lesson did you want to attend again? Was it {Asha}, {fighting}, {equipment}, {citizens}, the {academy} or the {oracle}?" })
 keywordHandler:addKeyword({ "bank" }, StdModule.say, { npcHandler = npcHandler, text = "In a bank you can deposit your earned gold coins safely. Just go downstairs to {Paulie} and ask him to {deposit} your money." })
 keywordHandler:addKeyword({ "deposit" }, StdModule.say, { npcHandler = npcHandler, text = "Yes, depositing your money will keep it safe, so it is a good idea to store it in the bank. Of course, you can always withdraw it again." })
 keywordHandler:addKeyword({ "how", "are", "you" }, StdModule.say, { npcHandler = npcHandler, text = "Well, the {king} doesn't send troops anymore, the {academy} is dreadfully low on money, and the end of the world is pretty nigh. Apart from that I'm reasonably fine, I suppose." })
@@ -172,7 +172,7 @@ keywordHandler:addKeyword({ "premium" }, StdModule.say, { npcHandler = npcHandle
 keywordHandler:addKeyword({ "king" }, StdModule.say, { npcHandler = npcHandler, text = "Hail to King Tibianus! Long live our king! Not that he cares for an old veteran who is stuck on this godforsaken island..." })
 keywordHandler:addKeyword({ "potion" }, StdModule.say, { npcHandler = npcHandler, text = "Use a small health potion in case of emergencies to fill up around 75 health points. You can buy them at {Lily}'s shop. She also has {antidote} potions." })
 keywordHandler:addKeyword({ "antidote" }, StdModule.say, { npcHandler = npcHandler, text = "Some monsters poison you. To heal poison, use an antidote potion on yourself. Buy them at {Lily}'s store." })
-keywordHandler:addKeyword({ "rookgaard" }, StdModule.say, { npcHandler = npcHandler, text = "Rookgaard is the name of this {village} as well as of the whole {island}. It belongs to the kingdom of {Thais}, in our world which is called {Tibia}." })
+keywordHandler:addKeyword({ "asha" }, StdModule.say, { npcHandler = npcHandler, text = "Asha is the name of this {village} as well as of the whole {island}. It belongs to the kingdom of {Thais}, in our world which is called {Tibia}." })
 keywordHandler:addKeyword({ "island" }, StdModule.say, { npcHandler = npcHandler, text = "The island is separated into a {premium} side and a non-premium side. On both sides you will find {dungeons}, but the premium side tends to be a little less crowded with other players." })
 keywordHandler:addKeyword({ "thais" }, StdModule.say, { npcHandler = npcHandler, text = "The city of Thais is reigned by King Tibianus. Of course, there are many other cities but you will learn about them later." })
 keywordHandler:addKeyword({ "village" }, StdModule.say, { npcHandler = npcHandler, text = "The most important places in this village are the {temple}, the different {shops}, the {academy} and the {bridges}." })

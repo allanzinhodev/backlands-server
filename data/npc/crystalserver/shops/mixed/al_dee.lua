@@ -115,7 +115,7 @@ keywordHandler:addKeyword({ "blueberr" }, StdModule.say, { npcHandler = npcHandl
 keywordHandler:addKeyword({ "potion" }, StdModule.say, { npcHandler = npcHandler, text = "Sorry, I don't sell potions. You should visit {Lily} for that." })
 keywordHandler:addKeyword({ "food" }, StdModule.say, { npcHandler = npcHandler, text = "Hmm, the best address to look for food might be {Willie} or {Billy}. {Norma} also has some snacks for sale." })
 keywordHandler:addKeyword({ "bank" }, StdModule.say, { npcHandler = npcHandler, text = "A bank is quite useful. You can deposit your money safely there. This way you don't have to carry it around with you all the time. You could also invest your money in my {wares}!" })
-keywordHandler:addKeyword({ "academy" }, StdModule.say, { npcHandler = npcHandler, text = "The big building in the centre of Rookgaard. They have a library, a training centre, a {bank} and the room of the {oracle}. {Seymour} is the teacher there." })
+keywordHandler:addKeyword({ "academy" }, StdModule.say, { npcHandler = npcHandler, text = "The big building in the centre of Asha. They have a library, a training centre, a {bank} and the room of the {oracle}. {Seymour} is the teacher there." })
 keywordHandler:addKeyword({ "temple" }, StdModule.say, { npcHandler = npcHandler, text = "The monk {Cipfried} takes care of our temple. He can heal you if you're badly injured or poisoned." })
 keywordHandler:addKeyword({ "premium" }, StdModule.say, { npcHandler = npcHandler, text = "As a premium adventurer you have many advantages. You really should check them out!" })
 keywordHandler:addKeyword({ "citizen" }, StdModule.say, { npcHandler = npcHandler, text = "If you tell me the name of a citizen, I'll tell you what I know about him or her." })

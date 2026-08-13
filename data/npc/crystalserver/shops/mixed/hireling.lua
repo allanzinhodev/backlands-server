@@ -2072,7 +2072,7 @@ function createHirelingType(HirelingName)
 		-- roleplay
 		if MsgContains(message, "sword of fury") then
 			npcHandler:say("In my youth I dreamt to wield it! Now I wield the broom of... brooming. I guess that's the next best thing!", npc, creature)
-		elseif MsgContains(message, "rookgaard") then
+		elseif MsgContains(message, "asha") then
 			npcHandler:say("What an uncivilised place without any culture.", npc, creature)
 		elseif MsgContains(message, "excalibug") then
 			-- end roleplay

@@ -26,11 +26,11 @@ npcConfig.flags = {
 npcConfig.voices = {
 	interval = 15000,
 	chance = 50,
-	{ text = "The most dangerous monsters of Rookgaard are on the other side of this bridge." },
+	{ text = "The most dangerous monsters of Asha are on the other side of this bridge." },
 	{ text = "Want to know what monsters are good for you at your level? Just ask me!" },
 	{ text = "I'll crush all monsters who dare to attack our base." },
 	{ text = "Are you injured or poisoned? I can help you." },
-	{ text = "For Rookgaard! For Tibia!" },
+	{ text = "For Asha! For Tibia!" },
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -119,7 +119,7 @@ addMonsterKeyword(1, "You are much too young and inexperienced to cross the brid
 -- Basic keywords
 keywordHandler:addKeyword({ "hint" }, StdModule.rookgaardHints, { npcHandler = npcHandler })
 keywordHandler:addKeyword({ "name" }, StdModule.say, { npcHandler = npcHandler, text = "Dallheim, at your service." })
-keywordHandler:addKeyword({ "job" }, StdModule.say, { npcHandler = npcHandler, text = "I'm the guard of this bridge. I defend Rookgaard against the beasts of the {wilderness} and the {dungeons}, and even of the stinking {sewers}." })
+keywordHandler:addKeyword({ "job" }, StdModule.say, { npcHandler = npcHandler, text = "I'm the guard of this bridge. I defend Asha against the beasts of the {wilderness} and the {dungeons}, and even of the stinking {sewers}." })
 keywordHandler:addKeyword({ "time" }, StdModule.say, { npcHandler = npcHandler, text = "My duty is eternal. Time is of no importance." })
 keywordHandler:addKeyword({ "bank" }, StdModule.say, { npcHandler = npcHandler, text = "Before you fight monsters, deposit your money there. If you die, you won't lose it if it's save in the bank." })
 keywordHandler:addKeyword({ "how", "are", "you" }, StdModule.say, { npcHandler = npcHandler, text = "Fine." })
@@ -150,7 +150,7 @@ keywordHandler:addKeyword({ "banor" }, StdModule.say, { npcHandler = npcHandler,
 keywordHandler:addKeyword({ "magic" }, StdModule.say, { npcHandler = npcHandler, text = "I'm not interested in such party tricks." })
 keywordHandler:addKeyword({ "tibia" }, StdModule.say, { npcHandler = npcHandler, text = "A nice place for a hero, but nothing for whelps." })
 
-keywordHandler:addKeyword({ "rookgaard" }, StdModule.say, { npcHandler = npcHandler, text = "It's my duty to protect this village and its {citizens}." })
+keywordHandler:addKeyword({ "asha" }, StdModule.say, { npcHandler = npcHandler, text = "It's my duty to protect this village and its {citizens}." })
 keywordHandler:addAliasKeyword({ "village" })
 
 keywordHandler:addKeyword({ "monster" }, StdModule.say, { npcHandler = npcHandler, text = "It looks like you have mastered the drill." })

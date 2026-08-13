@@ -119,7 +119,7 @@ keywordHandler:addKeyword({ "citizen" }, StdModule.say, {
 	npcHandler = npcHandler,
 	text = "Which one?",
 })
-keywordHandler:addKeyword({ "rookgaard" }, StdModule.say, {
+keywordHandler:addKeyword({ "asha" }, StdModule.say, {
 	npcHandler = npcHandler,
 	text = "This island would be wonderful if there weren't a constant flood of newcomers.",
 })

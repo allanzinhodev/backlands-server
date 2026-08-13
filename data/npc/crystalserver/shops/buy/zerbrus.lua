@@ -27,9 +27,9 @@ npcConfig.voices = {
 	interval = 15000,
 	chance = 50,
 	{ text = "Are you injured or poisoned? I can help you." },
-	{ text = "For Rookgaard! For Tibia!" },
+	{ text = "For Asha! For Tibia!" },
 	{ text = "No monster shall go past me." },
-	{ text = "The premium side of Rookgaard lies beyond." },
+	{ text = "The premium side of Asha lies beyond." },
 	{ text = "Want to know what monsters are good for you at your level? Just ask me!" },
 }
 
@@ -111,13 +111,13 @@ addMonsterKeyword(1, "You are just beginning your journey, dear |PLAYERNAME|. Yo
 -- Basic keywords
 keywordHandler:addKeyword({ "hint" }, StdModule.rookgaardHints, { npcHandler = npcHandler })
 keywordHandler:addKeyword({ "name" }, StdModule.say, { npcHandler = npcHandler, text = "Zerbrus, at your service." })
-keywordHandler:addKeyword({ "job" }, StdModule.say, { npcHandler = npcHandler, text = "I'm the guard of this bridge. I defend Rookgaard against the beasts of the {wilderness} and the {dungeons}, and even of the stinking {sewers}." })
+keywordHandler:addKeyword({ "job" }, StdModule.say, { npcHandler = npcHandler, text = "I'm the guard of this bridge. I defend Asha against the beasts of the {wilderness} and the {dungeons}, and even of the stinking {sewers}." })
 keywordHandler:addKeyword({ "time" }, StdModule.say, { npcHandler = npcHandler, text = "My duty is eternal. Time is of no importance." })
 keywordHandler:addKeyword({ "bank" }, StdModule.say, { npcHandler = npcHandler, text = "Before you fight monsters, deposit your money there. If you die, you won't lose it if it's save in the bank." })
 keywordHandler:addKeyword({ "how", "are", "you" }, StdModule.say, { npcHandler = npcHandler, text = "Fine." })
 keywordHandler:addKeyword({ "help" }, StdModule.say, { npcHandler = npcHandler, text = "I have to stay here, sorry. But I can {heal} you if you are wounded. I have also valuable information about {monsters}." })
 keywordHandler:addKeyword({ "information" }, StdModule.say, { npcHandler = npcHandler, text = "I'm an expert concerning the wildlife and {monsters} on this island." })
-keywordHandler:addKeyword({ "citizen" }, StdModule.say, { npcHandler = npcHandler, text = "I'm not a gossiper, but if you want to know something about a certain Rookgaardian, ask." })
+keywordHandler:addKeyword({ "citizen" }, StdModule.say, { npcHandler = npcHandler, text = "I'm not a gossiper, but if you want to know something about a certain Ashan, ask." })
 keywordHandler:addKeyword({ "rat" }, StdModule.say, { npcHandler = npcHandler, text = "They're not that dangerous, but don't let yourself get cornered by many of them. They still can hurt." })
 keywordHandler:addKeyword({ "spider" }, StdModule.say, { npcHandler = npcHandler, text = "There are two types of spiders on this island: normal spiders and poison spiders. As their name says, the latter ones can poison you which will cause a constant loss of your health. Beware of them!" })
 keywordHandler:addKeyword({ "troll" }, StdModule.say, { npcHandler = npcHandler, text = "Once you have upgraded your starter {equipment} a little - maybe leather stuff - and got a better weapon as well as a shield, you should be able to kill trolls." })
@@ -143,7 +143,7 @@ keywordHandler:addKeyword({ "magic" }, StdModule.say, { npcHandler = npcHandler,
 keywordHandler:addKeyword({ "tibia" }, StdModule.say, { npcHandler = npcHandler, text = "In the world of Tibia, many challenges await the brave adventurer." })
 keywordHandler:addKeyword({ "book" }, StdModule.say, { npcHandler = npcHandler, text = "There are many books in the {academy}. Theory can be just as important as practice." })
 
-keywordHandler:addKeyword({ "rookgaard" }, StdModule.say, { npcHandler = npcHandler, text = "It's my duty to protect this village and its {citizens}." })
+keywordHandler:addKeyword({ "asha" }, StdModule.say, { npcHandler = npcHandler, text = "It's my duty to protect this village and its {citizens}." })
 keywordHandler:addAliasKeyword({ "protect" })
 
 keywordHandler:addKeyword({ "monster" }, StdModule.say, { npcHandler = npcHandler, text = "It looks like you have mastered the drill." })
@@ -180,7 +180,7 @@ keywordHandler:addKeyword({ "oracle" }, StdModule.say, { npcHandler = npcHandler
 keywordHandler:addKeyword({ "paulie" }, StdModule.say, { npcHandler = npcHandler, text = "The local {bank} clerk." })
 keywordHandler:addKeyword({ "seymour" }, StdModule.say, { npcHandler = npcHandler, text = "His job of teaching young heroes is important for the survival of all of us." })
 keywordHandler:addKeyword({ "tom" }, StdModule.say, { npcHandler = npcHandler, text = "He's the local tanner. You could try selling fresh corpses or leather to him." })
-keywordHandler:addKeyword({ "dallheim" }, StdModule.say, { npcHandler = npcHandler, text = "He does a fine job, protecting the north bridge. He's been on duty longer than me and knows the north side of Rookgaard well." })
+keywordHandler:addKeyword({ "dallheim" }, StdModule.say, { npcHandler = npcHandler, text = "He does a fine job, protecting the north bridge. He's been on duty longer than me and knows the north side of Asha well." })
 keywordHandler:addKeyword({ "zerbrus" }, StdModule.say, { npcHandler = npcHandler, text = "At your service." })
 keywordHandler:addKeyword({ "billy" }, StdModule.say, { npcHandler = npcHandler, text = "He's a farmer. A little more friendly than his cousin {Willie}, he also buys and sells {food}." })
 keywordHandler:addKeyword({ "willie" }, StdModule.say, { npcHandler = npcHandler, text = "He's quite rude. Also, he buys and sells {food}." })

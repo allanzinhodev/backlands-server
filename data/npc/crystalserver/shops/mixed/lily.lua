@@ -82,7 +82,7 @@ end
 local mission4 = keywordHandler:addKeyword({ "yes" }, StdModule.say, {
 	npcHandler = npcHandler,
 	text = {
-		"That's great to hear! You see, I'm not the only potion brewer on Rookgaard. The hermit Hyacinth has his little alchemy lab outside the village. ...",
+		"That's great to hear! You see, I'm not the only potion brewer on Asha. The hermit Hyacinth has his little alchemy lab outside the village. ...",
 		"He's old and can't make his way into the village anymore, but needs some of the herbs that grow only around here. Could you please deliver a bag of herbs to Hyacinth?",
 	},
 }, function(player)
@@ -210,13 +210,13 @@ keywordHandler:addKeyword({ "premium" }, StdModule.say, { npcHandler = npcHandle
 keywordHandler:addKeyword({ "potion" }, StdModule.say, { npcHandler = npcHandler, text = "I can offer you homemade {antidote} potions and small {health} potions. Ask me for a {trade} if you like to see them." })
 keywordHandler:addKeyword({ "health" }, StdModule.say, { npcHandler = npcHandler, text = "Health potions will heal you for about 75 hit points. It can't hurt to carry one with you, just in case." })
 keywordHandler:addKeyword({ "king" }, StdModule.say, { npcHandler = npcHandler, text = "I think Tibia would be a better place without authorities who lead others to war. Can't we just all live in peace?" })
-keywordHandler:addKeyword({ "academy" }, StdModule.say, { npcHandler = npcHandler, text = "The academy is the big stone building in the town centre. If you're ready to leave Rookgaard, go there to see the {oracle}." })
-keywordHandler:addKeyword({ "rookgaard" }, StdModule.say, { npcHandler = npcHandler, text = "Well, in this village and its surroundings you can {train} your skills until you are level 8. Then you should see the {oracle} and head to the {main} continent." })
+keywordHandler:addKeyword({ "academy" }, StdModule.say, { npcHandler = npcHandler, text = "The academy is the big stone building in the town centre. If you're ready to leave Asha, go there to see the {oracle}." })
+keywordHandler:addKeyword({ "asha" }, StdModule.say, { npcHandler = npcHandler, text = "Well, in this village and its surroundings you can {train} your skills until you are level 8. Then you should see the {oracle} and head to the {main} continent." })
 keywordHandler:addKeyword({ "train" }, StdModule.say, { npcHandler = npcHandler, text = "To train your skills, simply help us {fighting} monsters." })
 keywordHandler:addKeyword({ "fight" }, StdModule.say, { npcHandler = npcHandler, text = " If you want to fight monsters, you should get better {equipment} from the {merchants}. You should also talk to one of the bridge {guards} to find suitable monsters for you." })
 keywordHandler:addKeyword({ "merchant" }, StdModule.say, { npcHandler = npcHandler, text = "To view the offers of a merchant, simply talk to him or her and ask for a {trade}. They will gladly show you their offers and also the things they buy from you." })
 keywordHandler:addKeyword({ "main" }, StdModule.say, { npcHandler = npcHandler, text = "The main continent is huge! The gods of Tibia created everything from great seas, deep jungles and large deserts." })
-keywordHandler:addKeyword({ "monster" }, StdModule.say, { npcHandler = npcHandler, text = "Sadly, our little village of {Rookgaard} is invaded by monsters. From the {dungeons} they creep to the surface and attack the city. We always need adventurers helping us to {fight} them." })
+keywordHandler:addKeyword({ "monster" }, StdModule.say, { npcHandler = npcHandler, text = "Sadly, our little village of {Asha} is invaded by monsters. From the {dungeons} they creep to the surface and attack the city. We always need adventurers helping us to {fight} them." })
 keywordHandler:addKeyword({ "weapon" }, StdModule.say, { npcHandler = npcHandler, text = "If you are looking for weapons, you should visit {Obi}'s shop east of here. Or, if you have a {premium} account, go to {Lee'Delle} for better offers." })
 keywordHandler:addKeyword({ "armor" }, StdModule.say, { npcHandler = npcHandler, text = "Armors? Best buy them at {Dixi}'s little counter, just upstairs from {Obi}'s shop. Or, if you have a {premium} account, go to {Lee'Delle} for better offers." })
 keywordHandler:addKeyword({ "shield" }, StdModule.say, { npcHandler = npcHandler, text = "Shields? Best buy them at {Dixi}'s little counter, just upstairs from {Obi}'s shop. Or, if you have a {premium} account, go to {Lee'Delle} for better offers." })
@@ -259,7 +259,7 @@ keywordHandler:addAliasKeyword({ "berry" })
 
 -- Names
 keywordHandler:addKeyword({ "obi" }, StdModule.say, { npcHandler = npcHandler, text = "He sells {weapons}. His shop is east of here." })
-keywordHandler:addKeyword({ "norma" }, StdModule.say, { npcHandler = npcHandler, text = "I don't know what to think about all this new bar. {Rookgaard} needs a little peace!" })
+keywordHandler:addKeyword({ "norma" }, StdModule.say, { npcHandler = npcHandler, text = "I don't know what to think about all this new bar. {Asha} needs a little peace!" })
 keywordHandler:addKeyword({ "loui" }, StdModule.say, { npcHandler = npcHandler, text = "He used to help me gather blueberries. Then, one day, he suddenly stopped comming here. They say he went a little out of his mind." })
 keywordHandler:addKeyword({ "santiago" }, StdModule.say, { npcHandler = npcHandler, text = "We tried everything to fight that cockroach plague in his cellar, but natural anti-bug potions simply won't help. I guess those roaches need to be fought with stronger weapons." })
 keywordHandler:addKeyword({ "zirella" }, StdModule.say, { npcHandler = npcHandler, text = "That poor old woman. I wish I could help her." })

@@ -168,7 +168,7 @@ keywordHandler:addKeyword({ "dungeon" }, StdModule.say, {
 })
 keywordHandler:addKeyword({ "sewer" }, StdModule.say, {
 	npcHandler = npcHandler,
-	text = "I like sewers. I made my very first battle experience in the sewers below {Thais}. The small sewer system of {Rookgaard} has some nasty rats to fight.",
+	text = "I like sewers. I made my very first battle experience in the sewers below {Thais}. The small sewer system of {Asha} has some nasty rats to fight.",
 })
 keywordHandler:addKeyword({ "monster" }, StdModule.say, {
 	npcHandler = npcHandler,
@@ -204,7 +204,7 @@ keywordHandler:addKeyword({ "academy" }, StdModule.say, {
 })
 keywordHandler:addKeyword({ "king" }, StdModule.say, {
 	npcHandler = npcHandler,
-	text = "King Tibianus is the ruler of {Thais}. The island of {Rookgaard} belongs to his kingdom.",
+	text = "King Tibianus is the ruler of {Thais}. The island of {Asha} belongs to his kingdom.",
 })
 keywordHandler:addKeyword({ "thais" }, StdModule.say, {
 	npcHandler = npcHandler,
@@ -342,7 +342,7 @@ keywordHandler:addKeyword({ "dixi" }, StdModule.say, {
 })
 keywordHandler:addKeyword({ "zerbrus" }, StdModule.say, {
 	npcHandler = npcHandler,
-	text = "An extraordinary warrior. He's the first and last line of defense of {Rookgaard}.",
+	text = "An extraordinary warrior. He's the first and last line of defense of {Asha}.",
 })
 keywordHandler:addAliasKeyword({ "dallheim" })
 

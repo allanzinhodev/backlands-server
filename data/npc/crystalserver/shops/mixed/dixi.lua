@@ -29,7 +29,7 @@ npcConfig.voices = {
 	{ text = "<clears throat> Get your armor and shields heeeeeeere! Upstairs!", yell = true },
 	{ text = "Need some help? Just ask me, I can show you around!" },
 	{ text = "Don't forget to protect yourself with a shield!" },
-	{ text = "Selling the finest armors on Rookgaard!" },
+	{ text = "Selling the finest armors on Asha!" },
 	{ text = "Don't let these mean monsters hurt you - get better equipment now!" },
 }
 
@@ -91,9 +91,9 @@ keywordHandler:addKeyword({ "torch" }, StdModule.say, { npcHandler = npcHandler,
 keywordHandler:addKeyword({ "weapon" }, StdModule.say, { npcHandler = npcHandler, text = "Oh, I'm sorry, but my grandfather {Obi} doesn't like seeing me waving around with pointy things. He sells weapons himself, just go downstairs!" })
 keywordHandler:addKeyword({ "food" }, StdModule.say, { npcHandler = npcHandler, text = "Are you hungry? Then you should visit {Willie} or {Billy} in the West of town. {Norma} also has yummy stuff! Oh, and you could pick {blueberries} or eat the food some {monsters} carry with them." })
 keywordHandler:addKeyword({ "potion" }, StdModule.say, { npcHandler = npcHandler, text = "{Lily} sells effective health potions and antidote potions against poison." })
-keywordHandler:addKeyword({ "academy" }, StdModule.say, { npcHandler = npcHandler, text = "The big building in the centre of Rookgaard. They have a library, a training centre, a {bank} and the room of the {oracle}. {Seymore} is the teacher there." })
-keywordHandler:addKeyword({ "king" }, StdModule.say, { npcHandler = npcHandler, text = "King Tibianus is a wise and noble monarch. This island of {Rookgaard} belongs to his kingdom." })
-keywordHandler:addKeyword({ "rookgaard" }, StdModule.say, { npcHandler = npcHandler, text = "Our lovely village will provide shelter for you. Once you are level 8, you can travel to {mainland} and choose a {profession}." })
+keywordHandler:addKeyword({ "academy" }, StdModule.say, { npcHandler = npcHandler, text = "The big building in the centre of Asha. They have a library, a training centre, a {bank} and the room of the {oracle}. {Seymore} is the teacher there." })
+keywordHandler:addKeyword({ "king" }, StdModule.say, { npcHandler = npcHandler, text = "King Tibianus is a wise and noble monarch. This island of {Asha} belongs to his kingdom." })
+keywordHandler:addKeyword({ "asha" }, StdModule.say, { npcHandler = npcHandler, text = "Our lovely village will provide shelter for you. Once you are level 8, you can travel to {mainland} and choose a {profession}." })
 keywordHandler:addKeyword({ "mainland" }, StdModule.say, { npcHandler = npcHandler, text = "If you want to fight monsters in {dungeons}, you definitely need some good {equipment} such as a {weapon}, an {armor} and a {shield}." })
 keywordHandler:addKeyword({ "buy" }, StdModule.say, { npcHandler = npcHandler, text = "Just ask me for a {trade} to check out my offers." })
 keywordHandler:addKeyword({ "sell" }, StdModule.say, { npcHandler = npcHandler, text = "Just ask me for a {trade} to see what I buy from you." })
@@ -140,7 +140,7 @@ keywordHandler:addKeyword({ "oracle" }, StdModule.say, { npcHandler = npcHandler
 keywordHandler:addKeyword({ "paulie" }, StdModule.say, { npcHandler = npcHandler, text = "He is the local {bank} clerk." })
 keywordHandler:addKeyword({ "seymour" }, StdModule.say, { npcHandler = npcHandler, text = "Seymour is a loyal follower of the {king} and a teacher in the {academy}." })
 keywordHandler:addKeyword({ "tom" }, StdModule.say, { npcHandler = npcHandler, text = "I wish he would talk to his mother {Zirella} again. I feel so sorry for her. Anyway, as Tom is a tanner, you can sell leather and fresh corpses to him." })
-keywordHandler:addKeyword({ "dallheim" }, StdModule.say, { npcHandler = npcHandler, text = "He's one of our reliable guardsmen. Without them, many {monsters} would roam the village of {Rookgaard}!" })
+keywordHandler:addKeyword({ "dallheim" }, StdModule.say, { npcHandler = npcHandler, text = "He's one of our reliable guardsmen. Without them, many {monsters} would roam the village of {Asha}!" })
 keywordHandler:addAliasKeyword({ "zerbrus" })
 
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Um yeah, good day.")

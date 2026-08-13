@@ -132,7 +132,7 @@ mission6:addChildKeyword(
 -- Mission 6: Decline
 mission6:addChildKeyword({ "no" }, StdModule.say, {
 	npcHandler = npcHandler,
-	text = "Well, then walk Rookgaard barefoot. It's up to you!",
+	text = "Well, then walk Asha barefoot. It's up to you!",
 	reset = true,
 })
 
@@ -172,7 +172,7 @@ keywordHandler:addKeyword({ "information" }, StdModule.say, { npcHandler = npcHa
 keywordHandler:addKeyword({ "help" }, StdModule.say, { npcHandler = npcHandler, text = "Help? I will give you a few gold coins if you have some fresh dead {animals} for me. Note the word {fresh}." })
 keywordHandler:addKeyword({ "fresh" }, StdModule.say, { npcHandler = npcHandler, text = "Fresh means: shortly after their death." })
 keywordHandler:addKeyword({ "how", "are", "you" }, StdModule.say, { npcHandler = npcHandler, text = "Much to do these days." })
-keywordHandler:addKeyword({ "monster" }, StdModule.say, { npcHandler = npcHandler, text = "Good monsters to start with are rats. They live in the {sewers} under the village of {Rookgaard}." })
+keywordHandler:addKeyword({ "monster" }, StdModule.say, { npcHandler = npcHandler, text = "Good monsters to start with are rats. They live in the {sewers} under the village of {Asha}." })
 keywordHandler:addKeyword({ "dungeon" }, StdModule.say, { npcHandler = npcHandler, text = "Dungeons can be dangerous without proper {equipment}." })
 keywordHandler:addKeyword({ "equipment" }, StdModule.say, { npcHandler = npcHandler, text = "You need at least a {backpack}, a {rope}, a {shovel}, a {weapon}, an {armor} and a {shield}." })
 keywordHandler:addKeyword({ "time" }, StdModule.say, { npcHandler = npcHandler, text = "Sorry, I haven't been outside for a while, so I don't know." })

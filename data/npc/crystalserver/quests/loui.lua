@@ -67,7 +67,7 @@ keywordHandler:addKeyword({ "rat" }, StdModule.say, { npcHandler = npcHandler, t
 keywordHandler:addKeyword({ "tibia" }, StdModule.say, { npcHandler = npcHandler, text = "Everything around us, that is Tibia." })
 keywordHandler:addKeyword({ "academy" }, StdModule.say, { npcHandler = npcHandler, text = "Most adventurers take their first steps there." })
 keywordHandler:addKeyword({ "king" }, StdModule.say, { npcHandler = npcHandler, text = "Pah, king! He should do something about this {hole}!" })
-keywordHandler:addKeyword({ "rookgaard" }, StdModule.say, { npcHandler = npcHandler, text = "This is the place where everything starts." })
+keywordHandler:addKeyword({ "asha" }, StdModule.say, { npcHandler = npcHandler, text = "This is the place where everything starts." })
 keywordHandler:addKeyword({ "blueberr" }, StdModule.say, { npcHandler = npcHandler, text = "Was it...? Yes, I might have looked for blueberries as I foolishly entered this unholy {hole}." })
 keywordHandler:addKeyword({ "monster" }, StdModule.say, { npcHandler = npcHandler, text = "There must be an army of them, just down this {hole}." })
 keywordHandler:addKeyword({ "rabbit" }, StdModule.say, { npcHandler = npcHandler, text = "Then, they must be magic wielding beasts using creature illusion! Good thing you escaped." })
