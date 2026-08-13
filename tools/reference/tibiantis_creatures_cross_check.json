@@ -1,0 +1,1424 @@
+{
+  "matched": [
+    {
+      "name": "amazon",
+      "experience": 60,
+      "health": 110,
+      "summon": "390",
+      "convince": "390",
+      "ratio": 0.55,
+      "loot": "brown bread, crystal necklace, dagger, 0-10gp, leather armor, sabre, 0-2 skulls, small ruby, studded shield, torch",
+      "custom": "-",
+      "files": [
+        "humans\\amazon.lua"
+      ]
+    },
+    {
+      "name": "ancient scarab",
+      "experience": 720,
+      "health": 1000,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.72,
+      "loot": "ancient amulet, daramanian waraxe, 0-188gp, magic light wand, plate armor, scarab amulet, 0-3 scarab coins, scarab shield, 0-4 small amethysts, 0-3 small emeralds",
+      "custom": "-",
+      "files": [
+        "vermins\\ancient_scarab.lua"
+      ]
+    },
+    {
+      "name": "badger",
+      "experience": 5,
+      "health": 23,
+      "summon": "200",
+      "convince": "200",
+      "ratio": 0.22,
+      "loot": "meat",
+      "custom": "-",
+      "files": [
+        "mammals\\badger.lua"
+      ]
+    },
+    {
+      "name": "banshee",
+      "experience": 900,
+      "health": 1000,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.9,
+      "loot": "black pearl, blue robe, candlestick, crystal ring, dirty cape, 0-80gp, life crystal, lyre, mirror, poison dagger, red robe, ring of healing, silver amulet, silver brooch, simple dress, spellbook, stone skin amulet, wedding ring, white pearl",
+      "custom": "-",
+      "files": [
+        "undeads\\banshee.lua"
+      ]
+    },
+    {
+      "name": "bear",
+      "experience": 23,
+      "health": 80,
+      "summon": "300",
+      "convince": "300",
+      "ratio": 0.29,
+      "loot": "0-2 ham, 0-4 meat",
+      "custom": "-",
+      "files": [
+        "mammals\\bear.lua",
+        "nostalgia\\old_bear.lua"
+      ]
+    },
+    {
+      "name": "behemoth",
+      "experience": 2500,
+      "health": 4000,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.63,
+      "loot": "amphora, big bone, crowbar, crystal necklace, dark armor, double axe, giant sword, 0-140gp, 0-6 meat, pick, plate armor, 0-2 small amethyst, steel boots, strange symbol, two handed sword, green spell wand",
+      "custom": "-",
+      "files": [
+        "giants\\behemoth.lua"
+      ]
+    },
+    {
+      "name": "beholder",
+      "experience": 170,
+      "health": 260,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.65,
+      "loot": "beholder shield, 0-48gp, longsword, morning star, spellbook, steel shield, two handed sword, wooden shield",
+      "custom": "-",
+      "files": [
+        "nostalgia\\old_bonelord.lua"
+      ]
+    },
+    {
+      "name": "black knight",
+      "experience": 1600,
+      "health": 1800,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.89,
+      "loot": "battle hammer, boots of haste, brass legs, 0-2 brown breads, dark armor, dark helmet, dragon lance, 0-150gp, halberd, knight armor, knight axe, knight legs, plate armor, rope, ruby necklace, 0-3 spears, steel helmet, two handed sword, warrior helmet",
+      "custom": "-",
+      "files": [
+        "bosses\\black_knight.lua"
+      ]
+    },
+    {
+      "name": "black sheep",
+      "experience": 0,
+      "health": 20,
+      "summon": "250",
+      "convince": "250",
+      "ratio": 0,
+      "loot": "0-4 meat",
+      "custom": "-",
+      "files": [
+        "mammals\\black_sheep.lua"
+      ]
+    },
+    {
+      "name": "blue djinn",
+      "experience": 190,
+      "health": 330,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.58,
+      "loot": "blue rose, book, carrot, 0-50gp, mystic turban, small oil lamp, 0-4 small sapphires",
+      "custom": "-",
+      "files": [
+        "magicals\\blue_djinn.lua"
+      ]
+    },
+    {
+      "name": "bonebeast",
+      "experience": 580,
+      "health": 515,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 1.13,
+      "loot": "big bone, bone, bone club, bone shield, 0-90g, green mushroom, plate armor, skull",
+      "custom": "-",
+      "files": [
+        "undeads\\bonebeast.lua"
+      ]
+    },
+    {
+      "name": "bug",
+      "experience": 18,
+      "health": 29,
+      "summon": "250",
+      "convince": "250",
+      "ratio": 0.62,
+      "loot": "0-3 cherries, 0-6gp",
+      "custom": "-",
+      "files": [
+        "nostalgia\\old_bug.lua",
+        "vermins\\bug.lua"
+      ]
+    },
+    {
+      "name": "cave rat",
+      "experience": 10,
+      "health": 30,
+      "summon": "250",
+      "convince": "250",
+      "ratio": 0.33,
+      "loot": "cheese, cookie, 0-2gp",
+      "custom": "-",
+      "files": [
+        "mammals\\cave_rat.lua"
+      ]
+    },
+    {
+      "name": "cobra",
+      "experience": 30,
+      "health": 65,
+      "summon": "275",
+      "convince": "275",
+      "ratio": 0.46,
+      "loot": "---",
+      "custom": "-",
+      "files": [
+        "reptiles\\cobra.lua"
+      ]
+    },
+    {
+      "name": "crypt shambler",
+      "experience": 195,
+      "health": 330,
+      "summon": "---",
+      "convince": "580",
+      "ratio": 0.59,
+      "loot": "bone, bone shield, bone sword, 0-55gp, iron helmet, rotten meat, small diamond, 0-3 throwing stars, two handed sword",
+      "custom": "-",
+      "files": [
+        "undeads\\crypt_shambler.lua"
+      ]
+    },
+    {
+      "name": "cyclops",
+      "experience": 150,
+      "health": 260,
+      "summon": "490",
+      "convince": "490",
+      "ratio": 0.58,
+      "loot": "battle shield, club ring, dark helmet, 0-30gp, halberd, 0-2 ham, meat, plate shield, short sword, wolf tooth chain",
+      "custom": "-",
+      "files": [
+        "giants\\cyclops.lua"
+      ]
+    },
+    {
+      "name": "deathslicer",
+      "experience": 0,
+      "health": 0,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0,
+      "loot": "---",
+      "custom": "-",
+      "files": [
+        "traps\\deathslicer.lua"
+      ]
+    },
+    {
+      "name": "deer",
+      "experience": 0,
+      "health": 25,
+      "summon": "260",
+      "convince": "260",
+      "ratio": 0,
+      "loot": "ham, 0-3 meat",
+      "custom": "-",
+      "files": [
+        "mammals\\deer.lua"
+      ]
+    },
+    {
+      "name": "demon",
+      "experience": 6000,
+      "health": 8200,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.73,
+      "loot": "demon shield, devil helmet, double axe, fire axe, 0-6 fire mushroom, giant sword, 0-400gp, 0-6 coconuts, gold ring, golden legs, golden sickle, ice rapier, magic plate armor, mastermind shield, might ring, orb, platinum amulet, purple tome, ring of healing, small emerald, stealth ring, talon",
+      "custom": "-",
+      "files": [
+        "demons\\demon.lua"
+      ]
+    },
+    {
+      "name": "demon skeleton",
+      "experience": 240,
+      "health": 400,
+      "summon": "620",
+      "convince": "620",
+      "ratio": 0.6,
+      "loot": "battle hammer, battle shield, 0-45gp, guardian shield, iron helmet, mind stone, mysterious fetish, 0-3 throwing stars, torch",
+      "custom": "-",
+      "files": [
+        "undeads\\demon_skeleton.lua"
+      ]
+    },
+    {
+      "name": "dog",
+      "experience": 0,
+      "health": 20,
+      "summon": "220",
+      "convince": "220",
+      "ratio": 0,
+      "loot": "---",
+      "custom": "-",
+      "files": [
+        "mammals\\dog.lua"
+      ]
+    },
+    {
+      "name": "dragon",
+      "experience": 700,
+      "health": 1000,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.7,
+      "loot": "browadsword, 0-10 burst arrows, crossbow, double axe, 0-3 dragon ham, dragon hammer, dragon shield, 0-105gp, life crystal, longsword, mace, plate legs, serpent sword, short sword, small diamond, steel helmet, steel shield",
+      "custom": "-",
+      "files": [
+        "dragons\\dragon.lua"
+      ]
+    },
+    {
+      "name": "dragon lord",
+      "experience": 2100,
+      "health": 1900,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 1.11,
+      "loot": "book, 0-5 dragon ham, dragon scale mail, energy ring, fire sword, 0-250gp, golden mug, green mushroom, life crystal, power bolt, royal helmet, small sapphire, strange helmet, tower shield",
+      "custom": "-",
+      "files": [
+        "dragons\\dragon_lord.lua"
+      ]
+    },
+    {
+      "name": "dwarf",
+      "experience": 45,
+      "health": 90,
+      "summon": "320",
+      "convince": "320",
+      "ratio": 0.5,
+      "loot": "axe, copper shield, dwarven ring, 0-8gp, hatchet, leather legs, letter, pick, studded armor, white mushroom",
+      "custom": "-",
+      "files": [
+        "humanoids\\dwarf.lua"
+      ]
+    },
+    {
+      "name": "dwarf geomancer",
+      "experience": 245,
+      "health": 380,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.64,
+      "loot": "bag, blank rune, clerical mace, dwarven ring, 0-30gp, leather boots, magic light wand, 0-2 pears, small sapphire, soldier helmet, spellbook, studded legs, 0-2 white mushroom",
+      "custom": "-",
+      "files": [
+        "humanoids\\dwarf_geomancer.lua"
+      ]
+    },
+    {
+      "name": "dwarf guard",
+      "experience": 170,
+      "health": 245,
+      "summon": "600",
+      "convince": "600",
+      "ratio": 0.69,
+      "loot": "axe ring, battle hammer, battle shield, double axe, 0-30gp, leather boots, scale armor, small amethyst, steel helmet, 0-2 white mushroom",
+      "custom": "-",
+      "files": [
+        "humanoids\\dwarf_guard.lua"
+      ]
+    },
+    {
+      "name": "dwarf soldier",
+      "experience": 70,
+      "health": 135,
+      "summon": "360",
+      "convince": "360",
+      "ratio": 0.52,
+      "loot": "axe ring, battle axe, 0-4 bolts, chain armor, crossbow, dwarven shield, 0-12gp, shovel, soldier helmet, 0-2 white mushroom",
+      "custom": "-",
+      "files": [
+        "humanoids\\dwarf_soldier.lua"
+      ]
+    },
+    {
+      "name": "efreet",
+      "experience": 300,
+      "health": 550,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.55,
+      "loot": "0-130gp, green gem, green tapestry, heavy machete, mystic turban, 0-12 pears, 0-2 small emeralds, small oil lamp",
+      "custom": "-",
+      "files": [
+        "magicals\\efreet.lua"
+      ]
+    },
+    {
+      "name": "elf",
+      "experience": 42,
+      "health": 100,
+      "summon": "320",
+      "convince": "320",
+      "ratio": 0.42,
+      "loot": "0-3 arrows, brass shield, leather boots, longsword, 0-2 red apples, studded armor, studded helmet",
+      "custom": "-",
+      "files": [
+        "humanoids\\elf.lua"
+      ]
+    },
+    {
+      "name": "elf arcanist",
+      "experience": 175,
+      "health": 220,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.8,
+      "loot": "0-3 arrows, blank rune, bowl, bread, candlestick, elven amulet, grave flower, green tunic, inkwell, life crystal, melon, sandals, scroll, sling herb, staff, yellow gem",
+      "custom": "-",
+      "files": [
+        "humanoids\\elf_arcanist.lua"
+      ]
+    },
+    {
+      "name": "elf scout",
+      "experience": 75,
+      "health": 160,
+      "summon": "360",
+      "convince": "360",
+      "ratio": 0.47,
+      "loot": "0-12 arrows, bow, 0-5gp, grapes, longsword, 0-3 poison arrows, sandals, studded armor, studded helmet, waterskin",
+      "custom": "-",
+      "files": [
+        "humanoids\\elf_scout.lua"
+      ]
+    },
+    {
+      "name": "fire devil",
+      "experience": 110,
+      "health": 200,
+      "summon": "530",
+      "convince": "530",
+      "ratio": 0.55,
+      "loot": "blank rune, cleaver, double axe, guardian shield, pitchfork, scimitar, small amethyst, 0-2 torches, red spell wand",
+      "custom": "-",
+      "files": [
+        "demons\\fire_devil.lua"
+      ]
+    },
+    {
+      "name": "fire elemental",
+      "experience": 220,
+      "health": 280,
+      "summon": "690",
+      "convince": "690",
+      "ratio": 0.79,
+      "loot": "---",
+      "custom": "-",
+      "files": [
+        "elementals\\fire_elemental.lua"
+      ]
+    },
+    {
+      "name": "frost troll",
+      "experience": 23,
+      "health": 55,
+      "summon": "300",
+      "convince": "300",
+      "ratio": 0.42,
+      "loot": "club, coat, fish, 0-12gp, rapier, spear, twigs, wooden shield",
+      "custom": "-",
+      "files": [
+        "humanoids\\frost_troll.lua"
+      ]
+    },
+    {
+      "name": "gargoyle",
+      "experience": 150,
+      "health": 250,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.6,
+      "loot": "battle shield, club ring, dark armor, 0-30gp, 0-2 ham, meat, morning star, 0-10 small stones, steel helmet, studded club, wolf tooth, chain",
+      "custom": "-",
+      "files": [
+        "magicals\\gargoyle.lua"
+      ]
+    },
+    {
+      "name": "gazer",
+      "experience": 90,
+      "health": 120,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.75,
+      "loot": "0-24gp, wooden shield",
+      "custom": "-",
+      "files": [
+        "magicals\\gazer.lua"
+      ]
+    },
+    {
+      "name": "ghost",
+      "experience": 120,
+      "health": 150,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.8,
+      "loot": "ancient shield, book, cape, combat knife, morning star, sandals, shadow herb, stealth ring, golden wand",
+      "custom": "-",
+      "files": [
+        "undeads\\ghost.lua"
+      ]
+    },
+    {
+      "name": "ghoul",
+      "experience": 85,
+      "health": 100,
+      "summon": "450",
+      "convince": "450",
+      "ratio": 0.85,
+      "loot": "brass helmet, 0-30gp, knife, life ring, scale armor, skull, torch, viking helmet",
+      "custom": "-",
+      "files": [
+        "undeads\\ghoul.lua"
+      ]
+    },
+    {
+      "name": "giant spider",
+      "experience": 900,
+      "health": 1300,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.69,
+      "loot": "brass legs, 0-99gp, knight armor, knight legs, plate armor, platinum amulet, steel helmet, time ring",
+      "custom": "-",
+      "files": [
+        "nostalgia\\old_giant_spider.lua",
+        "raids\\giant_spider_wyda.lua",
+        "vermins\\giant_spider.lua"
+      ]
+    },
+    {
+      "name": "goblin",
+      "experience": 25,
+      "health": 50,
+      "summon": "290",
+      "convince": "290",
+      "ratio": 0.5,
+      "loot": "bone, bone club, dagger, fish, 0-9gp, leather armor, leather helmet, moldy cheese, short sword, small axe, 0-3 small stones",
+      "custom": "-",
+      "files": [
+        "humanoids\\goblin.lua"
+      ]
+    },
+    {
+      "name": "green djinn",
+      "experience": 190,
+      "health": 330,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.58,
+      "loot": "book, cheese, 0-50gp, grave flower, mystic turban, 0-4 small emerald, small oil lamp",
+      "custom": "-",
+      "files": [
+        "magicals\\green_djinn.lua"
+      ]
+    },
+    {
+      "name": "hero",
+      "experience": 1200,
+      "health": 1400,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.86,
+      "loot": "0-13 arrows, bow, crown armor, crown helmet, crown legs, crown shield, fire sword, 0-100gp, grapes, green tunic, lyre, 0-2 meat, might ring, red rose, rope, scarf, scroll, two handed sword, war hammer, wedding ring",
+      "custom": "-",
+      "files": [
+        "humans\\hero.lua"
+      ]
+    },
+    {
+      "name": "hunter",
+      "experience": 150,
+      "health": 150,
+      "summon": "---",
+      "convince": "530",
+      "ratio": 1,
+      "loot": "0-22 arrows, bow, brass armor, brass helmet, 0-3 burst arrows, dragon necklace, leather helmet, leather legs, 0-2 oranges, 0-2 rolls, small ruby, torch",
+      "custom": "-",
+      "files": [
+        "humans\\hunter.lua"
+      ]
+    },
+    {
+      "name": "hyaena",
+      "experience": 20,
+      "health": 60,
+      "summon": "275",
+      "convince": "275",
+      "ratio": 0.33,
+      "loot": "0-2 meat",
+      "custom": "-",
+      "files": [
+        "mammals\\hyaena.lua"
+      ]
+    },
+    {
+      "name": "larva",
+      "experience": 44,
+      "health": 70,
+      "summon": "355",
+      "convince": "355",
+      "ratio": 0.63,
+      "loot": "0-10gp, meat",
+      "custom": "-",
+      "files": [
+        "vermins\\larva.lua"
+      ]
+    },
+    {
+      "name": "lich",
+      "experience": 900,
+      "health": 880,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 1.02,
+      "loot": "black pearl, blue robe, castle shield, drity cape, 0-120gp, mind stone, platinum amulet, ring of healing, spellbook, staff, strange helmet, white pearl",
+      "custom": "-",
+      "files": [
+        "undeads\\lich.lua"
+      ]
+    },
+    {
+      "name": "lion",
+      "experience": 30,
+      "health": 80,
+      "summon": "320",
+      "convince": "320",
+      "ratio": 0.38,
+      "loot": "0-2 ham, 0-3 meat",
+      "custom": "-",
+      "files": [
+        "mammals\\lion.lua"
+      ]
+    },
+    {
+      "name": "marid",
+      "experience": 300,
+      "health": 550,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.55,
+      "loot": "blue gem, blue tapestry, 0-25 blueberries, 0-130gp, heavy machete, mystic turban, small oil lamp, 0-2 small sapphires, wooden flute",
+      "custom": "-",
+      "files": [
+        "magicals\\marid.lua"
+      ]
+    },
+    {
+      "name": "minotaur",
+      "experience": 50,
+      "health": 100,
+      "summon": "330",
+      "convince": "330",
+      "ratio": 0.5,
+      "loot": "axe, brass helmet, bronze amulet, chain armor, chain helmet, 0-25gp, leather legs, mace, meat, plate shield, shovel, sword",
+      "custom": "-",
+      "files": [
+        "humanoids\\minotaur.lua"
+      ]
+    },
+    {
+      "name": "minotaur archer",
+      "experience": 65,
+      "health": 100,
+      "summon": "390",
+      "convince": "390",
+      "ratio": 0.65,
+      "loot": "0-20 bolts, brass armor, crossbow, 0-30gp, leather helmet, leather legs, meat, scale armor, soldier helmet",
+      "custom": "-",
+      "files": [
+        "humanoids\\minotaur_archer.lua"
+      ]
+    },
+    {
+      "name": "minotaur guard",
+      "experience": 160,
+      "health": 185,
+      "summon": "550",
+      "convince": "550",
+      "ratio": 0.86,
+      "loot": "battle shield, brass armor, chain armor, chain legs, double axe, fishing rod, 0-20gp, hatchet, leather legs, meat",
+      "custom": "-",
+      "files": [
+        "humanoids\\minotaur_guard.lua"
+      ]
+    },
+    {
+      "name": "minotaur mage",
+      "experience": 150,
+      "health": 155,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.97,
+      "loot": "brass armor, 0-7 carrots, chain legs, combat knife, dead snake, 0-10gp, knife, leather helmet, leather legs, 0-2 torches",
+      "custom": "-",
+      "files": [
+        "humanoids\\minotaur_mage.lua"
+      ]
+    },
+    {
+      "name": "monk",
+      "experience": 200,
+      "health": 240,
+      "summon": "600",
+      "convince": "---",
+      "ratio": 0.83,
+      "loot": "ankh, bag, bread, brown flask, 0-18gp, leather armor, life crystal, lamp, power ring, sandals, scroll, staff",
+      "custom": "-",
+      "files": [
+        "humans\\monk.lua"
+      ]
+    },
+    {
+      "name": "mummy",
+      "experience": 150,
+      "health": 240,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.63,
+      "loot": "black pearl, black shield, crystal ring, 0-80gp, magic light wand, poison dagger, short sword, silver amulet, silver brooch, strange talisman",
+      "custom": "-",
+      "files": [
+        "undeads\\mummy.lua"
+      ]
+    },
+    {
+      "name": "necromancer",
+      "experience": 580,
+      "health": 580,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 1,
+      "loot": "boots of haste, clerical mace, 0-90gp, green mushroom, mystic turban, scale armor, short sword, skull staff, conjurer wand",
+      "custom": "-",
+      "files": [
+        "humans\\necromancer.lua"
+      ]
+    },
+    {
+      "name": "orc",
+      "experience": 25,
+      "health": 70,
+      "summon": "300",
+      "convince": "300",
+      "ratio": 0.36,
+      "loot": "axe, 0-8gp, meat, sabre, studded armor, studded helmet, studded shield",
+      "custom": "-",
+      "files": [
+        "humanoids\\orc.lua",
+        "raids\\orc_sambackpack.lua"
+      ]
+    },
+    {
+      "name": "orc berserker",
+      "experience": 195,
+      "health": 210,
+      "summon": "590",
+      "convince": "590",
+      "ratio": 0.93,
+      "loot": "battle axe, chain armor, chain helmet, 0-12gp, halberd, ham, lamp",
+      "custom": "-",
+      "files": [
+        "humanoids\\orc_berserker.lua"
+      ]
+    },
+    {
+      "name": "orc leader",
+      "experience": 270,
+      "health": 450,
+      "summon": "640",
+      "convince": "640",
+      "ratio": 0.6,
+      "loot": "backpack, brass legs, broadsword, dagger, fish, 0-35gp, longsword, 0-2 meat, plate armor, plate legs, plate shield, scimitar, sword ring, 0-4 throwing knives, warrior helmet",
+      "custom": "-",
+      "files": [
+        "humanoids\\orc_leader.lua"
+      ]
+    },
+    {
+      "name": "orc rider",
+      "experience": 110,
+      "health": 180,
+      "summon": "---",
+      "convince": "490",
+      "ratio": 0.61,
+      "loot": "backpack, battle shield, 0-90gp, 0-3 meat, obsidian lance, orcish axe, scale armor, studded helmet, torch, wolf tooth chain",
+      "custom": "-",
+      "files": [
+        "humanoids\\orc_rider.lua"
+      ]
+    },
+    {
+      "name": "orc shaman",
+      "experience": 110,
+      "health": 115,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.96,
+      "loot": "book, chain armor, chain helmet, bag, 0-2 corncobs, 0-5gp, spear, staff, blue spell wand",
+      "custom": "-",
+      "files": [
+        "humanoids\\orc_shaman.lua"
+      ]
+    },
+    {
+      "name": "orc spearman",
+      "experience": 38,
+      "health": 105,
+      "summon": "310",
+      "convince": "310",
+      "ratio": 0.36,
+      "loot": "dirty fur, 0-7gp, machete, meat, spear, studded helmet, studded legs",
+      "custom": "-",
+      "files": [
+        "humanoids\\orc_spearman.lua"
+      ]
+    },
+    {
+      "name": "orc warlord",
+      "experience": 670,
+      "health": 950,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.71,
+      "loot": "brass armor, brass legs, crusader helmet, dark helmet, dragon hammer, 0-2 fish, 0-45gp, 0-2 meat, orcish axe, plate armor, plate legs, protection amulet, scimitar, stealth ring, 0-40 throwing stars, two handed sword",
+      "custom": "-",
+      "files": [
+        "humanoids\\orc_warlord.lua",
+        "raids\\orc_armor.lua",
+        "raids\\orc_helmet.lua",
+        "raids\\orc_shield.lua"
+      ]
+    },
+    {
+      "name": "orc warrior",
+      "experience": 50,
+      "health": 125,
+      "summon": "360",
+      "convince": "360",
+      "ratio": 0.4,
+      "loot": "bottle, chain armor, copper shield, 0-15gp, meat, poison dagger, sabre, wooden shield",
+      "custom": "-",
+      "files": [
+        "humanoids\\orc_warrior.lua"
+      ]
+    },
+    {
+      "name": "pig",
+      "experience": 0,
+      "health": 25,
+      "summon": "255",
+      "convince": "255",
+      "ratio": 0,
+      "loot": "0-4 meat",
+      "custom": "-",
+      "files": [
+        "mammals\\pig.lua",
+        "nostalgia\\old_pig.lua"
+      ]
+    },
+    {
+      "name": "poison spider",
+      "experience": 22,
+      "health": 26,
+      "summon": "270",
+      "convince": "270",
+      "ratio": 0.85,
+      "loot": "0-4gp",
+      "custom": "-",
+      "files": [
+        "vermins\\poison_spider.lua"
+      ]
+    },
+    {
+      "name": "polar bear",
+      "experience": 28,
+      "health": 85,
+      "summon": "315",
+      "convince": "315",
+      "ratio": 0.33,
+      "loot": "0-2 ham, 0-4 meat",
+      "custom": "-",
+      "files": [
+        "mammals\\polar_bear.lua"
+      ]
+    },
+    {
+      "name": "priestess",
+      "experience": 420,
+      "health": 390,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 1.08,
+      "loot": "black shield, book, bowl, clerical mace, crystal ball, crystal necklace, dagger, goat grass, powder herb, 0-2 red apples, sling herb, talon, wood mushroom, wooden flute",
+      "custom": "-",
+      "files": [
+        "humans\\priestess.lua"
+      ]
+    },
+    {
+      "name": "rabbit",
+      "experience": 0,
+      "health": 15,
+      "summon": "220",
+      "convince": "220",
+      "ratio": 0,
+      "loot": "carrot, 0-2 meat",
+      "custom": "-",
+      "files": [
+        "mammals\\rabbit.lua"
+      ]
+    },
+    {
+      "name": "rat",
+      "experience": 5,
+      "health": 20,
+      "summon": "200",
+      "convince": "200",
+      "ratio": 0.25,
+      "loot": "cheese, 0-4gp",
+      "custom": "-",
+      "files": [
+        "mammals\\rat.lua"
+      ]
+    },
+    {
+      "name": "rotworm",
+      "experience": 40,
+      "health": 65,
+      "summon": "---",
+      "convince": "305",
+      "ratio": 0.62,
+      "loot": "copper shield, 0-20gp, ham, katana, legion helmet, mace, meat, sword",
+      "custom": "-",
+      "files": [
+        "vermins\\rotworm.lua"
+      ]
+    },
+    {
+      "name": "scarab",
+      "experience": 120,
+      "health": 320,
+      "summon": "395",
+      "convince": "395",
+      "ratio": 0.38,
+      "loot": "0-3 arrows, daramanian mace, 0-52gp, heavy machete, 0-2 meat, 0-2 scarab coins, small amethyst, small emerald",
+      "custom": "-",
+      "files": [
+        "vermins\\scarab.lua"
+      ]
+    },
+    {
+      "name": "scorpion",
+      "experience": 45,
+      "health": 45,
+      "summon": "310",
+      "convince": "310",
+      "ratio": 1,
+      "loot": "---",
+      "custom": "-",
+      "files": [
+        "vermins\\scorpion.lua"
+      ]
+    },
+    {
+      "name": "sheep",
+      "experience": 0,
+      "health": 20,
+      "summon": "250",
+      "convince": "250",
+      "ratio": 0,
+      "loot": "0-4 meat",
+      "custom": "-",
+      "files": [
+        "mammals\\sheep.lua"
+      ]
+    },
+    {
+      "name": "skeleton",
+      "experience": 35,
+      "health": 50,
+      "summon": "300",
+      "convince": "300",
+      "ratio": 0.7,
+      "loot": "bone, brass shield, 0-10gp, hatchet, mace, sword, torch, viking helmet",
+      "custom": "-",
+      "files": [
+        "undeads\\skeleton.lua"
+      ]
+    },
+    {
+      "name": "skunk",
+      "experience": 3,
+      "health": 20,
+      "summon": "200",
+      "convince": "200",
+      "ratio": 0.15,
+      "loot": "0-2 meat",
+      "custom": "-",
+      "files": [
+        "mammals\\skunk.lua"
+      ]
+    },
+    {
+      "name": "slime",
+      "experience": 160,
+      "health": 150,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 1.07,
+      "loot": "---",
+      "custom": "-",
+      "files": [
+        "slimes\\slime.lua"
+      ]
+    },
+    {
+      "name": "snake",
+      "experience": 10,
+      "health": 15,
+      "summon": "205",
+      "convince": "205",
+      "ratio": 0.67,
+      "loot": "---",
+      "custom": "-",
+      "files": [
+        "reptiles\\snake.lua"
+      ]
+    },
+    {
+      "name": "spider",
+      "experience": 12,
+      "health": 20,
+      "summon": "210",
+      "convince": "210",
+      "ratio": 0.6,
+      "loot": "0-5gp",
+      "custom": "-",
+      "files": [
+        "nostalgia\\old_spider.lua",
+        "vermins\\spider.lua"
+      ]
+    },
+    {
+      "name": "stalker",
+      "experience": 90,
+      "health": 120,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.75,
+      "loot": "backpack, blank rune, brass legs, brass shield, 0-8gp, katana, leather legs, obsidian lance, 0-2 throwing knives",
+      "custom": "-",
+      "files": [
+        "humans\\stalker.lua"
+      ]
+    },
+    {
+      "name": "stone golem",
+      "experience": 160,
+      "health": 270,
+      "summon": "590",
+      "convince": "590",
+      "ratio": 0.59,
+      "loot": "carlin sword, crystal ring, 0-15gp, power ring, red gem, scale armor, 0-4 small stones, steel shield, torch",
+      "custom": "-",
+      "files": [
+        "constructs\\stone_golem.lua"
+      ]
+    },
+    {
+      "name": "swamp troll",
+      "experience": 25,
+      "health": 55,
+      "summon": "320",
+      "convince": "320",
+      "ratio": 0.45,
+      "loot": "dagger, fish, fishing rod, 0-5gp, leather boots, torch",
+      "custom": "-",
+      "files": [
+        "humanoids\\swamp_troll.lua"
+      ]
+    },
+    {
+      "name": "troll",
+      "experience": 20,
+      "health": 50,
+      "summon": "290",
+      "convince": "290",
+      "ratio": 0.4,
+      "loot": "0-10gp, hand axe, leather boots, leather helmet, meat, rope, silver amulet, spear, studded club, wooden shield",
+      "custom": "-",
+      "files": [
+        "humanoids\\troll.lua"
+      ]
+    },
+    {
+      "name": "valkyrie",
+      "experience": 85,
+      "health": 190,
+      "summon": "450",
+      "convince": "450",
+      "ratio": 0.45,
+      "loot": "chain armor, chain helmet, dagger, double axe, 0-12gp, 0-3 meat, plate armor, protection amulet, 0-2 red apples, 0-2 skulls, small diamond, 0-3 spear",
+      "custom": "-",
+      "files": [
+        "humans\\valkyrie.lua"
+      ]
+    },
+    {
+      "name": "vampire",
+      "experience": 290,
+      "health": 450,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.64,
+      "loot": "black pearl, bowl, bronze amulet, emerald bangle, 0-20gp, grave flower, ice rapier, katana, leather legs, skull, spike sword, strange helmet, vampire shield",
+      "custom": "-",
+      "files": [
+        "undeads\\vampire.lua"
+      ]
+    },
+    {
+      "name": "war wolf",
+      "experience": 55,
+      "health": 140,
+      "summon": "---",
+      "convince": "420",
+      "ratio": 0.39,
+      "loot": "0-2 ham, 0-4 meat",
+      "custom": "-",
+      "files": [
+        "mammals\\war_wolf.lua"
+      ]
+    },
+    {
+      "name": "warlock",
+      "experience": 4000,
+      "health": 3200,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 1.25,
+      "loot": "blue robe, bread, candlestick, 0-4 cherries, crystal ring, dark mushroom, energy ring, 0-80gp, golden armor, inkwell, mind stone, poison dagger, red tome, ring of the sky, skull staff, small sapphire, stone skin amulet, talon, wand of might",
+      "custom": "-",
+      "files": [
+        "humans\\warlock.lua"
+      ]
+    },
+    {
+      "name": "wasp",
+      "experience": 24,
+      "health": 35,
+      "summon": "280",
+      "convince": "280",
+      "ratio": 0.69,
+      "loot": "---",
+      "custom": "-",
+      "files": [
+        "nostalgia\\old_wasp.lua",
+        "vermins\\wasp.lua"
+      ]
+    },
+    {
+      "name": "wild warrior",
+      "experience": 55,
+      "health": 120,
+      "summon": "420",
+      "convince": "420",
+      "ratio": 0.46,
+      "loot": "axe, brass armor, brass shield, leather boots, doll, 0-30gp, iron helmet, leather legs, mace, meat, steel shield, war hammer",
+      "custom": "-",
+      "files": [
+        "humans\\wild_warrior.lua"
+      ]
+    },
+    {
+      "name": "winter wolf",
+      "experience": 20,
+      "health": 30,
+      "summon": "260",
+      "convince": "260",
+      "ratio": 0.67,
+      "loot": "0-2 meat",
+      "custom": "-",
+      "files": [
+        "mammals\\winter_wolf.lua"
+      ]
+    },
+    {
+      "name": "witch",
+      "experience": 120,
+      "health": 300,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.4,
+      "loot": "broom, cape, cheese, coat, 0-8 cookies, garlic necklace, 0-10gp, leather boots, sickle, silver dagger, star herb, wolf tooth chain",
+      "custom": "-",
+      "files": [
+        "humans\\witch.lua"
+      ]
+    },
+    {
+      "name": "wolf",
+      "experience": 18,
+      "health": 25,
+      "summon": "255",
+      "convince": "255",
+      "ratio": 0.72,
+      "loot": "0-2 meat",
+      "custom": "-",
+      "files": [
+        "mammals\\wolf.lua",
+        "nostalgia\\old_wolf.lua"
+      ]
+    },
+    {
+      "name": "yeti",
+      "experience": 460,
+      "health": 950,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.48,
+      "loot": "bunnyslippers, 0-30gp, 0-6 ham, 0-4 meat, 0-22 snowballs, wolf tooth chain",
+      "custom": "-",
+      "files": [
+        "mammals\\yeti.lua"
+      ]
+    }
+  ],
+  "unmatched": [
+    {
+      "name": "alphadyte",
+      "experience": 480,
+      "health": 750,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.64,
+      "loot": "battle shield, big bone, 0-70gp, 0-2 meat, plate armor, plate legs, protection amulet, skull, small diamond, small rock crystal, war hammer",
+      "custom": "yes"
+    },
+    {
+      "name": "demon (illusion)",
+      "experience": 25,
+      "health": 50,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.5,
+      "loot": "bone, dagger, fish, 0-9gp, leather armor, leather helmet, moldy cheese, short sword, small axe, 0-3 small stones",
+      "custom": "-"
+    },
+    {
+      "name": "desert hunter",
+      "experience": 230,
+      "health": 180,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 1.28,
+      "loot": "0-20 arrows bow, brass armor, 0-10 burst arrows, foil, 0-25gp, leather helmet, leather legs, 0-3 meat, 0-12 poison arrows, power arrow, small amethyst, torch",
+      "custom": "yes"
+    },
+    {
+      "name": "dreadspike snail",
+      "experience": 210,
+      "health": 340,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.62,
+      "loot": "battle hammer, battle shield, black pearl, dark armor, fish, gold, small amethyst, throwing star, viking helmet",
+      "custom": "yes"
+    },
+    {
+      "name": "elder beholder",
+      "experience": 280,
+      "health": 500,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.56,
+      "loot": "beholder shield, 0-91gp, longsword, carlin sword, spellbook, steel shield, two handed sword",
+      "custom": "-"
+    },
+    {
+      "name": "giant crayfish",
+      "experience": 800,
+      "health": 1100,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.73,
+      "loot": "gold, plate armor, plate shield, scimitar, shrimp, small sapphire",
+      "custom": "yes"
+    },
+    {
+      "name": "gorlak",
+      "experience": 40,
+      "health": 80,
+      "summon": "350",
+      "convince": "350",
+      "ratio": 0.5,
+      "loot": "brown mushroom, fishbone, 0-10gp, moldy cheese, small citrine, small emerald, small rock crystal, some mushrooms, studded club, worn leather boots",
+      "custom": "yes"
+    },
+    {
+      "name": "kobold",
+      "experience": 60,
+      "health": 120,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.5,
+      "loot": "dirty fur, 0-23gp, leather helmet, mace, meat, silver dagger, small sapphire, spear, studded armor, studded legs, wooden shield",
+      "custom": "yes"
+    },
+    {
+      "name": "kobold stoneshooter",
+      "experience": 100,
+      "health": 150,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.67,
+      "loot": "brass armor, brass helmet, brass legs, copper shield, 0-19gp, grapefruit, meat, native armor, protection amulet, rapier, 0-2 skulls, small ruby, small stone",
+      "custom": "yes"
+    },
+    {
+      "name": "magma beast",
+      "experience": 3300,
+      "health": 5700,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.58,
+      "loot": "broadsword, 0-9 burst arrows, dark armor, 0-300gp, hammer of wrath, might ring, obsidian lance, red gem, ring of healing, 0-3 small rubies, stone skin amulet, strange helmet, 0-2 talons, tower shield",
+      "custom": "yes"
+    },
+    {
+      "name": "monstrous snail",
+      "experience": 165,
+      "health": 280,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.59,
+      "loot": "fish, fishbone, gold, orange mushroom, small citrine, white pearl, worn leather boots",
+      "custom": "yes"
+    },
+    {
+      "name": "obliterator",
+      "experience": 14900,
+      "health": 17100,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.87,
+      "loot": "ancient shield, broken amulet, dark armor, demon shield, gold coins, heavy mace, horned helmet, giant sword, ice rapier, light mace, magic plate armor, mind stone, orb, stone skin amulet, strange helmet, tempest shield, time ring, more?",
+      "custom": "yes"
+    },
+    {
+      "name": "overseer",
+      "experience": 290,
+      "health": 430,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.67,
+      "loot": "brass legs, club ring, dark armor, 0-65gp, ham, morning star, strange helmet, torch",
+      "custom": "yes"
+    },
+    {
+      "name": "phantom",
+      "experience": 225,
+      "health": 205,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 1.1,
+      "loot": "---",
+      "custom": "yes"
+    },
+    {
+      "name": "sandlord",
+      "experience": 4800,
+      "health": 4000,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 1.2,
+      "loot": "bread, bright sword, candlestick, crystal ring, dark mushroom, 0-240gp, gold ring, golden armor, inkwell, mind stone, poison dagger, small ruby, stone skin amulet, portable hole, red robe, red tome, talon, time ring, wand of might, watch",
+      "custom": "yes"
+    },
+    {
+      "name": "tar",
+      "experience": 260,
+      "health": 240,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 1.08,
+      "loot": "---",
+      "custom": "yes"
+    },
+    {
+      "name": "tentacle horror",
+      "experience": 4900,
+      "health": 5200,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.94,
+      "loot": "black pearl, bone, brass armor, brass legs, double axe, gold, gold nugget, golden armor, meat, medusa shield, rotten meat, ring of healing, shrimp, small amethyst, small diamond, steel helmet, turquoise gem, two-handed sword, viking shield, white pearl, warrior helmet",
+      "custom": "yes"
+    },
+    {
+      "name": "tentacle spawn",
+      "experience": 95,
+      "health": 140,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.68,
+      "loot": "brass legs, brass shield, gold, hatchet, life crystal, shrimp, sword, viking helmet",
+      "custom": "yes"
+    },
+    {
+      "name": "trilobite",
+      "experience": 38,
+      "health": 50,
+      "summon": "---",
+      "convince": "350",
+      "ratio": 0.76,
+      "loot": "small rock crystal",
+      "custom": "yes"
+    },
+    {
+      "name": "troglodyte",
+      "experience": 220,
+      "health": 380,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.58,
+      "loot": "bone, bone shield, brass legs, fish, 0-31gp, mace, piece of iron, remains of a fish, rotten meat, scale armor, spear",
+      "custom": "yes"
+    },
+    {
+      "name": "underworm",
+      "experience": 1900,
+      "health": 2200,
+      "summon": "---",
+      "convince": "---",
+      "ratio": 0.86,
+      "loot": "axe ring, battle hammer, big bone, brass armor, brass legs, bronze amulet, dark shield, 0-200gp, guardian halberd, 0-3 ham, iron helmet, 0-4 meat, skeleton, 0-2 skulls, small ruby, two handed sword",
+      "custom": "yes"
+    }
+  ]
+}
