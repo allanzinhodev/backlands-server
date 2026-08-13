@@ -1,0 +1,678 @@
+{
+  "dryRun": false,
+  "ranAt": "2026-08-13T15:20:11.901Z",
+  "map": "world.otbm",
+  "bytesBefore": 184768897,
+  "bytesAfter": 184767314,
+  "itemsBefore": 5879425,
+  "itemsAfter": 5879136,
+  "removedInstances": 289,
+  "removedIds": 133,
+  "breakdown": [
+    {
+      "id": 5903,
+      "name": "Ferumbras' hat",
+      "count": 31
+    },
+    {
+      "id": 3059,
+      "name": "spellbook",
+      "count": 17
+    },
+    {
+      "id": 7378,
+      "name": "royal spear",
+      "count": 11
+    },
+    {
+      "id": 6120,
+      "name": "Dragha's spellbook",
+      "count": 10
+    },
+    {
+      "id": 7368,
+      "name": "assassin star",
+      "count": 7
+    },
+    {
+      "id": 17824,
+      "name": "swampling club",
+      "count": 6
+    },
+    {
+      "id": 3066,
+      "name": "snakebite rod",
+      "count": 6
+    },
+    {
+      "id": 21158,
+      "name": "glooth spear",
+      "count": 6
+    },
+    {
+      "id": 3069,
+      "name": "necrotic rod",
+      "count": 5
+    },
+    {
+      "id": 5460,
+      "name": "helmet of the deep",
+      "count": 4
+    },
+    {
+      "id": 3334,
+      "name": "pharaoh sword",
+      "count": 4
+    },
+    {
+      "id": 22134,
+      "name": "enchanted werewolf amulet",
+      "count": 4
+    },
+    {
+      "id": 3573,
+      "name": "magician hat",
+      "count": 4
+    },
+    {
+      "id": 7429,
+      "name": "blessed sceptre",
+      "count": 3
+    },
+    {
+      "id": 3074,
+      "name": "wand of vortex",
+      "count": 3
+    },
+    {
+      "id": 7438,
+      "name": "elvish bow",
+      "count": 3
+    },
+    {
+      "id": 3418,
+      "name": "bonelord shield",
+      "count": 3
+    },
+    {
+      "id": 7366,
+      "name": "viper star",
+      "count": 3
+    },
+    {
+      "id": 5803,
+      "name": "arbalest",
+      "count": 3
+    },
+    {
+      "id": 17813,
+      "name": "life preserver",
+      "count": 3
+    },
+    {
+      "id": 7390,
+      "name": "justice seeker",
+      "count": 2
+    },
+    {
+      "id": 7434,
+      "name": "royal axe",
+      "count": 2
+    },
+    {
+      "id": 7384,
+      "name": "mystic blade",
+      "count": 2
+    },
+    {
+      "id": 7389,
+      "name": "heroic axe",
+      "count": 2
+    },
+    {
+      "id": 7415,
+      "name": "cranial basher",
+      "count": 2
+    },
+    {
+      "id": 7406,
+      "name": "blacksteel sword",
+      "count": 2
+    },
+    {
+      "id": 7380,
+      "name": "headchopper",
+      "count": 2
+    },
+    {
+      "id": 7381,
+      "name": "mammoth whopper",
+      "count": 2
+    },
+    {
+      "id": 7392,
+      "name": "orcish maul",
+      "count": 2
+    },
+    {
+      "id": 8099,
+      "name": "dark trinity mace",
+      "count": 2
+    },
+    {
+      "id": 8097,
+      "name": "solar axe",
+      "count": 2
+    },
+    {
+      "id": 406,
+      "name": "family signet ring",
+      "count": 2
+    },
+    {
+      "id": 8053,
+      "name": "fireborn giant armor",
+      "count": 2
+    },
+    {
+      "id": 8096,
+      "name": "hellforged axe",
+      "count": 2
+    },
+    {
+      "id": 7773,
+      "name": "steel axe",
+      "count": 2
+    },
+    {
+      "id": 6529,
+      "name": "pair of soft boots",
+      "count": 2
+    },
+    {
+      "id": 3067,
+      "name": "hailstorm rod",
+      "count": 2
+    },
+    {
+      "id": 14769,
+      "name": "spellbook of ancient arcana",
+      "count": 2
+    },
+    {
+      "id": 7992,
+      "name": "mage hat",
+      "count": 2
+    },
+    {
+      "id": 8060,
+      "name": "master archer's armor",
+      "count": 2
+    },
+    {
+      "id": 7774,
+      "name": "jagged sword",
+      "count": 2
+    },
+    {
+      "id": 3327,
+      "name": "daramian mace",
+      "count": 2
+    },
+    {
+      "id": 3065,
+      "name": "terra rod",
+      "count": 2
+    },
+    {
+      "id": 17109,
+      "name": "mean knight sword",
+      "count": 2
+    },
+    {
+      "id": 17111,
+      "name": "sorcerer and druid staff",
+      "count": 2
+    },
+    {
+      "id": 8021,
+      "name": "modified crossbow",
+      "count": 2
+    },
+    {
+      "id": 7404,
+      "name": "assassin dagger",
+      "count": 2
+    },
+    {
+      "id": 8073,
+      "name": "spellbook of warding",
+      "count": 2
+    },
+    {
+      "id": 8023,
+      "name": "royal crossbow",
+      "count": 2
+    },
+    {
+      "id": 8026,
+      "name": "warsinger bow",
+      "count": 2
+    },
+    {
+      "id": 8103,
+      "name": "epiphany",
+      "count": 2
+    },
+    {
+      "id": 10406,
+      "name": "Zaoan halberd",
+      "count": 2
+    },
+    {
+      "id": 8094,
+      "name": "wand of voodoo",
+      "count": 2
+    },
+    {
+      "id": 8082,
+      "name": "underworld rod",
+      "count": 2
+    },
+    {
+      "id": 3071,
+      "name": "wand of inferno",
+      "count": 2
+    },
+    {
+      "id": 3009,
+      "name": "bronze necklace",
+      "count": 2
+    },
+    {
+      "id": 7991,
+      "name": "magician's robe",
+      "count": 2
+    },
+    {
+      "id": 6527,
+      "name": "avenger",
+      "count": 2
+    },
+    {
+      "id": 3246,
+      "name": "boots of waterwalking",
+      "count": 2
+    },
+    {
+      "id": 3075,
+      "name": "wand of dragonbreath",
+      "count": 2
+    },
+    {
+      "id": 7464,
+      "name": "mammoth fur shorts",
+      "count": 1
+    },
+    {
+      "id": 7457,
+      "name": "fur boots",
+      "count": 1
+    },
+    {
+      "id": 7458,
+      "name": "fur cap",
+      "count": 1
+    },
+    {
+      "id": 23531,
+      "name": "ring of green plasma",
+      "count": 1
+    },
+    {
+      "id": 9019,
+      "name": "firewalker boots",
+      "count": 1
+    },
+    {
+      "id": 8049,
+      "name": "lavos armor",
+      "count": 1
+    },
+    {
+      "id": 8057,
+      "name": "divine plate",
+      "count": 1
+    },
+    {
+      "id": 8030,
+      "name": "Elethriel's elemental bow",
+      "count": 1
+    },
+    {
+      "id": 7450,
+      "name": "hammer of prophecy",
+      "count": 1
+    },
+    {
+      "id": 8051,
+      "name": "voltage armor",
+      "count": 1
+    },
+    {
+      "id": 8101,
+      "name": "stomper",
+      "count": 1
+    },
+    {
+      "id": 6531,
+      "name": "santa hat",
+      "count": 1
+    },
+    {
+      "id": 8076,
+      "name": "spellscroll of prophecies",
+      "count": 1
+    },
+    {
+      "id": 8093,
+      "name": "wand of draconia",
+      "count": 1
+    },
+    {
+      "id": 21348,
+      "name": "scorcher",
+      "count": 1
+    },
+    {
+      "id": 17110,
+      "name": "mean paladin spear",
+      "count": 1
+    },
+    {
+      "id": 3072,
+      "name": "wand of decay",
+      "count": 1
+    },
+    {
+      "id": 7367,
+      "name": "enchanted spear",
+      "count": 1
+    },
+    {
+      "id": 8090,
+      "name": "spellbook of dark mysteries",
+      "count": 1
+    },
+    {
+      "id": 8102,
+      "name": "emerald sword",
+      "count": 1
+    },
+    {
+      "id": 8100,
+      "name": "obsidian truncheon",
+      "count": 1
+    },
+    {
+      "id": 8062,
+      "name": "robe of the underworld",
+      "count": 1
+    },
+    {
+      "id": 9802,
+      "name": "friendship amulet",
+      "count": 1
+    },
+    {
+      "id": 10476,
+      "name": "lucky clover amulet",
+      "count": 1
+    },
+    {
+      "id": 3070,
+      "name": "moonlight rod",
+      "count": 1
+    },
+    {
+      "id": 13991,
+      "name": "deepling axe",
+      "count": 1
+    },
+    {
+      "id": 8061,
+      "name": "skullcracker armor",
+      "count": 1
+    },
+    {
+      "id": 7408,
+      "name": "wyvern fang",
+      "count": 1
+    },
+    {
+      "id": 9215,
+      "name": "gold medal",
+      "count": 1
+    },
+    {
+      "id": 7388,
+      "name": "vile axe",
+      "count": 1
+    },
+    {
+      "id": 16110,
+      "name": "prismatic armor",
+      "count": 1
+    },
+    {
+      "id": 16162,
+      "name": "mycological mace",
+      "count": 1
+    },
+    {
+      "id": 7416,
+      "name": "bloody edge",
+      "count": 1
+    },
+    {
+      "id": 8050,
+      "name": "crystalline armor",
+      "count": 1
+    },
+    {
+      "id": 8077,
+      "name": "rainbow shield",
+      "count": 1
+    },
+    {
+      "id": 14768,
+      "name": "thorn spitter",
+      "count": 1
+    },
+    {
+      "id": 3343,
+      "name": "lich staff",
+      "count": 1
+    },
+    {
+      "id": 3403,
+      "name": "tribal mask",
+      "count": 1
+    },
+    {
+      "id": 11687,
+      "name": "royal scale robe",
+      "count": 1
+    },
+    {
+      "id": 11686,
+      "name": "royal draken mail",
+      "count": 1
+    },
+    {
+      "id": 11689,
+      "name": "elite draken helmet",
+      "count": 1
+    },
+    {
+      "id": 3347,
+      "name": "hunting spear",
+      "count": 1
+    },
+    {
+      "id": 50171,
+      "name": "jo staff",
+      "count": 1
+    },
+    {
+      "id": 8044,
+      "name": "belted cape",
+      "count": 1
+    },
+    {
+      "id": 827,
+      "name": "magma monocle",
+      "count": 1
+    },
+    {
+      "id": 8064,
+      "name": "ethno coat",
+      "count": 1
+    },
+    {
+      "id": 8042,
+      "name": "spirit cloak",
+      "count": 1
+    },
+    {
+      "id": 6299,
+      "name": "death ring",
+      "count": 1
+    },
+    {
+      "id": 10200,
+      "name": "crystal boots",
+      "count": 1
+    },
+    {
+      "id": 8054,
+      "name": "earthborn titan armor",
+      "count": 1
+    },
+    {
+      "id": 645,
+      "name": "blue legs",
+      "count": 1
+    },
+    {
+      "id": 3445,
+      "name": "salamander shield",
+      "count": 1
+    },
+    {
+      "id": 6096,
+      "name": "pirate hat",
+      "count": 1
+    },
+    {
+      "id": 17810,
+      "name": "spike shield",
+      "count": 1
+    },
+    {
+      "id": 3328,
+      "name": "daramian waraxe",
+      "count": 1
+    },
+    {
+      "id": 12510,
+      "name": "hammer of mighty cheating",
+      "count": 1
+    },
+    {
+      "id": 817,
+      "name": "magma amulet",
+      "count": 1
+    },
+    {
+      "id": 5741,
+      "name": "skull helmet",
+      "count": 1
+    },
+    {
+      "id": 6578,
+      "name": "party hat",
+      "count": 1
+    },
+    {
+      "id": 49520,
+      "name": "inferniarch bow",
+      "count": 1
+    },
+    {
+      "id": 49522,
+      "name": "inferniarch arbalest",
+      "count": 1
+    },
+    {
+      "id": 49523,
+      "name": "inferniarch battleaxe",
+      "count": 1
+    },
+    {
+      "id": 49524,
+      "name": "inferniarch greataxe",
+      "count": 1
+    },
+    {
+      "id": 49525,
+      "name": "inferniarch flail",
+      "count": 1
+    },
+    {
+      "id": 49526,
+      "name": "inferniarch warhammer",
+      "count": 1
+    },
+    {
+      "id": 49527,
+      "name": "inferniarch blade",
+      "count": 1
+    },
+    {
+      "id": 49530,
+      "name": "inferniarch slayer",
+      "count": 1
+    },
+    {
+      "id": 49528,
+      "name": "inferniarch wand",
+      "count": 1
+    },
+    {
+      "id": 49529,
+      "name": "inferniarch rod",
+      "count": 1
+    },
+    {
+      "id": 6101,
+      "name": "Ron the Ripper's sabre",
+      "count": 1
+    },
+    {
+      "id": 3326,
+      "name": "epee",
+      "count": 1
+    },
+    {
+      "id": 17812,
+      "name": "ratana",
+      "count": 1
+    },
+    {
+      "id": 3226,
+      "name": "damaged helmet",
+      "count": 1
+    }
+  ]
+}

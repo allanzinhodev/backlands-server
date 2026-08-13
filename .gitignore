@@ -222,3 +222,6 @@ analysis-reports/
 compile_commands.json
 *.plist
 *.sarif
+
+# Backups gerados pelos scripts de remocao (tools/reference)
+*.backup-before-removal
