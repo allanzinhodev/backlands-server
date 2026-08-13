@@ -28,5 +28,9 @@ spell:blockWalls(true)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)
 spell:needLearn(true)
-spell:vocation("sorcerer", "master sorcerer", "druid", "elder druid")
+-- Knight entra porque a Fire Sword (2392) ensina esta spell a Knight em
+-- data/scripts/network/proficiency/equipment_spells.lua. Vocacao diz quem PODE
+-- aprender; needLearn(true) exige aprender de fato — entao listar Knight aqui
+-- nao concede nada de graca, so torna a proficiencia possivel.
+spell:vocation("sorcerer", "master sorcerer", "druid", "elder druid", "knight", "elite knight")
 spell:register()

@@ -37,7 +37,7 @@ return {
 	[2392] = {
 		[V.KNIGHT] = {
 			{
-				spell = "Exori Flam",
+				spell = "Flame Strike",
 				masterLevel = 3,
 				modifiers = {
 					{ type = SpellModifier.BaseDamage, perLevel = 2 },
@@ -45,7 +45,7 @@ return {
 			},
 		},
 		[V.SORCERER] = {
-			{ spell = "Exevo Flam Hur", masterLevel = 5 },
+			{ spell = "Fire Wave", masterLevel = 5 },
 		},
 	},
 }

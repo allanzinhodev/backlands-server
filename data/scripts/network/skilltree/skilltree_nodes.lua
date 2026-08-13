@@ -34,7 +34,7 @@ return {
 		baseCost = 1,
 		requires = { { node = "fire_affinity", level = 2 } },
 		modifiers = {
-			{ spell = "Exori Flam", type = SpellModifier.BaseDamage, perLevel = 3 },
+			{ spell = "Flame Strike", type = SpellModifier.BaseDamage, perLevel = 3 },
 		},
 	},
 
@@ -43,9 +43,9 @@ return {
 		maxLevel = 3,
 		baseCost = 2,
 		requires = { { node = "flame_strike", level = 3 } },
-		teaches = "Exevo Flam Hur",
+		teaches = "Fire Wave",
 		modifiers = {
-			{ spell = "Exevo Flam Hur", type = SpellModifier.Cooldown, perLevel = 200 },
+			{ spell = "Fire Wave", type = SpellModifier.Cooldown, perLevel = 200 },
 		},
 	},
 
