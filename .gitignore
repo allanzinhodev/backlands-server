@@ -225,3 +225,7 @@ compile_commands.json
 
 # Backups gerados pelos scripts de remocao (tools/reference)
 *.backup-before-removal
+
+# Mapa: 176 MB, acima do limite de 100 MB do GitHub. Mantido fora do git
+# ate ser configurado LFS. Backup em world.otbm.backup-before-removal.
+data/world/world.otbm
