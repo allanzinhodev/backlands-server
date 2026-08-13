@@ -1,0 +1,3044 @@
+[
+  {
+    "name": "A Ghostly Woman",
+    "category": "Other",
+    "position": {
+      "x": 32191,
+      "y": 31811,
+      "z": 5
+    }
+  },
+  {
+    "name": "A Lost Soul",
+    "category": "Other",
+    "position": {
+      "x": 32209,
+      "y": 31924,
+      "z": 12
+    }
+  },
+  {
+    "name": "A Prisoner",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32393,
+      "y": 32137,
+      "z": 13
+    }
+  },
+  {
+    "name": "A Strange Fellow",
+    "category": "Quest",
+    "position": {
+      "x": 32910,
+      "y": 32077,
+      "z": 9
+    }
+  },
+  {
+    "name": "A Sweaty Cyclops",
+    "category": "Other",
+    "position": {
+      "x": 32697,
+      "y": 31674,
+      "z": 3
+    }
+  },
+  {
+    "name": "A Tainted Soul",
+    "category": "Other",
+    "position": {
+      "x": 32216,
+      "y": 31927,
+      "z": 12
+    }
+  },
+  {
+    "name": "A Tortured Soul",
+    "category": "Other",
+    "position": {
+      "x": 32207,
+      "y": 31928,
+      "z": 12
+    }
+  },
+  {
+    "name": "A Wrinkled Beholder",
+    "category": "Other",
+    "position": {
+      "x": 32788,
+      "y": 31690,
+      "z": 13
+    }
+  },
+  {
+    "name": "Abran Ironeye",
+    "category": "Quest",
+    "position": {
+      "x": 32907,
+      "y": 32116,
+      "z": 5
+    }
+  },
+  {
+    "name": "Adrenius",
+    "category": "Other",
+    "position": {
+      "x": 32660,
+      "y": 32112,
+      "z": 8
+    }
+  },
+  {
+    "name": "Ahmet",
+    "category": "Seller",
+    "position": {
+      "x": 33126,
+      "y": 32810,
+      "z": 6
+    }
+  },
+  {
+    "name": "Al Dee",
+    "category": "Seller",
+    "position": {
+      "x": 32063,
+      "y": 32180,
+      "z": 7
+    }
+  },
+  {
+    "name": "Albert",
+    "category": "Other",
+    "position": {
+      "x": 33312,
+      "y": 31762,
+      "z": 7
+    }
+  },
+  {
+    "name": "Aldo",
+    "category": "Seller",
+    "position": {
+      "x": 32953,
+      "y": 32110,
+      "z": 6
+    }
+  },
+  {
+    "name": "Alesar",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 33048,
+      "y": 32621,
+      "z": 5
+    }
+  },
+  {
+    "name": "Alexander",
+    "category": "Seller, Quest, Magic",
+    "position": {
+      "x": 33256,
+      "y": 31839,
+      "z": 3
+    }
+  },
+  {
+    "name": "Alia",
+    "category": "Quest",
+    "position": {
+      "x": 32360,
+      "y": 31785,
+      "z": 7
+    }
+  },
+  {
+    "name": "Allen",
+    "category": "Seller",
+    "position": {
+      "x": 32991,
+      "y": 32062,
+      "z": 6
+    }
+  },
+  {
+    "name": "Alwin",
+    "category": "Other",
+    "position": {
+      "x": 32875,
+      "y": 32125,
+      "z": 6
+    }
+  },
+  {
+    "name": "Amanda",
+    "category": "Quest",
+    "position": {
+      "x": 33222,
+      "y": 31814,
+      "z": 8
+    }
+  },
+  {
+    "name": "Amber",
+    "category": "Quest",
+    "position": {
+      "x": 32103,
+      "y": 32182,
+      "z": 8
+    }
+  },
+  {
+    "name": "An Apparition",
+    "category": "Other",
+    "position": {
+      "x": 32204,
+      "y": 31788,
+      "z": 5
+    }
+  },
+  {
+    "name": "An Old Dragonlord",
+    "category": "Quest",
+    "position": {
+      "x": 32796,
+      "y": 31557,
+      "z": 2
+    }
+  },
+  {
+    "name": "Anderson",
+    "category": "Travel",
+    "position": {
+      "x": 32127,
+      "y": 31660,
+      "z": 7
+    }
+  },
+  {
+    "name": "Anerui",
+    "category": "Seller",
+    "position": {
+      "x": 32669,
+      "y": 31659,
+      "z": 7
+    }
+  },
+  {
+    "name": "Aneus",
+    "category": "Other",
+    "position": {
+      "x": 32426,
+      "y": 31666,
+      "z": 7
+    }
+  },
+  {
+    "name": "Angelina",
+    "category": "Other",
+    "position": {
+      "x": 32635,
+      "y": 32402,
+      "z": 10
+    }
+  },
+  {
+    "name": "Angus",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32670,
+      "y": 32730,
+      "z": 7
+    }
+  },
+  {
+    "name": "Arito",
+    "category": "Seller",
+    "position": {
+      "x": 33069,
+      "y": 32886,
+      "z": 6
+    }
+  },
+  {
+    "name": "Arkhothep",
+    "category": "Other",
+    "position": {
+      "x": 33150,
+      "y": 32842,
+      "z": 4
+    }
+  },
+  {
+    "name": "Arnold",
+    "category": "Other",
+    "position": {
+      "x": 32945,
+      "y": 32070,
+      "z": 6
+    }
+  },
+  {
+    "name": "Aruda",
+    "category": "Other",
+    "position": {
+      "x": 32368,
+      "y": 32215,
+      "z": 7
+    }
+  },
+  {
+    "name": "Ashtamor",
+    "category": "Seller",
+    "position": {
+      "x": 32958,
+      "y": 32088,
+      "z": 6
+    }
+  },
+  {
+    "name": "Asima",
+    "category": "Seller, Quest, Magic",
+    "position": {
+      "x": 33220,
+      "y": 32404,
+      "z": 7
+    }
+  },
+  {
+    "name": "Asrak",
+    "category": "Magic, Trainer",
+    "position": {
+      "x": 32932,
+      "y": 32074,
+      "z": 11
+    }
+  },
+  {
+    "name": "Avar Tar",
+    "category": "Quest",
+    "position": {
+      "x": 33250,
+      "y": 31764,
+      "z": 7
+    }
+  },
+  {
+    "name": "Azil",
+    "category": "Seller",
+    "position": {
+      "x": 33217,
+      "y": 32431,
+      "z": 7
+    }
+  },
+  {
+    "name": "Baa'leal",
+    "category": "Quest",
+    "position": {
+      "x": 33048,
+      "y": 32620,
+      "z": 4
+    }
+  },
+  {
+    "name": "Bambi Bonecrusher",
+    "category": "Other",
+    "position": {
+      "x": 32341,
+      "y": 31749,
+      "z": 7
+    }
+  },
+  {
+    "name": "Barbara",
+    "category": "Other",
+    "position": {
+      "x": 32320,
+      "y": 31752,
+      "z": 7
+    }
+  },
+  {
+    "name": "Bashira",
+    "category": "Seller",
+    "position": {
+      "x": 32669,
+      "y": 31655,
+      "z": 8
+    }
+  },
+  {
+    "name": "Basilisk",
+    "category": "Other",
+    "position": {
+      "x": 32641,
+      "y": 31943,
+      "z": 15
+    }
+  },
+  {
+    "name": "Baxter",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32322,
+      "y": 32188,
+      "z": 7
+    }
+  },
+  {
+    "name": "Beatrice",
+    "category": "Seller",
+    "position": {
+      "x": 33214,
+      "y": 31803,
+      "z": 6
+    }
+  },
+  {
+    "name": "Benjamin",
+    "category": "Seller, Quest, Post",
+    "position": {
+      "x": 32350,
+      "y": 32219,
+      "z": 7
+    }
+  },
+  {
+    "name": "Bezil",
+    "category": "Seller",
+    "position": {
+      "x": 32657,
+      "y": 31909,
+      "z": 9
+    }
+  },
+  {
+    "name": "Bill Gates",
+    "category": "Quest",
+    "position": {
+      "x": 32347,
+      "y": 32223,
+      "z": 7
+    }
+  },
+  {
+    "name": "Billy",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32037,
+      "y": 32205,
+      "z": 7
+    }
+  },
+  {
+    "name": "Blind Orc",
+    "category": "Seller",
+    "position": {
+      "x": 32102,
+      "y": 32130,
+      "z": 4
+    }
+  },
+  {
+    "name": "Blossom Bonecrusher",
+    "category": "Other",
+    "position": {
+      "x": 32390,
+      "y": 31787,
+      "z": 7
+    }
+  },
+  {
+    "name": "Bo'ques",
+    "category": "Quest",
+    "position": {
+      "x": 33101,
+      "y": 32520,
+      "z": 5
+    }
+  },
+  {
+    "name": "Bonifacius",
+    "category": "Seller",
+    "position": {
+      "x": 33165,
+      "y": 31801,
+      "z": 7
+    }
+  },
+  {
+    "name": "Boozer",
+    "category": "Seller",
+    "position": {
+      "x": 32921,
+      "y": 32068,
+      "z": 5
+    }
+  },
+  {
+    "name": "Borkas",
+    "category": "Seller",
+    "position": {
+      "x": 32992,
+      "y": 32068,
+      "z": 6
+    }
+  },
+  {
+    "name": "Bozo",
+    "category": "Seller",
+    "position": {
+      "x": 32313,
+      "y": 32183,
+      "z": 7
+    }
+  },
+  {
+    "name": "Brasith",
+    "category": "Seller",
+    "position": {
+      "x": 32692,
+      "y": 31589,
+      "z": 7
+    }
+  },
+  {
+    "name": "Brengus",
+    "category": "Seller",
+    "position": {
+      "x": 32634,
+      "y": 32747,
+      "z": 6
+    }
+  },
+  {
+    "name": "Brewster",
+    "category": "Quest",
+    "position": {
+      "x": 32595,
+      "y": 32744,
+      "z": 7
+    }
+  },
+  {
+    "name": "Briasol",
+    "category": "Seller, Bank",
+    "position": {
+      "x": 32635,
+      "y": 31667,
+      "z": 8
+    }
+  },
+  {
+    "name": "Brodrosch",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 32661,
+      "y": 31957,
+      "z": 15
+    }
+  },
+  {
+    "name": "Bruno",
+    "category": "Seller",
+    "position": {
+      "x": 32486,
+      "y": 31604,
+      "z": 7
+    }
+  },
+  {
+    "name": "Budrik",
+    "category": "Other",
+    "position": {
+      "x": 32524,
+      "y": 31906,
+      "z": 8
+    }
+  },
+  {
+    "name": "Bunny Bonecrusher",
+    "category": "Quest",
+    "position": {
+      "x": 32315,
+      "y": 31756,
+      "z": 6
+    }
+  },
+  {
+    "name": "Busty Bonecrusher",
+    "category": "Other",
+    "position": {
+      "x": 32294,
+      "y": 31791,
+      "z": 7
+    }
+  },
+  {
+    "name": "Captain Bluebear",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 32310,
+      "y": 32210,
+      "z": 6
+    }
+  },
+  {
+    "name": "Captain Fearless",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 32955,
+      "y": 32022,
+      "z": 6
+    }
+  },
+  {
+    "name": "Captain Greyhound",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 32388,
+      "y": 31822,
+      "z": 6
+    }
+  },
+  {
+    "name": "Captain Jack",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 32189,
+      "y": 31957,
+      "z": 6
+    }
+  },
+  {
+    "name": "Captain Seagull",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 32735,
+      "y": 31668,
+      "z": 6
+    }
+  },
+  {
+    "name": "Captain Seahorse",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 33176,
+      "y": 31764,
+      "z": 6
+    }
+  },
+  {
+    "name": "Captain Sinbeard",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 33094,
+      "y": 32884,
+      "z": 6
+    }
+  },
+  {
+    "name": "Carina",
+    "category": "Seller",
+    "position": {
+      "x": 33015,
+      "y": 32048,
+      "z": 6
+    }
+  },
+  {
+    "name": "Carlson",
+    "category": "Travel",
+    "position": {
+      "x": 32029,
+      "y": 31692,
+      "z": 7
+    }
+  },
+  {
+    "name": "Charles",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 32529,
+      "y": 32785,
+      "z": 6
+    }
+  },
+  {
+    "name": "Chatterbone",
+    "category": "Quest, Magic, Trainer",
+    "position": {
+      "x": 32981,
+      "y": 32080,
+      "z": 6
+    }
+  },
+  {
+    "name": "Chemar",
+    "category": "Seller, Quest, Travel, Post",
+    "position": {
+      "x": 33270,
+      "y": 32439,
+      "z": 6
+    }
+  },
+  {
+    "name": "Chephan",
+    "category": "Seller",
+    "position": {
+      "x": 32890,
+      "y": 32077,
+      "z": 6
+    }
+  },
+  {
+    "name": "Chester Kahs",
+    "category": "Other",
+    "position": {
+      "x": 32348,
+      "y": 32184,
+      "z": 6
+    }
+  },
+  {
+    "name": "Christoph",
+    "category": "Other",
+    "position": {
+      "x": 32885,
+      "y": 32031,
+      "z": 6
+    }
+  },
+  {
+    "name": "Chrystal",
+    "category": "Seller, Quest, Post",
+    "position": {
+      "x": 33174,
+      "y": 31811,
+      "z": 7
+    }
+  },
+  {
+    "name": "Cipfried",
+    "category": "Quest",
+    "position": {
+      "x": 32097,
+      "y": 32217,
+      "z": 7
+    }
+  },
+  {
+    "name": "Clark",
+    "category": "Other",
+    "position": {
+      "x": 32636,
+      "y": 32796,
+      "z": 7
+    }
+  },
+  {
+    "name": "Clyde",
+    "category": "Seller",
+    "position": {
+      "x": 32573,
+      "y": 32753,
+      "z": 7
+    }
+  },
+  {
+    "name": "Cobra",
+    "category": "Quest",
+    "position": {
+      "x": 33366,
+      "y": 32855,
+      "z": 14
+    }
+  },
+  {
+    "name": "Cornelia",
+    "category": "Seller",
+    "position": {
+      "x": 32334,
+      "y": 31796,
+      "z": 7
+    }
+  },
+  {
+    "name": "Costello",
+    "category": "Quest",
+    "position": {
+      "x": 32180,
+      "y": 31936,
+      "z": 7
+    }
+  },
+  {
+    "name": "Dabui",
+    "category": "Other",
+    "position": {
+      "x": 33229,
+      "y": 32409,
+      "z": 7
+    }
+  },
+  {
+    "name": "Dagomir",
+    "category": "Other",
+    "position": {
+      "x": 33018,
+      "y": 32047,
+      "z": 5
+    }
+  },
+  {
+    "name": "Dalbrect",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 32211,
+      "y": 31756,
+      "z": 7
+    }
+  },
+  {
+    "name": "Dallheim",
+    "category": "Other",
+    "position": {
+      "x": 32093,
+      "y": 32180,
+      "z": 6
+    }
+  },
+  {
+    "name": "Dane",
+    "category": "Seller",
+    "position": {
+      "x": 32308,
+      "y": 31838,
+      "z": 8
+    }
+  },
+  {
+    "name": "Daniel Steelsoul",
+    "category": "Quest",
+    "position": {
+      "x": 33191,
+      "y": 31795,
+      "z": 7
+    }
+  },
+  {
+    "name": "Dario",
+    "category": "Seller, Magic, Trainer",
+    "position": {
+      "x": 33156,
+      "y": 32810,
+      "z": 4
+    }
+  },
+  {
+    "name": "Demon Skeleton",
+    "category": "Other",
+    "position": {
+      "x": 32666,
+      "y": 31676,
+      "z": 15
+    }
+  },
+  {
+    "name": "Demonguard",
+    "category": "Other",
+    "position": {
+      "x": 32854,
+      "y": 32318,
+      "z": 10
+    }
+  },
+  {
+    "name": "Dermot",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32165,
+      "y": 32437,
+      "z": 7
+    }
+  },
+  {
+    "name": "Digger",
+    "category": "Seller",
+    "position": {
+      "x": 32970,
+      "y": 32087,
+      "z": 6
+    }
+  },
+  {
+    "name": "Dixi",
+    "category": "Seller",
+    "position": {
+      "x": 32105,
+      "y": 32207,
+      "z": 6
+    }
+  },
+  {
+    "name": "Djema",
+    "category": "Quest",
+    "position": {
+      "x": 33101,
+      "y": 32520,
+      "z": 3
+    }
+  },
+  {
+    "name": "Donald McRonald",
+    "category": "Seller",
+    "position": {
+      "x": 32391,
+      "y": 32229,
+      "z": 7
+    }
+  },
+  {
+    "name": "Dove",
+    "category": "Seller, Quest, Post",
+    "position": {
+      "x": 32919,
+      "y": 32075,
+      "z": 7
+    }
+  },
+  {
+    "name": "Duria",
+    "category": "Magic, Trainer",
+    "position": {
+      "x": 32617,
+      "y": 31938,
+      "z": 8
+    }
+  },
+  {
+    "name": "Dustrunner",
+    "category": "Other",
+    "position": {
+      "x": 32914,
+      "y": 32076,
+      "z": 6
+    }
+  },
+  {
+    "name": "Ebenizer",
+    "category": "Bank",
+    "position": {
+      "x": 33175,
+      "y": 31801,
+      "z": 7
+    }
+  },
+  {
+    "name": "Edala",
+    "category": "Quest",
+    "position": {
+      "x": 32698,
+      "y": 31718,
+      "z": 2
+    }
+  },
+  {
+    "name": "Eddy",
+    "category": "Seller",
+    "position": {
+      "x": 32168,
+      "y": 32431,
+      "z": 7
+    }
+  },
+  {
+    "name": "Edoch",
+    "category": "Seller",
+    "position": {
+      "x": 33232,
+      "y": 32430,
+      "z": 7
+    }
+  },
+  {
+    "name": "Edowir",
+    "category": "Other",
+    "position": {
+      "x": 32343,
+      "y": 32363,
+      "z": 7
+    }
+  },
+  {
+    "name": "Edvard",
+    "category": "Seller",
+    "position": {
+      "x": 33229,
+      "y": 31831,
+      "z": 7
+    }
+  },
+  {
+    "name": "Elane",
+    "category": "Magic, Trainer",
+    "position": {
+      "x": 32343,
+      "y": 32239,
+      "z": 7
+    }
+  },
+  {
+    "name": "Elathriel",
+    "category": "Seller, Magic, Trainer",
+    "position": {
+      "x": 32684,
+      "y": 31671,
+      "z": 9
+    }
+  },
+  {
+    "name": "Elf Guard",
+    "category": "Other",
+    "position": {
+      "x": 32642,
+      "y": 31709,
+      "z": 6
+    }
+  },
+  {
+    "name": "Elvith",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32669,
+      "y": 31607,
+      "z": 7
+    }
+  },
+  {
+    "name": "Emperor Kruzak",
+    "category": "Quest, Vocation",
+    "position": {
+      "x": 32627,
+      "y": 31923,
+      "z": 3
+    }
+  },
+  {
+    "name": "Eremo",
+    "category": "Seller, Quest, Travel, Magic, Trainer",
+    "position": {
+      "x": 33322,
+      "y": 31883,
+      "z": 7
+    }
+  },
+  {
+    "name": "Eroth",
+    "category": "Magic, Trainer",
+    "position": {
+      "x": 32661,
+      "y": 31685,
+      "z": 6
+    }
+  },
+  {
+    "name": "Etzel",
+    "category": "Seller, Quest, Magic, Trainer",
+    "position": {
+      "x": 32626,
+      "y": 31917,
+      "z": 5
+    }
+  },
+  {
+    "name": "Eva",
+    "category": "Bank",
+    "position": {
+      "x": 32325,
+      "y": 31780,
+      "z": 7
+    }
+  },
+  {
+    "name": "Fa'hradin",
+    "category": "Quest",
+    "position": {
+      "x": 33106,
+      "y": 32541,
+      "z": 5
+    }
+  },
+  {
+    "name": "Falk",
+    "category": "Quest",
+    "position": {
+      "x": 33190,
+      "y": 31777,
+      "z": 7
+    }
+  },
+  {
+    "name": "Faluae",
+    "category": "Quest, Magic, Trainer",
+    "position": {
+      "x": 32660,
+      "y": 31673,
+      "z": 7
+    }
+  },
+  {
+    "name": "Feizuhl",
+    "category": "Seller",
+    "position": {
+      "x": 33066,
+      "y": 32886,
+      "z": 7
+    }
+  },
+  {
+    "name": "Fenbala",
+    "category": "Other",
+    "position": {
+      "x": 32320,
+      "y": 31755,
+      "z": 7
+    }
+  },
+  {
+    "name": "Fenech",
+    "category": "Seller, Quest, Magic",
+    "position": {
+      "x": 33131,
+      "y": 32820,
+      "z": 5
+    }
+  },
+  {
+    "name": "Ferks",
+    "category": "Bank",
+    "position": {
+      "x": 32634,
+      "y": 32738,
+      "z": 6
+    }
+  },
+  {
+    "name": "Frans",
+    "category": "Seller, Quest, Magic",
+    "position": {
+      "x": 32971,
+      "y": 32080,
+      "z": 6
+    }
+  },
+  {
+    "name": "Frodo",
+    "category": "Seller",
+    "position": {
+      "x": 32356,
+      "y": 32209,
+      "z": 7
+    }
+  },
+  {
+    "name": "Gabel",
+    "category": "Quest",
+    "position": {
+      "x": 33102,
+      "y": 32520,
+      "z": 1
+    }
+  },
+  {
+    "name": "Gail",
+    "category": "Seller",
+    "position": {
+      "x": 32621,
+      "y": 32738,
+      "z": 6
+    }
+  },
+  {
+    "name": "Galuna",
+    "category": "Seller",
+    "position": {
+      "x": 32342,
+      "y": 32246,
+      "z": 6
+    }
+  },
+  {
+    "name": "Gamel",
+    "category": "Seller",
+    "position": {
+      "x": 32337,
+      "y": 32207,
+      "z": 8
+    }
+  },
+  {
+    "name": "Gamon",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32408,
+      "y": 32170,
+      "z": 7
+    }
+  },
+  {
+    "name": "Gorn",
+    "category": "Seller",
+    "position": {
+      "x": 32377,
+      "y": 32200,
+      "z": 7
+    }
+  },
+  {
+    "name": "Graubart",
+    "category": "Other",
+    "position": {
+      "x": 32489,
+      "y": 31622,
+      "z": 7
+    }
+  },
+  {
+    "name": "Gregor",
+    "category": "Quest, Magic, Trainer",
+    "position": {
+      "x": 32407,
+      "y": 32202,
+      "z": 6
+    }
+  },
+  {
+    "name": "Grof, the guard",
+    "category": "Other",
+    "position": {
+      "x": 32373,
+      "y": 32184,
+      "z": 7
+    }
+  },
+  {
+    "name": "Gundralph",
+    "category": "Magic, Trainer",
+    "position": {
+      "x": 33268,
+      "y": 31849,
+      "z": 5
+    }
+  },
+  {
+    "name": "Gurbasch",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 33313,
+      "y": 31989,
+      "z": 15
+    }
+  },
+  {
+    "name": "H.L.",
+    "category": "Seller",
+    "position": {
+      "x": 32643,
+      "y": 32212,
+      "z": 7
+    }
+  },
+  {
+    "name": "Habdel",
+    "category": "Seller",
+    "position": {
+      "x": 33225,
+      "y": 32434,
+      "z": 7
+    }
+  },
+  {
+    "name": "Hagor",
+    "category": "Other",
+    "position": {
+      "x": 32654,
+      "y": 32151,
+      "z": 10
+    }
+  },
+  {
+    "name": "Hairycles",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32826,
+      "y": 32574,
+      "z": 6
+    }
+  },
+  {
+    "name": "Halif",
+    "category": "Seller",
+    "position": {
+      "x": 33217,
+      "y": 32423,
+      "z": 7
+    }
+  },
+  {
+    "name": "Hanna",
+    "category": "Seller",
+    "position": {
+      "x": 32407,
+      "y": 32219,
+      "z": 7
+    }
+  },
+  {
+    "name": "Hardek",
+    "category": "Seller",
+    "position": {
+      "x": 32272,
+      "y": 32339,
+      "z": 7
+    }
+  },
+  {
+    "name": "Harkath Bloodblade",
+    "category": "Quest",
+    "position": {
+      "x": 32342,
+      "y": 32184,
+      "z": 7
+    }
+  },
+  {
+    "name": "Haroun",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 33108,
+      "y": 32525,
+      "z": 4
+    }
+  },
+  {
+    "name": "Harsky",
+    "category": "Other",
+    "position": {
+      "x": 32312,
+      "y": 32170,
+      "z": 6
+    }
+  },
+  {
+    "name": "Helor",
+    "category": "Magic, Trainer",
+    "position": {
+      "x": 32572,
+      "y": 32753,
+      "z": 6
+    }
+  },
+  {
+    "name": "Hofech",
+    "category": "Seller",
+    "position": {
+      "x": 33270,
+      "y": 32441,
+      "z": 7
+    }
+  },
+  {
+    "name": "Hoggle",
+    "category": "Other",
+    "position": {
+      "x": 32537,
+      "y": 32143,
+      "z": 6
+    }
+  },
+  {
+    "name": "Hugo",
+    "category": "Quest",
+    "position": {
+      "x": 32951,
+      "y": 32103,
+      "z": 5
+    }
+  },
+  {
+    "name": "Humgolf",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32598,
+      "y": 31880,
+      "z": 9
+    }
+  },
+  {
+    "name": "Humphrey",
+    "category": "Quest",
+    "position": {
+      "x": 32359,
+      "y": 31683,
+      "z": 6
+    }
+  },
+  {
+    "name": "Hyacinth",
+    "category": "Seller",
+    "position": {
+      "x": 32137,
+      "y": 32171,
+      "z": 4
+    }
+  },
+  {
+    "name": "Imalas",
+    "category": "Seller",
+    "position": {
+      "x": 32334,
+      "y": 31801,
+      "z": 7
+    }
+  },
+  {
+    "name": "Imbul",
+    "category": "Travel",
+    "position": {
+      "x": 32558,
+      "y": 32781,
+      "z": 7
+    }
+  },
+  {
+    "name": "Irea",
+    "category": "Seller, Magic, Trainer",
+    "position": {
+      "x": 32688,
+      "y": 31610,
+      "z": 7
+    }
+  },
+  {
+    "name": "Ishebad",
+    "category": "Quest, Vocation",
+    "position": {
+      "x": 33158,
+      "y": 32848,
+      "z": 7
+    }
+  },
+  {
+    "name": "Ishina",
+    "category": "Seller",
+    "position": {
+      "x": 33231,
+      "y": 32423,
+      "z": 7
+    }
+  },
+  {
+    "name": "Isimov",
+    "category": "Quest",
+    "position": {
+      "x": 32653,
+      "y": 31925,
+      "z": 11
+    }
+  },
+  {
+    "name": "Iwan",
+    "category": "Seller",
+    "position": {
+      "x": 33217,
+      "y": 31833,
+      "z": 7
+    }
+  },
+  {
+    "name": "Iwar",
+    "category": "Seller",
+    "position": {
+      "x": 32618,
+      "y": 31917,
+      "z": 8
+    }
+  },
+  {
+    "name": "Jakahr",
+    "category": "Seller, Quest, Post",
+    "position": {
+      "x": 33066,
+      "y": 32876,
+      "z": 7
+    }
+  },
+  {
+    "name": "James",
+    "category": "Seller",
+    "position": {
+      "x": 33280,
+      "y": 31771,
+      "z": 7
+    }
+  },
+  {
+    "name": "Jean Claude",
+    "category": "Other",
+    "position": {
+      "x": 33006,
+      "y": 32053,
+      "z": 6
+    }
+  },
+  {
+    "name": "Jezzara",
+    "category": "Seller",
+    "position": {
+      "x": 33126,
+      "y": 32821,
+      "z": 6
+    }
+  },
+  {
+    "name": "Jimbin",
+    "category": "Seller",
+    "position": {
+      "x": 32636,
+      "y": 31886,
+      "z": 9
+    }
+  },
+  {
+    "name": "Julian",
+    "category": "Seller",
+    "position": {
+      "x": 32883,
+      "y": 32076,
+      "z": 6
+    }
+  },
+  {
+    "name": "Karl",
+    "category": "Seller",
+    "position": {
+      "x": 32318,
+      "y": 31797,
+      "z": 8
+    }
+  },
+  {
+    "name": "Kasmir",
+    "category": "Quest",
+    "position": {
+      "x": 33212,
+      "y": 32452,
+      "z": 1
+    }
+  },
+  {
+    "name": "Kawill",
+    "category": "Quest",
+    "position": {
+      "x": 32644,
+      "y": 31969,
+      "z": 12
+    }
+  },
+  {
+    "name": "Kazzan",
+    "category": "Quest",
+    "position": {
+      "x": 33231,
+      "y": 32389,
+      "z": 6
+    }
+  },
+  {
+    "name": "Kevin",
+    "category": "Quest",
+    "position": {
+      "x": 32569,
+      "y": 32018,
+      "z": 6
+    }
+  },
+  {
+    "name": "King Tibianus",
+    "category": "Quest, Vocation",
+    "position": {
+      "x": 32311,
+      "y": 32171,
+      "z": 6
+    }
+  },
+  {
+    "name": "Kroox",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32650,
+      "y": 31887,
+      "z": 9
+    }
+  },
+  {
+    "name": "Kulag, the guard",
+    "category": "Other",
+    "position": {
+      "x": 32287,
+      "y": 32264,
+      "z": 7
+    }
+  },
+  {
+    "name": "Lea",
+    "category": "Quest, Magic, Trainer",
+    "position": {
+      "x": 32348,
+      "y": 31828,
+      "z": 6
+    }
+  },
+  {
+    "name": "Lector",
+    "category": "Seller",
+    "position": {
+      "x": 32351,
+      "y": 31795,
+      "z": 7
+    }
+  },
+  {
+    "name": "Lee'Delle",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32024,
+      "y": 32196,
+      "z": 7
+    }
+  },
+  {
+    "name": "Leeland",
+    "category": "Other",
+    "position": {
+      "x": 32883,
+      "y": 32082,
+      "z": 5
+    }
+  },
+  {
+    "name": "Legola",
+    "category": "Magic, Trainer",
+    "position": {
+      "x": 32298,
+      "y": 31784,
+      "z": 7
+    }
+  },
+  {
+    "name": "Liane",
+    "category": "Seller, Quest, Post",
+    "position": {
+      "x": 32332,
+      "y": 31784,
+      "z": 7
+    }
+  },
+  {
+    "name": "Lightfoot",
+    "category": "Other",
+    "position": {
+      "x": 32914,
+      "y": 32080,
+      "z": 6
+    }
+  },
+  {
+    "name": "Lily",
+    "category": "Seller",
+    "position": {
+      "x": 32068,
+      "y": 32225,
+      "z": 7
+    }
+  },
+  {
+    "name": "Livielle",
+    "category": "Seller",
+    "position": {
+      "x": 32982,
+      "y": 32036,
+      "z": 6
+    }
+  },
+  {
+    "name": "Lokur",
+    "category": "Seller, Quest, Post",
+    "position": {
+      "x": 32647,
+      "y": 31904,
+      "z": 8
+    }
+  },
+  {
+    "name": "Lorbas",
+    "category": "Other",
+    "position": {
+      "x": 32695,
+      "y": 32310,
+      "z": 7
+    }
+  },
+  {
+    "name": "Lorek",
+    "category": "Travel",
+    "position": {
+      "x": 32679,
+      "y": 32775,
+      "z": 7
+    }
+  },
+  {
+    "name": "Loria",
+    "category": "Quest",
+    "position": {
+      "x": 32385,
+      "y": 32131,
+      "z": 7
+    }
+  },
+  {
+    "name": "Loui",
+    "category": "Quest",
+    "position": {
+      "x": 32014,
+      "y": 32190,
+      "z": 7
+    }
+  },
+  {
+    "name": "Lubo",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32488,
+      "y": 32119,
+      "z": 7
+    }
+  },
+  {
+    "name": "Lugri",
+    "category": "Quest",
+    "position": {
+      "x": 32389,
+      "y": 32118,
+      "z": 8
+    }
+  },
+  {
+    "name": "Luna",
+    "category": "Seller",
+    "position": {
+      "x": 33254,
+      "y": 31840,
+      "z": 5
+    }
+  },
+  {
+    "name": "Lungelen",
+    "category": "Other",
+    "position": {
+      "x": 32303,
+      "y": 32267,
+      "z": 6
+    }
+  },
+  {
+    "name": "Lynda",
+    "category": "Quest",
+    "position": {
+      "x": 32333,
+      "y": 32200,
+      "z": 7
+    }
+  },
+  {
+    "name": "Maealil",
+    "category": "Quest, Magic, Trainer",
+    "position": {
+      "x": 32732,
+      "y": 31631,
+      "z": 7
+    }
+  },
+  {
+    "name": "Malor",
+    "category": "Quest",
+    "position": {
+      "x": 33044,
+      "y": 32621,
+      "z": 1
+    }
+  },
+  {
+    "name": "Maria",
+    "category": "Seller",
+    "position": {
+      "x": 32912,
+      "y": 32082,
+      "z": 9
+    }
+  },
+  {
+    "name": "Markwin",
+    "category": "Quest",
+    "position": {
+      "x": 32418,
+      "y": 32147,
+      "z": 15
+    }
+  },
+  {
+    "name": "Marlene",
+    "category": "Other",
+    "position": {
+      "x": 32483,
+      "y": 31624,
+      "z": 7
+    }
+  },
+  {
+    "name": "Marvik",
+    "category": "Quest, Magic, Trainer",
+    "position": {
+      "x": 32444,
+      "y": 32213,
+      "z": 8
+    }
+  },
+  {
+    "name": "Maryza",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32634,
+      "y": 31889,
+      "z": 9
+    }
+  },
+  {
+    "name": "Mehkesh",
+    "category": "Seller",
+    "position": {
+      "x": 33130,
+      "y": 32811,
+      "z": 5
+    }
+  },
+  {
+    "name": "Melchior",
+    "category": "Quest",
+    "position": {
+      "x": 33143,
+      "y": 32828,
+      "z": 7
+    }
+  },
+  {
+    "name": "Memech",
+    "category": "Seller",
+    "position": {
+      "x": 33135,
+      "y": 32810,
+      "z": 6
+    }
+  },
+  {
+    "name": "Mirabell",
+    "category": "Seller",
+    "position": {
+      "x": 33174,
+      "y": 31801,
+      "z": 6
+    }
+  },
+  {
+    "name": "Miraia",
+    "category": "Seller",
+    "position": {
+      "x": 33238,
+      "y": 32483,
+      "z": 7
+    }
+  },
+  {
+    "name": "Mortimer",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32499,
+      "y": 31626,
+      "z": 7
+    }
+  },
+  {
+    "name": "Morun",
+    "category": "Other",
+    "position": {
+      "x": 33240,
+      "y": 32393,
+      "z": 6
+    }
+  },
+  {
+    "name": "Mugluf",
+    "category": "Seller",
+    "position": {
+      "x": 33220,
+      "y": 32416,
+      "z": 7
+    }
+  },
+  {
+    "name": "Muriel",
+    "category": "Seller, Quest, Magic, Trainer",
+    "position": {
+      "x": 32296,
+      "y": 32263,
+      "z": 7
+    }
+  },
+  {
+    "name": "Muzir",
+    "category": "Bank",
+    "position": {
+      "x": 33222,
+      "y": 32390,
+      "z": 7
+    }
+  },
+  {
+    "name": "Myra",
+    "category": "Quest, Magic, Trainer",
+    "position": {
+      "x": 32580,
+      "y": 32751,
+      "z": 6
+    }
+  },
+  {
+    "name": "Nah'bob",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 33104,
+      "y": 32520,
+      "z": 2
+    }
+  },
+  {
+    "name": "Nelliem",
+    "category": "Seller",
+    "position": {
+      "x": 32883,
+      "y": 32086,
+      "z": 6
+    }
+  },
+  {
+    "name": "Nemal",
+    "category": "Other",
+    "position": {
+      "x": 32615,
+      "y": 32108,
+      "z": 10
+    }
+  },
+  {
+    "name": "Nezil",
+    "category": "Seller",
+    "position": {
+      "x": 32661,
+      "y": 31912,
+      "z": 9
+    }
+  },
+  {
+    "name": "Nielson",
+    "category": "Travel",
+    "position": {
+      "x": 32232,
+      "y": 31677,
+      "z": 7
+    }
+  },
+  {
+    "name": "Noodles",
+    "category": "Quest",
+    "position": {
+      "x": 32315,
+      "y": 32178,
+      "z": 6
+    }
+  },
+  {
+    "name": "Norbert",
+    "category": "Seller",
+    "position": {
+      "x": 32953,
+      "y": 32103,
+      "z": 6
+    }
+  },
+  {
+    "name": "Norf",
+    "category": "Quest",
+    "position": {
+      "x": 32346,
+      "y": 32363,
+      "z": 6
+    }
+  },
+  {
+    "name": "Norma",
+    "category": "Seller",
+    "position": {
+      "x": 32098,
+      "y": 32180,
+      "z": 7
+    }
+  },
+  {
+    "name": "Nydala",
+    "category": "Seller",
+    "position": {
+      "x": 32327,
+      "y": 31827,
+      "z": 7
+    }
+  },
+  {
+    "name": "Obi",
+    "category": "Seller",
+    "position": {
+      "x": 32109,
+      "y": 32204,
+      "z": 7
+    }
+  },
+  {
+    "name": "Odemara",
+    "category": "Seller",
+    "position": {
+      "x": 33015,
+      "y": 32058,
+      "z": 6
+    }
+  },
+  {
+    "name": "Old Adall",
+    "category": "Travel",
+    "position": {
+      "x": 32628,
+      "y": 32772,
+      "z": 7
+    }
+  },
+  {
+    "name": "Oldrak",
+    "category": "Quest",
+    "position": {
+      "x": 32816,
+      "y": 32260,
+      "z": 6
+    }
+  },
+  {
+    "name": "Olrik",
+    "category": "Seller, Quest, Post",
+    "position": {
+      "x": 32675,
+      "y": 31698,
+      "z": 7
+    }
+  },
+  {
+    "name": "Omur",
+    "category": "Seller",
+    "position": {
+      "x": 33228,
+      "y": 32416,
+      "z": 7
+    }
+  },
+  {
+    "name": "Ormuhn",
+    "category": "Magic, Trainer",
+    "position": {
+      "x": 33160,
+      "y": 32810,
+      "z": 5
+    }
+  },
+  {
+    "name": "Oswald",
+    "category": "Other",
+    "position": {
+      "x": 32381,
+      "y": 32220,
+      "z": 7
+    }
+  },
+  {
+    "name": "Padreia",
+    "category": "Seller, Quest, Magic, Trainer",
+    "position": {
+      "x": 32300,
+      "y": 31816,
+      "z": 7
+    }
+  },
+  {
+    "name": "Partos",
+    "category": "Quest",
+    "position": {
+      "x": 32323,
+      "y": 32280,
+      "z": 8
+    }
+  },
+  {
+    "name": "Pemaret",
+    "category": "Seller, Quest, Travel",
+    "position": {
+      "x": 33287,
+      "y": 31956,
+      "z": 6
+    }
+  },
+  {
+    "name": "Penny",
+    "category": "Post",
+    "position": {
+      "x": 32315,
+      "y": 31936,
+      "z": 7
+    }
+  },
+  {
+    "name": "Perac",
+    "category": "Seller",
+    "position": {
+      "x": 32295,
+      "y": 31784,
+      "z": 7
+    }
+  },
+  {
+    "name": "Perod",
+    "category": "Seller",
+    "position": {
+      "x": 32635,
+      "y": 32739,
+      "z": 5
+    }
+  },
+  {
+    "name": "Petros",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 33289,
+      "y": 32481,
+      "z": 6
+    }
+  },
+  {
+    "name": "Phillip",
+    "category": "Quest",
+    "position": {
+      "x": 32369,
+      "y": 31764,
+      "z": 7
+    }
+  },
+  {
+    "name": "Pino",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 33192,
+      "y": 31783,
+      "z": 3
+    }
+  },
+  {
+    "name": "Puffels",
+    "category": "Magic, Trainer",
+    "position": {
+      "x": 33269,
+      "y": 31850,
+      "z": 8
+    }
+  },
+  {
+    "name": "Pydar",
+    "category": "Quest",
+    "position": {
+      "x": 32655,
+      "y": 31893,
+      "z": 11
+    }
+  },
+  {
+    "name": "Queen Eloise",
+    "category": "Quest, Vocation",
+    "position": {
+      "x": 32315,
+      "y": 31753,
+      "z": 7
+    }
+  },
+  {
+    "name": "Quentin",
+    "category": "Quest",
+    "position": {
+      "x": 32369,
+      "y": 32239,
+      "z": 7
+    }
+  },
+  {
+    "name": "Quero",
+    "category": "Seller",
+    "position": {
+      "x": 32390,
+      "y": 32220,
+      "z": 7
+    }
+  },
+  {
+    "name": "Rachel",
+    "category": "Seller, Quest, Magic",
+    "position": {
+      "x": 32343,
+      "y": 31828,
+      "z": 7
+    }
+  },
+  {
+    "name": "Rahkem",
+    "category": "Quest, Magic, Trainer",
+    "position": {
+      "x": 33194,
+      "y": 32848,
+      "z": 7
+    }
+  },
+  {
+    "name": "Rata'mari",
+    "category": "Quest",
+    "position": {
+      "x": 33036,
+      "y": 32625,
+      "z": 7
+    }
+  },
+  {
+    "name": "Ray",
+    "category": "Seller, Quest, Post",
+    "position": {
+      "x": 32621,
+      "y": 32747,
+      "z": 6
+    }
+  },
+  {
+    "name": "Razan",
+    "category": "Magic, Trainer",
+    "position": {
+      "x": 33239,
+      "y": 32409,
+      "z": 7
+    }
+  },
+  {
+    "name": "Riddler",
+    "category": "Quest",
+    "position": {
+      "x": 32479,
+      "y": 31902,
+      "z": 2
+    }
+  },
+  {
+    "name": "Robin",
+    "category": "Other",
+    "position": {
+      "x": 32287,
+      "y": 32252,
+      "z": 6
+    }
+  },
+  {
+    "name": "Roderick",
+    "category": "Other",
+    "position": {
+      "x": 32672,
+      "y": 31699,
+      "z": 6
+    }
+  },
+  {
+    "name": "Rodney",
+    "category": "Seller",
+    "position": {
+      "x": 32971,
+      "y": 32041,
+      "z": 6
+    }
+  },
+  {
+    "name": "Rokyn",
+    "category": "Bank",
+    "position": {
+      "x": 33021,
+      "y": 32053,
+      "z": 6
+    }
+  },
+  {
+    "name": "Romella",
+    "category": "Seller",
+    "position": {
+      "x": 32913,
+      "y": 32117,
+      "z": 6
+    }
+  },
+  {
+    "name": "Rose",
+    "category": "Seller",
+    "position": {
+      "x": 32971,
+      "y": 32034,
+      "z": 6
+    }
+  },
+  {
+    "name": "Rowenna",
+    "category": "Seller",
+    "position": {
+      "x": 32324,
+      "y": 31794,
+      "z": 7
+    }
+  },
+  {
+    "name": "Rudolph",
+    "category": "Seller",
+    "position": {
+      "x": 33212,
+      "y": 31812,
+      "z": 6
+    }
+  },
+  {
+    "name": "Sam",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32360,
+      "y": 32199,
+      "z": 7
+    }
+  },
+  {
+    "name": "Sandra",
+    "category": "Seller",
+    "position": {
+      "x": 33258,
+      "y": 31840,
+      "z": 7
+    }
+  },
+  {
+    "name": "Sarina",
+    "category": "Seller",
+    "position": {
+      "x": 32334,
+      "y": 31808,
+      "z": 7
+    }
+  },
+  {
+    "name": "Scott",
+    "category": "Seller",
+    "position": {
+      "x": 32138,
+      "y": 31659,
+      "z": 7
+    }
+  },
+  {
+    "name": "Seymour",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32103,
+      "y": 32195,
+      "z": 7
+    }
+  },
+  {
+    "name": "Shalmar",
+    "category": "Quest, Magic, Trainer",
+    "position": {
+      "x": 33221,
+      "y": 32408,
+      "z": 7
+    }
+  },
+  {
+    "name": "Shanar",
+    "category": "Seller, Magic, Trainer",
+    "position": {
+      "x": 32657,
+      "y": 31655,
+      "z": 8
+    }
+  },
+  {
+    "name": "Shauna",
+    "category": "Other",
+    "position": {
+      "x": 32384,
+      "y": 31778,
+      "z": 7
+    }
+  },
+  {
+    "name": "Sherry McRonald",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32390,
+      "y": 32241,
+      "z": 7
+    }
+  },
+  {
+    "name": "Shiantis",
+    "category": "Seller",
+    "position": {
+      "x": 32890,
+      "y": 32086,
+      "z": 6
+    }
+  },
+  {
+    "name": "Shiriel",
+    "category": "Seller, Quest, Magic",
+    "position": {
+      "x": 32670,
+      "y": 31657,
+      "z": 6
+    }
+  },
+  {
+    "name": "Shirith",
+    "category": "Seller",
+    "position": {
+      "x": 32646,
+      "y": 31655,
+      "z": 9
+    }
+  },
+  {
+    "name": "Sigurd",
+    "category": "Seller, Quest, Magic",
+    "position": {
+      "x": 32626,
+      "y": 31923,
+      "z": 5
+    }
+  },
+  {
+    "name": "Simon the Beggar",
+    "category": "Seller",
+    "position": {
+      "x": 32186,
+      "y": 32468,
+      "z": 7
+    }
+  },
+  {
+    "name": "Skjaar",
+    "category": "Other",
+    "position": {
+      "x": 32450,
+      "y": 32038,
+      "z": 8
+    }
+  },
+  {
+    "name": "Smiley",
+    "category": "Quest, Magic, Trainer",
+    "position": {
+      "x": 32979,
+      "y": 32087,
+      "z": 6
+    }
+  },
+  {
+    "name": "Snake Eye",
+    "category": "Seller",
+    "position": {
+      "x": 32657,
+      "y": 32190,
+      "z": 8
+    }
+  },
+  {
+    "name": "Stutch",
+    "category": "Other",
+    "position": {
+      "x": 32310,
+      "y": 32170,
+      "z": 6
+    }
+  },
+  {
+    "name": "Suzy",
+    "category": "Bank",
+    "position": {
+      "x": 32320,
+      "y": 32258,
+      "z": 7
+    }
+  },
+  {
+    "name": "Svenson",
+    "category": "Travel",
+    "position": {
+      "x": 32044,
+      "y": 31582,
+      "z": 7
+    }
+  },
+  {
+    "name": "Sylvester",
+    "category": "Other",
+    "position": {
+      "x": 32897,
+      "y": 32145,
+      "z": 4
+    }
+  },
+  {
+    "name": "Talesia",
+    "category": "Other",
+    "position": {
+      "x": 32979,
+      "y": 32035,
+      "z": 5
+    }
+  },
+  {
+    "name": "Talphion",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32563,
+      "y": 31894,
+      "z": 12
+    }
+  },
+  {
+    "name": "Tandros",
+    "category": "Seller, Quest, Magic",
+    "position": {
+      "x": 32621,
+      "y": 32739,
+      "z": 5
+    }
+  },
+  {
+    "name": "Tesha",
+    "category": "Seller, Quest, Bank",
+    "position": {
+      "x": 33135,
+      "y": 32821,
+      "z": 6
+    }
+  },
+  {
+    "name": "Tezila",
+    "category": "Seller, Bank",
+    "position": {
+      "x": 32657,
+      "y": 31922,
+      "z": 9
+    }
+  },
+  {
+    "name": "Thanita",
+    "category": "Quest",
+    "position": {
+      "x": 32535,
+      "y": 31773,
+      "z": 1
+    }
+  },
+  {
+    "name": "The Blind Prophet",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 33022,
+      "y": 32604,
+      "z": 7
+    }
+  },
+  {
+    "name": "The Crone",
+    "category": "Other",
+    "position": {
+      "x": 33229,
+      "y": 32522,
+      "z": 14
+    }
+  },
+  {
+    "name": "The Gatekeeper",
+    "category": "Travel, Vocation",
+    "position": {
+      "x": 32035,
+      "y": 32183,
+      "z": 6
+    }
+  },
+  {
+    "name": "The Oracle",
+    "category": "Travel, Vocation",
+    "position": {
+      "x": 32104,
+      "y": 32190,
+      "z": 6
+    }
+  },
+  {
+    "name": "The Orc King",
+    "category": "Quest",
+    "position": {
+      "x": 32983,
+      "y": 31728,
+      "z": 9
+    }
+  },
+  {
+    "name": "The Queen of the Banshee",
+    "category": "Quest",
+    "position": {
+      "x": 32260,
+      "y": 31863,
+      "z": 14
+    }
+  },
+  {
+    "name": "Thomas",
+    "category": "Seller",
+    "position": {
+      "x": 33256,
+      "y": 31838,
+      "z": 4
+    }
+  },
+  {
+    "name": "Tibra",
+    "category": "Quest",
+    "position": {
+      "x": 32318,
+      "y": 31783,
+      "z": 7
+    }
+  },
+  {
+    "name": "Tim, the guard",
+    "category": "Other",
+    "position": {
+      "x": 32428,
+      "y": 32226,
+      "z": 6
+    }
+  },
+  {
+    "name": "Timur",
+    "category": "Seller",
+    "position": {
+      "x": 32191,
+      "y": 32443,
+      "z": 7
+    }
+  },
+  {
+    "name": "Todd",
+    "category": "Other",
+    "position": {
+      "x": 32363,
+      "y": 32210,
+      "z": 6
+    }
+  },
+  {
+    "name": "Tokel",
+    "category": "Seller",
+    "position": {
+      "x": 32256,
+      "y": 32056,
+      "z": 7
+    }
+  },
+  {
+    "name": "Tom",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32085,
+      "y": 32199,
+      "z": 7
+    }
+  },
+  {
+    "name": "Topsy",
+    "category": "Seller, Quest, Magic",
+    "position": {
+      "x": 32415,
+      "y": 32170,
+      "z": 7
+    }
+  },
+  {
+    "name": "Tothdral",
+    "category": "Quest, Magic, Trainer",
+    "position": {
+      "x": 33148,
+      "y": 32867,
+      "z": 6
+    }
+  },
+  {
+    "name": "Trimegis",
+    "category": "Quest",
+    "position": {
+      "x": 32307,
+      "y": 32185,
+      "z": 5
+    }
+  },
+  {
+    "name": "Trisha",
+    "category": "Magic, Trainer",
+    "position": {
+      "x": 32348,
+      "y": 31748,
+      "z": 7
+    }
+  },
+  {
+    "name": "Tulf",
+    "category": "Other",
+    "position": {
+      "x": 32586,
+      "y": 31928,
+      "z": 3
+    }
+  },
+  {
+    "name": "Turvy",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32414,
+      "y": 32177,
+      "z": 7
+    }
+  },
+  {
+    "name": "Ubaid",
+    "category": "Quest",
+    "position": {
+      "x": 33046,
+      "y": 32622,
+      "z": 6
+    }
+  },
+  {
+    "name": "Ukea",
+    "category": "Seller",
+    "position": {
+      "x": 32651,
+      "y": 31665,
+      "z": 6
+    }
+  },
+  {
+    "name": "Ulrik",
+    "category": "Seller",
+    "position": {
+      "x": 32282,
+      "y": 32056,
+      "z": 7
+    }
+  },
+  {
+    "name": "Umar",
+    "category": "Quest",
+    "position": {
+      "x": 33102,
+      "y": 32531,
+      "z": 6
+    }
+  },
+  {
+    "name": "Urkalio",
+    "category": "Seller",
+    "position": {
+      "x": 32913,
+      "y": 32081,
+      "z": 10
+    }
+  },
+  {
+    "name": "Ursula",
+    "category": "Magic, Trainer",
+    "position": {
+      "x": 33268,
+      "y": 31849,
+      "z": 7
+    }
+  },
+  {
+    "name": "Uso",
+    "category": "Magic, Trainer",
+    "position": {
+      "x": 32580,
+      "y": 32756,
+      "z": 8
+    }
+  },
+  {
+    "name": "Ustan",
+    "category": "Quest, Magic, Trainer",
+    "position": {
+      "x": 32580,
+      "y": 32757,
+      "z": 6
+    }
+  },
+  {
+    "name": "Uzgod",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32664,
+      "y": 31894,
+      "z": 9
+    }
+  },
+  {
+    "name": "Uzon",
+    "category": "Quest, Travel",
+    "position": {
+      "x": 32537,
+      "y": 31836,
+      "z": 4
+    }
+  },
+  {
+    "name": "Velvet",
+    "category": "Seller",
+    "position": {
+      "x": 32943,
+      "y": 32104,
+      "z": 6
+    }
+  },
+  {
+    "name": "Vera",
+    "category": "Seller",
+    "position": {
+      "x": 32138,
+      "y": 31672,
+      "z": 7
+    }
+  },
+  {
+    "name": "Vladruc",
+    "category": "Other",
+    "position": {
+      "x": 32976,
+      "y": 32079,
+      "z": 5
+    }
+  },
+  {
+    "name": "Wally",
+    "category": "Seller, Quest, Post",
+    "position": {
+      "x": 32566,
+      "y": 32019,
+      "z": 7
+    }
+  },
+  {
+    "name": "Walter, the guard",
+    "category": "Other",
+    "position": {
+      "x": 32338,
+      "y": 32278,
+      "z": 7
+    }
+  },
+  {
+    "name": "Warbert",
+    "category": "Other",
+    "position": {
+      "x": 32935,
+      "y": 32141,
+      "z": 6
+    }
+  },
+  {
+    "name": "Willard",
+    "category": "Seller",
+    "position": {
+      "x": 33214,
+      "y": 31793,
+      "z": 6
+    }
+  },
+  {
+    "name": "William",
+    "category": "Other",
+    "position": {
+      "x": 32314,
+      "y": 31802,
+      "z": 8
+    }
+  },
+  {
+    "name": "Willie",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 32047,
+      "y": 32204,
+      "z": 7
+    }
+  },
+  {
+    "name": "Wyat",
+    "category": "Quest",
+    "position": {
+      "x": 32325,
+      "y": 32276,
+      "z": 7
+    }
+  },
+  {
+    "name": "Wyda",
+    "category": "Quest",
+    "position": {
+      "x": 32726,
+      "y": 31980,
+      "z": 6
+    }
+  },
+  {
+    "name": "Xed",
+    "category": "Seller",
+    "position": {
+      "x": 32904,
+      "y": 32117,
+      "z": 6
+    }
+  },
+  {
+    "name": "Xodet",
+    "category": "Seller, Quest, Magic",
+    "position": {
+      "x": 32399,
+      "y": 32222,
+      "z": 7
+    }
+  },
+  {
+    "name": "Yaman",
+    "category": "Seller, Quest",
+    "position": {
+      "x": 33045,
+      "y": 32620,
+      "z": 2
+    }
+  },
+  {
+    "name": "Yanni",
+    "category": "Seller",
+    "position": {
+      "x": 32909,
+      "y": 32111,
+      "z": 6
+    }
+  },
+  {
+    "name": "Yberius",
+    "category": "Quest",
+    "position": {
+      "x": 32961,
+      "y": 32076,
+      "z": 7
+    }
+  },
+  {
+    "name": "Yoem",
+    "category": "Seller",
+    "position": {
+      "x": 33305,
+      "y": 31966,
+      "z": 7
+    }
+  },
+  {
+    "name": "Yulas",
+    "category": "Seller",
+    "position": {
+      "x": 33000,
+      "y": 32065,
+      "z": 6
+    }
+  },
+  {
+    "name": "Zaidal",
+    "category": "Seller",
+    "position": {
+      "x": 32621,
+      "y": 32747,
+      "z": 5
+    }
+  },
+  {
+    "name": "Zebron",
+    "category": "Other",
+    "position": {
+      "x": 32931,
+      "y": 32071,
+      "z": 9
+    }
+  },
+  {
+    "name": "Zerbrus",
+    "category": "Other",
+    "position": {
+      "x": 32022,
+      "y": 32203,
+      "z": 6
+    }
+  },
+  {
+    "name": "Zoltan",
+    "category": "Quest, Magic, Trainer",
+    "position": {
+      "x": 33268,
+      "y": 31849,
+      "z": 4
+    }
+  }
+]
