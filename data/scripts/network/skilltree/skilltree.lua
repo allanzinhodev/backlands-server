@@ -23,10 +23,18 @@ local System = SkillTreeSystem
 local NODES = dofile(DATA_DIRECTORY .. "/scripts/network/skilltree/skilltree_nodes.lua")
 
 -- 0xBC is unclaimed inbound (neither the C++ switch nor another PacketHandler
--- takes it). 0xC1 is unclaimed outbound — note 0xC0 is NOT free, it is the
--- Astra-only quick-loot packet in luanetworkmessage.cpp.
+-- takes it).
+--
+-- Outbound is 0x5E. It was 0xC1, which is NOT free: the client declares it as
+-- GameServerStanceProtocol in src/client/protocolcodes.h AND registers a Lua
+-- handler for it in modules/game_protocol/protocol.lua. Using it would have
+-- broken the stance system. 0xC0 is not free either — it is the Astra-only
+-- quick-loot packet in luanetworkmessage.cpp.
+--
+-- 0x5E is unused by the client's native parser and by every Lua module, and it
+-- sits next to the proficiency block (0x5A-0x5C).
 local OPCODE_REQUEST = 0xBC
-local OPCODE_WINDOW = 0xC1
+local OPCODE_WINDOW = 0x5E
 
 local ACTION_OPEN = 0
 local ACTION_SAVE = 1
