@@ -58837,4 +58837,22 @@
 		<attribute key="weight" value="1" />
 		<attribute key="stackable" value="1" />
 	</item>
+
+	<!-- Temple floor (Auto-injected) -->
+	<item id="54752" article="a" name="Temple floor" />
+	<item id="54753" article="a" name="Temple floor" />
+	<item id="54754" article="a" name="Temple floor" />
+	<item id="54755" article="a" name="Temple floor" />
+	<item id="54756" article="a" name="Temple floor" />
+	<item id="54757" article="a" name="Temple floor" />
+	<item id="54758" article="a" name="Temple floor" />
+	<item id="54759" article="a" name="Temple floor" />
+	<item id="54760" article="a" name="Temple floor" />
+	<item id="54761" article="a" name="Temple floor" />
+	<item id="54762" article="a" name="Temple floor" />
+	<item id="54763" article="a" name="Temple floor" />
+	<item id="54764" article="a" name="Temple floor" />
+	<item id="54765" article="a" name="Temple floor" />
+	<item id="54766" article="a" name="Temple floor" />
+	<item id="54767" article="a" name="Temple floor" />
 </items>
