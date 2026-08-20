@@ -15,6 +15,9 @@
 	<spawn centerx="773" centery="1070" centerz="3" radius="1">
 		<monster name="Elf Arcanist" x="0" y="0" z="3" spawntime="60" direction="2" />
 	</spawn>
+	<spawn centerx="734" centery="1201" centerz="3" radius="3" />
+	<spawn centerx="734" centery="1208" centerz="3" radius="3" />
+	<spawn centerx="741" centery="1208" centerz="3" radius="3" />
 	<spawn centerx="1125" centery="1220" centerz="3" radius="1">
 		<monster name="Lion" x="0" y="0" z="3" spawntime="60" />
 	</spawn>
@@ -49,6 +52,9 @@
 	<spawn centerx="920" centery="1098" centerz="4" radius="1">
 		<monster name="Dragon" x="-1" y="1" z="4" spawntime="60" />
 	</spawn>
+	<spawn centerx="809" centery="1174" centerz="4" radius="3" />
+	<spawn centerx="812" centery="1182" centerz="4" radius="3" />
+	<spawn centerx="734" centery="1208" centerz="4" radius="3" />
 	<spawn centerx="1178" centery="867" centerz="5" radius="1">
 		<monster name="Winter wolf" x="0" y="0" z="5" spawntime="60" />
 	</spawn>
@@ -171,6 +177,7 @@
 	<spawn centerx="908" centery="1105" centerz="5" radius="1">
 		<monster name="Dragon Lord Hatchling" x="0" y="0" z="5" spawntime="60" />
 	</spawn>
+	<spawn centerx="797" centery="1159" centerz="5" radius="3" />
 	<spawn centerx="950" centery="1168" centerz="5" radius="1">
 		<monster name="Nomad" x="1" y="1" z="5" spawntime="60" />
 	</spawn>
@@ -180,12 +187,16 @@
 	<spawn centerx="953" centery="1172" centerz="5" radius="1">
 		<monster name="Nomad" x="0" y="-1" z="5" spawntime="60" />
 	</spawn>
+	<spawn centerx="832" centery="1173" centerz="5" radius="3" />
+	<spawn centerx="808" centery="1174" centerz="5" radius="5" />
 	<spawn centerx="1142" centery="1180" centerz="5" radius="1">
 		<monster name="Hyaena" x="0" y="0" z="5" spawntime="60" />
 	</spawn>
+	<spawn centerx="812" centery="1182" centerz="5" radius="5" />
 	<spawn centerx="1096" centery="1185" centerz="5" radius="1">
 		<monster name="Gladiator" x="0" y="0" z="5" spawntime="60" />
 	</spawn>
+	<spawn centerx="825" centery="1194" centerz="5" radius="3" />
 	<spawn centerx="1098" centery="1200" centerz="5" radius="1">
 		<monster name="Stone Golem" x="1" y="0" z="5" spawntime="60" />
 	</spawn>
@@ -195,9 +206,14 @@
 	<spawn centerx="1136" centery="1205" centerz="5" radius="1">
 		<monster name="Lion" x="0" y="0" z="5" spawntime="60" />
 	</spawn>
+	<spawn centerx="734" centery="1208" centerz="5" radius="3" />
+	<spawn centerx="820" centery="1211" centerz="5" radius="2" />
 	<spawn centerx="1128" centery="1211" centerz="5" radius="1">
 		<monster name="Lion" x="1" y="0" z="5" spawntime="60" />
 	</spawn>
+	<spawn centerx="706" centery="1215" centerz="5" radius="3" />
+	<spawn centerx="720" centery="1215" centerz="5" radius="3" />
+	<spawn centerx="783" centery="1250" centerz="5" radius="3" />
 	<spawn centerx="1177" centery="862" centerz="6" radius="1">
 		<monster name="Winter wolf" x="0" y="0" z="6" spawntime="60" />
 	</spawn>
@@ -357,12 +373,15 @@
 	<spawn centerx="1007" centery="1119" centerz="6" radius="1">
 		<npc name="Banker" x="0" y="0" z="6" spawntime="60" direction="2" />
 	</spawn>
+	<spawn centerx="790" centery="1159" centerz="6" radius="3" />
+	<spawn centerx="810" centery="1174" centerz="6" radius="3" />
 	<spawn centerx="948" centery="1176" centerz="6" radius="1">
 		<monster name="Nomad" x="-1" y="1" z="6" spawntime="60" />
 	</spawn>
 	<spawn centerx="1173" centery="1183" centerz="6" radius="1">
 		<monster name="Ghost" x="0" y="0" z="6" spawntime="60" />
 	</spawn>
+	<spawn centerx="812" centery="1184" centerz="6" radius="3" />
 	<spawn centerx="1101" centery="1184" centerz="6" radius="1">
 		<monster name="Bandit" x="0" y="0" z="6" spawntime="60" />
 	</spawn>
@@ -378,6 +397,7 @@
 	<spawn centerx="1153" centery="1193" centerz="6" radius="1">
 		<monster name="Hyaena" x="0" y="0" z="6" spawntime="60" />
 	</spawn>
+	<spawn centerx="832" centery="1194" centerz="6" radius="3" />
 	<spawn centerx="1000" centery="1194" centerz="6" radius="1">
 		<monster name="Wyrm" x="1" y="-1" z="6" spawntime="60" />
 	</spawn>
@@ -402,15 +422,29 @@
 	<spawn centerx="1016" centery="1205" centerz="6" radius="1">
 		<monster name="Wyrm" x="-1" y="1" z="6" spawntime="60" />
 	</spawn>
+	<spawn centerx="734" centery="1208" centerz="6" radius="3" />
 	<spawn centerx="1122" centery="1209" centerz="6" radius="1">
 		<monster name="Lion" x="0" y="0" z="6" spawntime="60" />
 	</spawn>
+	<spawn centerx="818" centery="1215" centerz="6" radius="3" />
 	<spawn centerx="1141" centery="1215" centerz="6" radius="1">
 		<monster name="Hyaena" x="0" y="0" z="6" spawntime="60" />
 	</spawn>
+	<spawn centerx="706" centery="1222" centerz="6" radius="3" />
 	<spawn centerx="1119" centery="1223" centerz="6" radius="1">
 		<monster name="Lion" x="0" y="-1" z="6" spawntime="60" />
 	</spawn>
+	<spawn centerx="720" centery="1229" centerz="6" radius="3" />
+	<spawn centerx="776" centery="1250" centerz="6" radius="3" />
+	<spawn centerx="818" centery="1257" centerz="6" radius="3" />
+	<spawn centerx="720" centery="1264" centerz="6" radius="3" />
+	<spawn centerx="741" centery="1264" centerz="6" radius="3" />
+	<spawn centerx="741" centery="1285" centerz="6" radius="3" />
+	<spawn centerx="728" centery="1292" centerz="6" radius="3" />
+	<spawn centerx="734" centery="1292" centerz="6" radius="3" />
+	<spawn centerx="825" centery="1299" centerz="6" radius="3" />
+	<spawn centerx="741" centery="1313" centerz="6" radius="3" />
+	<spawn centerx="762" centery="1313" centerz="6" radius="3" />
 	<spawn centerx="1053" centery="1325" centerz="6" radius="1">
 		<monster name="Trainer" x="-1" y="0" z="6" spawntime="60" />
 		<monster name="Trainer" x="1" y="0" z="6" spawntime="60" />
@@ -911,21 +945,48 @@
 	<spawn centerx="1014" centery="1136" centerz="7" radius="1">
 		<npc name="Mad" x="0" y="0" z="7" spawntime="60" direction="2" />
 	</spawn>
+	<spawn centerx="797" centery="1152" centerz="7" radius="3" />
+	<spawn centerx="804" centery="1152" centerz="7" radius="3" />
+	<spawn centerx="790" centery="1159" centerz="7" radius="3" />
+	<spawn centerx="797" centery="1159" centerz="7" radius="3" />
+	<spawn centerx="804" centery="1159" centerz="7" radius="3" />
+	<spawn centerx="811" centery="1159" centerz="7" radius="3" />
+	<spawn centerx="818" centery="1159" centerz="7" radius="3" />
 	<spawn centerx="1127" centery="1161" centerz="7" radius="1">
 		<monster name="Nomad" x="1" y="1" z="7" spawntime="60" />
 	</spawn>
+	<spawn centerx="783" centery="1166" centerz="7" radius="3" />
+	<spawn centerx="790" centery="1166" centerz="7" radius="3" />
+	<spawn centerx="797" centery="1166" centerz="7" radius="3" />
+	<spawn centerx="811" centery="1166" centerz="7" radius="3" />
+	<spawn centerx="818" centery="1166" centerz="7" radius="3" />
 	<spawn centerx="1117" centery="1172" centerz="7" radius="1">
 		<monster name="Nomad" x="1" y="-1" z="7" spawntime="60" />
 	</spawn>
+	<spawn centerx="762" centery="1173" centerz="7" radius="3" />
+	<spawn centerx="776" centery="1173" centerz="7" radius="3" />
+	<spawn centerx="783" centery="1173" centerz="7" radius="3" />
+	<spawn centerx="790" centery="1173" centerz="7" radius="3" />
+	<spawn centerx="797" centery="1173" centerz="7" radius="3" />
+	<spawn centerx="811" centery="1173" centerz="7" radius="3" />
+	<spawn centerx="818" centery="1173" centerz="7" radius="3" />
+	<spawn centerx="832" centery="1173" centerz="7" radius="3" />
 	<spawn centerx="1170" centery="1175" centerz="7" radius="1">
 		<monster name="Skeleton" x="0" y="0" z="7" spawntime="60" />
 	</spawn>
+	<spawn centerx="755" centery="1180" centerz="7" radius="3" />
+	<spawn centerx="790" centery="1180" centerz="7" radius="3" />
+	<spawn centerx="811" centery="1180" centerz="7" radius="3" />
 	<spawn centerx="1167" centery="1180" centerz="7" radius="1">
 		<monster name="Skeleton" x="0" y="0" z="7" spawntime="60" />
 	</spawn>
 	<spawn centerx="1174" centery="1185" centerz="7" radius="1">
 		<monster name="Skeleton" x="0" y="0" z="7" spawntime="60" />
 	</spawn>
+	<spawn centerx="762" centery="1187" centerz="7" radius="3" />
+	<spawn centerx="769" centery="1187" centerz="7" radius="3" />
+	<spawn centerx="790" centery="1187" centerz="7" radius="3" />
+	<spawn centerx="853" centery="1187" centerz="7" radius="3" />
 	<spawn centerx="1102" centery="1187" centerz="7" radius="1">
 		<monster name="Bandit" x="0" y="0" z="7" spawntime="60" />
 	</spawn>
@@ -944,6 +1005,12 @@
 	<spawn centerx="1004" centery="1193" centerz="7" radius="1">
 		<monster name="Wyrm" x="-1" y="0" z="7" spawntime="60" />
 	</spawn>
+	<spawn centerx="748" centery="1194" centerz="7" radius="3" />
+	<spawn centerx="776" centery="1194" centerz="7" radius="3" />
+	<spawn centerx="797" centery="1194" centerz="7" radius="3" />
+	<spawn centerx="811" centery="1194" centerz="7" radius="3" />
+	<spawn centerx="860" centery="1194" centerz="7" radius="3" />
+	<spawn centerx="888" centery="1194" centerz="7" radius="3" />
 	<spawn centerx="1034" centery="1195" centerz="7" radius="1">
 		<monster name="Bonebeast" x="1" y="0" z="7" spawntime="60" />
 	</spawn>
@@ -962,12 +1029,136 @@
 	<spawn centerx="1109" centery="1200" centerz="7" radius="1">
 		<monster name="Stone Golem" x="0" y="-1" z="7" spawntime="60" />
 	</spawn>
+	<spawn centerx="706" centery="1201" centerz="7" radius="3" />
+	<spawn centerx="748" centery="1201" centerz="7" radius="3" />
+	<spawn centerx="874" centery="1201" centerz="7" radius="3" />
+	<spawn centerx="888" centery="1201" centerz="7" radius="3" />
+	<spawn centerx="718" centery="1203" centerz="7" radius="2" />
+	<spawn centerx="720" centery="1208" centerz="7" radius="3" />
+	<spawn centerx="727" centery="1208" centerz="7" radius="3" />
+	<spawn centerx="755" centery="1208" centerz="7" radius="3" />
+	<spawn centerx="762" centery="1208" centerz="7" radius="3" />
+	<spawn centerx="790" centery="1208" centerz="7" radius="3" />
+	<spawn centerx="825" centery="1208" centerz="7" radius="3" />
+	<spawn centerx="846" centery="1208" centerz="7" radius="3" />
+	<spawn centerx="853" centery="1208" centerz="7" radius="3" />
+	<spawn centerx="874" centery="1208" centerz="7" radius="3" />
+	<spawn centerx="888" centery="1208" centerz="7" radius="3" />
 	<spawn centerx="1035" centery="1209" centerz="7" radius="1">
 		<monster name="Bonebeast" x="0" y="-1" z="7" spawntime="60" />
 	</spawn>
+	<spawn centerx="706" centery="1215" centerz="7" radius="3" />
+	<spawn centerx="762" centery="1215" centerz="7" radius="3" />
+	<spawn centerx="846" centery="1215" centerz="7" radius="3" />
+	<spawn centerx="874" centery="1215" centerz="7" radius="3" />
+	<spawn centerx="881" centery="1215" centerz="7" radius="3" />
+	<spawn centerx="895" centery="1215" centerz="7" radius="3" />
+	<spawn centerx="706" centery="1222" centerz="7" radius="3" />
+	<spawn centerx="783" centery="1222" centerz="7" radius="3" />
+	<spawn centerx="790" centery="1222" centerz="7" radius="3" />
+	<spawn centerx="804" centery="1222" centerz="7" radius="3" />
+	<spawn centerx="811" centery="1222" centerz="7" radius="3" />
+	<spawn centerx="818" centery="1222" centerz="7" radius="3" />
+	<spawn centerx="881" centery="1222" centerz="7" radius="3" />
+	<spawn centerx="902" centery="1222" centerz="7" radius="3" />
 	<spawn centerx="1027" centery="1224" centerz="7" radius="1">
 		<monster name="Bonebeast" x="1" y="0" z="7" spawntime="60" />
 	</spawn>
+	<spawn centerx="727" centery="1229" centerz="7" radius="3" />
+	<spawn centerx="734" centery="1229" centerz="7" radius="3" />
+	<spawn centerx="741" centery="1229" centerz="7" radius="3" />
+	<spawn centerx="776" centery="1229" centerz="7" radius="3" />
+	<spawn centerx="783" centery="1229" centerz="7" radius="3" />
+	<spawn centerx="790" centery="1229" centerz="7" radius="3" />
+	<spawn centerx="804" centery="1229" centerz="7" radius="3" />
+	<spawn centerx="811" centery="1229" centerz="7" radius="3" />
+	<spawn centerx="853" centery="1229" centerz="7" radius="3" />
+	<spawn centerx="860" centery="1229" centerz="7" radius="3" />
+	<spawn centerx="874" centery="1229" centerz="7" radius="3" />
+	<spawn centerx="895" centery="1229" centerz="7" radius="3" />
+	<spawn centerx="902" centery="1229" centerz="7" radius="3" />
+	<spawn centerx="699" centery="1236" centerz="7" radius="3" />
+	<spawn centerx="727" centery="1236" centerz="7" radius="3" />
+	<spawn centerx="734" centery="1236" centerz="7" radius="3" />
+	<spawn centerx="748" centery="1236" centerz="7" radius="3" />
+	<spawn centerx="755" centery="1236" centerz="7" radius="3" />
+	<spawn centerx="762" centery="1236" centerz="7" radius="3" />
+	<spawn centerx="776" centery="1236" centerz="7" radius="3" />
+	<spawn centerx="902" centery="1236" centerz="7" radius="3" />
+	<spawn centerx="706" centery="1243" centerz="7" radius="3" />
+	<spawn centerx="720" centery="1243" centerz="7" radius="3" />
+	<spawn centerx="734" centery="1243" centerz="7" radius="3" />
+	<spawn centerx="741" centery="1243" centerz="7" radius="3" />
+	<spawn centerx="762" centery="1243" centerz="7" radius="3" />
+	<spawn centerx="780" centery="1243" centerz="7" radius="3" />
+	<spawn centerx="797" centery="1243" centerz="7" radius="3" />
+	<spawn centerx="713" centery="1250" centerz="7" radius="3" />
+	<spawn centerx="727" centery="1250" centerz="7" radius="3" />
+	<spawn centerx="741" centery="1250" centerz="7" radius="3" />
+	<spawn centerx="867" centery="1250" centerz="7" radius="3" />
+	<spawn centerx="895" centery="1250" centerz="7" radius="3" />
+	<spawn centerx="902" centery="1250" centerz="7" radius="3" />
+	<spawn centerx="909" centery="1250" centerz="7" radius="3" />
+	<spawn centerx="706" centery="1257" centerz="7" radius="3" />
+	<spawn centerx="825" centery="1257" centerz="7" radius="3" />
+	<spawn centerx="853" centery="1257" centerz="7" radius="3" />
+	<spawn centerx="860" centery="1257" centerz="7" radius="3" />
+	<spawn centerx="874" centery="1257" centerz="7" radius="3" />
+	<spawn centerx="881" centery="1257" centerz="7" radius="3" />
+	<spawn centerx="895" centery="1257" centerz="7" radius="3" />
+	<spawn centerx="902" centery="1257" centerz="7" radius="3" />
+	<spawn centerx="909" centery="1257" centerz="7" radius="3" />
+	<spawn centerx="706" centery="1264" centerz="7" radius="3" />
+	<spawn centerx="713" centery="1264" centerz="7" radius="3" />
+	<spawn centerx="720" centery="1264" centerz="7" radius="3" />
+	<spawn centerx="748" centery="1264" centerz="7" radius="3" />
+	<spawn centerx="755" centery="1264" centerz="7" radius="3" />
+	<spawn centerx="853" centery="1264" centerz="7" radius="3" />
+	<spawn centerx="867" centery="1264" centerz="7" radius="3" />
+	<spawn centerx="734" centery="1271" centerz="7" radius="3" />
+	<spawn centerx="783" centery="1271" centerz="7" radius="3" />
+	<spawn centerx="867" centery="1271" centerz="7" radius="3" />
+	<spawn centerx="888" centery="1271" centerz="7" radius="3" />
+	<spawn centerx="727" centery="1278" centerz="7" radius="3" />
+	<spawn centerx="748" centery="1278" centerz="7" radius="3" />
+	<spawn centerx="762" centery="1278" centerz="7" radius="3" />
+	<spawn centerx="776" centery="1278" centerz="7" radius="3" />
+	<spawn centerx="860" centery="1278" centerz="7" radius="3" />
+	<spawn centerx="881" centery="1278" centerz="7" radius="3" />
+	<spawn centerx="888" centery="1278" centerz="7" radius="3" />
+	<spawn centerx="755" centery="1285" centerz="7" radius="3" />
+	<spawn centerx="762" centery="1285" centerz="7" radius="3" />
+	<spawn centerx="769" centery="1285" centerz="7" radius="3" />
+	<spawn centerx="797" centery="1285" centerz="7" radius="3" />
+	<spawn centerx="804" centery="1285" centerz="7" radius="3" />
+	<spawn centerx="853" centery="1285" centerz="7" radius="3" />
+	<spawn centerx="860" centery="1285" centerz="7" radius="3" />
+	<spawn centerx="867" centery="1285" centerz="7" radius="3" />
+	<spawn centerx="888" centery="1285" centerz="7" radius="3" />
+	<spawn centerx="895" centery="1285" centerz="7" radius="3" />
+	<spawn centerx="713" centery="1292" centerz="7" radius="3" />
+	<spawn centerx="748" centery="1292" centerz="7" radius="3" />
+	<spawn centerx="755" centery="1292" centerz="7" radius="3" />
+	<spawn centerx="867" centery="1292" centerz="7" radius="3" />
+	<spawn centerx="730" centery="1293" centerz="7" radius="3" />
+	<spawn centerx="713" centery="1299" centerz="7" radius="3" />
+	<spawn centerx="720" centery="1299" centerz="7" radius="3" />
+	<spawn centerx="727" centery="1299" centerz="7" radius="3" />
+	<spawn centerx="755" centery="1299" centerz="7" radius="3" />
+	<spawn centerx="783" centery="1299" centerz="7" radius="3" />
+	<spawn centerx="839" centery="1299" centerz="7" radius="3" />
+	<spawn centerx="734" centery="1306" centerz="7" radius="3" />
+	<spawn centerx="741" centery="1306" centerz="7" radius="3" />
+	<spawn centerx="748" centery="1306" centerz="7" radius="3" />
+	<spawn centerx="762" centery="1306" centerz="7" radius="3" />
+	<spawn centerx="818" centery="1306" centerz="7" radius="3" />
+	<spawn centerx="825" centery="1306" centerz="7" radius="3" />
+	<spawn centerx="755" centery="1313" centerz="7" radius="3" />
+	<spawn centerx="762" centery="1313" centerz="7" radius="3" />
+	<spawn centerx="832" centery="1313" centerz="7" radius="3" />
+	<spawn centerx="791" centery="1315" centerz="7" radius="3" />
+	<spawn centerx="832" centery="1320" centerz="7" radius="3" />
+	<spawn centerx="839" centery="1320" centerz="7" radius="3" />
 	<spawn centerx="1167" centery="824" centerz="8" radius="1">
 		<monster name="Frost Dragon" x="0" y="0" z="8" spawntime="60" />
 	</spawn>
