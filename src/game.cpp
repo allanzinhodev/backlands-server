@@ -5664,8 +5664,8 @@ bool Game::playerSaySpell(Player* player, SpeakClasses type, std::string_view te
 void Game::playerWhisper(Player* player, std::string_view text)
 {
 	SpectatorVec spectators;
-	map.getSpectators(spectators, player->getPosition(), false, false, Map::maxClientViewportX, Map::maxClientViewportX,
-	                  Map::maxClientViewportY, Map::maxClientViewportY);
+	map.getSpectators(spectators, player->getPosition(), false, false, Map::classicViewportX, Map::classicViewportX,
+	                  Map::classicViewportY, Map::classicViewportY);
 
 	// send to client
 	for (const auto& spectator : spectators.players()) {
@@ -5804,8 +5804,8 @@ void Game::playerSpeakToNpc(Player* player, std::string_view text)
 
 //--
 bool Game::canThrowObjectTo(const Position& fromPos, const Position& toPos, bool checkLineOfSight /*= true*/,
-                            bool sameFloor /*= false*/, int32_t rangex /*= Map::maxClientViewportX*/,
-                            int32_t rangey /*= Map::maxClientViewportY*/) const
+                            bool sameFloor /*= false*/, int32_t rangex /*= Map::classicViewportX*/,
+                            int32_t rangey /*= Map::classicViewportY*/) const
 {
 	return map.canThrowObjectTo(fromPos, toPos, checkLineOfSight, sameFloor, rangex, rangey);
 }
@@ -5855,12 +5855,12 @@ bool Game::internalCreatureSay(Creature* creature, SpeakClasses type, std::strin
 		// used (hopefully the compiler will optimize away the construction of
 		// the temporary when it's not used).
 		if (type != TALKTYPE_YELL && type != TALKTYPE_MONSTER_YELL) {
-			map.getSpectators(spectators, *pos, false, false, Map::maxClientViewportX, Map::maxClientViewportX,
-			                  Map::maxClientViewportY, Map::maxClientViewportY);
+			map.getSpectators(spectators, *pos, false, false, Map::classicViewportX, Map::classicViewportX,
+			                  Map::classicViewportY, Map::classicViewportY);
 		} else {
-			map.getSpectators(spectators, *pos, true, false, (Map::maxClientViewportX * 2) + 2,
-			                  (Map::maxClientViewportX * 2) + 2, (Map::maxClientViewportY * 2) + 2,
-			                  (Map::maxClientViewportY * 2) + 2);
+			map.getSpectators(spectators, *pos, true, false, (Map::classicViewportX * 2) + 2,
+			                  (Map::classicViewportX * 2) + 2, (Map::classicViewportY * 2) + 2,
+			                  (Map::classicViewportY * 2) + 2);
 		}
 	} else {
 		spectators = (*spectatorsPtr);

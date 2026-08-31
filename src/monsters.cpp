@@ -116,8 +116,8 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 		sb.chance = spell->chance;
 	}
 
-	if (spell->range > (Map::maxViewportX * 2)) {
-		spell->range = Map::maxViewportX * 2;
+	if (spell->range > (Map::creatureViewportX * 2)) {
+		spell->range = Map::creatureViewportX * 2;
 	}
 	sb.range = spell->range;
 

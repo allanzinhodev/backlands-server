@@ -350,10 +350,10 @@ TEST_CASE(monster_cleans_target_that_changes_floor)
 	world.place(target, oldPosition);
 	selectTarget(monster, target);
 	CHECK(monster->canSee(oldPosition));
-	CHECK(Creature::canSee(monster->getPosition(), oldPosition, Map::maxClientViewportX + 1,
-	                       Map::maxClientViewportY + 1));
-	CHECK(Creature::canSee(monster->getPosition(), newPosition, Map::maxClientViewportX + 1,
-	                       Map::maxClientViewportY + 1));
+	CHECK(Creature::canSee(monster->getPosition(), oldPosition, Map::classicViewportX + 1,
+	                       Map::classicViewportY + 1));
+	CHECK(Creature::canSee(monster->getPosition(), newPosition, Map::classicViewportX + 1,
+	                       Map::classicViewportY + 1));
 	CHECK(!monster->canSee(newPosition));
 
 	moveCreatureForMonster(target, newPosition);
@@ -491,8 +491,8 @@ TEST_CASE(monsters_clean_all_player_target_states_after_real_floor_transition)
 	addStairHeight(player->getTile());
 
 	CHECK(monsterA->canSee(oldPosition));
-	CHECK(Creature::canSee(monsterA->getPosition(), newPosition, Map::maxClientViewportX + 1,
-	                       Map::maxClientViewportY + 1));
+	CHECK(Creature::canSee(monsterA->getPosition(), newPosition, Map::classicViewportX + 1,
+	                       Map::classicViewportY + 1));
 	CHECK(!monsterA->canSee(newPosition));
 	selectTarget(monsterA, player);
 	CHECK(monsterB->addTarget(player.get()));

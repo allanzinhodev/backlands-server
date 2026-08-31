@@ -265,7 +265,7 @@ bool Monster::canSee(const Position& pos) const
 	if (pos.z != getPosition().z) {
 		return false;
 	}
-	return Creature::canSee(getPosition(), pos, Map::maxClientViewportX + 1, Map::maxClientViewportY + 1);
+	return Creature::canSee(getPosition(), pos, Map::classicViewportX + 1, Map::classicViewportY + 1);
 }
 
 bool Monster::canWalkOnFieldType(CombatType_t combatType) const
@@ -722,8 +722,8 @@ void Monster::updateTargetListAfterMovement(const Position& oldPosition, const P
 	const size_t friendCount = friendList.size();
 	SpectatorVec spectators;
 
-	constexpr int32_t viewRangeX = Map::maxClientViewportX + 1;
-	constexpr int32_t viewRangeY = Map::maxClientViewportY + 1;
+	constexpr int32_t viewRangeX = Map::classicViewportX + 1;
+	constexpr int32_t viewRangeY = Map::classicViewportY + 1;
 	const auto shiftedPosition = [&newPosition](int32_t offsetX, int32_t offsetY) {
 		const int32_t x = std::clamp<int32_t>(static_cast<int32_t>(newPosition.x) + offsetX, 0,
 		                                      std::numeric_limits<uint16_t>::max());
@@ -3046,7 +3046,7 @@ void Monster::getPathSearchParams(const Creature* creature, FindPathParams& fpp)
 		}
 	} else if (isFleeing()) {
 		// Distance should be higher than the client view range (Map::maxClientViewportX/Map::maxClientViewportY)
-		fpp.maxTargetDist = Map::maxViewportX;
+		fpp.maxTargetDist = Map::creatureViewportX;
 		fpp.clearSight = false;
 		fpp.keepDistance = true;
 		fpp.fullPathSearch = false;

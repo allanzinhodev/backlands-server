@@ -155,7 +155,7 @@ ReturnValue Actions::canUseFar(const Creature* creature, const Position& toPos, 
 		return creaturePos.z > toPos.z ? RETURNVALUE_FIRSTGOUPSTAIRS : RETURNVALUE_FIRSTGODOWNSTAIRS;
 	}
 
-	if (!toPos.isInRange(creaturePos, Map::maxClientViewportX - 1, Map::maxClientViewportY - 1)) {
+	if (!toPos.isInRange(creaturePos, Map::classicViewportX - 1, Map::classicViewportY - 1)) {
 		return RETURNVALUE_TOOFARAWAY;
 	}
 

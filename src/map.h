@@ -186,10 +186,30 @@ enum class MapLoadStatus : uint8_t {
 class Map
 {
 public:
-	static constexpr int32_t maxViewportX = 11; // min value: maxClientViewportX + 1
-	static constexpr int32_t maxViewportY = 11; // min value: maxClientViewportY + 1
-	static constexpr int32_t maxClientViewportX = 8;
+	// Estas quatro constantes eram duas, e a mesma dupla significava quatro coisas
+	// diferentes. Alargar a tela sem separa-las mudaria balanceamento em silencio
+	// (alcance de fala, aggro de monstro, alcance de uso de item).
+
+	// 1. Janela de render enviada ao cliente. ESPELHA client/data/default-config.otml
+	//    -> map.viewport. O cliente deriva aware = 2*viewport+2 (client map.cpp:838-846)
+	//    e desenha visible = aware - 3 (client mapview.cpp:428). 12 -> 26x14 -> 23x11.
+	//    Cliente e servidor sao um par versionado: publicar sempre juntos.
+	static constexpr int32_t maxClientViewportX = 12; // era 8
 	static constexpr int32_t maxClientViewportY = 6;
+
+	// 2. Raio de broadcast de evento. Invariante: >= maxClientViewport + 1, senao
+	//    criatura na coluna extra da tela nao gera espectador e some/pisca.
+	static constexpr int32_t maxViewportX = 13; // era 11
+	static constexpr int32_t maxViewportY = 11;
+
+	// 3. Alcance de gameplay do 8.60 (fala, uso de item, arremesso). CONGELADO nos
+	//    valores originais de proposito: nao deve seguir o tamanho da tela.
+	static constexpr int32_t classicViewportX = 8;
+	static constexpr int32_t classicViewportY = 6;
+
+	// 4. Percepcao de criatura (aggro, pathfinding). Congelada pelo mesmo motivo.
+	static constexpr int32_t creatureViewportX = 11;
+	static constexpr int32_t creatureViewportY = 11;
 
 
 	uint32_t clean() const;
@@ -269,8 +289,8 @@ public:
 	 */
 
 	bool canThrowObjectTo(const Position& fromPos, const Position& toPos, bool checkLineOfSight = true,
-	                      bool sameFloor = false, int32_t rangex = Map::maxClientViewportX,
-	                      int32_t rangey = Map::maxClientViewportY) const;
+	                      bool sameFloor = false, int32_t rangex = Map::classicViewportX,
+	                      int32_t rangey = Map::classicViewportY) const;
 
 	/**
 	 * Checks if there are no obstacles on that position

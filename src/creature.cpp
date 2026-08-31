@@ -155,7 +155,7 @@ bool Creature::canSee(const Position& myPos, const Position& pos, int32_t viewRa
 
 bool Creature::canSee(const Position& pos) const
 {
-	return canSee(getPosition(), pos, Map::maxViewportX, Map::maxViewportY);
+	return canSee(getPosition(), pos, Map::creatureViewportX, Map::creatureViewportY);
 }
 
 bool Creature::canSeeCreature(const Creature* creature) const

@@ -519,8 +519,8 @@ void Map::getSpectators(SpectatorVec& spectators, const Position& centerPos, boo
 }
 
 bool Map::canThrowObjectTo(const Position& fromPos, const Position& toPos, bool checkLineOfSight /*= true*/,
-                           bool sameFloor /*= false*/, int32_t rangex /*= Map::maxClientViewportX*/,
-                           int32_t rangey /*= Map::maxClientViewportY*/) const
+                           bool sameFloor /*= false*/, int32_t rangex /*= Map::classicViewportX*/,
+                           int32_t rangey /*= Map::classicViewportY*/) const
 {
 	if (fromPos.getDistanceX(toPos) > rangex || fromPos.getDistanceY(toPos) > rangey) {
 		return false;
