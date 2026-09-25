@@ -107,9 +107,7 @@ void NetworkMessage::addPosition(const Position& pos)
 void NetworkMessage::addItemId(uint16_t itemId)
 {
 	const ItemType& it = Item::items[itemId];
-	uint16_t clientId = it.id;
-
-	add<uint16_t>(clientId);
+	add<uint16_t>(it.clientId);
 }
 
 namespace {

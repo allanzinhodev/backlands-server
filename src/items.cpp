@@ -595,7 +595,7 @@ bool Items::loadFromOtb(const std::string& file)
 			return false;
 		}
 
-		uint16_t ignoredLegacyId = 0;
+		uint16_t serverId = 0;
 		uint16_t clientId = 0;
 		uint16_t speed = 0;
 		uint16_t wareId = 0;
@@ -616,7 +616,7 @@ bool Items::loadFromOtb(const std::string& file)
 						return false;
 					}
 
-					if (!stream.read<uint16_t>(ignoredLegacyId)) {
+					if (!stream.read<uint16_t>(serverId)) {
 						return false;
 					}
 					break;
@@ -698,11 +698,15 @@ bool Items::loadFromOtb(const std::string& file)
 			}
 		}
 
-		// store the found item
-		if (clientId >= items.size()) {
-			items.resize(clientId + 1);
+		// store the found item, indexed by ServerID (ClientID is kept separately for protocol use)
+		if (serverId >= items.size()) {
+			items.resize(serverId + 1);
 		}
-		ItemType& iType = items[clientId];
+		ItemType& iType = items[serverId];
+
+		if (clientId != 0) {
+			clientIdToServerId[clientId] = serverId;
+		}
 
 		iType.group = static_cast<itemgroup_t>(itemNode.type);
 		switch (itemNode.type) {
@@ -753,7 +757,8 @@ bool Items::loadFromOtb(const std::string& file)
 		// iType.walkStack = !hasBitSet(FLAG_FULLTILE, flags);
 		iType.forceUse = hasBitSet(FLAG_FORCEUSE, flags);
 
-		iType.id = clientId;
+		iType.id = serverId;
+		iType.clientId = clientId;
 		iType.speed = speed;
 		iType.lightLevel = lightLevel;
 		iType.lightColor = lightColor;

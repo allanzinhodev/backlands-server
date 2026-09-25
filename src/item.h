@@ -714,7 +714,7 @@ public:
 	int32_t getThrowRange() const override final { return (isPickupable() ? 15 : 2); }
 
 	uint16_t getID() const { return id; }
-	uint16_t getClientID() const { return items[id].id; }
+	uint16_t getClientID() const { return items[id].clientId; }
 	void setID(uint16_t newid);
 
 	// Returns the player that is holding this item in his inventory

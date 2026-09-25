@@ -389,6 +389,7 @@ public:
 	itemgroup_t group = ITEM_GROUP_NONE;
 	ItemTypes_t type = ITEM_TYPE_NONE;
 	uint16_t id = 0;
+	uint16_t clientId = 0;
 	bool stackable = false;
 
 	std::string name;
@@ -538,6 +539,14 @@ public:
 
 	uint16_t getItemIdByName(const std::string& name);
 
+	// Translates a ClientID (the id the game client sends over the network) to the ServerID that
+	// indexes `items`. Returns 0 (no item) if the ClientID is unknown.
+	uint16_t getItemIdByClientId(uint16_t clientId) const
+	{
+		auto it = clientIdToServerId.find(clientId);
+		return it != clientIdToServerId.end() ? it->second : 0;
+	}
+
 	uint32_t majorVersion = 0;
 	uint32_t minorVersion = 0;
 	uint32_t buildNumber = 0;
@@ -560,5 +569,6 @@ public:
 private:
 	std::vector<ItemType> items;
 	InventoryVector inventory;
+	std::unordered_map<uint16_t, uint16_t> clientIdToServerId;
 };
 #endif

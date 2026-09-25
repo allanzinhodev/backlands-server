@@ -2481,7 +2481,8 @@ void ProtocolGame::parseHotkeyEquip(NetworkMessage& msg)
 		return;
 	}
 
-	uint16_t itemId = msg.get<uint16_t>();
+	uint16_t clientItemId = msg.get<uint16_t>();
+	uint16_t itemId = Item::items.getItemIdByClientId(clientItemId);
 	if (itemId == 0 || itemId >= Item::items.size() || Item::items[itemId].id == 0) {
 		skipUnreadBytes(msg);
 		return;

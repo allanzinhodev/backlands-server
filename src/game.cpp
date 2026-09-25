@@ -889,7 +889,13 @@ Thing* Game::internalGetThing(Player* player, const Position& pos, int32_t index
 		uint8_t slot = pos.z;
 		return parentContainer->getItemByIndex(player->getContainerIndex(fromCid) + slot).get();
 	} else if (pos.y == 0 && pos.z == 0) {
-		const ItemType& it = Item::items[static_cast<uint16_t>(spriteId)];
+		// spriteId here is the ClientID the client sent; translate to ServerID before indexing.
+		uint16_t serverId = Item::items.getItemIdByClientId(static_cast<uint16_t>(spriteId));
+		if (serverId == 0) {
+			return nullptr;
+		}
+
+		const ItemType& it = Item::items[serverId];
 		if (it.id == 0) {
 			return nullptr;
 		}
@@ -3874,11 +3880,17 @@ void Game::playerInspectItem(uint32_t playerId, const Position& pos)
 	                           INSPECT_NORMALOBJECT);
 }
 
-void Game::playerInspectItem(uint32_t playerId, uint16_t itemId, uint8_t itemCount, uint8_t inspectionType)
+void Game::playerInspectItem(uint32_t playerId, uint16_t clientItemId, uint8_t itemCount, uint8_t inspectionType)
 {
 	auto playerRef = getPlayerByID(playerId);
 	Player* player = playerRef.get();
-	if (!player || !(player->isAstraClient() || player->isFonticakClient()) || itemId >= Item::items.size() || Item::items[itemId].id == 0) {
+	if (!player || !(player->isAstraClient() || player->isFonticakClient())) {
+		return;
+	}
+
+	// clientItemId is the ClientID the client sent; translate to ServerID before indexing/sending.
+	uint16_t itemId = Item::items.getItemIdByClientId(clientItemId);
+	if (itemId == 0 || itemId >= Item::items.size() || Item::items[itemId].id == 0) {
 		return;
 	}
 	player->sendItemInspection(nullptr, itemId, itemCount, inspectionType);
