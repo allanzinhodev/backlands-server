@@ -107,6 +107,7 @@ const std::unordered_map<std::string, ItemParseAttributes_t> ItemParseAttributes
     {"magicpointspercent", ITEM_PARSE_MAGICPOINTSPERCENT},
     {"criticalhitchance", ITEM_PARSE_CRITICALHITCHANCE},
     {"criticalhitamount", ITEM_PARSE_CRITICALHITAMOUNT},
+    {"criticalhitdamage", ITEM_PARSE_CRITICALHITAMOUNT},
     {"criticalextradamage", ITEM_PARSE_CRITICALHITAMOUNT},
     {"lifeleechchance", ITEM_PARSE_LIFELEECHCHANCE},
     {"lifeleechamount", ITEM_PARSE_LIFELEECHAMOUNT},
@@ -182,17 +183,25 @@ const std::unordered_map<std::string, ItemParseAttributes_t> ItemParseAttributes
     {"boostpercentphysical", ITEM_PARSE_BOOSTPERCENTPHYSICAL},
     {"boostpercenthealing", ITEM_PARSE_BOOSTPERCENTHEALING},
     {"magiclevelenergy", ITEM_PARSE_MAGICLEVELENERGY},
+    {"energymagiclevelpoints", ITEM_PARSE_MAGICLEVELENERGY},
     {"magiclevelfire", ITEM_PARSE_MAGICLEVELFIRE},
+    {"firemagiclevelpoints", ITEM_PARSE_MAGICLEVELFIRE},
     {"magiclevelpoison", ITEM_PARSE_MAGICLEVELPOISON},
     {"magiclevelearth", ITEM_PARSE_MAGICLEVELPOISON},
+    {"earthmagiclevelpoints", ITEM_PARSE_MAGICLEVELPOISON},
     {"magiclevelice", ITEM_PARSE_MAGICLEVELICE},
+    {"icemagiclevelpoints", ITEM_PARSE_MAGICLEVELICE},
     {"magiclevelholy", ITEM_PARSE_MAGICLEVELHOLY},
+    {"holymagiclevelpoints", ITEM_PARSE_MAGICLEVELHOLY},
     {"magicleveldeath", ITEM_PARSE_MAGICLEVELDEATH},
+    {"deathmagiclevelpoints", ITEM_PARSE_MAGICLEVELDEATH},
     {"magiclevellifedrain", ITEM_PARSE_MAGICLEVELLIFEDRAIN},
     {"magiclevelmanadrain", ITEM_PARSE_MAGICLEVELMANADRAIN},
     {"magicleveldrown", ITEM_PARSE_MAGICLEVELDROWN},
     {"magiclevelphysical", ITEM_PARSE_MAGICLEVELPHYSICAL},
+    {"physicalmagiclevelpoints", ITEM_PARSE_MAGICLEVELPHYSICAL},
     {"magiclevelhealing", ITEM_PARSE_MAGICLEVELHEALING},
+    {"healingmagiclevelpoints", ITEM_PARSE_MAGICLEVELHEALING},
     {"magiclevelundefined", ITEM_PARSE_MAGICLEVELUNDEFINED},
     // Alternate "<element>magiclevelpoints" spellings: each is an alias of the matching magiclevel*
     // key above and is handled by the same ITEM_PARSE_MAGICLEVEL* case. Kept 1:1 with the family
@@ -251,6 +260,8 @@ const std::unordered_map<std::string, ItemParseAttributes_t> ItemParseAttributes
     {"experienceratestamina", ITEM_PARSE_EXPERIENCERATE_STAMINA},
     {"reduceskillloss", ITEM_PARSE_REDUCESKILLLOSS},
 	{"drop", ITEM_PARSE_DROPBONUS},
+    {"primarytype", ITEM_PARSE_PRIMARYTYPE},
+    {"loottype", ITEM_PARSE_LOOTTYPE},
     {"elementalbond", ITEM_PARSE_ELEMENTALBOND},
     {"script", ITEM_PARSE_SCRIPT},
     {"mantra", ITEM_PARSE_MANTRA},
@@ -259,6 +270,7 @@ const std::unordered_map<std::string, ItemParseAttributes_t> ItemParseAttributes
 
 const std::unordered_map<std::string, Augment_t> AugmentTypesMap = {
     {"mana cost", Augment_t::ManaCost},
+    {"base", Augment_t::Base},
     {"base damage", Augment_t::BaseDamage},
     {"base healing", Augment_t::BaseHealing},
     {"duration increased", Augment_t::DurationIncreased},
@@ -296,7 +308,14 @@ const std::unordered_map<std::string, ItemTypes_t> ItemTypesMap = {
 	{"bed", ITEM_TYPE_BED},
 	{"rune", ITEM_TYPE_RUNE},
 	{"rewardchest", ITEM_TYPE_REWARDCHEST},
-	{"carpet", ITEM_TYPE_CARPET}
+	{"carpet", ITEM_TYPE_CARPET},
+	{"food", ITEM_TYPE_FOOD},
+	{"potion", ITEM_TYPE_POTION},
+	{"valuable", ITEM_TYPE_VALUABLE},
+	{"creatureproduct", ITEM_TYPE_CREATUREPRODUCT},
+	{"tool", ITEM_TYPE_TOOL},
+	{"tools", ITEM_TYPE_TOOL},
+	{"decoration", ITEM_TYPE_DECORATION},
 };
 
 const std::unordered_map<std::string, tileflags_t> TileStatesMap = {
@@ -395,6 +414,8 @@ std::string Items::getAugmentNameByType(Augment_t augmentType)
 			return "base damage";
 		case Augment_t::BaseHealing:
 			return "base healing";
+		case Augment_t::Base:
+			return "base";
 		case Augment_t::DurationIncreased:
 			return "duration increased";
 		case Augment_t::AdditionalTargets:
@@ -464,6 +485,8 @@ std::string ItemType::parseAugmentDescription() const
 			description += Items::getAugmentNameByType(augment->type);
 		} else if (augment->type == Augment_t::Cooldown) {
 			description += fmt::format("-{}s cooldown", augment->value / 1000);
+		} else if (augment->type == Augment_t::Base) {
+			description += fmt::format("{:+g}% {}", augment->value / 100.0, Items::getAugmentNameByType(augment->type));
 		} else {
 			description += fmt::format("{:+}% {}", augment->value, Items::getAugmentNameByType(augment->type));
 		}
@@ -761,6 +784,65 @@ bool Items::loadFromOtb(const std::string& file)
 	return true;
 }
 
+ItemTypes_t Items::getLootType(const std::string& strValue) const
+{
+	const std::string normalized = asLowerCaseString(strValue);
+	if (normalized == "creature products") {
+		return ITEM_TYPE_CREATUREPRODUCT;
+	}
+
+	const auto it = ItemTypesMap.find(normalized);
+	if (it == ItemTypesMap.end()) {
+		return ITEM_TYPE_NONE;
+	}
+
+	switch (it->second) {
+		case ITEM_TYPE_FOOD:
+		case ITEM_TYPE_POTION:
+		case ITEM_TYPE_VALUABLE:
+		case ITEM_TYPE_CREATUREPRODUCT:
+		case ITEM_TYPE_TOOL:
+		case ITEM_TYPE_DECORATION:
+			return it->second;
+		default:
+			return ITEM_TYPE_NONE;
+	}
+}
+
+void Items::applyQuickLootTypeFromMetadata(ItemType& itemType)
+{
+	if (itemType.lootType != ITEM_TYPE_NONE) {
+		return;
+	}
+
+	switch (itemType.type) {
+		case ITEM_TYPE_FOOD:
+		case ITEM_TYPE_POTION:
+		case ITEM_TYPE_VALUABLE:
+		case ITEM_TYPE_CREATUREPRODUCT:
+		case ITEM_TYPE_TOOL:
+		case ITEM_TYPE_DECORATION:
+			itemType.lootType = itemType.type;
+			return;
+		default:
+			break;
+	}
+
+	if (!itemType.primaryType.empty()) {
+		if (const ItemTypes_t fromPrimary = getLootType(itemType.primaryType); fromPrimary != ITEM_TYPE_NONE) {
+			itemType.lootType = fromPrimary;
+			return;
+		}
+
+		if (itemType.primaryType == "liquids") {
+			const std::string& name = asLowerCaseString(itemType.name);
+			if (name.find("potion") != std::string::npos || name.find("antidote") != std::string::npos) {
+				itemType.lootType = ITEM_TYPE_POTION;
+			}
+		}
+	}
+}
+
 bool Items::loadFromXml()
 {
 	pugi::xml_document doc;
@@ -793,6 +875,12 @@ bool Items::loadFromXml()
 		uint16_t toId = pugi::cast<uint16_t>(toIdAttribute.value());
 		while (id <= toId) {
 			parseItemNode(itemNode, id++);
+		}
+	}
+
+	for (ItemType& itemType : items) {
+		if (itemType.id != 0) {
+			applyQuickLootTypeFromMetadata(itemType);
 		}
 	}
 	return true;
@@ -1945,6 +2033,21 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 						int32_t count = 1;
 						int32_t initDamage = -1;
 						int32_t damage = 0;
+						bool startDamageGenerated = false;
+						for (auto subAttributeNode : attributeNode.children()) {
+							const pugi::xml_attribute subKeyAttribute = subAttributeNode.attribute("key");
+							const pugi::xml_attribute subValueAttribute = subAttributeNode.attribute("value");
+							if (!subKeyAttribute || !subValueAttribute) {
+								continue;
+							}
+
+							tmpStrValue = asLowerCaseString(subKeyAttribute.as_string());
+							if (tmpStrValue == "start") {
+								start = std::max<int32_t>(0, pugi::cast<int32_t>(subValueAttribute.value()));
+								break;
+							}
+						}
+
 						for (auto subAttributeNode : attributeNode.children()) {
 							pugi::xml_attribute subKeyAttribute = subAttributeNode.attribute("key");
 							if (!subKeyAttribute) {
@@ -1963,23 +2066,30 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 								ticks = pugi::cast<uint32_t>(subValueAttribute.value());
 							} else if (tmpStrValue == "count") {
 								count = std::max<int32_t>(1, pugi::cast<int32_t>(subValueAttribute.value()));
-							} else if (tmpStrValue == "start") {
-								start = std::max<int32_t>(0, pugi::cast<int32_t>(subValueAttribute.value()));
 							} else if (tmpStrValue == "damage") {
 								damage = -pugi::cast<int32_t>(subValueAttribute.value());
 								if (start > 0) {
-									const int32_t damageEnd = std::max<int32_t>(0, -damage);
-									const int32_t tickInterval = 1000;
-									const int32_t tickCount = std::max<int32_t>(1, static_cast<int32_t>(ticks / tickInterval));
+									if (combatType == COMBAT_AGONYDAMAGE) {
+										const int32_t damageEnd = std::max<int32_t>(0, -damage);
+										const int32_t tickInterval = 1000;
+										const int32_t tickCount = std::max<int32_t>(1, static_cast<int32_t>(ticks / tickInterval));
 
-									conditionDamage->setInitDamage(-start);
-									for (int32_t i = 1; i <= tickCount; ++i) {
-										const int32_t damageValue = start - ((start - damageEnd) * i / tickCount);
-										conditionDamage->addDamage(1, tickInterval, -std::max<int32_t>(damageEnd, damageValue));
+										conditionDamage->setInitDamage(-start);
+										for (int32_t i = 1; i <= tickCount; ++i) {
+											const int32_t damageValue = start - ((start - damageEnd) * i / tickCount);
+											conditionDamage->addDamage(1, tickInterval,
+											                           -std::max<int32_t>(damageEnd, damageValue));
+										}
+									} else {
+										std::list<int32_t> damageList;
+										ConditionDamage::generateDamageList(damage, start, damageList);
+										for (int32_t damageValue : damageList) {
+											conditionDamage->addDamage(1, ticks, -damageValue);
+										}
 									}
 
 									start = 0;
-									initDamage = 0;
+									startDamageGenerated = true;
 								} else {
 									conditionDamage->addDamage(count, ticks, damage);
 								}
@@ -1993,7 +2103,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 							conditionDamage->setInitDamage(-initDamage);
 						} else if (initDamage == -1 && start != 0) {
 							conditionDamage->setInitDamage(start);
-						} else if (initDamage == -1 && damage != 0) {
+						} else if (initDamage == -1 && damage != 0 && !startDamageGenerated) {
 							conditionDamage->setInitDamage(damage);
 						}
 
@@ -2167,6 +2277,19 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 					}
 					it.dropBonus = value;
 					abilities.dropBonus = value;
+					break;
+				}
+
+				case ITEM_PARSE_PRIMARYTYPE: {
+					it.primaryType = asLowerCaseString(valueAttribute.as_string());
+					break;
+				}
+
+				case ITEM_PARSE_LOOTTYPE: {
+					const ItemTypes_t parsedLootType = getLootType(valueAttribute.as_string());
+					if (parsedLootType != ITEM_TYPE_NONE) {
+						it.lootType = parsedLootType;
+					}
 					break;
 				}
 

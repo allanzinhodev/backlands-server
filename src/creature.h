@@ -242,6 +242,7 @@ public:
 	virtual void onWalk(Direction& dir);
 	virtual void onWalkAborted() {}
 	virtual void onWalkComplete() {}
+	virtual bool shouldScheduleWalkCompletion() const { return true; }
 
 	// follow functions
 	std::shared_ptr<Creature> getFollowCreatureShared() const { return followCreature.lock(); }
@@ -282,6 +283,7 @@ public:
 	void removeCombatCondition(ConditionType_t type);
 	Condition_ptr getCondition(ConditionType_t type) const;
 	Condition_ptr getCondition(ConditionType_t type, ConditionId_t conditionId, uint32_t subId = 0) const;
+	int32_t getConditionParamPercent(ConditionParam_t param, int32_t defaultPercent = 100) const;
 	void executeConditions(uint32_t interval);
 	bool hasCondition(ConditionType_t type, uint32_t subId = 0) const;
 	virtual bool isImmune(ConditionType_t type) const;
@@ -392,6 +394,7 @@ public:
 	Tile* getTile() override final { return tile.lock().get(); }
 	const Tile* getTile() const override final { return tile.lock().get(); }
 	std::shared_ptr<Tile> getTileShared() { return tile.lock(); }
+	std::shared_ptr<const Tile> getTileShared() const { return tile.lock(); }
 
 	const Position& getLastPosition() const { return lastPosition; }
 	void setLastPosition(Position newLastPos) { lastPosition = newLastPos; }
@@ -451,6 +454,8 @@ protected:
 	uint32_t id = 0;
 	uint32_t scriptEventsBitField = 0;
 	uint32_t eventWalk = 0;
+	// Dispatcher-owned epoch; equality is the only operation on captured values.
+	uint32_t walkGeneration = 0;
 	uint32_t walkUpdateTicks = 0;
 	uint32_t blockCount = 0;
 	uint32_t blockTicks = 0;
@@ -511,6 +516,7 @@ protected:
 	friend class Game;
 	friend class Map;
 	friend class LuaScriptInterface;
+	friend struct CreatureWalkTestAccess;
 
 public:
 	std::vector<CreatureIcon> getIcons() const {

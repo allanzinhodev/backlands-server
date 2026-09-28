@@ -499,12 +499,12 @@ public:
 	virtual const TrashHolder* getTrashHolder() const { return nullptr; }
 	virtual Mailbox* getMailbox() { return nullptr; }
 	virtual const Mailbox* getMailbox() const { return nullptr; }
-	virtual Door* getDoor() { return nullptr; }
-	virtual const Door* getDoor() const { return nullptr; }
+	virtual std::shared_ptr<Door> getDoor() { return nullptr; }
+	virtual std::shared_ptr<const Door> getDoor() const { return nullptr; }
 	virtual MagicField* getMagicField() { return nullptr; }
 	virtual const MagicField* getMagicField() const { return nullptr; }
-	virtual BedItem* getBed() { return nullptr; }
-	virtual const BedItem* getBed() const { return nullptr; }
+	virtual std::shared_ptr<BedItem> getBed() { return nullptr; }
+	virtual std::shared_ptr<const BedItem> getBed() const { return nullptr; }
 
 	std::string_view getStrAttr(itemAttrTypes type) const
 	{
@@ -845,13 +845,7 @@ public:
 		}
 		return static_cast<uint8_t>(getIntAttr(ITEM_ATTRIBUTE_TIER));
 	}
-	void setTier(uint8_t tier)
-	{
-		if (!ConfigManager::getBoolean(ConfigManager::FORGE_SYSTEM_ENABLED)) {
-			return;
-		}
-		setIntAttr(ITEM_ATTRIBUTE_TIER, std::min<uint8_t>(tier, 10));
-	}
+	void setTier(uint8_t tier);
 	uint8_t getClassification() const
 	{
 		if (!ConfigManager::getBoolean(ConfigManager::FORGE_SYSTEM_ENABLED)) {

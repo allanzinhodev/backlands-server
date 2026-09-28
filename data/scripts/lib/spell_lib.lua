@@ -76,6 +76,12 @@ AREA_WAVE6 = {
 	{ 0, 0, 0, 0, 0 },
 }
 
+AREA_FRONT_SWEEP_WOD = {
+	{ 0, 0, 0, 0, 0 },
+	{ 0, 1, 3, 1, 0 },
+	{ 0, 1, 0, 1, 0 },
+}
+
 AREA_WAVE7 = {
 	{ 1, 1, 1, 1, 1 },
 	{ 1, 1, 1, 1, 1 },
@@ -143,6 +149,14 @@ AREADIAGONAL_WAVE6 = {
 	{ 0, 0, 1 },
 	{ 0, 3, 0 },
 	{ 1, 0, 0 },
+}
+
+AREADIAGONAL_FRONT_SWEEP_WOD = {
+	{ 0, 0, 0, 0, 1 },
+	{ 0, 0, 0, 1, 0 },
+	{ 0, 0, 3, 0, 0 },
+	{ 0, 1, 0, 0, 0 },
+	{ 1, 0, 0, 0, 0 },
 }
 
 AREADIAGONAL_WAVE7 = {
@@ -581,4 +595,9 @@ function Creature:addAttributeCondition(parameters)
 	end
 
 	self:addCondition(condition)
+end
+
+function calculateBaseDamageHealing(level)
+	local step = math.floor((math.sqrt(2 * level + 2025) + 5) / 10)
+	return math.floor((level + 1000) / step) + 50 * step - 450
 end

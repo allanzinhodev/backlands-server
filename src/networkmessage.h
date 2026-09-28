@@ -46,6 +46,7 @@ public:
 	{
 		MAX_PROTOCOL_BODY_LENGTH = MAX_BODY_LENGTH - 10
 	};
+	static constexpr size_t MAX_STRING_LENGTH = 8192;
 
 	NetworkMessage() = default;
 
@@ -135,10 +136,12 @@ public:
 	void addItemId(uint16_t itemId);
 	void addItem(uint16_t id, uint8_t count, bool sendTier = false, bool alwaysSendTier = false,
 	             bool sendQuickLootFlags = false, bool sendAstraItemState = false,
-	             bool sendAstraQuiverCountU16 = false);
+	             bool sendAstraQuiverCountU16 = false, bool sendAstraItemMetadata = false,
+	             bool sendContainerTypes = false, const Player* viewer = nullptr);
 	void addItem(const Item* item, bool sendTier = false, bool alwaysSendTier = false, bool sendQuiverCount = false,
 	             bool sendQuickLootFlags = false, bool sendAstraItemState = false,
-	             bool sendAstraQuiverCountU16 = false);
+	             bool sendAstraQuiverCountU16 = false, bool sendAstraItemMetadata = false,
+	             bool sendContainerTypes = false, const Player* viewer = nullptr);
 
 	MsgSize_t getLength() const { return info.length; }
 

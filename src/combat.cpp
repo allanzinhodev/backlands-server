@@ -51,6 +51,10 @@ uint16_t getMonsterRaceId(const Monster* monster)
 
 int32_t getCharmBonusBasisPoints(const Player& player, uint16_t raceId, uint8_t charmId)
 {
+	if (!BestiaryCharmSystem::isEnabled()) {
+		return 0;
+	}
+
 	const uint8_t tier = g_bestiaryCharmSystem.getAssignedCharmTier(player, charmId, raceId);
 	if (tier == 0) {
 		return 0;
@@ -94,7 +98,7 @@ bool rollFatalHit(const Player* player, const CombatDamage& damage)
 		return false;
 	}
 
-	const Item* weapon = player->getWeapon();
+	const Item* weapon = player->getWeapon(true);
 	if (!weapon || weapon->getTier() == 0) {
 		return false;
 	}
@@ -115,6 +119,16 @@ void applyFatalDamage(CombatDamage& damage)
 	damage.fatal = true;
 }
 
+void applyPercentToDamage(CombatDamage& damage, int32_t percent)
+{
+	if (percent == 100) {
+		return;
+	}
+
+	damage.primary.value = static_cast<int32_t>(std::round(damage.primary.value * (percent / 100.0)));
+	damage.secondary.value = static_cast<int32_t>(std::round(damage.secondary.value * (percent / 100.0)));
+}
+
 } // namespace
 
 static int32_t getEffectiveMagicLevel(const Player* player, CombatType_t combatType)
@@ -123,7 +137,8 @@ static int32_t getEffectiveMagicLevel(const Player* player, CombatType_t combatT
 		return 0;
 	}
 
-	int32_t magicLevel = static_cast<int32_t>(player->getMagicLevel()) + static_cast<int32_t>(player->getSpecialMagicLevel(combatType));
+	int32_t magicLevel = static_cast<int32_t>(player->getMagicLevel()) + static_cast<int32_t>(player->getSpecialMagicLevel(combatType)) +
+	                     player->getWheelRunicMasteryBonus();
 	return std::max<int32_t>(0, magicLevel);
 }
 
@@ -305,11 +320,15 @@ CombatDamage Combat::getCombatDamage(Creature* creature, Creature* target, std::
 		}
 	}
 
-	if (creature && g_spells && !damage.instantSpellName.empty()) {
+	if (creature) {
 		if (const auto player = std::dynamic_pointer_cast<Player>(creature->weak_from_this().lock())) {
-			if (const auto spell = g_spells->getInstantSpellByName(damage.instantSpellName)) {
-				spell->getCombatDataAugment(player, damage);
+			if (g_spells && !damage.instantSpellName.empty()) {
+				if (const auto spell = g_spells->getInstantSpellByName(damage.instantSpellName)) {
+					spell->getCombatDataAugment(player, damage);
+				}
 			}
+
+			player->applyWheelSanctuaryCombatBonus(damage, target);
 
 			if (ConfigManager::getBoolean(ConfigManager::WEAPON_PROFICIENCY_SYSTEM_ENABLED)) {
 				if (damage.primary.type == COMBAT_HEALING) {
@@ -698,6 +717,16 @@ bool Combat::setParam(CombatParam_t param, uint32_t value)
 			params.resetDamageMultiplier = f;
 			return true;
 		}
+
+		case COMBAT_PARAM_CASTSOUND: {
+			params.soundCastEffect = static_cast<uint16_t>(value);
+			return true;
+		}
+
+		case COMBAT_PARAM_IMPACTSOUND: {
+			params.soundImpactEffect = static_cast<uint16_t>(value);
+			return true;
+		}
 	}
 	return false;
 }
@@ -734,6 +763,12 @@ int32_t Combat::getParam(CombatParam_t param) const
 
 		case COMBAT_PARAM_USECHARGES:
 			return params.useCharges ? 1 : 0;
+
+		case COMBAT_PARAM_CASTSOUND:
+			return params.soundCastEffect;
+
+		case COMBAT_PARAM_IMPACTSOUND:
+			return params.soundImpactEffect;
 
 		default:
 			return std::numeric_limits<int32_t>().max();
@@ -1185,6 +1220,9 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 		const bool perfectShotBypassesBlock =
 		    damage.blockType == BLOCK_DEFENSE || damage.blockType == BLOCK_ARMOR;
 		if (fullyBlocked && (perfectShotDamage == 0 || !perfectShotBypassesBlock)) {
+			if (params.targetCallback && damage.primary.type == COMBAT_NONE && damage.secondary.type == COMBAT_NONE) {
+				params.targetCallback->onTargetCombat(caster, target);
+			}
 			return;
 		}
 		if (damage.blockType == BLOCK_NONE || perfectShotBypassesBlock) {
@@ -1195,25 +1233,27 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 				damage.primary.type != COMBAT_HEALING &&
 				damage.origin != ORIGIN_CONDITION) {
 			Player *targetPlayer = target->getPlayer();
+			double dodgeChance = targetPlayer->getWheelDodgeChance();
 			Item *armor = targetPlayer->getInventoryItem(CONST_SLOT_ARMOR);
 			if (armor && armor->getTier() > 0) {
-				double dodgeChance = armor->getDodgeChance();
+				double armorDodgeChance = armor->getDodgeChance();
 				Item *boots = targetPlayer->getInventoryItem(CONST_SLOT_FEET);
 				if (boots && boots->getTier() > 0) {
 					double ampChance = boots->getMomentumChance()* 0.02;
-					dodgeChance *= (1.0 + ampChance);
+					armorDodgeChance *= (1.0 + ampChance);
 				}
-				if (dodgeChance > 0 && (normal_random(1, 10000) / 100.0) < dodgeChance) {
-					damage.primary.value = 0;
-					damage.secondary.value = 0;
-					damage.blockType = BLOCK_DODGE;
-					damage.dodge = true;
-					SpectatorVec dodgeSpectators;
-					g_game.map.getSpectators(dodgeSpectators, target->getPosition(), true, true);
-					InstanceUtils::sendMagicEffectToInstance(dodgeSpectators,
-						target->getPosition(), CONST_ME_DODGE, target->getInstanceID());
-					return;
-				}
+				dodgeChance += armorDodgeChance;
+			}
+			if (dodgeChance > 0 && (normal_random(1, 10000) / 100.0) < dodgeChance) {
+				damage.primary.value = 0;
+				damage.secondary.value = 0;
+				damage.blockType = BLOCK_DODGE;
+				damage.dodge = true;
+				SpectatorVec dodgeSpectators;
+				g_game.map.getSpectators(dodgeSpectators, target->getPosition(), true, true);
+				InstanceUtils::sendMagicEffectToInstance(dodgeSpectators,
+					target->getPosition(), CONST_ME_DODGE, target->getInstanceID());
+				return;
 			}
 		}
 
@@ -1248,7 +1288,8 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 				const int32_t chance = std::clamp<int32_t>(baseChance + lowBlowBonus, 0, 10000);
 				int32_t skill = std::max<int32_t>(
 				    0, static_cast<int32_t>(casterPlayer->getSpecialSkill(SPECIALSKILL_CRITICALHITAMOUNT)) +
-				           damage.criticalDamage + savageBonus);
+				           damage.criticalDamage + savageBonus +
+				           casterPlayer->getWheelBallisticMasteryCriticalBonus(damage.origin));
 				const int32_t roll = uniform_random(1, 10000);
 				if (skill == 0 && lowBlowBonus > 0 && roll > baseChance) {
 					skill = 5000;
@@ -1286,6 +1327,22 @@ void Combat::doTargetCombat(Creature* caster, Creature* target, CombatDamage& da
 			if (auto targetMonster = lockMonster(target)) {
 				casterPlayer->weaponProficiency().applyBestiaryDamage(damage, targetMonster);
 				casterPlayer->weaponProficiency().applyPowerfulFoeDamage(damage, targetMonster);
+			}
+			casterPlayer->weaponProficiency().applyTargetHealthDamage(damage, target);
+		}
+
+		if (damage.primary.type == COMBAT_HEALING) {
+			if (target) {
+				applyPercentToDamage(
+				    damage, target->getConditionParamPercent(CONDITION_PARAM_BUFF_HEALINGRECEIVED));
+			}
+		} else if (damage.origin != ORIGIN_CONDITION) {
+			if (caster) {
+				applyPercentToDamage(damage, caster->getConditionParamPercent(CONDITION_PARAM_BUFF_DAMAGEDEALT));
+			}
+			if (target) {
+				applyPercentToDamage(
+				    damage, target->getConditionParamPercent(CONDITION_PARAM_BUFF_DAMAGERECEIVED));
 			}
 		}
 
@@ -1507,13 +1564,6 @@ void Combat::doAreaCombat(Creature* caster, const Position& position, const Area
 
 	if (wpEnabled) {
 		casterPlayer->weaponProficiency().applySkillAutoAttackPercentage(damage);
-		if (!damage.instantSpellName.empty()) {
-			if (damage.primary.type == COMBAT_HEALING) {
-				casterPlayer->weaponProficiency().applySkillSpellPercentage(damage, true);
-			} else {
-				casterPlayer->weaponProficiency().applySkillSpellPercentage(damage);
-			}
-		}
 	}
 
 	int32_t criticalPrimary = 0;
@@ -1533,7 +1583,7 @@ void Combat::doAreaCombat(Creature* caster, const Position& position, const Area
 		    0, 10000);
 		int32_t skill = std::max<int32_t>(
 		    0, static_cast<int32_t>(casterPlayer->getSpecialSkill(SPECIALSKILL_CRITICALHITAMOUNT)) +
-		           damage.criticalDamage);
+		           damage.criticalDamage + casterPlayer->getWheelBallisticMasteryCriticalBonus(damage.origin));
 
 		if (chance > 0 && skill > 0 && uniform_random(1, 10000) <= chance) {
 			criticalPrimary = std::round(damage.primary.value * (skill / 10000.));
@@ -1701,6 +1751,7 @@ void Combat::doAreaCombat(Creature* caster, const Position& position, const Area
 					casterPlayer->weaponProficiency().applyBestiaryDamage(damageCopy, targetMonster);
 					casterPlayer->weaponProficiency().applyPowerfulFoeDamage(damageCopy, targetMonster);
 				}
+				casterPlayer->weaponProficiency().applyTargetHealthDamage(damageCopy, creature.get());
 			}
 
 			success = g_game.combatChangeHealth(caster, creature.get(), damageCopy);
@@ -2445,10 +2496,17 @@ bool Combat::doCombatChain(Creature* caster, Creature* target, bool aggressive, 
 				Combat::doChainEffect(from, nextTarget->getPosition(), capturedChainEffect, nextTarget->getInstanceID());
 				if (resolvedCaster) {
 					CombatDamage damage = self->getCombatDamage(resolvedCaster, nextTarget, instantSpellName);
+					const bool effectOnly =
+					    damage.primary.type == COMBAT_NONE && damage.secondary.type == COMBAT_NONE;
 					bool canCombat = !self->params.aggressive ||
 					                 (resolvedCaster != nextTarget &&
 					                  Combat::canDoCombat(resolvedCaster, nextTarget) == RETURNVALUE_NOERROR);
-					if (canCombat) {
+					if (!canCombat) {
+						return;
+					}
+					if (effectOnly && self->params.targetCallback) {
+						self->params.targetCallback->onTargetCombat(resolvedCaster, nextTarget);
+					} else {
 						doTargetCombat(resolvedCaster, nextTarget, damage, self->params);
 					}
 				}

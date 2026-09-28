@@ -19,6 +19,7 @@ class StoreInbox;
 class Player;
 
 bool isBrowseFieldVisibleItem(const Item* item);
+bool isInsideRewardContainer(const Cylinder* cylinder);
 
 class ContainerIterator
 {
@@ -26,7 +27,7 @@ public:
 	bool hasNext() const { return index < items.size(); }
 
 	void advance();
-	Item* operator*() const;
+	std::shared_ptr<Item> operator*() const;
 
 private:
 	ItemVector items;
@@ -37,6 +38,8 @@ private:
 
 class Container : public Item, public Cylinder
 {
+friend class Item;
+
 public:
 	explicit Container(uint16_t type);
 	Container(uint16_t type, uint16_t size);
@@ -91,10 +94,15 @@ public:
 
 	bool addItem(const std::shared_ptr<Item>& item);
 	bool addItem(Item* item);
-	Item* getItemByIndex(size_t index) const;
-	std::shared_ptr<Item> getItemByIndexRef(size_t index) const;
+	std::shared_ptr<Item> getItemByIndex(size_t index) const;
 	bool isHoldingItem(const Item* item) const;
 	bool isRewardCorpse() const;
+	bool isLootCorpse() const;
+	bool hasLootHighlight() const { return lootHighlightActive; }
+	void setLootHighlightActive(bool value) { lootHighlightActive = value; }
+	uint8_t getSpecialCategory(const Player* viewer) const;
+	void clearLootHighlight();
+	void notifyTileUpdate() const;
 
 	uint32_t getItemHoldingCount() const;
 	uint32_t getWeight() const override final;
@@ -146,6 +154,7 @@ private:
 	uint32_t ammoCount = 0;
 	uint32_t totalWeight = 0;
 	uint32_t serializationCount = 0;
+	bool lootHighlightActive = false;
 
 	void onAddContainerItem(Item* item) const;
 	void onUpdateContainerItem(uint32_t index, Item* oldItem, Item* newItem) const;

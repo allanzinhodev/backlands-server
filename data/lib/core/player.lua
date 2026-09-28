@@ -211,10 +211,28 @@ function Player.isUsingOtClient(self)
 		return true
 	end
 
+	if self.isUsingFonticakClient and self:isUsingFonticakClient() then
+		return true
+	end
+
 	local client = self:getClient()
 	local os = client and client.os or CLIENTOS_NONE
 	return os == CLIENTOS_OTCLIENT_LINUX or os == CLIENTOS_OTCLIENT_WINDOWS or os == CLIENTOS_OTCLIENT_MAC or
 		       (os >= CLIENTOS_OTCLIENTV8_LINUX and os <= CLIENTOS_OTCLIENTV8_WEB)
+end
+
+function Player.supportsColorizedLoot(self)
+	if not self then
+		return false
+	end
+	if self.isUsingAstraClient and self:isUsingAstraClient() then
+		return true
+	end
+	return self.isUsingFonticakClient and self:isUsingFonticakClient()
+end
+
+function Player.supportsCustomItemNetwork(self)
+	return self:supportsColorizedLoot()
 end
 
 function Player.sendExtendedOpcode(self, opcode, buffer)
@@ -525,6 +543,8 @@ do
 		if staminaMinutes > 2400 and self:isPremium() then
 			self:setExperienceRate(ExperienceRateType.STAMINA, 150)
 		elseif staminaMinutes <= 840 then
+			self:setExperienceRate(ExperienceRateType.STAMINA, 50)
+		else
 			self:setExperienceRate(ExperienceRateType.STAMINA, 100)
 		end
 		return true

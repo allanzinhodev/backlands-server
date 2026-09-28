@@ -71,9 +71,22 @@ local function getLootItemValue(item)
 		return 0
 	end
 
-	local value = itemType.getDefaultPrice and itemType:getDefaultPrice() or itemType:getWorth()
-	local count = itemType:isStackable() and math.max(1, item:getCount()) or 1
-	return (tonumber(value) or 0) * count
+	local value = 0
+	if ItemPriceRegistry and ItemPriceRegistry.getDefaultValue then
+		value = tonumber(ItemPriceRegistry.getDefaultValue(item:getId())) or 0
+	end
+	if value <= 0 and itemType.getDefaultPrice then
+		value = tonumber(itemType:getDefaultPrice()) or 0
+	end
+	if value <= 0 and itemType.getWorth then
+		value = tonumber(itemType:getWorth()) or 0
+	end
+
+	local count = 1
+	if itemType:isStackable() then
+		count = math.max(1, tonumber(item:getCount()) or 1)
+	end
+	return value * count
 end
 
 function Container:getContentDescription(colorizedLootValue)

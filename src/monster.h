@@ -16,6 +16,12 @@ namespace reward_boss {
 	                                       double baseRate);
 }
 
+namespace boss_difficulty {
+	[[nodiscard]] double healthMultiplier(uint16_t difficulty);
+	[[nodiscard]] double damageMultiplier(uint16_t difficulty);
+	[[nodiscard]] double lootMultiplier(uint16_t difficulty);
+}
+
 using CreatureWeakHashSet = std::set<std::weak_ptr<Creature>, std::owner_less<std::weak_ptr<Creature>>>;
 using CreatureWeakList = std::vector<std::weak_ptr<Creature>>;
 
@@ -102,6 +108,39 @@ public:
 	void setInfluencedLevel(uint8_t level) { influencedLevel = level; }
 	bool isFiendish() const { return fiendish; }
 	void setFiendish(bool v);
+	bool applyEchoWarden(double healthMultiplier, double selfAttackMultiplier);
+	bool isEchoWarden() const { return echoWarden; }
+	uint64_t getEchoRaidId() const { return echoRaidId; }
+	void setEchoRaidId(uint64_t raidId) { echoRaidId = raidId; }
+	bool isEchoRaidSpawn() const { return echoRaidId != 0; }
+	EchoRaidVisualState getEchoRaidVisualState() const { return echoRaidVisualState; }
+	void setEchoRaidVisualState(EchoRaidVisualState state);
+	bool isEchoWardProtected() const { return echoWardProtected; }
+	uint64_t getEchoWardOwnerRaidId() const { return echoWardOwnerRaidId; }
+	double getEchoRaidDamageMultiplier() const;
+	void setEchoWardProtected(bool value, uint64_t ownerRaidId = 0, double damageMultiplier = 1.0);
+	[[nodiscard]] static int32_t scaleEchoRaidCombatValue(int32_t value, double multiplier);
+	bool markEchoWardenRewardsGranted()
+	{
+		if (echoWardenRewardsGranted) {
+			return false;
+		}
+		echoWardenRewardsGranted = true;
+		return true;
+	}
+	bool markEchoWardenLootGranted()
+	{
+		if (echoWardenLootGranted) {
+			return false;
+		}
+		echoWardenLootGranted = true;
+		return true;
+	}
+	bool applyBossDifficulty(uint16_t difficulty, uint16_t raceId = 0);
+	bool hasBossDifficulty() const { return bossDifficultyApplied; }
+	uint16_t getBossDifficulty() const { return bossDifficulty; }
+	uint16_t getBossDifficultyRaceId() const { return bossDifficultyRaceId; }
+	double getBossDifficultyAttackMultiplier() const { return bossDifficultyAttackMultiplier; }
 	Skulls_t getSkull() const override;
 	int32_t getLevel() const { return level; }
 
@@ -132,6 +171,8 @@ public:
 	void onThink(uint32_t interval) override;
 
 	bool challengeCreature(Creature* creature, bool force = false) override;
+	void changeTargetDistance(int32_t distance, int32_t duration);
+	[[nodiscard]] int32_t getEffectiveTargetDistance() const;
 
 	void setNormalCreatureLight() override;
 	bool getCombatValues(int32_t& min, int32_t& max) override;
@@ -206,6 +247,8 @@ private:
 	int32_t maxCombatValue = 0;
 	int32_t targetChangeCooldown = 0;
 	int32_t challengeFocusDuration = 0;
+	int32_t overrideTargetDistance = 0;
+	int32_t overrideTargetDistanceDuration = 0;
 	int32_t stepDuration = 0;
 	int64_t fleeBlockUntil = 0;
 
@@ -219,6 +262,19 @@ private:
 	bool influenced = false;
 	uint8_t influencedLevel = 0;
 	bool fiendish = false;
+	bool echoWarden = false;
+	bool echoWardProtected = false;
+	uint64_t echoWardOwnerRaidId = 0;
+	bool echoWardenRewardsGranted = false;
+	bool echoWardenLootGranted = false;
+	uint64_t echoRaidId = 0;
+	EchoRaidVisualState echoRaidVisualState = EchoRaidVisualState::None;
+	double echoWardenSelfAttackMultiplier = 1.0;
+	double echoWardDamageMultiplier = 1.0;
+	bool bossDifficultyApplied = false;
+	uint16_t bossDifficulty = 0;
+	uint16_t bossDifficultyRaceId = 0;
+	double bossDifficultyAttackMultiplier = 1.0;
 
 	void onCreatureEnter(Creature* creature);
 	void onCreatureLeave(Creature* creature);

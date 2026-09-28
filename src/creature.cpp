@@ -14,6 +14,7 @@
 #include "scheduler.h"
 #include "scriptmanager.h"
 #include "bestiary_charm.h"
+#include "echo_raid.h"
 #include "instance_utils.h"
 #include "tools.h"
 
@@ -295,6 +296,10 @@ void Creature::onIdleStatus()
 
 void Creature::onWalk()
 {
+	// Completion, teleport or a speed change may stop this lineage and arm a
+	// replacement from inside the callback. Do not overwrite that new event.
+	const uint32_t generationAtEntry = walkGeneration;
+
 	if (getWalkDelay() <= 0) {
 		Direction dir;
 		uint32_t flags = FLAG_IGNOREFIELDDAMAGE;
@@ -323,9 +328,13 @@ void Creature::onWalk()
 		cancelNextWalk = false;
 	}
 
-	if (eventWalk != 0) {
-		eventWalk = 0;
-		addEventWalk();
+	if (walkGeneration == generationAtEntry && eventWalk != 0) {
+		if (listWalkDir.empty() && !shouldScheduleWalkCompletion()) {
+			stopEventWalk();
+		} else {
+			eventWalk = 0;
+			addEventWalk();
+		}
 	}
 }
 
@@ -414,13 +423,17 @@ void Creature::addEventWalk(bool firstStep)
 
 	const uint32_t safeTicks = static_cast<uint32_t>(std::max<int64_t>(1, ticks));
 	const uint32_t cid = getID();
+	const uint32_t generation = walkGeneration;
 
-	eventWalk = g_scheduler.addEvent(createSchedulerTask(safeTicks,
-	                                                     [cid]() { g_game.checkCreatureWalk(cid); }));
+	eventWalk = g_scheduler.addEvent(
+	    createSchedulerTask(safeTicks, ([cid, generation]() { g_game.checkCreatureWalk(cid, generation); })));
 }
 
 void Creature::stopEventWalk()
 {
+	// Invalidate even if getNextStep() already cleared eventWalk: an in-flight
+	// callback must not rearm over a replacement created by onWalkComplete().
+	++walkGeneration;
 	if (eventWalk != 0) {
 		g_scheduler.stopEvent(eventWalk);
 		eventWalk = 0;
@@ -596,6 +609,9 @@ void Creature::onDeath()
 	// onKilledCreature may execute Lua that removes this creature and clears
 	// damageMap. Capture all attribution data before the first callback.
 	const auto damageMapSnapshot = getDamageMapSnapshot();
+	if (Monster* monster = getMonster()) {
+		g_echoRaidManager.onMonsterDeath(*monster);
+	}
 
 	auto lastHitCreature = lastAttacker.lock();
 	std::shared_ptr<Creature> lastHitCreatureMaster;
@@ -649,6 +665,7 @@ void Creature::onDeath()
 	// map contributes direct players only. GUID deduplication gives one base kill per
 	// player and death; party sharing is deliberately not introduced here.
 	if (Monster* monster = getMonster(); monster && !monster->isSummon() &&
+	    !(monster->hasBossDifficulty() && monster->getBossDifficulty() == 0) &&
 	    ConfigManager::getBoolean(ConfigManager::BESTIARY_SYSTEM_ENABLED)) {
 		const MonsterType* monsterType = monster->getMonsterType();
 		const uint32_t monsterRaceId = monsterType ? monsterType->raceId : 0;
@@ -687,6 +704,11 @@ void Creature::onDeath()
 				const BestiaryCreatureInfo& info = registeredMonster->get();
 				for (const auto& [_, player] : recipients) {
 					const auto [oldCount, newCount] = player->addBestiaryKillCount(raceId, 1);
+					const uint8_t oldProgress = BestiaryCharmSystem::getProgress(info, oldCount);
+					const uint8_t newProgress = BestiaryCharmSystem::getProgress(info, newCount);
+					if (oldProgress != newProgress) {
+						player->sendScreenshotAndBannerProgressRace(raceId, newProgress);
+					}
 					const bool completed = oldCount < info.toKill && newCount >= info.toKill;
 					if (completed) {
 						player->addBestiaryCharmPoints(info.charmPoints);
@@ -695,6 +717,37 @@ void Creature::onDeath()
 				}
 			}
 		}
+	}
+
+	if (Monster* monster = getMonster(); monster && monster->isEchoWarden()) {
+		// Reward authority is the final damage snapshot: every still-online direct
+		// attacker or summon master is eligible, independent of death-time range.
+		std::unordered_map<uint32_t, std::shared_ptr<Player>> rewardRecipients;
+		auto addPlayerOwner = [&rewardRecipients](const std::shared_ptr<Creature>& attacker) {
+			if (!attacker) {
+				return;
+			}
+			std::shared_ptr<Creature> owner = attacker;
+			if (!owner->getPlayer()) {
+				owner = owner->getMasterShared();
+			}
+			if (owner && owner->getPlayer()) {
+				if (auto player = g_game.getPlayerByID(owner->getID())) {
+					rewardRecipients.try_emplace(player->getGUID(), std::move(player));
+				}
+			}
+		};
+		addPlayerOwner(lastHitCreature);
+		addPlayerOwner(mostDamageCreature);
+		for (const auto& [attackerId, _] : damageMapSnapshot) {
+			addPlayerOwner(g_game.getCreatureByIDShared(attackerId));
+		}
+		std::vector<std::shared_ptr<Player>> recipients;
+		recipients.reserve(rewardRecipients.size());
+		for (auto& [_, player] : rewardRecipients) {
+			recipients.push_back(std::move(player));
+		}
+		g_echoRaidManager.grantWardenRewards(*monster, recipients);
 	}
 
 	for (const auto& it : experienceMap) {
@@ -843,9 +896,11 @@ bool Creature::dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreatur
 							corpseOwner->addPendingLoot(getNameDescription(), corpseContainer);
 						}
 						const Monster* deadMonster = getMonster();
-						const bool canAutoQuickLootCorpse = deadMonster &&
-						                                   !deadMonster->getMonsterType()->info.isBoss &&
-						                                   !deadMonster->isRewardBoss();
+						const bool allowOrdinaryBossQuickLoot =
+						    ConfigManager::getBoolean(ConfigManager::QUICK_LOOT_ALLOW_ORDINARY_BOSSES);
+						const bool canAutoQuickLootCorpse =
+						    deadMonster && !deadMonster->isRewardBoss() &&
+						    (allowOrdinaryBossQuickLoot || !deadMonster->getMonsterType()->info.isBoss);
 						if (ConfigManager::getBoolean(ConfigManager::QUICK_LOOT_ENABLED)) {
 							if (canAutoQuickLootCorpse) {
 								if (corpseOwner->isQuickLootAutoEnabled()) {
@@ -963,6 +1018,12 @@ BlockType_t Creature::blockHit(const std::shared_ptr<Creature>& attacker, Combat
 
 		if (checkArmor) {
 			int32_t armor = getArmor();
+			if (attacker && ConfigManager::getBoolean(ConfigManager::WEAPON_PROFICIENCY_SYSTEM_ENABLED)) {
+				if (Player* attackerPlayer = attacker->getPlayer()) {
+					const double_t penetration = attackerPlayer->weaponProficiency().getArmorPenetration();
+					armor -= static_cast<int32_t>(std::floor(armor * penetration));
+				}
+			}
 			if (armor > 3) {
 				damage -= uniform_random(armor / 2, armor - (armor % 2 + 1));
 			} else if (armor > 0) {
@@ -1051,6 +1112,10 @@ bool Creature::setAttackedCreature(Creature* creature)
 		creature->onAttacked();
 	} else {
 		attackedCreature.reset();
+	}
+
+	if (getMonster()) {
+		g_game.updateCreatureSquare(this);
 	}
 
 	for (const auto& summonRef : summons) {
@@ -1566,6 +1631,22 @@ Condition_ptr Creature::getCondition(ConditionType_t type, ConditionId_t conditi
 		}
 	}
 	return nullptr;
+}
+
+int32_t Creature::getConditionParamPercent(ConditionParam_t param, int32_t defaultPercent /* = 100*/) const
+{
+	int64_t percent = defaultPercent;
+	for (const auto& condition : conditions) {
+		const int32_t value = condition->getParam(param);
+		if (value == std::numeric_limits<int32_t>().max()) {
+			continue;
+		}
+
+		percent = (percent * value) / 100;
+	}
+
+	return static_cast<int32_t>(
+	    std::clamp<int64_t>(percent, std::numeric_limits<int32_t>::min(), std::numeric_limits<int32_t>::max()));
 }
 
 void Creature::executeConditions(uint32_t interval)

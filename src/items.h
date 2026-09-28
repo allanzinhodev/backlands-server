@@ -43,6 +43,12 @@ enum ItemTypes_t
 	ITEM_TYPE_PODIUM,
 	ITEM_TYPE_REWARDCHEST,
 	ITEM_TYPE_CARPET,
+	ITEM_TYPE_FOOD,
+	ITEM_TYPE_POTION,
+	ITEM_TYPE_VALUABLE,
+	ITEM_TYPE_CREATUREPRODUCT,
+	ITEM_TYPE_TOOL,
+	ITEM_TYPE_DECORATION,
 	ITEM_TYPE_LAST
 };
 
@@ -237,6 +243,8 @@ enum ItemParseAttributes_t
 	ITEM_PARSE_EXPERIENCERATE_STAMINA,
 	ITEM_PARSE_REDUCESKILLLOSS,
 	ITEM_PARSE_DROPBONUS,
+	ITEM_PARSE_PRIMARYTYPE,
+	ITEM_PARSE_LOOTTYPE,
 	ITEM_PARSE_ELEMENTALBOND,
 	ITEM_PARSE_SCRIPT,
 	ITEM_PARSE_IMBUEMENTSLOT,
@@ -263,6 +271,7 @@ enum class Augment_t : uint8_t
 	ManaLeech = 15,
 	CriticalExtraDamage = 16,
 	CriticalHitChance = 17,
+	Base = 18,
 	PowerfulImpact = 100,
 	StrongImpact = 101,
 	IncreasedDamage = 102,
@@ -386,6 +395,8 @@ public:
 
 	itemgroup_t group = ITEM_GROUP_NONE;
 	ItemTypes_t type = ITEM_TYPE_NONE;
+	// Quick Loot category metadata (loottype / primarytype); does not replace structural type.
+	ItemTypes_t lootType = ITEM_TYPE_NONE;
 	uint16_t id = 0;
 	bool stackable = false;
 
@@ -396,6 +407,7 @@ public:
 	std::string runeSpellName;
 	std::string vocationString;
 	std::string elementalBond;
+	std::string primaryType;
 
 	std::unique_ptr<Abilities> abilities;
 	std::shared_ptr<ConditionDamage> conditionDamage;
@@ -447,6 +459,9 @@ public:
 
 	uint16_t imbuementSlot = 0;
 	uint16_t wrapableTo = 0;
+	// Runtime metadata used to reconcile persisted static fixtures with their
+	// configured transform variants (for example, an open/closed door pair).
+	uint16_t persistentTransformFamily = 0;
 	std::unordered_map<std::string, uint8_t> imbuementAllowedTypes;
 	std::vector<std::shared_ptr<AugmentInfo>> augments;
 	int16_t mantra = 0;
@@ -537,6 +552,8 @@ public:
 	uint32_t buildNumber = 0;
 
 	bool loadFromXml();
+	ItemTypes_t getLootType(const std::string& strValue) const;
+	void applyQuickLootTypeFromMetadata(ItemType& itemType);
 	void parseItemNode(const pugi::xml_node& itemNode, uint16_t id);
 	void parseScriptAttribute(ItemType& it, const pugi::xml_node& attributeNode, const pugi::xml_attribute& valueAttribute);
 

@@ -295,7 +295,8 @@ public:
 	                            bool test = false);
 	ReturnValue internalAddItem(Cylinder* toCylinder, Item* item, int32_t index, uint32_t flags, bool test,
 	                            uint32_t& remainderCount);
-	ReturnValue internalRemoveItem(Item* item, int32_t count = -1, bool test = false, uint32_t flags = 0);
+	ReturnValue internalRemoveItem(Item* item, int32_t count = -1, bool test = false, uint32_t flags = 0,
+	                            Creature* actor = nullptr);
 
 	ReturnValue internalPlayerAddItem(Player* player, Item* item, bool dropOnMap = true,
 	                                  slots_t slot = CONST_SLOT_WHEREEVER);
@@ -504,6 +505,7 @@ public:
 	void updateCreatureEmblem(Creature* creature);
 	void updateCreatureIcon(const Player* spectator, const Creature* creature);
 	void updateCreatureIcon(const Creature* creature);
+	void updateCreatureEchoRaidVisual(const Creature* creature);
 	void updateKnownCreature(const Creature* creature);
 
 	GameState_t getGameState() const;
@@ -511,7 +513,7 @@ public:
 	void saveGameState(bool crash = false);
 
 	// Events
-	void checkCreatureWalk(uint32_t creatureId);
+	void checkCreatureWalk(uint32_t creatureId, uint32_t walkGeneration);
 	void updateCreatureWalk(uint32_t creatureId);
 	void checkCreatureAttack(uint32_t creatureId);
 	void checkCreatures(size_t index);
@@ -591,9 +593,9 @@ public:
 	void addGuild(Guild_ptr guild);
 	void removeGuild(uint32_t guildId);
 
-	void internalRemoveItems(std::vector<ObserverPtr<Item>> itemList, uint32_t amount, bool stackable);
+	void internalRemoveItems(std::vector<std::shared_ptr<Item>> itemList, uint32_t amount, bool stackable);
 
-	[[nodiscard]] BedItem* getBedBySleeper(uint32_t guid);
+	[[nodiscard]] std::shared_ptr<BedItem> getBedBySleeper(uint32_t guid);
 	void setBedSleeper(BedItem* bed, uint32_t guid);
 	void removeBedSleeper(uint32_t guid);
 
@@ -715,6 +717,8 @@ public:
 
 
 private:
+	friend struct LootHighlightTestAccess;
+
 	StorageMap storageMap;
 
 	bool playerSaySpell(Player* player, SpeakClasses type, std::string_view text, bool forceCastOnFoot = false);
@@ -785,7 +789,6 @@ private:
 
 	std::unordered_set<Position, PositionHasher> tilesToClean;
 
-	// Loot Highlight: maps corpse item lifetime to scheduler event ID
 	LootHighlightEventMap lootHighlightEvents;
 
 	ModalWindow offlineTrainingWindow{std::numeric_limits<uint32_t>::max(), "Train while you sleep",

@@ -4,8 +4,10 @@ if not configManager.getBoolean(configKeys.FORGE_SYSTEM_ENABLED) then
 	return
 end
 
-local OPCODE_FORGE_REQUEST = 0xE2
-local OPCODE_FORGE_SEND = 0xE3
+-- 0xE2/0xE3 are native Reward Wall opcodes. 0x38 is unused by this
+-- client/server pair and can safely be shared across opposite directions.
+local OPCODE_FORGE_REQUEST = 0x38
+local OPCODE_FORGE_SEND = 0x38
 
 local REQUEST_OPEN = 1
 local REQUEST_CLOSE = 2
@@ -128,6 +130,7 @@ local SLIVERS_GENERATED = 3
 local SLIVERS_TO_CORE = 50
 local MAX_DUST_LIMIT = 325
 local FORGE_HISTORY_LIMIT = 50
+local FORGE_HISTORY_PAGE_SIZE = 10
 
 local DUST_FUSION = 100
 local DUST_FUSION_CONVERGENCE = 130
@@ -176,13 +179,24 @@ local function debugForge(player, message)
 end
 
 local function supportsCustomNetwork(player)
-	return player and player.isUsingOtClient and player:isUsingOtClient()
+	if not player or not player:isPlayer() then
+		return false
+	end
+	if player.isUsingOtClient and player:isUsingOtClient() then
+		return true
+	end
+	if player.isUsingOtc and player:isUsingOtc() then
+		return true
+	end
+	return false
 end
 
 local function sendForgeMessage(player, message)
 	if not supportsCustomNetwork(player) then
 		return false
 	end
+
+	player:sendTextMessage(MESSAGE_STATUS_SMALL, message)
 
 	local out = NetworkMessage(player)
 	out:addByte(OPCODE_FORGE_SEND)
@@ -205,8 +219,36 @@ local function getForgeDustLimit(player)
 	return value
 end
 
+local function sendForgeDustBalance(player)
+	if type(player) == "number" then
+		player = Player(player)
+	end
+	if not supportsCustomNetwork(player) then
+		return false
+	end
+	local dust = getForgeDust(player)
+	local limit = getForgeDustLimit(player)
+
+	local out = NetworkMessage(player)
+	out:addByte(0xEE)
+	out:addByte(23)
+	out:addU64(dust)
+	local sent = out:sendToPlayer(player)
+
+	local limitOut = NetworkMessage(player)
+	limitOut:addByte(0xEE)
+	limitOut:addByte(88)
+	limitOut:addU64(limit)
+	limitOut:sendToPlayer(player)
+	return sent
+end
+
 local function setForgeDust(player, value)
-	player:setStorageValue(FORGE_STORAGE.dust, math.max(0, math.min(value, getForgeDustLimit(player))))
+	if player:setStorageValue(FORGE_STORAGE.dust, math.max(0, math.min(value, getForgeDustLimit(player)))) ~= true then
+		return false
+	end
+	sendForgeDustBalance(player)
+	return true
 end
 
 local function removeForgeDust(player, amount)
@@ -214,12 +256,11 @@ local function removeForgeDust(player, amount)
 	if current < amount then
 		return false
 	end
-	player:setStorageValue(FORGE_STORAGE.dust, current - amount)
-	return true
+	return setForgeDust(player, current - amount)
 end
 
 local function addForgeDust(player, amount)
-	setForgeDust(player, getForgeDust(player) + amount)
+	return setForgeDust(player, getForgeDust(player) + amount)
 end
 
 local function getPlayerInventoryMoney(player)
@@ -749,28 +790,59 @@ end
 
 local function addHistory(player, action, details)
 	if not ensureForgeHistoryTable() then
-		return
+		return false
 	end
 
 	local guid = player:getGuid()
 	local now = os.time()
 	local historyAction = math.max(0, tonumber(action) or 0)
-	db.query("INSERT INTO `player_forge_history` (`player_id`, `created_at`, `action`, `details`) VALUES (" ..
-		guid .. ", " .. now .. ", " .. historyAction .. ", " .. db.escapeString(details or "") .. ")")
-	db.query("DELETE FROM `player_forge_history` WHERE `player_id` = " .. guid .. " AND `id` NOT IN " ..
+	local safeDetails = tostring(details or ""):sub(1, 255)
+	local inserted = db.query("INSERT INTO `player_forge_history` (`player_id`, `created_at`, `action`, `details`) VALUES (" ..
+		guid .. ", " .. now .. ", " .. historyAction .. ", " .. db.escapeString(safeDetails) .. ")")
+	if inserted == false then
+		print("[CustomForge] Failed to insert history for player " .. guid)
+		return false
+	end
+
+	local retained = db.query("DELETE FROM `player_forge_history` WHERE `player_id` = " .. guid .. " AND `id` NOT IN " ..
 		"(SELECT `id` FROM (SELECT `id` FROM `player_forge_history` WHERE `player_id` = " .. guid ..
 		" ORDER BY `created_at` DESC, `id` DESC LIMIT " .. FORGE_HISTORY_LIMIT .. ") AS `keep_history`)")
+	if retained == false then
+		print("[CustomForge] Failed to trim history for player " .. guid)
+	end
+	return true
 end
 
-local function sendHistory(player)
+local function addHistoryOrWarn(player, action, details)
+	if addHistory(player, action, details) then
+		return true
+	end
+
+	print(string.format("[CustomForge] Operation completed without history for player %d: %s",
+		player:getGuid(), tostring(details)))
+	sendForgeMessage(player, "Forge operation completed, but its history entry could not be saved.")
+	return false
+end
+
+local function sendHistory(player, requestedPage)
 	if not supportsCustomNetwork(player) then
 		return false
 	end
 
 	local history = {}
+	local page = math.min(math.max(math.floor(tonumber(requestedPage) or 0), 0), 0xFFFF)
+	local totalHistory = 0
 	if ensureForgeHistoryTable() then
+		local countResult = db.storeQuery("SELECT COUNT(*) AS `total` FROM `player_forge_history` WHERE `player_id` = " .. player:getGuid())
+		if countResult ~= false then
+			totalHistory = result.getDataInt(countResult, "total")
+			result.free(countResult)
+		end
+
+		local pageCount = math.max(1, math.ceil(totalHistory / FORGE_HISTORY_PAGE_SIZE))
+		page = math.min(page, pageCount - 1)
 		local resultId = db.storeQuery("SELECT `created_at`, `action`, `details` FROM `player_forge_history` WHERE `player_id` = " ..
-			player:getGuid() .. " ORDER BY `created_at` DESC, `id` DESC LIMIT " .. FORGE_HISTORY_LIMIT)
+			player:getGuid() .. " ORDER BY `created_at` DESC, `id` DESC LIMIT " .. (page * FORGE_HISTORY_PAGE_SIZE) .. ", " .. FORGE_HISTORY_PAGE_SIZE)
 		if resultId ~= false then
 			repeat
 				history[#history + 1] = {
@@ -786,6 +858,8 @@ local function sendHistory(player)
 	local out = NetworkMessage(player)
 	out:addByte(OPCODE_FORGE_SEND)
 	out:addByte(RESPONSE_HISTORY)
+	out:addU16(page)
+	out:addU16(math.max(1, math.ceil(totalHistory / FORGE_HISTORY_PAGE_SIZE)))
 	out:addU16(math.min(#history, 0xFFFF))
 	for i = 1, math.min(#history, 0xFFFF) do
 		out:addU32(history[i][1])
@@ -857,22 +931,81 @@ local function canPay(player, dustCost, coreCost, goldCost)
 	return true
 end
 
+local function refundPayment(player, payment)
+	if not payment then
+		return false
+	end
+
+	local recovered = true
+	if payment.gold > 0 and player:setBankBalance(getPlayerBankBalance(player) + payment.gold) ~= true then
+		recovered = false
+		print(string.format("[CustomForge] CRITICAL: failed to refund %d gold to player %d",
+			payment.gold, player:getGuid()))
+	end
+	if payment.cores > 0 and not player:addItem(FORGE_ITEM_IDS.exaltedCore, payment.cores) then
+		recovered = false
+		print(string.format("[CustomForge] CRITICAL: failed to refund %d Exalted Core(s) to player %d",
+			payment.cores, player:getGuid()))
+	end
+	if payment.dust > 0 and addForgeDust(player, payment.dust) ~= true then
+		recovered = false
+		print(string.format("[CustomForge] CRITICAL: failed to refund %d Dust to player %d",
+			payment.dust, player:getGuid()))
+	end
+	return recovered
+end
+
 local function takePayment(player, dustCost, coreCost, goldCost)
 	if not removeForgeDust(player, dustCost) then
+		return false, true
+	end
+
+	local payment = { dust = dustCost, cores = 0, gold = 0 }
+	if coreCost > 0 then
+		if not player:removeItem(FORGE_ITEM_IDS.exaltedCore, coreCost) then
+			return false, refundPayment(player, payment)
+		end
+		payment.cores = coreCost
+	end
+	if goldCost > 0 then
+		if not player:removeMoneyBank(goldCost) then
+			return false, refundPayment(player, payment)
+		end
+		payment.gold = goldCost
+	end
+	return payment, true
+end
+
+local function restoreForgeItem(player, itemId, tier)
+	local restored = player:addItem(itemId, 1)
+	if not restored then
+		print(string.format("[CustomForge] CRITICAL: failed to restore item %d tier %d to player %d",
+			itemId, tier, player:getGuid()))
 		return false
 	end
-	if coreCost > 0 and not player:removeItem(FORGE_ITEM_IDS.exaltedCore, coreCost) then
-		addForgeDust(player, dustCost)
-		return false
-	end
-	if goldCost > 0 and not player:removeMoneyBank(goldCost) then
-		addForgeDust(player, dustCost)
-		if coreCost > 0 then
-			player:addItem(FORGE_ITEM_IDS.exaltedCore, coreCost)
+	if not restored.setTier or restored:setTier(tier) ~= true then
+		local removedPartialItem = restored.remove and restored:remove(1) == true
+		print(string.format("[CustomForge] CRITICAL: failed to restore tier %d on item %d for player %d",
+			tier, itemId, player:getGuid()))
+		if not removedPartialItem then
+			print(string.format("[CustomForge] CRITICAL: failed to remove partial replacement item %d for player %d",
+				itemId, player:getGuid()))
 		end
 		return false
 	end
 	return true
+end
+
+local function reportRecovery(player, context, paymentRecovered, itemRecovered)
+	if paymentRecovered and itemRecovered then
+		sendForgeMessage(player, context .. "; payment was refunded.")
+		return true
+	end
+
+	print(string.format("[CustomForge] CRITICAL RECOVERY REQUIRED: player=%d context=%s payment=%s items=%s",
+		player:getGuid(), context, tostring(paymentRecovered), tostring(itemRecovered)))
+	sendForgeMessage(player, context .. "; automatic recovery was incomplete. Please contact an administrator.")
+	return false
 end
 
 local function withPlayerLock(player, callback)
@@ -947,8 +1080,13 @@ local function handleFusion(player, msg)
 			refreshForge(player)
 			return false
 		end
-		if not takePayment(player, dustCost, coreCost, goldCost) then
-			sendForgeMessage(player, "Could not take forge payment.")
+		local payment, paymentRecoveryOk = takePayment(player, dustCost, coreCost, goldCost)
+		if not payment then
+			if paymentRecoveryOk then
+				sendForgeMessage(player, "Could not take forge payment.")
+			else
+				reportRecovery(player, "Forge payment could not be collected", false, true)
+			end
 			refreshForge(player)
 			return false
 		end
@@ -963,15 +1101,39 @@ local function handleFusion(player, msg)
 		local tierResult = 0
 		local resultCount = 0
 		local sacrificeResult = "destroyed"
+		local itemRecoveryOk = true
 
-		if success then
-			resultTier = tier + 1
-			mainItem:setTier(resultTier)
-			sacrificeItem:remove(1)
-		else
-			mainItem:remove(1)
-			sacrificeItem:remove(1)
-			sacrificeResult = "both items destroyed"
+		local mutationOk, mutationError = pcall(function()
+			if success then
+				resultTier = tier + 1
+				if mainItem:setTier(resultTier) ~= true then
+					error("could not update the main item tier")
+				end
+				if sacrificeItem:remove(1) ~= true then
+					itemRecoveryOk = mainItem:setTier(tier) == true
+					error("could not remove the sacrifice item")
+				end
+			else
+				if sacrificeItem:remove(1) ~= true then
+					error("could not remove the sacrifice item")
+				end
+				if mainItem:remove(1) ~= true then
+					itemRecoveryOk = restoreForgeItem(player, otherItemId, otherTier)
+					error("could not remove the main item")
+				end
+				sacrificeResult = "both items destroyed"
+			end
+		end)
+		if not mutationOk then
+			if success and mainItem:getTier() == resultTier then
+				itemRecoveryOk = mainItem:setTier(tier) == true and itemRecoveryOk
+			end
+			local paymentRecoveryOk = refundPayment(player, payment)
+			print("[CustomForge] Fusion rolled back: " .. tostring(mutationError))
+			reportRecovery(player, "Forge fusion could not be completed", paymentRecoveryOk, itemRecoveryOk)
+			invalidateForgeCache(player)
+			refreshForge(player)
+			return false
 		end
 
 		local historyDetails
@@ -981,7 +1143,7 @@ local function handleFusion(player, msg)
 			historyDetails = string.format("Fail %d tier %d; second item %s", itemId, tier, sacrificeResult)
 		end
 
-		addHistory(player, HISTORY_FUSION, historyDetails)
+		addHistoryOrWarn(player, HISTORY_FUSION, historyDetails)
 		sendFusionResult(player, convergence, success, otherItemId, otherTier, itemId, resultTier, resultType, itemResult, tierResult, resultCount)
 		invalidateForgeCache(player)
 		refreshForge(player)
@@ -1032,18 +1194,35 @@ local function handleTransfer(player, msg)
 			refreshForge(player)
 			return false
 		end
-		if not takePayment(player, dustCost, coreCost, goldCost) then
-			sendForgeMessage(player, "Could not take forge payment.")
+		local payment, paymentRecoveryOk = takePayment(player, dustCost, coreCost, goldCost)
+		if not payment then
+			if paymentRecoveryOk then
+				sendForgeMessage(player, "Could not take forge payment.")
+			else
+				reportRecovery(player, "Forge payment could not be collected", false, true)
+			end
 			refreshForge(player)
 			return false
 		end
 
 		local sourceId = source:getId()
 		local sourceTier = source:getTier()
-		target:setTier(resultTier)
-		source:remove(1)
+		if target:setTier(resultTier) ~= true then
+			local paymentRecoveryOk = refundPayment(player, payment)
+			reportRecovery(player, "Forge transfer could not update the target", paymentRecoveryOk, true)
+			refreshForge(player)
+			return false
+		end
+		if source:remove(1) ~= true then
+			local itemRecoveryOk = target:setTier(0) == true
+			local paymentRecoveryOk = refundPayment(player, payment)
+			reportRecovery(player, "Forge transfer could not remove the source", paymentRecoveryOk, itemRecoveryOk)
+			invalidateForgeCache(player)
+			refreshForge(player)
+			return false
+		end
 
-		addHistory(player, HISTORY_TRANSFER, string.format("Transfer %d tier %d -> %d tier %d", sourceId, sourceTier, targetItemId, resultTier))
+		addHistoryOrWarn(player, HISTORY_TRANSFER, string.format("Transfer %d tier %d -> %d tier %d", sourceId, sourceTier, targetItemId, resultTier))
 		sendTransferResult(player, convergence, true, sourceId, sourceTier, targetItemId, resultTier)
 		invalidateForgeCache(player)
 		refreshForge(player)
@@ -1076,7 +1255,9 @@ local function handleConvert(player, msg)
 				refreshForge(player)
 				return false
 			end
-			addHistory(player, HISTORY_CONVERSION, string.format("%d Dust -> %d Slivers", DUST_TO_SLIVERS, SLIVERS_GENERATED))
+			addHistoryOrWarn(player, HISTORY_CONVERSION, string.format("%d Dust -> %d Slivers", DUST_TO_SLIVERS, SLIVERS_GENERATED))
+			player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("You successfully converted %d Dust into %d Slivers.", DUST_TO_SLIVERS, SLIVERS_GENERATED))
+			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 		elseif action == 3 then
 			if not player:removeItem(FORGE_ITEM_IDS.sliver, SLIVERS_TO_CORE) then
 				sendForgeMessage(player, "You need more Slivers to generate an Exalted Core.")
@@ -1090,7 +1271,9 @@ local function handleConvert(player, msg)
 				refreshForge(player)
 				return false
 			end
-			addHistory(player, HISTORY_CONVERSION, string.format("%d Slivers -> 1 Exalted Core", SLIVERS_TO_CORE))
+			addHistoryOrWarn(player, HISTORY_CONVERSION, string.format("%d Slivers -> 1 Exalted Core", SLIVERS_TO_CORE))
+			player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("You successfully converted %d Slivers into 1 Exalted Core.", SLIVERS_TO_CORE))
+			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 		elseif action == 4 then
 			local limit = getForgeDustLimit(player)
 			if limit >= MAX_DUST_LIMIT then
@@ -1107,7 +1290,9 @@ local function handleConvert(player, msg)
 			end
 
 			player:setStorageValue(FORGE_STORAGE.dustLimit, limit + 1)
-			addHistory(player, HISTORY_CONVERSION, string.format("Dust limit %d -> %d", limit, limit + 1))
+			addHistoryOrWarn(player, HISTORY_CONVERSION, string.format("Dust limit %d -> %d", limit, limit + 1))
+			player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Your Dust limit increased to %d.", limit + 1))
+			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 		else
 			sendForgeMessage(player, "Invalid forge conversion.")
 			refreshForge(player)
@@ -1162,6 +1347,25 @@ function forgeHandler.onReceive(player, msg)
 	end
 
 	local action = msg:getByte()
+	local remaining = msg:len() - msg:tell()
+	local expectedSizes = {
+		[REQUEST_OPEN] = 0,
+		[REQUEST_CLOSE] = 0,
+		[REQUEST_FUSION] = 8,
+		[REQUEST_TRANSFER] = 6,
+		[REQUEST_CONVERT] = 1,
+		[7] = 0,
+	}
+	local expectedSize = expectedSizes[action]
+	local validPayload = expectedSize ~= nil and remaining == expectedSize
+	if action == REQUEST_HISTORY then
+		validPayload = remaining == 0 or remaining == 2
+	end
+	if not validPayload then
+		debugForge(player, string.format("packet blocked: action=%d payload=%d", action, remaining))
+		sendForgeMessage(player, "Malformed Forge request.")
+		return
+	end
 	debugForge(player, "packet action=" .. tostring(action))
 	if action == REQUEST_OPEN then
 		openForge(player)
@@ -1174,7 +1378,9 @@ function forgeHandler.onReceive(player, msg)
 	elseif action == REQUEST_CONVERT then
 		handleConvert(player, msg)
 	elseif action == REQUEST_HISTORY then
-		sendHistory(player)
+		sendHistory(player, msg:len() - msg:tell() >= 2 and msg:getU16() or 0)
+	elseif action == 7 then
+		sendForgeDustBalance(player)
 	else
 		debugForge(player, "packet ignored: unknown action=" .. tostring(action))
 	end
@@ -1192,7 +1398,13 @@ forgeSessionCleanup:register()
 
 local forgeSessionInit = CreatureEvent("CustomForgeSessionInit")
 function forgeSessionInit.onLogin(player)
+	if not supportsCustomNetwork(player) then
+		return true
+	end
 	player:registerEvent("CustomForgeSessionCleanup")
+	sendForgeDustBalance(player)
+	addEvent(sendForgeDustBalance, 400, player:getId())
+	addEvent(sendForgeDustBalance, 1200, player:getId())
 	return true
 end
 forgeSessionInit:register()
@@ -1203,6 +1415,7 @@ CustomForge = {
 	open = openForge,
 	close = closeForge,
 	refresh = refreshForge,
+	sendBalance = sendForgeDustBalance,
 	isOpen = function(player)
 		return forgeOpenSessions[player:getId()] == true
 	end

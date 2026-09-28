@@ -8,8 +8,16 @@
 #include "fonticakclient.h"
 #include "ban.h"
 #include "character_bazaar.h"
+#include "account_coins.h"
+#include "store/store_catalog.h"
+#include "store/store_name_validator.h"
+#include "store/store_protocol.h"
+#include "store/store_repository.h"
+#include "store/store_service.h"
+#include "store/store_types.h"
 #include "configmanager.h"
 #include "creatureevent.h"
+#include "echo_raid.h"
 #include "game.h"
 #include "iologindata.h"
 #include "save_manager.h"
@@ -20,6 +28,7 @@
 #include "player.h"
 #include "protocolgame.h"
 #include "protocollogin.h"
+#include "protocolspectator.h"
 #include "imbuement.h"
 #include "familiar.h"
 #include "logger.h"
@@ -34,9 +43,12 @@
 #include <limits>
 #include <map>
 #include <mutex>
+#include <optional>
 #include <string_view>
 #include <unordered_map>
 #include <vector>
+
+#include <simdutf.h>
 
 uint32_t ProtocolGame::spectatorId = 1;
 std::set<std::string> ProtocolGame::spectatorNames;
@@ -98,7 +110,6 @@ constexpr uint8_t HELPER_OPCODE_CAST_ON_FOOT = 211;
 constexpr uint8_t HELPER_OPCODE_SMART_FOLLOW = 212;
 constexpr uint32_t STORAGE_ASTRA_HELPER_CAVEBOT = 99997;
 constexpr uint32_t STORAGE_ASTRA_HELPER_SMART_FOLLOW = 99998;
-constexpr auto STORE_OUTFIT_OFFERS_PATH = "data/store/gamestore.xml";
 constexpr uint8_t ITEM_VALUES_OPCODE = 0xC6;
 constexpr size_t ITEM_VALUE_WIRE_SIZE = sizeof(uint16_t) + sizeof(uint32_t);
 constexpr size_t ITEM_VALUES_PACKET_HEADER_SIZE = sizeof(uint8_t) + sizeof(uint16_t);
@@ -145,79 +156,6 @@ void logPlayerSession(const Player& player, uint32_t ip, bool login)
 
 using PlayerInventoryKey = std::pair<uint16_t, uint8_t>;
 using PlayerInventoryCounts = std::map<PlayerInventoryKey, uint32_t>;
-
-struct StoreOutfitOffer
-{
-	uint32_t offerId = 0;
-	uint8_t addons = 3;
-};
-
-using StoreOutfitOfferMap = std::unordered_map<uint16_t, StoreOutfitOffer>;
-
-StoreOutfitOfferMap loadStoreOutfitOffers()
-{
-	StoreOutfitOfferMap offers;
-
-	pugi::xml_document doc;
-	if (!doc.load_file(STORE_OUTFIT_OFFERS_PATH)) {
-		return offers;
-	}
-
-	auto addLookType = [&offers](uint16_t lookType, uint32_t offerId, uint8_t addons) {
-		if (lookType != 0) {
-			offers[lookType] = StoreOutfitOffer{offerId, addons};
-		}
-	};
-
-	for (auto categoryNode : doc.child("store").children("category")) {
-		for (auto offerNode : categoryNode.children("offer")) {
-			const std::string_view type = offerNode.attribute("type").as_string();
-			if (type != "outfit") {
-				continue;
-			}
-
-			const uint32_t offerId = offerNode.attribute("id").as_uint();
-			if (offerId == 0) {
-				continue;
-			}
-
-			uint32_t addonValue = offerNode.attribute("addon").as_uint(3);
-			if (addonValue > 3) {
-				addonValue = 3;
-			}
-
-			const auto addons = static_cast<uint8_t>(addonValue);
-			const auto maleLookType = static_cast<uint16_t>(offerNode.attribute("value").as_uint(offerNode.attribute("eid").as_uint()));
-			const auto femaleLookType = static_cast<uint16_t>(offerNode.attribute("femalevalue").as_uint());
-
-			addLookType(maleLookType, offerId, addons);
-			addLookType(femaleLookType, offerId, addons);
-		}
-	}
-
-	return offers;
-}
-
-const StoreOutfitOfferMap& getStoreOutfitOffers()
-{
-	static StoreOutfitOfferMap offers;
-	static std::filesystem::file_time_type lastWriteTime{};
-	static bool loaded = false;
-
-	std::error_code errorCode;
-	auto currentWriteTime = std::filesystem::last_write_time(STORE_OUTFIT_OFFERS_PATH, errorCode);
-	if (errorCode) {
-		currentWriteTime = {};
-	}
-
-	if (!loaded || currentWriteTime != lastWriteTime) {
-		offers = loadStoreOutfitOffers();
-		lastWriteTime = currentWriteTime;
-		loaded = true;
-	}
-
-	return offers;
-}
 
 uint32_t getPlayerInventoryItemAmount(const Item* item)
 {
@@ -522,7 +460,7 @@ ProtocolGame::~ProtocolGame()
 
 void ProtocolGame::sendBlessingWindow()
 {
-	if (!player || !isAstraClient) return;
+	if (!player || (!isAstraClient && !isFonticakClient)) return;
 
 	NetworkMessage msg;
 	msg.addByte(0x9B);
@@ -578,7 +516,7 @@ void ProtocolGame::sendBlessingWindow()
 
 void ProtocolGame::sendBlessStatus()
 {
-	if (!player || !isAstraClient) return;
+	if (!player || (!isAstraClient && !isFonticakClient)) return;
 
 	uint8_t totalCount = 0;
 	for (uint8_t i = 2; i <= 8; i++) {
@@ -604,6 +542,7 @@ void ProtocolGame::release()
 			}
 			spectatorNames.erase(asLowerCaseString(spectator_name));
 		} else {
+			StoreService::getInstance().clearRateLimit(player->getID());
 			auto clientRef = player->client;
 			if (clientRef) {
 				auto clientProtocol = clientRef->protocol();
@@ -621,7 +560,26 @@ void ProtocolGame::release()
 
 bool ProtocolGame::shouldSendQuickLootFlags() const
 {
-	return isAstraClient && getBoolean(ConfigManager::QUICK_LOOT_ENABLED);
+	return (isAstraClient || isFonticakClient) && getBoolean(ConfigManager::QUICK_LOOT_ENABLED);
+}
+
+bool ProtocolGame::shouldSendContainerTypes() const
+{
+	return supportsContainerTypes;
+}
+
+void ProtocolGame::appendItem(NetworkMessage& msg, const Item* item) const
+{
+	msg.addItem(item, shouldSendItemTierData(), shouldSendItemTierByte(), isOTC, shouldSendQuickLootFlags(),
+	            canSendAstraItemState(), shouldSendAstraQuiverCountU16(), canSendAstraItemMetadata(),
+	            shouldSendContainerTypes(), player.get());
+}
+
+void ProtocolGame::appendItem(NetworkMessage& msg, uint16_t itemId, uint8_t count) const
+{
+	msg.addItem(itemId, count, shouldSendItemTierData(), shouldSendItemTierByte(), shouldSendQuickLootFlags(),
+	            canSendAstraItemState(), shouldSendAstraQuiverCountU16(), canSendAstraItemMetadata(),
+	            shouldSendContainerTypes(), player.get());
 }
 
 bool ProtocolGame::shouldSendContainerPagination() const
@@ -640,7 +598,7 @@ bool ProtocolGame::shouldPaginateContainer(const Container* container) const
 
 bool ProtocolGame::canSendAstraItemState() const
 {
-	if (!player || !player->client || !isAstraClient || isSpectator ||
+	if (!player || !player->client || (!isAstraClient && !isFonticakClient) || isSpectator ||
 	    !getBoolean(ConfigManager::ASTRA_ITEM_STATE_ENABLED)) {
 		return false;
 	}
@@ -649,9 +607,19 @@ bool ProtocolGame::canSendAstraItemState() const
 	return ownerProtocol.get() == this;
 }
 
+bool ProtocolGame::canSendAstraItemMetadata() const
+{
+	return canSendAstraItemState() && isAstraClient;
+}
+
+bool ProtocolGame::canSendPackedPlayerInventory() const
+{
+	return canSendAstraItemState() && (isAstraClient || isFonticakClient);
+}
+
 bool ProtocolGame::shouldSendAstraQuiverCountU16() const
 {
-	return isAstraClient;
+	return isAstraClient || isFonticakClient;
 }
 
 bool ProtocolGame::shouldSendItemTierByte() const
@@ -680,6 +648,11 @@ bool ProtocolGame::shouldSendItemTierData() const
 	return shouldSendItemTierByte() || shouldSendThingUpgradeClassification();
 }
 
+bool ProtocolGame::usesExtendedSpellIds() const
+{
+	return isAstraClient || isFonticakClient || getVersion() >= 1300;
+}
+
 void ProtocolGame::login(uint32_t characterId, uint32_t accountId, OperatingSystem_t operatingSystem)
 {
 	if (CharacterBazaar::isPlayerOnActiveAuction(characterId)) {
@@ -689,9 +662,9 @@ void ProtocolGame::login(uint32_t characterId, uint32_t accountId, OperatingSyst
 
 	// OTCv8 and Mehah features and extended opcodes
 	if (isOTC) {
-		// Player loading can emit status packets before finishLogin(). Astra
-		// therefore needs its final wire-format features advertised up front.
-		sendFeatures(isAstraClient);
+		// Player loading can emit status packets before finishLogin(). Astra and
+		// Fonticak need item-state wire-format features advertised before map/inventory.
+		sendFeatures(isAstraClient || isFonticakClient);
 
 		NetworkMessage opcodeMessage;
 		opcodeMessage.addByte(0x32);
@@ -1089,6 +1062,7 @@ void ProtocolGame::logout(bool displayEffect, bool forced)
 		}
 	}
 
+	StoreService::getInstance().clearRateLimit(player->getID());
 	logPlayerSession(*player, player->getIP(), false);
 	player->client->clear();
 	disconnect();
@@ -1186,6 +1160,27 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 					    msg.get<uint32_t>() ==
 					    AstraClient::generateSignature(static_cast<uint16_t>(operatingSystem), version, key,
 					                                   challengeTimestamp, challengeRandom);
+				} else if (marker == AstraClient::CAPABILITIES_MARKER) {
+					if (!isAstraClient || getReadableBytes(msg) < sizeof(uint8_t)) {
+						break;
+					}
+					const uint8_t capabilities = msg.getByte();
+					supportsGameStoreHighlights =
+					    (capabilities & AstraClient::StoreHighlights) != 0;
+					supportsAstraSingleCreatureMarks =
+					    (capabilities & AstraClient::SingleCreatureMarks) != 0;
+					supportsAstraEchoRaidVisuals =
+					    supportsAstraSingleCreatureMarks && (capabilities & AstraClient::EchoRaidVisuals) != 0;
+					supportsAstraStoreBasePrice =
+					    (capabilities & AstraClient::StoreBasePrice) != 0;
+					supportsAstraStoreCatalogChunks =
+					    (capabilities & AstraClient::StoreCatalogChunks) != 0;
+				} else if (marker == AstraClient::STORE_HIGHLIGHTS_MARKER) {
+					supportsGameStoreHighlights = isAstraClient;
+				} else if (marker == AstraClient::SINGLE_CREATURE_MARKS_MARKER) {
+					supportsAstraSingleCreatureMarks = isAstraClient;
+				} else if (marker == AstraClient::ECHO_RAID_VISUALS_MARKER) {
+					supportsAstraEchoRaidVisuals = isAstraClient && supportsAstraSingleCreatureMarks;
 				} else if (marker == FonticakClient::LOGIN_MARKER) {
 					if (msg.getBufferPosition() + sizeof(uint32_t) > msg.getLength()) {
 						break;
@@ -1194,6 +1189,8 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 					    msg.get<uint32_t>() ==
 					    FonticakClient::generateSignature(static_cast<uint16_t>(operatingSystem), version, key,
 					                                   challengeTimestamp, challengeRandom);
+				} else if (marker == FonticakClient::STORE_HIGHLIGHTS_MARKER) {
+					supportsGameStoreHighlights = isFonticakClient;
 				} else {
 					break;
 				}
@@ -1569,7 +1566,7 @@ void ProtocolGame::parsePacketOnDispatcher(NetworkMessage_ptr& packet)
 			g_game.playerTurn(player->getID(), DIRECTION_WEST);
 			break;
 		case 0x77:
-			if (isAstraClient) {
+			if (isAstraClient || isFonticakClient) {
 				parseHotkeyEquip(msg);
 			} else {
 				skipUnreadBytes(msg);
@@ -1743,9 +1740,13 @@ void ProtocolGame::parsePacketOnDispatcher(NetworkMessage_ptr& packet)
 			break;
 
 		case 0xCF:
-			if (isAstraClient) {
+			if (isAstraClient || isFonticakClient) {
 				sendBlessingWindow();
 			}
+			break;
+
+		case 0xC8:
+			parseSelectSpellAim(msg);
 			break;
 
 		case 0xC9: /* update tile */
@@ -1772,7 +1773,7 @@ void ProtocolGame::parsePacketOnDispatcher(NetworkMessage_ptr& packet)
 			break;
 
 		case 0xCD:
-			if (isAstraClient) {
+			if (isAstraClient || isFonticakClient) {
 				parseInspectionObject(msg);
 			}
 			break;
@@ -1817,10 +1818,35 @@ void ProtocolGame::parsePacketOnDispatcher(NetworkMessage_ptr& packet)
 			break;
 
 		case 0xF8: /* custom store transfer */
+			if (isOTC) {
+				parseStoreTransfer(msg);
+			} else {
+				skipUnreadBytes(msg);
+			}
+			break;
+
 		case 0xFA: /* custom store history */
+			if (isOTC) {
+				parseStoreHistory(msg);
+			} else {
+				skipUnreadBytes(msg);
+			}
+			break;
+
 		case 0xFB: /* custom store open */
+			if (isOTC) {
+				parseStoreOpen(msg);
+			} else {
+				skipUnreadBytes(msg);
+			}
+			break;
+
 		case 0xFC: /* custom store buy */
-			handlePlayerNetworkMessage(recvbyte);
+			if (isOTC) {
+				parseStorePurchase(msg);
+			} else {
+				skipUnreadBytes(msg);
+			}
 			break;
 
 		case 0xF9:
@@ -1874,19 +1900,189 @@ void ProtocolGame::parseCharacterBazaar(NetworkMessage& msg)
 	CharacterBazaar::sendCreateResult(player.get(), success, result);
 }
 
+void ProtocolGame::parseStoreOpen(NetworkMessage& msg)
+{
+	if (!player || !isOTC) {
+		skipUnreadBytes(msg);
+		return;
+	}
+	if (getUnreadBytes(msg) != 0) {
+		skipUnreadBytes(msg);
+		return;
+	}
+	const auto now = std::chrono::steady_clock::now();
+	auto& rateLimit = StoreService::getInstance().getRateLimit(player->getID());
+	if (now - rateLimit.lastCatalog < StoreService::CatalogCooldown) {
+		return;
+	}
+	rateLimit.lastCatalog = now;
+	if (!getBoolean(ConfigManager::GAME_STORE_ENABLED)) {
+		sendStoreError("Store is currently unavailable.");
+		return;
+	}
+	sendStoreCatalog();
+}
+
+void ProtocolGame::parseStorePurchase(NetworkMessage& msg)
+{
+	if (!player || !isOTC) {
+		skipUnreadBytes(msg);
+		return;
+	}
+	if (!getBoolean(ConfigManager::GAME_STORE_ENABLED)) {
+		skipUnreadBytes(msg);
+		sendStoreError("Store is currently unavailable.");
+		return;
+	}
+	if (!requireUnreadBytes(msg, sizeof(uint32_t))) {
+		skipUnreadBytes(msg);
+		return;
+	}
+
+	const uint32_t offerId = msg.get<uint32_t>();
+	const auto catalog = StoreManager::getInstance().catalogSnapshot();
+	if (!catalog) {
+		sendStoreError("Store is currently unavailable.");
+		return;
+	}
+
+	const auto* offer = catalog->findOffer(offerId);
+	if (!offer) {
+		sendStoreError("Offer not found.");
+		return;
+	}
+
+	StorePurchaseExtra extra;
+	if (offer->type == StoreOfferType::ChangeName) {
+		if (getUnreadBytes(msg) < sizeof(uint16_t)) {
+			sendStoreError("You need to choose a new character name.");
+			return;
+		}
+		const uint16_t nameLength = msg.get<uint16_t>();
+		if (nameLength == 0 || nameLength > CharacterNameValidator::MaxNameLength ||
+		    getUnreadBytes(msg) != nameLength) {
+			skipUnreadBytes(msg);
+			sendStoreError("You need to choose a new character name.");
+			return;
+		}
+		extra.name = msg.getString(nameLength);
+	} else if (offer->type == StoreOfferType::Hireling) {
+		if (getUnreadBytes(msg) < sizeof(uint16_t) + 1) {
+			sendStoreError("You need to choose a hireling name.");
+			return;
+		}
+		const uint16_t nameLength = msg.get<uint16_t>();
+		if (nameLength == 0 || nameLength > 20 ||
+		    getUnreadBytes(msg) != static_cast<std::size_t>(nameLength) + 1) {
+			skipUnreadBytes(msg);
+			sendStoreError("You need to choose a hireling name.");
+			return;
+		}
+		extra.name = msg.getString(nameLength);
+		extra.sex = msg.getByte();
+	} else if (getUnreadBytes(msg) != 0) {
+		skipUnreadBytes(msg);
+		sendStoreError("Malformed purchase request.");
+		return;
+	}
+
+	if (msg.isOverrun() || getUnreadBytes(msg) != 0) {
+		skipUnreadBytes(msg);
+		sendStoreError("Malformed purchase request.");
+		return;
+	}
+
+	const auto result = StoreService::getInstance().purchase(*player, offerId, extra);
+	if (!result.success) {
+		sendStoreError(result.message);
+		return;
+	}
+
+	const uint32_t currentCoins = static_cast<uint32_t>(std::min<uint64_t>(
+		AccountCoins::get(player->getAccount()), UINT32_MAX));
+	sendStorePurchaseSuccess(offerId, result.message, currentCoins);
+}
+
+void ProtocolGame::parseStoreHistory(NetworkMessage& msg)
+{
+	if (!player || !isOTC) {
+		skipUnreadBytes(msg);
+		return;
+	}
+	if (getUnreadBytes(msg) != 0) {
+		skipUnreadBytes(msg);
+		return;
+	}
+	const auto now = std::chrono::steady_clock::now();
+	auto& rateLimit = StoreService::getInstance().getRateLimit(player->getID());
+	if (now - rateLimit.lastHistory < StoreService::HistoryCooldown) {
+		return;
+	}
+	rateLimit.lastHistory = now;
+	if (!getBoolean(ConfigManager::GAME_STORE_ENABLED)) {
+		sendStoreError("Store is currently unavailable.");
+		return;
+	}
+	sendStoreHistory();
+}
+
+void ProtocolGame::parseStoreTransfer(NetworkMessage& msg)
+{
+	if (!player || !isOTC) {
+		skipUnreadBytes(msg);
+		return;
+	}
+	if (!getBoolean(ConfigManager::GAME_STORE_ENABLED)) {
+		skipUnreadBytes(msg);
+		sendStoreError("Store is currently unavailable.");
+		return;
+	}
+	if (getUnreadBytes(msg) < sizeof(uint16_t) + sizeof(uint32_t)) {
+		skipUnreadBytes(msg);
+		return;
+	}
+
+	const uint16_t targetNameLength = msg.get<uint16_t>();
+	if (targetNameLength == 0 || targetNameLength > 50 ||
+	    getUnreadBytes(msg) != targetNameLength + sizeof(uint32_t)) {
+		skipUnreadBytes(msg);
+		return;
+	}
+	const std::string targetName = asTrimmedString(msg.getString(targetNameLength));
+
+	const uint32_t amount = msg.get<uint32_t>();
+	if (msg.isOverrun() || getUnreadBytes(msg) != 0) {
+		skipUnreadBytes(msg);
+		return;
+	}
+	const auto result = StoreService::getInstance().transferCoins(*player, targetName, amount);
+	if (!result.success) {
+		sendStoreError(result.message);
+		return;
+	}
+
+	const uint32_t currentCoins = static_cast<uint32_t>(std::min<uint64_t>(
+		AccountCoins::get(player->getAccount()), UINT32_MAX));
+	sendStorePurchaseSuccess(0, result.message, currentCoins);
+	sendStoreHistory();
+
+	const auto targetPlayer = g_game.getPlayerByName(targetName);
+	if (targetPlayer && targetPlayer->client) {
+		const auto targetProtocol = targetPlayer->client->protocol();
+		if (targetProtocol) {
+			targetProtocol->sendStoreCatalog();
+			targetProtocol->sendStoreHistory();
+		}
+	}
+}
+
 void ProtocolGame::GetTileDescription(const Tile* tile, NetworkMessage& msg)
 {
 	const uint32_t playerInstanceId = player->getInstanceID();
-	const bool sendQuickLootFlags = shouldSendQuickLootFlags();
-	const bool sendItemTierByte = shouldSendItemTierByte();
-	const bool sendItemTierData = shouldSendItemTierData();
-	const bool sendAstraItemState = canSendAstraItemState();
-	const bool sendAstraQuiverCountU16 = shouldSendAstraQuiverCountU16();
 	int32_t count;
 	Item* ground = tile->getGround();
 	if (ground) {
-		msg.addItem(ground, sendItemTierData, sendItemTierByte, isOTC, sendQuickLootFlags, sendAstraItemState,
-		            sendAstraQuiverCountU16);
+		appendItem(msg, ground);
 		count = 1;
 	} else {
 		count = 0;
@@ -1898,8 +2094,7 @@ void ProtocolGame::GetTileDescription(const Tile* tile, NetworkMessage& msg)
 			if (!InstanceUtils::canSeeItemInInstance(playerInstanceId, it->get())) {
 				continue;
 			}
-			msg.addItem(it->get(), sendItemTierData, sendItemTierByte, isOTC, sendQuickLootFlags, sendAstraItemState,
-			            sendAstraQuiverCountU16);
+			appendItem(msg, it->get());
 			count++;
 			if (count == 9 && tile->getPosition() == player->getPosition()) {
 				break;
@@ -1944,8 +2139,7 @@ void ProtocolGame::GetTileDescription(const Tile* tile, NetworkMessage& msg)
 			if (!InstanceUtils::canSeeItemInInstance(playerInstanceId, it->get())) {
 				continue;
 			}
-			msg.addItem(it->get(), sendItemTierData, sendItemTierByte, isOTC, sendQuickLootFlags, sendAstraItemState,
-			            sendAstraQuiverCountU16);
+			appendItem(msg, it->get());
 			if (++count == MAX_STACKPOS_THINGS) {
 				return;
 			}
@@ -2195,7 +2389,7 @@ void ProtocolGame::parseSetOutfit(NetworkMessage& msg)
 	} else {
 		newOutfit.lookMount = 0;
 	}
-	if (isAstraClient) {
+	if (isAstraClient || isFonticakClient) {
 		const uint16_t requestedFamiliar = msg.get<uint16_t>();
 		const auto familiar = Familiar::getFamiliarInfo(player.get());
 		newOutfit.lookFamiliar =
@@ -2291,7 +2485,7 @@ void ProtocolGame::parseSeekInContainer(NetworkMessage& msg)
 void ProtocolGame::parseHotkeyEquip(NetworkMessage& msg)
 {
 	const std::size_t packetSize = getUnreadBytes(msg);
-	if (!player || !isAstraClient || isSpectator || player->isAccountManager()) {
+	if (!player || (!isAstraClient && !isFonticakClient) || isSpectator || player->isAccountManager()) {
 		skipUnreadBytes(msg);
 		return;
 	}
@@ -2540,6 +2734,42 @@ void ProtocolGame::parseLookInBattleList(NetworkMessage& msg)
 	g_game.playerLookInBattleList(player->getID(), creatureId);
 }
 
+void ProtocolGame::parseSelectSpellAim(NetworkMessage& msg)
+{
+	if (!player) {
+		return;
+	}
+
+	if (getUnreadBytes(msg) < 1) {
+		return;
+	}
+
+	const uint8_t spellListSize = msg.getByte();
+	const size_t entriesSize = static_cast<size_t>(spellListSize) * 3;
+	if (getUnreadBytes(msg) < entriesSize) {
+		return;
+	}
+
+	std::unordered_map<uint16_t, uint8_t> spellAimUpdates;
+	for (uint8_t i = 0; i < spellListSize; ++i) {
+		const uint16_t spellId = msg.get<uint16_t>();
+		const uint8_t spellAim = msg.getByte();
+		spellAimUpdates[spellId] = spellAim;
+	}
+
+	if (msg.isOverrun()) {
+		return;
+	}
+
+	if (!isFonticakClient) {
+		return;
+	}
+
+	for (const auto& [spellId, spellAim] : spellAimUpdates) {
+		player->setSpellAimAtTargetEnabled(spellId, spellAim);
+	}
+}
+
 void ProtocolGame::parseSay(NetworkMessage& msg)
 {
 	std::string receiver;
@@ -2566,6 +2796,15 @@ void ProtocolGame::parseSay(NetworkMessage& msg)
 
 	auto text = msg.getString();
 	const bool forceCastOnFoot = consumeHelperCastOnFoot();
+	Position spellAimPos;
+	bool hasSpellAimPos = false;
+	if (getUnreadBytes(msg) >= 6) {
+		const uint8_t aimMode = msg.getByte();
+		if (aimMode != 0 && getUnreadBytes(msg) >= 5) {
+			spellAimPos = msg.getPosition();
+			hasSpellAimPos = true;
+		}
+	}
 	if (text.length() > 255) {
 		return;
 	}
@@ -2575,7 +2814,13 @@ void ProtocolGame::parseSay(NetworkMessage& msg)
 		return;
 	}
 
+	if (hasSpellAimPos) {
+		player->setSpellAimPosition(spellAimPos);
+	} else {
+		player->clearSpellAimPosition();
+	}
 	g_game.playerSay(player->getID(), channelId, type, receiver, text, forceCastOnFoot);
+	player->clearSpellAimPosition();
 }
 
 void ProtocolGame::parseAttack(NetworkMessage& msg)
@@ -2919,7 +3164,7 @@ void ProtocolGame::sendKillTrackerUpdate(const std::shared_ptr<Container>& corps
 
 void ProtocolGame::sendItemValues()
 {
-	if (!isAstraClient) {
+	if (!isAstraClient && !isFonticakClient) {
 		return;
 	}
 
@@ -3067,9 +3312,7 @@ void ProtocolGame::sendCreatureSkull(const Creature* creature)
 
 void ProtocolGame::sendCreatureSquare(const Creature* creature, SquareColor_t color)
 {
-	// Opcode 0x86 is only valid for visible players with an actual PvP color.
-	// Sending it for monsters or SQ_COLOR_NONE can desynchronize 8.6 clients.
-	if (!creature || !creature->getPlayer() || color == SQ_COLOR_NONE || !canSee(creature)) {
+	if (!creature || color == SQ_COLOR_NONE || !canSee(creature)) {
 		return;
 	}
 
@@ -3077,6 +3320,21 @@ void ProtocolGame::sendCreatureSquare(const Creature* creature, SquareColor_t co
 	msg.addByte(0x86);
 	msg.add<uint32_t>(creature->getID());
 	msg.addByte(color);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCreatureWeaponAttackMark(const Creature* target, uint8_t weaponType)
+{
+	if ((!isFonticakClient && !(isAstraClient && supportsAstraSingleCreatureMarks)) || !target ||
+	    weaponType == 0 || !canSee(target)) {
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(AstraClient::SINGLE_CREATURE_MARK_OPCODE);
+	msg.add<uint32_t>(target->getID());
+	msg.addByte(SQ_PLAYER_ATTACK);
+	msg.addByte(weaponType);
 	writeToOutputBuffer(msg);
 }
 
@@ -3114,7 +3372,7 @@ void ProtocolGame::sendStats()
 
 void ProtocolGame::sendBasicData()
 {
-	if (!player || !isAstraClient) {
+	if (!player || (!isAstraClient && !isFonticakClient)) {
 		return;
 	}
 
@@ -3130,13 +3388,27 @@ void ProtocolGame::sendBasicData()
 	// prey - OTC client expects 1 byte for prey status when GamePrey feature is enabled
 	msg.addByte(0x00);
 
+	// AstraClient and Fonticak read U16 spell ids when GameUshortSpell is enabled.
+	const bool usesU16SpellIds = usesExtendedSpellIds();
+	constexpr uint16_t maxU8SpellId = std::numeric_limits<uint8_t>::max();
+
 	std::vector<uint16_t> knownSpells;
 	if (g_spells) {
 		for (const auto& entry : g_spells->getInstantSpells()) {
 			const auto& spell = entry.second;
-			if (spell.getId() != 0 && spell.canCast(player.get())) {
-				knownSpells.push_back(spell.getId());
+			const uint16_t spellId = spell.getId();
+
+			if (spellId == 0 || !spell.canCast(player.get())) {
+				continue;
 			}
+
+			// Protocols without GameUshortSpell read one byte per spell.
+			// Skip unsupported IDs instead of truncating them on the wire.
+			if (!usesU16SpellIds && spellId > maxU8SpellId) {
+				continue;
+			}
+
+			knownSpells.push_back(spellId);
 		}
 	}
 
@@ -3144,10 +3416,20 @@ void ProtocolGame::sendBasicData()
 	knownSpells.erase(std::unique(knownSpells.begin(), knownSpells.end()), knownSpells.end());
 
 	msg.add<uint16_t>(static_cast<uint16_t>(knownSpells.size()));
-	for (uint16_t spellId : knownSpells) {
-		msg.add<uint16_t>(spellId);
+	for (const uint16_t spellId : knownSpells) {
+		if (usesU16SpellIds) {
+			msg.add<uint16_t>(spellId);
+		} else {
+			msg.addByte(static_cast<uint8_t>(spellId));
+		}
 	}
-	msg.addByte(player->getVocation()->getMagicShield());
+
+	// AstraClient always reads the magic shield byte after the spell list, so
+	// send it for Astra even on protocols older than 1281.
+	if (isAstraClient || getVersion() >= 1281) {
+		const auto* vocation = player->getVocation();
+		msg.addByte(vocation ? vocation->getMagicShield() : 0);
+	}
 
 	writeToOutputBuffer(msg);
 }
@@ -3293,6 +3575,117 @@ void ProtocolGame::sendCreatureIcon(const Creature* creature)
 	writeToOutputBuffer(msg);
 }
 
+void ProtocolGame::sendCreatureEchoRaidVisual(const Creature* creature, bool force)
+{
+	if (!creature || !player || !supportsAstraEchoRaidVisuals || !canSee(creature) ||
+	    !player->canSeeCreature(creature)) {
+		return;
+	}
+
+	const Monster* monster = creature->getMonster();
+	const EchoRaidVisualState state = monster ? monster->getEchoRaidVisualState() : EchoRaidVisualState::None;
+	const auto cached = echoRaidVisualCache.find(creature->getID());
+	if (state == EchoRaidVisualState::None) {
+		if (cached == echoRaidVisualCache.end()) {
+			return;
+		}
+	} else if (!force && cached != echoRaidVisualCache.end() && cached->second == state) {
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(AstraClient::SINGLE_CREATURE_MARK_OPCODE);
+	msg.add<uint32_t>(creature->getID());
+	msg.addByte(AstraClient::ECHO_RAID_VISUAL_MARK_TYPE);
+	msg.addByte(state == EchoRaidVisualState::None ? 0xFF : static_cast<uint8_t>(state));
+	writeToOutputBuffer(msg);
+
+	if (state == EchoRaidVisualState::None) {
+		echoRaidVisualCache.erase(creature->getID());
+	} else {
+		echoRaidVisualCache[creature->getID()] = state;
+	}
+}
+
+void ProtocolGame::sendVisibleEchoRaidVisuals(const Position& centerPos)
+{
+	if (!player || !supportsAstraEchoRaidVisuals) {
+		echoRaidVisualCache.clear();
+		return;
+	}
+	if (!g_echoRaidManager.hasActiveVisuals()) {
+		echoRaidVisualCache.clear();
+		return;
+	}
+
+	std::unordered_set<uint32_t> visibleEchoCreatures;
+	SpectatorVec spectators;
+	g_game.map.getSpectators(spectators, centerPos, true, false, Map::maxClientViewportX,
+	                         Map::maxClientViewportX, Map::maxClientViewportY, Map::maxClientViewportY);
+	for (const auto& spectator : spectators.monsters()) {
+		const Monster* monster = spectator ? spectator->getMonster() : nullptr;
+		if (!monster || monster->getEchoRaidVisualState() == EchoRaidVisualState::None ||
+		    !canSee(monster) || !player->canSeeCreature(monster)) {
+			continue;
+		}
+		visibleEchoCreatures.insert(monster->getID());
+		sendCreatureEchoRaidVisual(monster);
+	}
+
+	for (auto it = echoRaidVisualCache.begin(); it != echoRaidVisualCache.end();) {
+		if (!visibleEchoCreatures.contains(it->first)) {
+			it = echoRaidVisualCache.erase(it);
+		} else {
+			++it;
+		}
+	}
+}
+
+void ProtocolGame::sendCreatureVocation(const Creature* creature)
+{
+	if (!creature || !player || (!isAstraClient && !isFonticakClient)) {
+		return;
+	}
+
+	const Player* otherPlayer = creature->getPlayer();
+	if (!otherPlayer || otherPlayer == player.get()) {
+		return;
+	}
+
+	if (!canSee(creature)) {
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0x8B);
+	msg.add<uint32_t>(creature->getID());
+	msg.addByte(13);
+	msg.addByte(static_cast<uint8_t>(otherPlayer->getVocationId()));
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendVisiblePlayerVocations(const Position& centerPos)
+{
+	if (!player || (!isAstraClient && !isFonticakClient)) {
+		return;
+	}
+
+	SpectatorVec spectators;
+	g_game.map.getSpectators(spectators, centerPos, false, true, Map::maxClientViewportX, Map::maxClientViewportX,
+	                         Map::maxClientViewportY, Map::maxClientViewportY);
+	for (const auto& spectator : spectators) {
+		if (!spectator || spectator.get() == player.get()) {
+			continue;
+		}
+
+		if (!spectator->getPlayer() || !player->canSeeCreature(spectator.get())) {
+			continue;
+		}
+
+		sendCreatureVocation(spectator.get());
+	}
+}
+
 void ProtocolGame::AddCreatureIcon(NetworkMessage& msg, const Creature* creature)
 {
 	if (!creature) {
@@ -3317,20 +3710,13 @@ void ProtocolGame::sendContainer(uint8_t cid, const Container* container, bool h
 
 	msg.addByte(cid);
 
-	const bool sendQuickLootFlags = shouldSendQuickLootFlags();
-	const bool sendItemTierByte = shouldSendItemTierByte();
-	const bool sendItemTierData = shouldSendItemTierData();
-	const bool sendAstraItemState = canSendAstraItemState();
-	const bool sendAstraQuiverCountU16 = shouldSendAstraQuiverCountU16();
 	const bool sendContainerPagination = shouldSendContainerPagination();
 	const bool paginateContainer = shouldPaginateContainer(container);
 	if (container->getID() == ITEM_BROWSEFIELD) {
-		msg.addItem(ITEM_BAG, 1, sendItemTierData, sendItemTierByte, sendQuickLootFlags, sendAstraItemState,
-		            sendAstraQuiverCountU16);
+		appendItem(msg, ITEM_BAG, 1);
 		msg.addString("Browse Field");
 	} else {
-		msg.addItem(container, sendItemTierData, sendItemTierByte, isOTC, sendQuickLootFlags, sendAstraItemState,
-		            sendAstraQuiverCountU16);
+		appendItem(msg, container);
 		msg.addString(container->getName());
 	}
 
@@ -3356,8 +3742,7 @@ void ProtocolGame::sendContainer(uint8_t cid, const Container* container, bool h
 		uint32_t i = 0;
 		for (ItemDeque::const_iterator cit = itemList.begin() + firstIndex, end = itemList.end();
 		     i < itemCount && cit != end; ++cit, ++i) {
-			msg.addItem(cit->get(), sendItemTierData, sendItemTierByte, isOTC, sendQuickLootFlags, sendAstraItemState,
-			            sendAstraQuiverCountU16);
+			appendItem(msg, cit->get());
 		}
 	}
 	writeToOutputBuffer(msg);
@@ -3397,14 +3782,17 @@ void ProtocolGame::sendLootContainers()
 		msg.add<uint16_t>(managedContainer.loot);
 	}
 
-	msg.addByte(obtainContainerCount);
-	for (const auto& [category, managedContainer] : containers) {
-		if (managedContainer.obtain == 0) {
-			continue;
-		}
+	// OTC-Fonticak (< 13.32) reads obtain as a second list when extra bytes are present; Astra uses the same layout.
+	if (isAstraClient || isFonticakClient) {
+		msg.addByte(obtainContainerCount);
+		for (const auto& [category, managedContainer] : containers) {
+			if (managedContainer.obtain == 0) {
+				continue;
+			}
 
-		msg.addByte(static_cast<uint8_t>(category));
-		msg.add<uint16_t>(managedContainer.obtain);
+			msg.addByte(static_cast<uint8_t>(category));
+			msg.add<uint16_t>(managedContainer.obtain);
+		}
 	}
 	writeToOutputBuffer(msg);
 }
@@ -3414,12 +3802,59 @@ void ProtocolGame::sendShop(const ShopInfoList& itemList)
 	NetworkMessage msg;
 	msg.addByte(0x7A);
 
-	uint16_t itemsToSend = std::min<size_t>(itemList.size(), std::numeric_limits<uint16_t>::max());
-	msg.addByte(itemsToSend);
+	constexpr size_t maxPayloadBytes =
+		NetworkMessage::MAX_BODY_LENGTH > (NetworkMessage::INITIAL_BUFFER_POSITION + 1)
+			? (NetworkMessage::MAX_BODY_LENGTH - NetworkMessage::INITIAL_BUFFER_POSITION - 1)
+			: 0;
 
-	uint16_t i = 0;
-	for (auto it = itemList.begin(); i < itemsToSend; ++it, ++i) {
-		AddShopItem(msg, *it);
+	if (isAstraClient) {
+		const size_t maxCount = std::min<size_t>(itemList.size(), std::numeric_limits<uint16_t>::max());
+		uint16_t itemsToSend = 0;
+		size_t currentBytes = sizeof(uint8_t) + sizeof(uint16_t); // 0x7A opcode + uint16 count
+
+		for (const auto& item : itemList) {
+			if (itemsToSend >= maxCount) {
+				break;
+			}
+			const size_t itemBytes = sizeof(uint16_t) + sizeof(uint8_t) + sizeof(uint16_t) + item.realName.size() +
+			                         sizeof(uint32_t) + sizeof(uint32_t) + sizeof(uint32_t);
+			if (currentBytes + itemBytes > maxPayloadBytes) {
+				break;
+			}
+			currentBytes += itemBytes;
+			++itemsToSend;
+		}
+
+		msg.add<uint16_t>(itemsToSend);
+
+		uint16_t written = 0;
+		for (auto it = itemList.begin(); it != itemList.end() && written < itemsToSend; ++it, ++written) {
+			AddShopItem(msg, *it);
+		}
+	} else {
+		const size_t maxCount = std::min<size_t>(itemList.size(), std::numeric_limits<uint8_t>::max());
+		uint8_t itemsToSend = 0;
+		size_t currentBytes = sizeof(uint8_t) + sizeof(uint8_t); // 0x7A opcode + uint8 count
+
+		for (const auto& item : itemList) {
+			if (itemsToSend >= maxCount) {
+				break;
+			}
+			const size_t itemBytes = sizeof(uint16_t) + sizeof(uint8_t) + sizeof(uint16_t) + item.realName.size() +
+			                         sizeof(uint32_t) + sizeof(uint32_t) + sizeof(uint32_t);
+			if (currentBytes + itemBytes > maxPayloadBytes) {
+				break;
+			}
+			currentBytes += itemBytes;
+			++itemsToSend;
+		}
+
+		msg.addByte(itemsToSend);
+
+		uint8_t written = 0;
+		for (auto it = itemList.begin(); it != itemList.end() && written < itemsToSend; ++it, ++written) {
+			AddShopItem(msg, *it);
+		}
 	}
 
 	writeToOutputBuffer(msg);
@@ -3500,12 +3935,7 @@ void ProtocolGame::sendSaleItemList(const std::list<ShopInfo>& shop)
 			}
 
 			if (subtype != -1) {
-				uint32_t count;
-				if (itemType.isFluidContainer() || itemType.isSplash()) {
-					count = player->getItemTypeCount(shopInfo.itemId, subtype); // This shop item requires extra checks
-				} else {
-					count = subtype;
-				}
+				uint32_t count = player->getItemTypeCount(shopInfo.itemId, subtype);
 
 				if (count > 0) {
 					saleMap[shopInfo.itemId] = count;
@@ -3542,9 +3972,6 @@ void ProtocolGame::sendTradeItemRequest(std::string_view traderName, const Item*
 	}
 
 	msg.addString(traderName);
-	const bool sendQuickLootFlags = shouldSendQuickLootFlags();
-	const bool sendItemTierByte = shouldSendItemTierByte();
-	const bool sendItemTierData = shouldSendItemTierData();
 
 	if (const Container* tradeContainer = item->getContainer()) {
 		std::list<const Container*> listContainer{tradeContainer};
@@ -3563,16 +3990,12 @@ void ProtocolGame::sendTradeItemRequest(std::string_view traderName, const Item*
 		}
 
 		msg.addByte(itemList.size());
-		const bool sendAstraItemState = canSendAstraItemState();
-		const bool sendAstraQuiverCountU16 = shouldSendAstraQuiverCountU16();
 		for (const Item* listItem : itemList) {
-			msg.addItem(listItem, sendItemTierData, sendItemTierByte, isOTC, sendQuickLootFlags, sendAstraItemState,
-			            sendAstraQuiverCountU16);
+			appendItem(msg, listItem);
 		}
 	} else {
 		msg.addByte(0x01);
-		msg.addItem(item, sendItemTierData, sendItemTierByte, isOTC, sendQuickLootFlags, canSendAstraItemState(),
-		            shouldSendAstraQuiverCountU16());
+		appendItem(msg, item);
 	}
 	writeToOutputBuffer(msg);
 }
@@ -3901,6 +4324,432 @@ void ProtocolGame::sendFYIBox(std::string_view message)
 	writeToOutputBuffer(msg);
 }
 
+void ProtocolGame::sendStoreCatalog()
+{
+	if (!player || !isOTC) {
+		return;
+	}
+	if (!getBoolean(ConfigManager::GAME_STORE_ENABLED)) {
+		sendStoreError("Store is currently unavailable.");
+		return;
+	}
+
+	const auto catalog = StoreManager::getInstance().catalogSnapshot();
+	if (!catalog) {
+		sendStoreError("Store is currently unavailable.");
+		return;
+	}
+
+	const uint32_t coins = static_cast<uint32_t>(std::min<uint64_t>(
+		AccountCoins::get(player->getAccount()), UINT32_MAX));
+
+	struct FilteredOffer {
+		const StoreOffer* offer;
+		uint16_t displayId;
+		uint32_t price;
+		uint32_t basePrice;
+		StoreHighlightState state;
+		uint32_t validUntilTimestamp;
+	};
+	struct FilteredCategory {
+		const StoreCategory* category;
+		std::vector<FilteredOffer> offers;
+	};
+
+	const bool isAstra = isAstraClient;
+	const bool sendHighlights = supportsGameStoreHighlights;
+	const auto nowSeconds = std::chrono::duration_cast<std::chrono::seconds>(
+	    std::chrono::system_clock::now().time_since_epoch()).count();
+	const uint32_t nowTimestamp = static_cast<uint32_t>(std::clamp<int64_t>(
+	    nowSeconds, int64_t{0}, static_cast<int64_t>(std::numeric_limits<uint32_t>::max())));
+	const auto dailyOffers = StoreManager::getInstance().dailyOffersSnapshot(nowTimestamp);
+	const bool taskEnabled = ConfigManager::getBoolean(ConfigManager::TASK_HUNTING_SYSTEM_ENABLED);
+	const bool bountyEnabled = taskEnabled && ConfigManager::getBoolean(ConfigManager::BOUNTY_TASKS_ENABLED);
+	const bool weeklyEnabled = taskEnabled && ConfigManager::getBoolean(ConfigManager::WEEKLY_TASKS_ENABLED);
+	const bool battlePassEnabled = ConfigManager::getBoolean(ConfigManager::BATTLEPASS_SYSTEM_ENABLED) && isAstra;
+	const bool hirelingEnabled = ConfigManager::getBoolean(ConfigManager::HIRELING_SYSTEM_ENABLED) &&
+	                             ConfigManager::getBoolean(ConfigManager::ASTRA_HIRELING_PROTOCOL_ENABLED) && isAstra;
+
+	std::vector<FilteredCategory> visibleCategories;
+	std::unordered_map<std::string, StoreHighlightState> automaticCategoryStates;
+	const auto includeCategoryState = [&automaticCategoryStates](std::string_view categoryName,
+	                                                           StoreHighlightState state) {
+		if (state != StoreHighlightState::Sale && state != StoreHighlightState::Timed) {
+			return;
+		}
+		auto& current = automaticCategoryStates[std::string(categoryName)];
+		if (current == StoreHighlightState::None || state == StoreHighlightState::Sale) {
+			current = state;
+		}
+	};
+
+	for (const auto& cat : catalog->categories()) {
+		FilteredCategory fcat{&cat, {}};
+
+		for (const auto& offer : cat.offers) {
+			bool visible = true;
+			switch (offer.type) {
+				case StoreOfferType::BountyKillBoost:
+					visible = isAstra && bountyEnabled;
+					break;
+				case StoreOfferType::WeeklyKillBoost:
+				case StoreOfferType::WeeklyReducedItems:
+				case StoreOfferType::WeeklyTaskExpansion:
+					visible = isAstra && weeklyEnabled;
+					break;
+				case StoreOfferType::BattlePass:
+					visible = battlePassEnabled;
+					break;
+				case StoreOfferType::Hireling:
+				case StoreOfferType::HirelingSkill:
+				case StoreOfferType::HirelingOutfit:
+					visible = hirelingEnabled;
+					break;
+				default:
+					break;
+			}
+
+			if (visible) {
+				uint16_t displayId = offer.displayId;
+				if (offer.type == StoreOfferType::Outfit && player->getSex() == PLAYERSEX_FEMALE && offer.femaleValue > 0) {
+					displayId = static_cast<uint16_t>(offer.femaleValue);
+				}
+				const StoreDailyOffer* dailyOffer = dailyOffers.find(offer.id);
+				fcat.offers.push_back({
+				    &offer,
+				    displayId,
+				    dailyOffer ? dailyOffer->price : offer.price,
+				    offer.price,
+				    dailyOffer ? dailyOffer->state : offer.state,
+				    dailyOffer ? dailyOffer->validUntilTimestamp : offer.saleValidUntilTimestamp,
+				});
+				if (dailyOffer) {
+					includeCategoryState(cat.name, dailyOffer->state);
+				}
+			}
+		}
+
+		const bool isRestrictedCategory = !cat.offers.empty() && std::all_of(
+		    cat.offers.begin(), cat.offers.end(), [](const StoreOffer& offer) {
+			    return isHirelingOfferType(offer.type) ||
+			           isTaskBoardOfferType(offer.type) ||
+			           offer.type == StoreOfferType::BattlePass;
+		    });
+
+		if (!fcat.offers.empty() || !isRestrictedCategory) {
+			visibleCategories.push_back(std::move(fcat));
+		}
+	}
+
+	// Bubble automatic highlights to parent category buttons without changing
+	// the catalog itself. This keeps the category tree useful for Daily Offers.
+	for (std::size_t pass = 0; pass < visibleCategories.size(); ++pass) {
+		bool changed = false;
+		for (const auto& fcat : visibleCategories) {
+			const auto stateIt = automaticCategoryStates.find(fcat.category->name);
+			if (stateIt == automaticCategoryStates.end() || fcat.category->parent.empty()) {
+				continue;
+			}
+			const auto previous = automaticCategoryStates[fcat.category->parent];
+			includeCategoryState(fcat.category->parent, stateIt->second);
+			changed = changed || previous != automaticCategoryStates[fcat.category->parent];
+		}
+		if (!changed) {
+			break;
+		}
+	}
+
+	const auto banners = catalog->banners();
+	if (visibleCategories.size() > std::numeric_limits<uint16_t>::max() ||
+	    banners.size() > std::numeric_limits<uint8_t>::max()) {
+		LOG_ERROR("[StoreCatalog] Catalog category or banner count exceeds the wire format.");
+		sendStoreError("Store catalog contains too many categories or banners.");
+		return;
+	}
+
+	const auto encodedStoreStringLength = [](std::string_view value) -> std::optional<size_t> {
+		if (!simdutf::validate_utf8(value.data(), value.size())) {
+			return std::nullopt;
+		}
+		const size_t latin1Length = simdutf::latin1_length_from_utf8(value.data(), value.size());
+		if (latin1Length > NetworkMessage::MAX_STRING_LENGTH) {
+			return std::nullopt;
+		}
+		if (value.empty()) {
+			return 0;
+		}
+		std::string converted(latin1Length, '\0');
+		if (simdutf::convert_utf8_to_latin1(value.data(), value.size(), converted.data()) != latin1Length) {
+			return std::nullopt;
+		}
+		return latin1Length;
+	};
+	const bool usesEmptyStringFallback = std::any_of(
+	    visibleCategories.begin(), visibleCategories.end(), [&](const FilteredCategory& fcat) {
+		    if (!encodedStoreStringLength(fcat.category->name) || !encodedStoreStringLength(fcat.category->icon) ||
+		        !encodedStoreStringLength(fcat.category->parent) ||
+		        !encodedStoreStringLength(fcat.category->description)) {
+			    return true;
+		    }
+		    return std::any_of(fcat.offers.begin(), fcat.offers.end(), [&](const FilteredOffer& fo) {
+			    return !encodedStoreStringLength(fo.offer->name) || !encodedStoreStringLength(fo.offer->icon) ||
+			           !encodedStoreStringLength(fo.offer->description) ||
+			           !encodedStoreStringLength(storeOfferTypeToString(fo.offer->type));
+		    });
+	    }) ||
+	    std::any_of(banners.begin(), banners.end(),
+	                [&](const auto& banner) { return !encodedStoreStringLength(banner.image); });
+	if (usesEmptyStringFallback) {
+		LOG_WARN("[StoreCatalog] One or more text fields cannot be encoded and will be sent empty.");
+	}
+
+	const auto stringWireSize = [&](std::string_view value) {
+		return sizeof(uint16_t) + encodedStoreStringLength(value).value_or(0);
+	};
+	const auto categoryHeaderWireSize = [&](const FilteredCategory& fcat) {
+		return stringWireSize(fcat.category->name) + stringWireSize(fcat.category->icon) +
+		       stringWireSize(fcat.category->parent) + stringWireSize(fcat.category->description) +
+		       (sendHighlights ? sizeof(uint8_t) : 0) + sizeof(uint16_t);
+	};
+	const auto offerWireSize = [&](const FilteredOffer& fo) {
+		size_t size = sizeof(uint32_t) + stringWireSize(fo.offer->name) + stringWireSize(fo.offer->icon) +
+		              sizeof(uint32_t) + (supportsAstraStoreBasePrice ? sizeof(uint32_t) : 0) + sizeof(uint16_t) * 2 +
+		              stringWireSize(fo.offer->description) + stringWireSize(storeOfferTypeToString(fo.offer->type));
+		if (sendHighlights) {
+			const auto state = StoreProtocol::effectiveHighlightState(fo.state, fo.validUntilTimestamp, nowTimestamp);
+			size += sizeof(uint8_t);
+			if (storeHighlightHasExpiration(state)) {
+				size += sizeof(uint32_t);
+			}
+		}
+		return size;
+	};
+	const auto bannersWireSize = [&]() {
+		size_t size = sizeof(uint8_t) + sizeof(uint8_t);
+		for (const auto& banner : banners) {
+			size += stringWireSize(banner.image) + sizeof(uint8_t) + sizeof(uint32_t);
+		}
+		return size;
+	};
+
+	const auto addCategoryPart = [&](NetworkMessage& msg, const FilteredCategory& fcat, size_t firstOffer,
+	                                 size_t offerCount) {
+		msg.addString(fcat.category->name);
+		msg.addString(fcat.category->icon);
+		msg.addString(fcat.category->parent);
+		msg.addString(fcat.category->description);
+		StoreHighlightState categoryState = fcat.category->state;
+		if (const auto stateIt = automaticCategoryStates.find(fcat.category->name);
+		    stateIt != automaticCategoryStates.end()) {
+			categoryState = stateIt->second;
+		}
+		StoreProtocol::addCategoryHighlight(msg, sendHighlights, categoryState);
+		msg.add<uint16_t>(static_cast<uint16_t>(offerCount));
+
+		for (size_t offerIndex = firstOffer; offerIndex < firstOffer + offerCount; ++offerIndex) {
+			const auto& fo = fcat.offers[offerIndex];
+			msg.add<uint32_t>(fo.offer->id);
+			msg.addString(fo.offer->name);
+			msg.addString(fo.offer->icon);
+			// The negotiated Astra layout carries both values so the client
+			// never has to reconstruct the original price from a percentage.
+			StoreProtocol::addOfferPrices(msg, supportsAstraStoreBasePrice, fo.price, fo.basePrice);
+			msg.add<uint16_t>(fo.displayId);
+			msg.add<uint16_t>(fo.offer->count);
+			msg.addString(fo.offer->description);
+			msg.addString(storeOfferTypeToString(fo.offer->type));
+			StoreProtocol::addOfferHighlight(msg, sendHighlights, fo.state, fo.validUntilTimestamp, nowTimestamp);
+		}
+	};
+
+	const auto addBanners = [&](NetworkMessage& msg) {
+		msg.addByte(static_cast<uint8_t>(banners.size()));
+		for (const auto& banner : banners) {
+			msg.addString(banner.image);
+			msg.addByte(banner.action);
+			msg.add<uint32_t>(banner.target);
+		}
+		msg.addByte(catalog->bannerDelay());
+	};
+
+	constexpr size_t legacyHeaderSize = sizeof(uint8_t) * 2 + sizeof(uint32_t) + sizeof(uint16_t);
+	size_t estimatedLegacySize = legacyHeaderSize + bannersWireSize();
+	size_t visibleOfferCount = 0;
+	for (const auto& fcat : visibleCategories) {
+		estimatedLegacySize += categoryHeaderWireSize(fcat);
+		for (const auto& fo : fcat.offers) {
+			estimatedLegacySize += offerWireSize(fo);
+			++visibleOfferCount;
+		}
+	}
+
+	if (StoreProtocol::shouldUseLegacyCatalog(estimatedLegacySize, supportsAstraStoreCatalogChunks)) {
+		NetworkMessage msg;
+		msg.addByte(StoreProtocol::ServerOpcode);
+		msg.addByte(static_cast<uint8_t>(StoreProtocol::ResponseType::Catalog));
+		msg.add<uint32_t>(coins);
+		msg.add<uint16_t>(static_cast<uint16_t>(visibleCategories.size()));
+		for (const auto& fcat : visibleCategories) {
+			addCategoryPart(msg, fcat, 0, fcat.offers.size());
+		}
+		addBanners(msg);
+		writeToOutputBuffer(msg);
+		return;
+	}
+	if (!supportsAstraStoreCatalogChunks) {
+		LOG_WARN(
+		    fmt::format("[StoreCatalog] Refusing to send an estimated {}-byte catalog to a client "
+		                "without negotiated catalog chunk support.",
+		                estimatedLegacySize));
+		sendStoreError("This Store catalog requires an updated AstraClient.");
+		return;
+	}
+
+	struct CategoryPart
+	{
+		const FilteredCategory* category = nullptr;
+		size_t firstOffer = 0;
+		size_t offerCount = 0;
+	};
+	struct CatalogChunk
+	{
+		std::vector<CategoryPart> parts;
+		size_t estimatedSize = 0;
+	};
+
+	constexpr size_t chunkHeaderSize = sizeof(uint8_t) * 3 + sizeof(uint32_t) + sizeof(uint16_t) * 2;
+	std::vector<CatalogChunk> chunks(1, CatalogChunk{{}, chunkHeaderSize});
+	for (const auto& fcat : visibleCategories) {
+		const size_t categorySize = categoryHeaderWireSize(fcat);
+		if (fcat.offers.empty()) {
+			if (!chunks.back().parts.empty() &&
+			    chunks.back().estimatedSize + categorySize > StoreProtocol::CatalogChunkTargetSize) {
+				chunks.push_back(CatalogChunk{{}, chunkHeaderSize});
+			}
+			chunks.back().parts.push_back(CategoryPart{&fcat, 0, 0});
+			chunks.back().estimatedSize += categorySize;
+			continue;
+		}
+
+		size_t offerIndex = 0;
+		while (offerIndex < fcat.offers.size()) {
+			const size_t firstOfferSize = offerWireSize(fcat.offers[offerIndex]);
+			if (!chunks.back().parts.empty() &&
+			    chunks.back().estimatedSize + categorySize + firstOfferSize > StoreProtocol::CatalogChunkTargetSize) {
+				chunks.push_back(CatalogChunk{{}, chunkHeaderSize});
+			}
+
+			CategoryPart part{&fcat, offerIndex, 0};
+			chunks.back().estimatedSize += categorySize;
+			while (offerIndex < fcat.offers.size()) {
+				const size_t size = offerWireSize(fcat.offers[offerIndex]);
+				if (part.offerCount > 0 && chunks.back().estimatedSize + size > StoreProtocol::CatalogChunkTargetSize) {
+					break;
+				}
+				chunks.back().estimatedSize += size;
+				++part.offerCount;
+				++offerIndex;
+			}
+			chunks.back().parts.push_back(part);
+			if (offerIndex < fcat.offers.size()) {
+				chunks.push_back(CatalogChunk{{}, chunkHeaderSize});
+			}
+		}
+	}
+
+	if (chunks.back().estimatedSize + bannersWireSize() > StoreProtocol::CatalogChunkTargetSize) {
+		chunks.push_back(CatalogChunk{{}, chunkHeaderSize});
+	}
+	chunks.back().estimatedSize += bannersWireSize();
+
+	if (std::any_of(chunks.begin(), chunks.end(), [](const CatalogChunk& chunk) {
+		    return chunk.estimatedSize > NetworkMessage::MAX_PROTOCOL_BODY_LENGTH;
+	    })) {
+		LOG_ERROR(fmt::format("[StoreCatalog] A catalog chunk exceeds the protocol limit ({} bytes).",
+		                      static_cast<size_t>(NetworkMessage::MAX_PROTOCOL_BODY_LENGTH)));
+		sendStoreError("Store catalog contains an entry that is too large.");
+		return;
+	}
+
+	for (size_t chunkIndex = 0; chunkIndex < chunks.size(); ++chunkIndex) {
+		const bool first = chunkIndex == 0;
+		const bool last = chunkIndex + 1 == chunks.size();
+		NetworkMessage msg;
+		StoreProtocol::addCatalogChunkHeader(
+		    msg, (first ? StoreProtocol::CatalogChunkStart : 0) | (last ? StoreProtocol::CatalogChunkEnd : 0), coins,
+		    static_cast<uint16_t>(visibleCategories.size()), static_cast<uint16_t>(chunks[chunkIndex].parts.size()));
+		for (const auto& part : chunks[chunkIndex].parts) {
+			addCategoryPart(msg, *part.category, part.firstOffer, part.offerCount);
+		}
+		if (last) {
+			addBanners(msg);
+		}
+		writeToOutputBuffer(msg);
+	}
+
+	LOG_DEBUG(fmt::format("[StoreCatalog] Sent {} offers in {} chunks (estimated {} bytes).", visibleOfferCount,
+	                      chunks.size(), estimatedLegacySize));
+}
+
+void ProtocolGame::sendStoreError(std::string_view message)
+{
+	if (!isOTC) {
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(StoreProtocol::ServerOpcode);
+	msg.addByte(static_cast<uint8_t>(StoreProtocol::ResponseType::Error));
+	msg.addString(message);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendStorePurchaseSuccess(uint32_t offerId, std::string_view message, uint32_t newBalance)
+{
+	if (!isOTC) {
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(StoreProtocol::ServerOpcode);
+	msg.addByte(static_cast<uint8_t>(StoreProtocol::ResponseType::Success));
+	msg.add<uint32_t>(offerId);
+	msg.addString(message);
+	msg.add<uint32_t>(newBalance);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendStoreHistory()
+{
+	if (!player || !isOTC) {
+		return;
+	}
+	if (!getBoolean(ConfigManager::GAME_STORE_ENABLED)) {
+		sendStoreError("Store is currently unavailable.");
+		return;
+	}
+
+	const auto history = StoreRepository::getInstance().loadHistory(player->getAccount(), 100);
+
+	NetworkMessage msg;
+	msg.addByte(StoreProtocol::ServerOpcode);
+	msg.addByte(static_cast<uint8_t>(StoreProtocol::ResponseType::History));
+	msg.add<uint16_t>(static_cast<uint16_t>(history.size()));
+
+	for (const auto& entry : history) {
+		msg.addString(entry.date);
+		const uint64_t magnitude = (entry.price < 0) ? (0ULL - static_cast<uint64_t>(entry.price)) : static_cast<uint64_t>(entry.price);
+		const uint32_t wirePrice = static_cast<uint32_t>(std::min<uint64_t>(magnitude, std::numeric_limits<uint32_t>::max()));
+		msg.add<uint32_t>(wirePrice);
+		msg.addByte(entry.price >= 0 ? 1 : 0);
+		msg.addByte(entry.costSecond == 1 ? 1 : 0);
+		msg.addString(entry.title);
+		msg.add<uint16_t>(static_cast<uint16_t>(std::max<int32_t>(entry.count, 0)));
+	}
+
+	writeToOutputBuffer(msg);
+}
+
 // tile
 void ProtocolGame::sendMapDescription(const Position& pos)
 {
@@ -3910,6 +4759,8 @@ void ProtocolGame::sendMapDescription(const Position& pos)
 	GetMapDescription(pos.x - Map::maxClientViewportX, pos.y - Map::maxClientViewportY, pos.z,
 	                  (Map::maxClientViewportX * 2) + 2, (Map::maxClientViewportY * 2) + 2, msg);
 	writeToOutputBuffer(msg);
+	sendVisiblePlayerVocations(pos);
+	sendVisibleEchoRaidVisuals(pos);
 }
 
 void ProtocolGame::refreshWorldView()
@@ -3987,8 +4838,7 @@ void ProtocolGame::sendAddTileItem(const Position& pos, uint32_t stackpos, const
 	msg.addByte(0x6A);
 	msg.addPosition(pos);
 	msg.addByte(static_cast<uint8_t>(stackpos));
-	msg.addItem(item, shouldSendItemTierData(), shouldSendItemTierByte(), isOTC, shouldSendQuickLootFlags(),
-	            canSendAstraItemState(), shouldSendAstraQuiverCountU16());
+	appendItem(msg, item);
 	writeToOutputBuffer(msg);
 }
 
@@ -4006,8 +4856,7 @@ void ProtocolGame::sendUpdateTileItem(const Position& pos, uint32_t stackpos, co
 	msg.addByte(0x6B);
 	msg.addPosition(pos);
 	msg.addByte(static_cast<uint8_t>(stackpos));
-	msg.addItem(item, shouldSendItemTierData(), shouldSendItemTierByte(), isOTC, shouldSendQuickLootFlags(),
-	            canSendAstraItemState(), shouldSendAstraQuiverCountU16());
+	appendItem(msg, item);
 	writeToOutputBuffer(msg);
 }
 
@@ -4097,6 +4946,8 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 			AddCreature(msg, creature, known, removedKnown);
 			writeToOutputBuffer(msg);
 			sendCreatureSquare(creature, player->getCreatureSquare(creature));
+			sendCreatureVocation(creature);
+			sendCreatureEchoRaidVisual(creature, true);
 		}
 
 		if (magicEffect != CONST_ME_NONE) {
@@ -4142,19 +4993,20 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 	}
 
 	sendPlayerInventory();
+	player->restoreStances();
 
 	sendStats();
 	sendSkills();
 
-	if (isAstraClient) {
+	if (isAstraClient || isFonticakClient) {
 		sendBasicData();
 	}
 
-	if (isAstraClient && (player->getVocationId() == 9 || player->getVocationId() == 10)) {
+	if ((isAstraClient || isFonticakClient) && (player->getVocationId() == 9 || player->getVocationId() == 10)) {
 		player->sendMonkData();
 	}
 
-	if (isAstraClient) {
+	if (isAstraClient || isFonticakClient) {
 		sendBlessStatus();
 	}
 
@@ -4278,6 +5130,7 @@ void ProtocolGame::sendMoveCreature(const Creature* creature, const Position& ne
 			writeToOutputBuffer(msg);
 		}
 		sendZoneWeather(newPos);
+		sendVisibleEchoRaidVisuals(newPos);
 	} else if (canSee(oldPos) && canSee(creature->getPosition())) {
 		if (teleport || (oldPos.z == 7 && newPos.z >= 8) || oldStackPos >= MAX_STACKPOS_THINGS) {
 			sendRemoveTileThing(oldPos, oldStackPos);
@@ -4303,8 +5156,7 @@ void ProtocolGame::sendInventoryItem(slots_t slot, const Item* item)
 	if (item) {
 		msg.addByte(0x78);
 		msg.addByte(slot);
-		msg.addItem(item, shouldSendItemTierData(), shouldSendItemTierByte(), isOTC, shouldSendQuickLootFlags(),
-		            canSendAstraItemState(), shouldSendAstraQuiverCountU16());
+		appendItem(msg, item);
 	} else {
 		msg.addByte(0x79);
 		msg.addByte(slot);
@@ -4318,7 +5170,7 @@ void ProtocolGame::sendInventoryItem(slots_t slot, const Item* item)
 
 void ProtocolGame::sendPlayerInventory()
 {
-	if (!canSendAstraItemState()) {
+	if (!canSendPackedPlayerInventory()) {
 		return;
 	}
 
@@ -4405,8 +5257,7 @@ void ProtocolGame::sendAddContainerItem(uint8_t cid, uint16_t slot, const Item* 
 	if (shouldSendContainerPagination()) {
 		msg.add<uint16_t>(slot);
 	}
-	msg.addItem(item, shouldSendItemTierData(), shouldSendItemTierByte(), isOTC, shouldSendQuickLootFlags(),
-	            canSendAstraItemState(), shouldSendAstraQuiverCountU16());
+	appendItem(msg, item);
 	writeToOutputBuffer(msg);
 }
 
@@ -4420,8 +5271,7 @@ void ProtocolGame::sendUpdateContainerItem(uint8_t cid, uint16_t slot, const Ite
 	} else {
 		msg.addByte(slot);
 	}
-	msg.addItem(item, shouldSendItemTierData(), shouldSendItemTierByte(), isOTC, shouldSendQuickLootFlags(),
-	            canSendAstraItemState(), shouldSendAstraQuiverCountU16());
+	appendItem(msg, item);
 	writeToOutputBuffer(msg);
 }
 
@@ -4438,8 +5288,7 @@ void ProtocolGame::sendRemoveContainerItem(uint8_t cid, uint16_t slot, const Ite
 	if (shouldSendContainerPagination()) {
 		msg.add<uint16_t>(slot);
 		if (lastItem) {
-			msg.addItem(lastItem, shouldSendItemTierData(), shouldSendItemTierByte(), isOTC, shouldSendQuickLootFlags(),
-			            canSendAstraItemState(), shouldSendAstraQuiverCountU16());
+			appendItem(msg, lastItem);
 		} else {
 			msg.add<uint16_t>(0x00);
 		}
@@ -4546,7 +5395,7 @@ void ProtocolGame::sendOutfitWindow()
 	}
 
 	AddOutfit(msg, currentOutfit);
-	if (isAstraClient) {
+	if (isAstraClient || isFonticakClient) {
 		const auto familiar = Familiar::getFamiliarInfo(player.get());
 		if (!familiar || currentOutfit.lookFamiliar != familiar->lookType) {
 			currentOutfit.lookFamiliar = 0;
@@ -4559,7 +5408,7 @@ void ProtocolGame::sendOutfitWindow()
 		protocolOutfits.emplace_back("Gamemaster", 75, 0);
 	}
 
-	const auto& storeOutfitOffers = getStoreOutfitOffers();
+	const auto storeCatalog = StoreManager::getInstance().catalogSnapshot();
 	size_t maxProtocolOutfits = static_cast<size_t>(getInteger(ConfigManager::MAX_PROTOCOL_OUTFITS));
 	if (isOTC) {
 		maxProtocolOutfits = std::min<size_t>(maxProtocolOutfits, std::numeric_limits<uint8_t>::max());
@@ -4578,14 +5427,14 @@ void ProtocolGame::sendOutfitWindow()
 		if (player->getOutfitAddons(*outfit, addons)) {
 			// available outfit
 		} else if (isAstra860) {
-			const auto offerIt = storeOutfitOffers.find(outfit->lookType);
-			if (offerIt == storeOutfitOffers.end()) {
+			const auto* offerInfo = storeCatalog ? storeCatalog->findOutfitByLookType(outfit->lookType) : nullptr;
+			if (!offerInfo) {
 				continue;
 			}
 
 			mode = 1;
-			addons = offerIt->second.addons;
-			storeOfferId = offerIt->second.offerId;
+			addons = offerInfo->addons;
+			storeOfferId = offerInfo->offerId;
 		} else {
 			continue;
 		}
@@ -4629,7 +5478,7 @@ void ProtocolGame::sendOutfitWindow()
 		}
 	}
 
-	if (isAstraClient) {
+	if (isAstraClient || isFonticakClient) {
 		const auto familiar = Familiar::getFamiliarInfo(player.get());
 		msg.add<uint16_t>(familiar ? 1 : 0);
 		if (familiar) {
@@ -4644,7 +5493,7 @@ void ProtocolGame::sendOutfitWindow()
 
 void ProtocolGame::sendItemInspection(std::shared_ptr<Item> item, uint16_t itemId, uint8_t itemCount, uint8_t inspectionType)
 {
-	if (!isAstraClient) {
+	if (!isAstraClient && !isFonticakClient) {
 		return;
 	}
 
@@ -4675,15 +5524,45 @@ void ProtocolGame::sendItemInspection(std::shared_ptr<Item> item, uint16_t itemI
 	msg.addByte(1);
 	msg.addString(item ? item->getName() : std::string_view(itemType.name));
 	if (item) {
-		msg.addItem(item.get(), shouldSendItemTierData(), shouldSendItemTierByte(), isOTC, shouldSendQuickLootFlags(),
-		            canSendAstraItemState(), shouldSendAstraQuiverCountU16());
+		appendItem(msg, item.get());
 	} else {
-		msg.addItem(itemId, itemCount, shouldSendItemTierData(), shouldSendItemTierByte(),
-		            shouldSendQuickLootFlags(), canSendAstraItemState(), shouldSendAstraQuiverCountU16());
+		appendItem(msg, itemId, itemCount);
 	}
-	msg.addByte(0);
+	// Imbuement icon data for the UI
+	{
+		const uint16_t totalSlots = item ? item->getImbuementSlots() : itemType.imbuementSlot;
+		msg.addByte(static_cast<uint8_t>(totalSlots));
+
+		if (item && totalSlots > 0) {
+			const auto& imbuements = item->getImbuements();
+			for (uint16_t slotIndex = 0; slotIndex < totalSlots; ++slotIndex) {
+				if (slotIndex < imbuements.size()) {
+					const auto& imb = imbuements[slotIndex];
+					const ImbuementDefinition* def = nullptr;
+					for (const auto& d : Imbuements::getInstance().getDefinitions()) {
+						if (d.imbuementType == imb->imbuetype && d.baseId == imb->baseId) {
+							def = &d;
+							break;
+						}
+					}
+					if (def) {
+						msg.add<uint16_t>(def->iconId);
+					} else {
+						msg.add<uint16_t>(0);
+					}
+				} else {
+					msg.add<uint16_t>(0);
+				}
+			}
+		} else {
+			for (uint16_t i = 0; i < totalSlots; ++i) {
+				msg.add<uint16_t>(0);
+			}
+		}
+	}
 
 	std::vector<std::pair<std::string, std::string>> descriptions;
+
 	if (!itemType.description.empty()) {
 		descriptions.emplace_back("Description", itemType.description);
 	}
@@ -4692,6 +5571,239 @@ void ProtocolGame::sendItemInspection(std::shared_ptr<Item> item, uint16_t itemI
 		if (!weight.empty()) {
 			descriptions.emplace_back("Weight", weight);
 		}
+	} else if (itemType.weight > 0) {
+		const std::string weight = Item::getWeightDescription(itemType, itemType.weight * itemCount, itemCount);
+		if (!weight.empty()) {
+			descriptions.emplace_back("Weight", weight);
+		}
+	}
+
+	if (itemType.armor > 0) {
+		descriptions.emplace_back("Armor", std::to_string(itemType.armor));
+	}
+
+	static const char* combatNames[] = {
+		"physical", "energy", "earth", "fire", "undefined", "lifedrain", "manadrain",
+		"healing", "drown", "ice", "holy", "death", "agony"
+	};
+
+	if (itemType.abilities) {
+		std::string protectionParts;
+		for (int i = 0; i < COMBAT_COUNT; ++i) {
+			if (itemType.abilities->absorbPercent[i] > 0) {
+				if (!protectionParts.empty()) {
+					protectionParts += ", ";
+				}
+				protectionParts += std::string(combatNames[i]) + " +" + std::to_string(itemType.abilities->absorbPercent[i]) + "%";
+			}
+			if (itemType.abilities->fieldAbsorbPercent[i] > 0) {
+				if (!protectionParts.empty()) {
+					protectionParts += ", ";
+				}
+				protectionParts += std::string(combatNames[i]) + " field +" + std::to_string(itemType.abilities->fieldAbsorbPercent[i]) + "%";
+			}
+		}
+		if (!protectionParts.empty()) {
+			descriptions.emplace_back("Protection", protectionParts);
+		}
+	}
+
+	if (itemType.defense > 0) {
+		descriptions.emplace_back("Defense", std::to_string(itemType.defense));
+	}
+	if (itemType.extraDefense != 0) {
+		descriptions.emplace_back("Extra Def", std::to_string(itemType.extraDefense));
+	}
+
+	static const char* weaponTypeNames[] = {
+		"", "sword", "club", "axe", "shield", "distance", "wand", "amunition", "quiver", "fist"
+	};
+	if (itemType.weaponType != WEAPON_NONE) {
+		const char* wname = (itemType.weaponType <= WEAPON_FIST) ? weaponTypeNames[itemType.weaponType] : "";
+		if (wname[0] != '\0') {
+			descriptions.emplace_back("Weapon Type", wname);
+		}
+	}
+
+	if (itemType.attack != 0) {
+		std::string attackStr = std::to_string(itemType.attack);
+		if (itemType.abilities && itemType.abilities->elementType != COMBAT_NONE && itemType.abilities->elementDamage > 0) {
+			static const char* elementNames[] = {
+				"", "energy", "earth", "fire", "", "lifedrain", "manadrain",
+				"", "drown", "ice", "holy", "death", ""
+			};
+			int idx = 0;
+			uint64_t mask = itemType.abilities->elementType;
+			while (mask > 0) {
+				if ((mask & 1) && elementNames[idx][0] != '\0') {
+					attackStr += ", " + std::string(elementNames[idx]) + " +" + std::to_string(itemType.abilities->elementDamage);
+				}
+				mask >>= 1;
+				idx++;
+			}
+		}
+		descriptions.emplace_back("Attack", attackStr);
+	}
+	if (itemType.hitChance != 0) {
+		descriptions.emplace_back("Hit Chance", std::string("+") + std::to_string(static_cast<int>(itemType.hitChance)) + "%");
+	}
+	if (itemType.shootRange > 1) {
+		descriptions.emplace_back("Range", std::to_string(itemType.shootRange));
+	}
+
+	static const char* skillNames[] = {
+		"Fist", "Club", "Sword", "Axe", "Distance", "Shielding", "Fishing"
+	};
+	static const char* specialSkillNames[] = {
+		"Critical Hit Chance", "Critical Hit Amount",
+		"Life Leech Chance", "Life Leech Amount",
+		"Mana Leech Chance", "Mana Leech Amount"
+	};
+	if (itemType.abilities) {
+		const auto appendSignedBonus = [&descriptions](const std::string& key, int32_t value) {
+			if (value == 0) {
+				return;
+			}
+			const std::string formatted = value > 0 ? "+" + std::to_string(value) : std::to_string(value);
+			descriptions.emplace_back(key, formatted);
+		};
+
+		const auto appendPercentBonus = [&descriptions](const std::string& key, int32_t value) {
+			if (value == 0) {
+				return;
+			}
+			const std::string formatted = value > 0 ? "+" + std::to_string(value) + "%" : std::to_string(value) + "%";
+			descriptions.emplace_back(key, formatted);
+		};
+
+		if (itemType.abilities->stats[STAT_MAGICPOINTS] != 0) {
+			appendSignedBonus("Magic Level", itemType.abilities->stats[STAT_MAGICPOINTS]);
+		}
+
+		for (int i = 0; i < COMBAT_COUNT; ++i) {
+			const int16_t value = itemType.abilities->specialMagicLevelSkill[i];
+			if (value == 0) {
+				continue;
+			}
+			const char* combatName = combatNames[i];
+			if (combatName == nullptr || combatName[0] == '\0') {
+				continue;
+			}
+			std::string label = combatName;
+			label[0] = static_cast<char>(std::toupper(static_cast<unsigned char>(label[0])));
+			label += " Magic Level";
+			appendSignedBonus(label, value);
+		}
+
+		for (int i = SKILL_FIST; i <= SKILL_FISHING; ++i) {
+			appendSignedBonus(skillNames[i], itemType.abilities->skills[i]);
+		}
+
+		appendSignedBonus("Speed", itemType.abilities->speed);
+
+		for (int i = SPECIALSKILL_FIRST; i <= SPECIALSKILL_LAST; ++i) {
+			appendPercentBonus(specialSkillNames[i], itemType.abilities->specialSkills[i]);
+		}
+	}
+
+	{
+		const std::string augmentDescription = itemType.parseAugmentDescription();
+		if (!augmentDescription.empty()) {
+			std::string augmentValue = augmentDescription;
+			if (!augmentValue.empty() && augmentValue.front() == '\n') {
+				augmentValue.erase(0, 1);
+			}
+			constexpr std::string_view augmentPrefix = "Augments: ";
+			if (augmentValue.rfind(augmentPrefix.data(), 0) == 0) {
+				augmentValue.erase(0, augmentPrefix.size());
+			}
+			if (!augmentValue.empty() && augmentValue.back() == '.') {
+				augmentValue.pop_back();
+			}
+			if (!augmentValue.empty()) {
+				descriptions.emplace_back("Augments", augmentValue);
+			}
+		}
+	}
+
+	const uint16_t totalSlots = item ? item->getImbuementSlots() : itemType.imbuementSlot;
+	if (totalSlots > 0) {
+		descriptions.emplace_back("Imbuement Slots", std::to_string(totalSlots));
+
+		if (item) {
+			const auto& imbuements = item->getImbuements();
+			for (uint16_t slotIndex = 0; slotIndex < totalSlots; ++slotIndex) {
+				std::string slotKey = "Imbuement Slot " + std::to_string(slotIndex + 1);
+				if (slotIndex < imbuements.size()) {
+					const auto& imb = imbuements[slotIndex];
+					const ImbuementDefinition* def = nullptr;
+					for (const auto& d : Imbuements::getInstance().getDefinitions()) {
+						if (d.imbuementType == imb->imbuetype && d.baseId == imb->baseId) {
+							def = &d;
+							break;
+						}
+					}
+					if (def) {
+						descriptions.emplace_back(slotKey, def->name);
+					} else {
+						descriptions.emplace_back(slotKey, "Imbuement");
+					}
+				} else {
+					descriptions.emplace_back(slotKey, "(Empty Slot)");
+				}
+			}
+		} else {
+			for (uint16_t slotIndex = 0; slotIndex < totalSlots; ++slotIndex) {
+				descriptions.emplace_back("Imbuement Slot " + std::to_string(slotIndex + 1), "(Empty Slot)");
+			}
+		}
+	}
+
+	const uint8_t itemTier = item ? item->getTier() : static_cast<uint8_t>(itemType.tier);
+	if (itemTier > 0) {
+		descriptions.emplace_back("Tier", std::to_string(itemTier));
+	}
+	if (itemType.classification > 0) {
+		descriptions.emplace_back("Classification", std::to_string(itemType.classification));
+	}
+
+	if (itemType.minReqLevel > 0) {
+		descriptions.emplace_back("Required Level", std::to_string(itemType.minReqLevel));
+	}
+	if (itemType.minReqMagicLevel > 0) {
+		descriptions.emplace_back("Required Magic Level", std::to_string(itemType.minReqMagicLevel));
+	}
+
+	if (!itemType.vocationString.empty()) {
+		descriptions.emplace_back("Professions", itemType.vocationString);
+	}
+
+	descriptions.emplace_back("Tradeable", itemType.isPickupable() ? "yes" : "no");
+
+	std::string bodyPosition;
+	if (itemType.slotPosition & SLOTP_HEAD) {
+		bodyPosition = "head";
+	} else if (itemType.slotPosition & SLOTP_NECKLACE) {
+		bodyPosition = "necklace";
+	} else if (itemType.slotPosition & SLOTP_BACKPACK) {
+		bodyPosition = "backpack";
+	} else if (itemType.slotPosition & SLOTP_ARMOR) {
+		bodyPosition = "body";
+	} else if (itemType.slotPosition & SLOTP_RIGHT) {
+		bodyPosition = "right hand";
+	} else if (itemType.slotPosition & SLOTP_LEFT) {
+		bodyPosition = "left hand";
+	} else if (itemType.slotPosition & SLOTP_LEGS) {
+		bodyPosition = "legs";
+	} else if (itemType.slotPosition & SLOTP_FEET) {
+		bodyPosition = "feet";
+	} else if (itemType.slotPosition & SLOTP_RING) {
+		bodyPosition = "ring";
+	} else if (itemType.slotPosition & SLOTP_AMMO) {
+		bodyPosition = "amunition";
+	}
+	if (!bodyPosition.empty()) {
+		descriptions.emplace_back("Body Position", bodyPosition);
 	}
 
 	msg.addByte(static_cast<uint8_t>(descriptions.size()));
@@ -4782,6 +5894,8 @@ void ProtocolGame::sendMonsterPodiumWindow(const Item* podium, const Position& p
 	msg.addPosition(position);
 	msg.add<uint16_t>(itemId);
 	msg.addByte(stackPos);
+	// Trailing podium flags layout contract (matches AstraClient protocol.lua and parseSetMonsterPodium):
+	// U8 direction, U8 podiumVisible, U8 monsterVisible
 	msg.addByte(static_cast<uint8_t>(getAttribute("LookDirection", DIRECTION_SOUTH)));
 	msg.addByte(static_cast<uint8_t>(getAttribute("PodiumVisible", 1) != 0));
 	msg.addByte(static_cast<uint8_t>(getAttribute("MonsterVisible", currentRaceId != 0) != 0));
@@ -4822,13 +5936,22 @@ void ProtocolGame::sendAnimatedText(std::string_view message, const Position& po
 
 void ProtocolGame::sendSpellCooldown(uint16_t spellId, uint32_t time)
 {
-	if (!isOTC || spellId > std::numeric_limits<uint8_t>::max()) {
+	if (!isOTC) {
+		return;
+	}
+
+	const bool wideSpellIds = usesExtendedSpellIds();
+	if (!wideSpellIds && spellId > std::numeric_limits<uint8_t>::max()) {
 		return;
 	}
 
 	NetworkMessage msg;
 	msg.addByte(0xA4);
-	msg.addByte(static_cast<uint8_t>(spellId));
+	if (wideSpellIds) {
+		msg.add<uint16_t>(spellId);
+	} else {
+		msg.addByte(static_cast<uint8_t>(spellId));
+	}
 	msg.add<uint32_t>(time);
 	writeToOutputBuffer(msg);
 }
@@ -4843,6 +5966,120 @@ void ProtocolGame::sendSpellGroupCooldown(SpellGroup_t groupId, uint32_t time)
 	msg.addByte(0xA5);
 	msg.addByte(groupId);
 	msg.add<uint32_t>(time);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendStanceProtocol(const std::vector<uint16_t>& spellIds)
+{
+	if (!isAstraClient) {
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0xC1);
+	msg.addByte(0x02);
+	msg.addByte(static_cast<uint8_t>(std::min<std::size_t>(spellIds.size(), 255)));
+	for (std::size_t i = 0; i < spellIds.size() && i < 255; ++i) {
+		msg.add<uint16_t>(spellIds[i]);
+	}
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendBannerType(Banner_t bannerType)
+{
+	if (!isAstraClient || bannerType == BANNER_TYPE_NONE) {
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0x75);
+	msg.addByte(SCREENSHOT_AND_BANNER_TYPE_BANNER_INFO);
+	msg.addByte(bannerType);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendScreenshotAndBannerUnlockedCosmetic(std::string_view skinName, uint16_t lookType,
+                                                            uint8_t skinType)
+{
+	if (!isAstraClient || skinName.empty() || lookType == 0 || skinType > 3) {
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0x75);
+	msg.addByte(SCREENSHOT_AND_BANNER_TYPE_COSMETIC);
+	msg.add<uint16_t>(lookType);
+	msg.addString(skinName);
+	msg.addByte(skinType);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendScreenshotAndBannerUpLevel(uint16_t level)
+{
+	if (!isAstraClient || level == 0) {
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0x75);
+	msg.addByte(SCREENSHOT_AND_BANNER_TYPE_LEVEL);
+	msg.add<uint16_t>(level);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendScreenshotAndBannerUpSkill(skills_t skill, uint16_t level)
+{
+	if (!isAstraClient || level == 0) {
+		return;
+	}
+
+	uint8_t clientSkill = 0;
+	switch (skill) {
+		case SKILL_MAGLEVEL: clientSkill = 1; break;
+		case SKILL_SWORD: clientSkill = 2; break;
+		case SKILL_CLUB: clientSkill = 3; break;
+		case SKILL_AXE: clientSkill = 4; break;
+		case SKILL_FIST: clientSkill = 5; break;
+		case SKILL_DISTANCE: clientSkill = 6; break;
+		case SKILL_SHIELD: clientSkill = 7; break;
+		case SKILL_FISHING: clientSkill = 8; break;
+		default: return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0x75);
+	msg.addByte(SCREENSHOT_AND_BANNER_TYPE_SKILL);
+	msg.addByte(clientSkill);
+	msg.add<uint16_t>(level);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendScreenshotAndBannerProgressRace(uint16_t raceId, uint8_t progressLevel, bool isBoss)
+{
+	if (!isAstraClient || raceId == 0 || progressLevel == 0) {
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0x75);
+	msg.addByte(isBoss ? SCREENSHOT_AND_BANNER_TYPE_BOSSTIARY_PROGRESS :
+	                       SCREENSHOT_AND_BANNER_TYPE_BESTIARY_PROGRESS);
+	msg.add<uint16_t>(raceId);
+	msg.addByte(progressLevel);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendEchoWardenReward(uint16_t raceId, uint32_t charmPoints)
+{
+	if (!isAstraClient || raceId == 0 || charmPoints == 0) {
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0x75);
+	msg.addByte(SCREENSHOT_AND_BANNER_TYPE_ECHO_WARDEN);
+	msg.add<uint16_t>(raceId);
+	msg.add<uint32_t>(charmPoints);
 	writeToOutputBuffer(msg);
 }
 
@@ -5000,7 +6237,7 @@ void ProtocolGame::AddPlayerStats(NetworkMessage& msg)
 	msg.add<uint16_t>(static_cast<uint16_t>(player->getLevel()));
 	msg.addByte(player->getLevelPercent());
 
-	if (isAstraClient) {
+	if (isAstraClient || isFonticakClient) {
 		msg.add<uint16_t>(player->getBaseXpGain());
 		msg.add<uint16_t>(0); // voucher XP boost
 		msg.add<uint16_t>(player->getDisplayGrindingXpBoost());
@@ -5024,12 +6261,12 @@ void ProtocolGame::AddPlayerStats(NetworkMessage& msg)
 
 	if (isOTC) {
 		msg.add<uint16_t>(player->getBaseSpeed() / 2);
-		if (isAstraClient) {
+		if (isAstraClient || isFonticakClient) {
 			auto condition = player->getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT);
 			msg.add<uint16_t>(getRegenerationTimeSeconds(condition ? condition->getTicks() : 0));
 		}
 		msg.add<uint16_t>(player->getOfflineTrainingTime() / 60 / 1000);
-		if (isAstraClient) {
+		if (isAstraClient || isFonticakClient) {
 			msg.add<uint16_t>(player->getXpBoostTime());
 			// 0x00 means boost is active and cannot be bought; 0x01 means the client may buy one.
 			msg.addByte(player->getXpBoostTime() > 0 ? 0x00 : 0x01);
@@ -5350,7 +6587,7 @@ void ProtocolGame::sendFeatures(bool advertiseAstraItemState)
 		return;
 	}
 
-	if (!isOTCv8 && !isAstraClient) return;
+	if (!isOTCv8 && !isAstraClient && !isFonticakClient) return;
 
 	std::unordered_map<GameFeature, bool> features;
 	features[GameFeature::ExtendedOpcode] = true;
@@ -5365,23 +6602,59 @@ void ProtocolGame::sendFeatures(bool advertiseAstraItemState)
 	features[GameFeature::CreatureIcons] = true;
 	features[GameFeature::ContainerPagination] = true;
 	features[GameFeature::BrowseField] = true;
-	if (isAstraClient) {
+	if (isAstraClient || isFonticakClient) {
 		features[GameFeature::PlayerRegenerationTime] = true;
 		features[GameFeature::ExperienceBonus] = true;
+	}
+	if (isAstraClient) {
 		features[GameFeature::PlayerFamiliars] = true;
 		features[GameFeature::AstraCreatureIcons] = true;
 		features[GameFeature::AstraQuiverCountU16] = true;
 		features[GameFeature::AstraOutfitStoreMode] = true;
+		features[GameFeature::AstraShopCountU16] = true;
+		if (supportsAstraStoreBasePrice) {
+			features[GameFeature::AstraStoreBasePrice] = true;
+		}
+		if (supportsAstraSingleCreatureMarks) {
+			features[GameFeature::AstraSingleCreatureMarks] = true;
+		}
+		if (supportsAstraEchoRaidVisuals) {
+			features[GameFeature::AstraEchoRaidVisuals] = true;
+		}
+	}
+	// Fonticak outfit familiar extension (feature id 138) and quiver count (feature id 141).
+	if (isFonticakClient) {
+		features[GameFeature::PlayerFamiliars] = true;
+		features[GameFeature::AstraQuiverCountU16] = true;
+	}
+	// Loot highlight container types (OTC GameContainerTypes) — negotiated per client.
+	if (isAstraClient || isFonticakClient) {
+		supportsContainerTypes = true;
+		if (isAstraClient) {
+			// Astra client maps 146 to GameContainerTypes (106 is GameOutfitShaders).
+			features[GameFeature::AstraContainerTypes] = true;
+		}
+		if (isFonticakClient) {
+			features[GameFeature::ContainerTypes] = true;
+		}
+	}
+	if (supportsGameStoreHighlights) {
+		features[GameFeature::IngameStoreHighlights] = true;
 	}
 	if (supportsNativeZoneWeather()) {
 		features[GameFeature::ZoneWeather] = true;
 		zoneWeatherFeatureEnabled = true;
 	}
-	if (advertiseAstraItemState && isAstraClient && getBoolean(ConfigManager::ASTRA_ITEM_STATE_ENABLED)) {
+	if (advertiseAstraItemState && (isAstraClient || isFonticakClient) &&
+	    getBoolean(ConfigManager::ASTRA_ITEM_STATE_ENABLED)) {
 		features[GameFeature::DisplayItemDuration] = true;
 		features[GameFeature::DisplayItemCharges] = true;
-		features[GameFeature::PackedPlayerInventory] = true;
-		features[GameFeature::AstraItemMetadata] = true;
+		if (isAstraClient || isFonticakClient) {
+			features[GameFeature::PackedPlayerInventory] = true;
+		}
+		if (isAstraClient) {
+			features[GameFeature::AstraItemMetadata] = true;
+		}
 	}
 	features[GameFeature::QuickLootFlags] = shouldSendQuickLootFlags();
 	features[GameFeature::ThingUpgradeClassification] = shouldSendThingUpgradeClassification();
@@ -5672,8 +6945,7 @@ void ProtocolGame::sendImbuementDurations(slots_t updatedSlot, const Item* updat
 		const Item* item = p.second;
 
 		msg.addByte(static_cast<uint8_t>(slot));
-		msg.addItem(item, shouldSendItemTierData(), shouldSendItemTierByte(), isOTC, shouldSendQuickLootFlags(),
-		            canSendAstraItemState(), shouldSendAstraQuiverCountU16());
+		appendItem(msg, item);
 
 		uint16_t totalSlots = item->getImbuementSlots();
 		msg.addByte(static_cast<uint8_t>(totalSlots));

@@ -448,6 +448,7 @@ bool ConfigManager::load()
 	booleans[Boolean::FAMILIAR_SYSTEM_ENABLED] = getGlobalBoolean(L, "familiarSystemEnabled", false);
 	booleans[Boolean::WHEEL_SYSTEM_ENABLED] = getGlobalBoolean(L, "wheelSystemEnabled", false);
 	booleans[Boolean::BESTIARY_SYSTEM_ENABLED] = getGlobalBoolean(L, "bestiarySystemEnabled", false);
+	booleans[Boolean::ECHO_RAID_SYSTEM_ENABLED] = getGlobalBoolean(L, "echoRaidSystemEnabled", false);
 	booleans[Boolean::MARKET_SYSTEM_ENABLED] = getGlobalBoolean(L, "marketSystemEnabled", false);
 	booleans[Boolean::PREY_SYSTEM_ENABLED] = getGlobalBoolean(L, "preySystemEnabled", false);
 	booleans[Boolean::BATTLEPASS_SYSTEM_ENABLED] = getGlobalBoolean(L, "battlePassSystemEnabled", false);
@@ -471,6 +472,8 @@ bool ConfigManager::load()
 	booleans[Boolean::ASTRA_CLIENT_ONLY] = getGlobalBoolean(L, "astraClientOnly", false);
 	booleans[Boolean::FONTICAK_CLIENT_ONLY] = getGlobalBoolean(L, "fonticakClientOnly", false);
 	booleans[Boolean::ASTRA_ITEM_STATE_ENABLED] = getGlobalBoolean(L, "astraItemStateEnabled", false);
+	booleans[Boolean::MELEE_WEAPON_SWING_MARKS_ENABLED] =
+	    getGlobalBoolean(L, "meleeWeaponSwingMarksEnabled", true);
 	booleans[Boolean::HIRELING_SYSTEM_ENABLED] = getGlobalBoolean(L, "hirelingSystemEnabled", false);
 	booleans[Boolean::ASTRA_HIRELING_PROTOCOL_ENABLED] =
 	    getGlobalBoolean(L, "astraHirelingProtocolEnabled", false);
@@ -478,6 +481,8 @@ bool ConfigManager::load()
 	booleans[Boolean::ITEM_TIER_DISPLAY] = getGlobalBoolean(L, "enableItemTierDisplay", false);
 	booleans[Boolean::ITEM_UPGRADE_CLASSIFICATION] = getGlobalBoolean(L, "enableItemUpgradeClassification", false);
 	booleans[Boolean::QUICK_LOOT_ENABLED] = getGlobalBoolean(L, "enableQuickLoot", false);
+	booleans[Boolean::QUICK_LOOT_ALLOW_ORDINARY_BOSSES] =
+	    getGlobalBoolean(L, "quickLootAllowOrdinaryBosses", true);
 	booleans[Boolean::TASK_HUNTING_SYSTEM_ENABLED] = getGlobalBoolean(L, "taskHuntingSystemEnabled", false);
 	booleans[Boolean::BOUNTY_TASKS_ENABLED] = getGlobalBoolean(L, "bountyTasksEnabled", false);
 	booleans[Boolean::WEEKLY_TASKS_ENABLED] = getGlobalBoolean(L, "weeklyTasksEnabled", false);
@@ -515,6 +520,8 @@ bool ConfigManager::load()
 	booleans[Boolean::STRESS_TEST_SHUTDOWN_SEND] = getGlobalBoolean(L, "stressTestShutdownSend", true);
 	booleans[Boolean::CLEAVE_SYSTEM_ENABLED] = getGlobalBoolean(L, "cleavesystem", true);
 	booleans[Boolean::CHARACTER_BAZAAR_ENABLED] = getGlobalBoolean(L, "characterBazaarEnabled", false);
+	booleans[Boolean::RELOAD_COMMAND_ENABLED] = getGlobalBoolean(L, "reloadCommandEnabled", true);
+	booleans[Boolean::GAME_STORE_ENABLED] = getGlobalBoolean(L, "gameStore", true);
 
 	integers[Integer::CLEAVE_DEFAULT_PERCENT] = std::clamp<int64_t>(getGlobalInteger(L, "cleaveDefaultPercent", 30), 0, 100);
 	integers[Integer::CLEAVE_FIST_PERCENT] = std::clamp<int64_t>(getGlobalInteger(L, "cleaveFistPercent", 20), 0, 100);
@@ -527,6 +534,11 @@ bool ConfigManager::load()
 	    std::max<int64_t>(1, getGlobalInteger(L, "characterBazaarMinDurationHours", 24));
 	integers[Integer::CHARACTER_BAZAAR_MAX_DURATION_DAYS] =
 	    std::max<int64_t>(1, getGlobalInteger(L, "characterBazaarMaxDurationDays", 7));
+	integers[Integer::STORE_XP_BOOST_PERCENT] =
+	    std::clamp<int64_t>(getGlobalInteger(L, "storeXpBoostPercent", 50), 1, 255);
+	integers[Integer::STORE_XP_BOOST_DEFAULT_DURATION] =
+	    std::clamp<int64_t>(getGlobalInteger(L, "storeXpBoostDefaultDuration", 3600), 60,
+	                        std::numeric_limits<uint16_t>::max());
 
 	// Admin Config
 	booleans[Boolean::ADMIN_LOCALHOST_ONLY] = getGlobalBoolean(L, "adminLocalhostOnly", true);
@@ -770,6 +782,14 @@ bool ConfigManager::load()
 	integers[Integer::AUGMENT_POWERFUL_IMPACT_PERCENT] = getGlobalInteger(L, "augmentPowerfulImpactPercent", 7);
 	integers[Integer::AUGMENT_STRONG_IMPACT_PERCENT] = getGlobalInteger(L, "augmentStrongImpactPercent", 10);
 	integers[Integer::QUICK_LOOT_MAX_CORPSES] = getGlobalInteger(L, "quickLootMaxCorpses", 30);
+	integers[Integer::TASK_BOARD_ACTION_COOLDOWN_MS] =
+	    std::max<int64_t>(0, getGlobalInteger(L, "taskBoardActionCooldownMs", 150));
+	integers[Integer::ECHO_RAID_PORTAL_SPAWN_NUMERATOR] =
+	    getGlobalInteger(L, "echoRaidPortalSpawnNumerator", 100);
+	integers[Integer::ECHO_RAID_PORTAL_SPAWN_DENOMINATOR] =
+	    getGlobalInteger(L, "echoRaidPortalSpawnDenominator", 200000);
+	integers[Integer::BATTLEPASS_REWARD_MAX_STEP] = getGlobalInteger(L, "battlePassRewardMaxStep", 50);
+	integers[Integer::BATTLEPASS_SHOP_UNLOCK_STEP] = getGlobalInteger(L, "battlePassShopUnlockStep", 50);
 
 	strings[String::ADMIN_PASSWORD] = getGlobalString(L, "adminPassword", "");
 	strings[String::ADMIN_ENCRYPTION] = getGlobalString(L, "adminEncryption", "");

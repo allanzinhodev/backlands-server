@@ -7,6 +7,7 @@
 #include "enums.h"
 #include "fileloader.h"
 #include "position.h"
+#include "third_party/veque/veque.hpp"
 
 #include <memory>
 
@@ -189,6 +190,9 @@ private:
 	int32_t stats[STAT_LAST + 1] = {};
 	int32_t statsPercent[STAT_LAST + 1] = {};
 	int32_t experienceRate[static_cast<size_t>(ExperienceRateType::STAMINA) + 1] = {};
+	int32_t buffDamageDealtPercent = 100;
+	int32_t buffDamageReceivedPercent = 100;
+	int32_t buffHealingReceivedPercent = 100;
 	int32_t currentSkill = 0;
 	int32_t currentSpecialSkill = 0;
 	int32_t currentStat = 0;
@@ -324,7 +328,7 @@ private:
 
 	bool init();
 
-	std::list<IntervalInfo> damageList;
+	veque::veque<IntervalInfo, veque::std_vector_traits> damageList;
 
 	bool getNextDamage(int32_t& damage);
 	bool doDamage(Creature* creature, int32_t healthChange);

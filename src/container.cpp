@@ -13,6 +13,7 @@
 #include "instance_utils.h"
 #include "iomap.h"
 #include "logger.h"
+#include "player.h"
 
 #include <queue>
 
@@ -46,6 +47,19 @@ bool isBrowseFieldVisibleItem(const Item* item)
 
 	return item->getContainer() || item->hasProperty(CONST_PROP_MOVEABLE) ||
 	       (Item::items[item->getID()].wrapableTo != 0 && !item->hasProperty(CONST_PROP_BLOCKPATH));
+}
+
+bool isInsideRewardContainer(const Cylinder* cylinder)
+{
+	while (cylinder) {
+		const auto* container = dynamic_cast<const Container*>(cylinder);
+		if (container && (container->getID() == ITEM_REWARD_CONTAINER || container->getRewardChest() ||
+		                  container->isRewardCorpse())) {
+			return true;
+		}
+		cylinder = cylinder->getParent();
+	}
+	return false;
 }
 
 Container::Container(uint16_t type) : Container(type, items[type].maxItems) {}
@@ -271,7 +285,7 @@ bool Container::canMergeIntoExistingStack(const Item* item, int32_t index) const
 		return false;
 	}
 
-	return canStackWith(getItemByIndex(index));
+	return canStackWith(getItemByIndex(index).get());
 }
 
 bool Container::hasRoomForItem(const Item* item, int32_t index, uint32_t count) const
@@ -305,12 +319,7 @@ uint64_t Container::getWeightReductionContentWeight() const
 	return weight;
 }
 
-Item* Container::getItemByIndex(size_t index) const
-{
-	return getItemByIndexRef(index).get();
-}
-
-std::shared_ptr<Item> Container::getItemByIndexRef(size_t index) const
+std::shared_ptr<Item> Container::getItemByIndex(size_t index) const
 {
 	if (index >= size()) {
 		return nullptr;
@@ -330,7 +339,7 @@ uint32_t Container::getItemHoldingCount() const
 bool Container::isHoldingItem(const Item* item) const
 {
 	for (ContainerIterator it = iterator(); it.hasNext(); it.advance()) {
-		if (*it == item) {
+		if ((*it).get() == item) {
 			return true;
 		}
 	}
@@ -499,12 +508,17 @@ ReturnValue Container::queryAdd(int32_t index, const Thing& thing, uint32_t coun
 	if (const auto tile = topParent->getTile()) {
 		if (const auto houseTile = tile->getHouseTile()) {
 			const auto house = houseTile->getHouse();
-			if (house && house->getProtected() && actor && !topParent->getCreature() && !house->canModifyItems(actor->getPlayer())) {
-				return RETURNVALUE_CANNOTMOVEITEMISPROTECTED;
-		}
-		if (actor && getBoolean(ConfigManager::ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS)) {
-			if (!topParent->getCreature() && !house->isInvited(actor->getPlayer())) {
-				return RETURNVALUE_PLAYERISNOTINVITED;
+			if (!house && actor && !topParent->getCreature()) {
+				return RETURNVALUE_NOTPOSSIBLE;
+			}
+			if (house) {
+				if (house->getProtected() && actor && !topParent->getCreature() && !house->canModifyItems(actor->getPlayer())) {
+					return RETURNVALUE_CANNOTMOVEITEMISPROTECTED;
+				}
+				if (actor && getBoolean(ConfigManager::ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS)) {
+					if (!topParent->getCreature() && !house->isInvited(actor->getPlayer())) {
+						return RETURNVALUE_PLAYERISNOTINVITED;
+					}
 				}
 			}
 		}
@@ -530,6 +544,11 @@ ReturnValue Container::queryMaxCount(int32_t index, const Thing& thing, uint32_t
 		return RETURNVALUE_NOERROR;
 	}
 
+	if (getWeaponType() == WEAPON_QUIVER && item->getWeaponType() != WEAPON_AMMO) {
+		maxQueryCount = 0;
+		return RETURNVALUE_CONTAINERNOTENOUGHROOM;
+	}
+
 	uint32_t freeSlots = getFreeSlotsFor(item, count);
 
 	if (item->isStackable()) {
@@ -548,7 +567,7 @@ ReturnValue Container::queryMaxCount(int32_t index, const Thing& thing, uint32_t
 				++slotIndex;
 			}
 		} else {
-			const auto destItemRef = getItemByIndexRef(index);
+			const auto destItemRef = getItemByIndex(index);
 			const Item* destItem = destItemRef.get();
 			if (item->equals(destItem) && destItem->getItemCount() < destItem->getStackSize()) {
 				if (queryAdd(index, *item, count, flags) == RETURNVALUE_NOERROR) {
@@ -595,12 +614,17 @@ ReturnValue Container::queryRemove(const Thing& thing, uint32_t count, uint32_t 
 	if (const auto tile = topParent->getTile()) {
 		if (const auto houseTile = tile->getHouseTile()) {
 			const auto house = houseTile->getHouse();
-			if (house && house->getProtected() && actor && !topParent->getCreature() && !house->canModifyItems(actor->getPlayer())) {
-				return RETURNVALUE_CANNOTMOVEITEMISPROTECTED;
-		}
-		if (actor && getBoolean(ConfigManager::ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS)) {
-			if (!topParent->getCreature() && !house->isInvited(actor->getPlayer())) {
-				return RETURNVALUE_PLAYERISNOTINVITED;
+			if (!house && actor && !topParent->getCreature()) {
+				return RETURNVALUE_NOTPOSSIBLE;
+			}
+			if (house) {
+				if (house->getProtected() && actor && !topParent->getCreature() && !house->canModifyItems(actor->getPlayer())) {
+					return RETURNVALUE_CANNOTMOVEITEMISPROTECTED;
+				}
+				if (actor && getBoolean(ConfigManager::ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS)) {
+					if (!topParent->getCreature() && !house->isInvited(actor->getPlayer())) {
+						return RETURNVALUE_PLAYERISNOTINVITED;
+					}
 				}
 			}
 		}
@@ -644,7 +668,7 @@ Cylinder* Container::queryDestination(int32_t& index, const Thing& thing, Item**
 	}
 
 	if (index != INDEX_WHEREEVER) {
-		auto itemFromIndexRef = getItemByIndexRef(index);
+		auto itemFromIndexRef = getItemByIndex(index);
 		Item* itemFromIndex = itemFromIndexRef.get();
 		if (itemFromIndex) {
 			*destItem = itemFromIndex;
@@ -781,7 +805,7 @@ void Container::replaceThing(uint32_t index, Thing* thing)
 		return /*RETURNVALUE_NOTPOSSIBLE*/;
 	}
 
-	auto replacedItemRef = getItemByIndexRef(index);
+	auto replacedItemRef = getItemByIndex(index);
 	Item* replacedItem = replacedItemRef.get();
 	if (!replacedItem) {
 		return /*RETURNVALUE_NOTPOSSIBLE*/;
@@ -849,6 +873,10 @@ void Container::removeThing(Thing* thing, uint32_t count)
 		auto itemSp = *(itemlist.begin() + index); // prevent destruction during erase
 		item->setParent(nullptr);
 		itemlist.erase(itemlist.begin() + index);
+
+		if (isLootCorpse() && empty() && lootHighlightActive) {
+			g_game.stopLootHighlight(this);
+		}
 	}
 }
 
@@ -897,7 +925,7 @@ ItemVector Container::getItems(bool recursive /*= false*/) const
 	return {itemlist.begin(), itemlist.end()};
 }
 
-Thing* Container::getThing(size_t index) const { return getItemByIndex(index); }
+Thing* Container::getThing(size_t index) const { return getItemByIndex(index).get(); }
 
 void Container::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t)
 {
@@ -1033,12 +1061,64 @@ bool Container::isRewardCorpse() const
 	return false;
 }
 
-Item* ContainerIterator::operator*() const
+bool Container::isLootCorpse() const
+{
+	if (lootHighlightActive) {
+		return true;
+	}
+
+	const ItemType& type = Item::items[getID()];
+	return type.corpseType != RACE_NONE || getCorpseOwner() != 0;
+}
+
+uint8_t Container::getSpecialCategory(const Player* viewer) const
+{
+	if (!viewer || !lootHighlightActive || empty() || isRewardCorpse()) {
+		return CONTAINER_SPECIAL_NONE;
+	}
+
+	const uint32_t corpseOwner = getCorpseOwner();
+	if (corpseOwner != 0 &&
+	    corpseOwner != static_cast<uint32_t>(std::numeric_limits<int32_t>::max()) &&
+	    !viewer->canOpenCorpse(corpseOwner) && !viewer->hasFlag(PlayerFlag_CanEditHouses)) {
+		return CONTAINER_SPECIAL_NONE;
+	}
+
+	return CONTAINER_SPECIAL_LOOT_HIGHLIGHT;
+}
+
+void Container::clearLootHighlight()
+{
+	if (!lootHighlightActive) {
+		return;
+	}
+
+	lootHighlightActive = false;
+	notifyTileUpdate();
+}
+
+void Container::notifyTileUpdate() const
+{
+	if (isRemoved()) {
+		return;
+	}
+
+	Cylinder* parent = getParent();
+	if (!parent) {
+		return;
+	}
+
+	if (Tile* tile = parent->getTile()) {
+		tile->refreshThing(const_cast<Container*>(this));
+	}
+}
+
+std::shared_ptr<Item> ContainerIterator::operator*() const
 {
 	if (!hasNext()) {
 		return nullptr;
 	}
-	return items[index].get();
+	return items[index];
 }
 
 void ContainerIterator::advance()

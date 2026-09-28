@@ -25,6 +25,7 @@
 #include "kv/kv.h"
 #include <algorithm>
 #include <array>
+#include <chrono>
 #include <deque>
 #include <limits>
 #include <map>
@@ -40,6 +41,21 @@ enum VirtueMonk_t : uint8_t {
 	VIRTUE_HARMONY = 1,
 	VIRTUE_JUSTICE = 2,
 	VIRTUE_SUSTAIN = 3,
+};
+
+enum Stance_t : uint8_t {
+	STANCE_NONE = 0,
+	STANCE_PROTECTOR = 1,
+	STANCE_BLOOD_RAGE = 2,
+	STANCE_DIVINE_DEFIANCE = 3,
+	STANCE_SHARPSHOOTER = 4,
+	STANCE_EXPOSE_WEAKNESS = 5,
+	STANCE_SAP_STRENGTH = 6,
+	STANCE_MASTER_OF_FLAMES = 7,
+	STANCE_MASTER_OF_THUNDER = 8,
+	STANCE_MASTER_OF_DECAY = 9,
+	STANCE_SHARED_CONSERVATION = 10,
+	STANCE_ELEMENTAL_SYNTHESIS = 11,
 };
 
 class House;
@@ -110,6 +126,9 @@ struct ProficiencySpellAugmentBonus
 	int32_t manaCostPercent = 0;
 	int32_t cooldownReduction = 0;
 	int32_t secondaryGroupCooldownReduction = 0;
+	int32_t additionalDuration = 0;
+	int32_t additionalTargets = 0;
+	int32_t affectedAreaEnlarged = 0;
 };
 
 struct OpenContainer
@@ -155,8 +174,12 @@ inline constexpr int32_t AVATAR_TIMER_STORAGE = 50099;
 inline constexpr int32_t AVATAR_DAMAGE_REDUCTION_PERCENT = 10;
 inline constexpr int32_t DUAL_WIELD_DAMAGE_BOOST_STORAGE = 50001;
 
+class Spell;
+
 class Player final : public Creature, public Cylinder
 {
+friend class Item;
+
 public:
 	explicit Player(ProtocolGame_ptr p);
 	~Player();
@@ -460,9 +483,24 @@ public:
 				break;
 		}
 		sendMonkData();
+		sendStanceProtocol();
 	}
 
 	void sendMonkData();
+	void sendWheelFocusMasteryClientState(const std::string& state, uint32_t durationMs = 0);
+	void sendStanceProtocol() const;
+	std::vector<uint16_t> buildActiveStanceSpellIds() const;
+	Stance_t getStance() const { return m_stancePrimary; }
+	Stance_t getElementalStance() const { return m_stanceElemental; }
+	CombatType_t getPendingElementConversion() const { return m_pendingElementConversion; }
+	void setPendingElementConversion(CombatType_t type) { m_pendingElementConversion = type; }
+	bool setStance(Stance_t stance);
+	bool setElementalStance(Stance_t stance);
+	void persistStances() const;
+	void restoreStances();
+	static bool isElementalStance(Stance_t stance);
+	static bool isStanceCompatibleWithVocation(Stance_t stance, uint16_t vocationBaseId);
+	static uint16_t getStanceSpellId(Stance_t stance);
 
 	void clearCooldowns();
 
@@ -501,6 +539,7 @@ public:
 	StorageDirtySnapshot getStorageDirtySnapshot() const;
 	void acknowledgeStorageDirty(const StorageDirtySnapshot& snapshot);
 	void clearStorageDirty();
+	bool saveDailyReward();
 
 	void setGroup(const std::shared_ptr<Group>& newGroup) { group = newGroup; }
 	Group* getGroup() const { return group.get(); }
@@ -519,6 +558,27 @@ public:
 	uint32_t getAccount() const { return accountNumber; }
 	AccountType_t getAccountType() const { return accountType; }
 	uint32_t getLevel() const { return level; }
+	void setSpellAimPosition(const Position& pos)
+	{
+		m_spellAimPosition = pos;
+		m_hasSpellAim = true;
+	}
+	void clearSpellAimPosition() { m_hasSpellAim = false; }
+	bool hasSpellAimPosition() const { return m_hasSpellAim; }
+	const Position& getSpellAimPosition() const { return m_spellAimPosition; }
+	void setSpellAimAtTargetEnabled(uint16_t spellId, uint8_t enabled)
+	{
+		if (enabled == 1) {
+			m_spellActivedAimMap[spellId] = 1;
+		} else {
+			m_spellActivedAimMap.erase(spellId);
+		}
+	}
+	bool isSpellAimAtTargetEnabled(uint16_t spellId) const
+	{
+		const auto it = m_spellActivedAimMap.find(spellId);
+		return it != m_spellActivedAimMap.end() && it->second == 1;
+	}
 	uint32_t getReset() const { return reset; }
 	void setReset(uint32_t newReset) { reset = newReset; }
 	uint8_t getLevelPercent() const { return levelPercent; }
@@ -536,6 +596,12 @@ public:
 		int32_t base = specialMagicLevelSkill[combatTypeToIndex(type)];
 		if (ConfigManager::getBoolean(ConfigManager::WEAPON_PROFICIENCY_SYSTEM_ENABLED)) {
 			base += static_cast<int32_t>(weaponProficiency().getSpecializedMagic(type));
+		}
+		if (m_stancePrimary == STANCE_DIVINE_DEFIANCE && (type == COMBAT_HOLYDAMAGE || type == COMBAT_HEALING)) {
+			base += static_cast<int32_t>(getSkillLevel(SKILL_DISTANCE) * 0.075);
+		} else if (m_stancePrimary == STANCE_ELEMENTAL_SYNTHESIS &&
+		           (type == COMBAT_ICEDAMAGE || type == COMBAT_EARTHDAMAGE)) {
+			base += static_cast<int32_t>(getMagicLevel() * 0.10);
 		}
 		return std::max<int32_t>(0, base);
 	}
@@ -649,6 +715,9 @@ public:
 	void clearWheelSpellAugments();
 	void addWheelSpellAugment(std::string spellName, Augment_t augmentType, double value);
 	ProficiencySpellAugmentBonus getWheelSpellAugmentBonus(std::string_view spellName) const;
+	bool getWheelSpellAdditionalArea(std::string_view spellName) const;
+	int32_t getWheelSpellAdditionalTarget(std::string_view spellName) const;
+	int32_t getWheelSpellAdditionalDuration(std::string_view spellName) const;
 
 	WeaponProficiency& weaponProficiency() { assert(m_weaponProficiency); return *m_weaponProficiency; }
 	const WeaponProficiency& weaponProficiency() const { assert(m_weaponProficiency); return *m_weaponProficiency; }
@@ -759,11 +828,13 @@ public:
 	void onWalk(Direction& dir) override;
 	void onWalkAborted() override;
 	void onWalkComplete() override;
+	bool shouldScheduleWalkCompletion() const override;
 
 	void stopWalk();
 	void openShopWindow(const std::list<ShopInfo>& shop);
 	bool closeShopWindow(bool sendCloseShopWindow = true);
 	bool updateSaleShopList(const Item* item);
+	bool hasShopItem(uint32_t itemId, uint8_t subType) const;
 	bool hasShopItemForSale(uint32_t itemId, uint8_t subType) const;
 
 	bool isWearingImbuedItem() const {
@@ -797,6 +868,7 @@ public:
 	void setFearImmunity();
 	bool isFearImmune() const;
 	bool hasShield() const;
+	bool hasRealShield() const;
 	bool isAttackable() const override;
 	static bool lastHitIsPlayer(Creature* lastHitCreature);
 
@@ -862,10 +934,39 @@ public:
 
 	int32_t getArmor() const override;
 	int32_t getDefense() const override;
-	int32_t getCombatAbsorbPercent(CombatType_t combatType) const;
+	float getCombatAbsorbPercent(CombatType_t combatType) const;
+	void addCombatAbsorbPercent(CombatType_t combatType, float modifier)
+	{
+		varCombatAbsorbPercent[combatTypeToIndex(combatType)] += modifier;
+	}
 
 	float getMitigation() const override;
 	void addMitigation(float modifier) { varMitigation += modifier; }
+	void addWheelMitigationMultiplier(float modifier) { varWheelMitigationMultiplier += modifier; }
+	float getWheelDodgeChance() const { return varWheelDodgeChance; }
+	void addWheelDodgeChance(float modifier) { varWheelDodgeChance += modifier; }
+	bool hasWheelBallisticMastery() const { return wheelBallisticMastery; }
+	void setWheelBallisticMastery(bool enabled) { wheelBallisticMastery = enabled; }
+	bool hasWheelGuidingPresence() const { return wheelGuidingPresence; }
+	void setWheelGuidingPresence(bool enabled) { wheelGuidingPresence = enabled; }
+	bool hasWheelSanctuary() const { return wheelSanctuary; }
+	void setWheelSanctuary(bool enabled);
+	void triggerWheelSanctuary(uint8_t harmonyConsumed, const Position& position);
+	void applyWheelSanctuaryCombatBonus(CombatDamage& damage, const Creature* target) const;
+	int32_t getWheelSanctuaryHealingBonusPercent(const Creature* healTarget) const;
+	int32_t getWheelBallisticMasteryCriticalBonus(CombatOrigin origin) const;
+	int32_t getWheelBallisticMasteryElementPierce(CombatType_t combatType) const;
+	bool hasWheelRunicMastery() const { return wheelRunicMastery; }
+	void setWheelRunicMastery(bool enabled) { wheelRunicMastery = enabled; }
+	void tryWheelRunicMastery(const Spell* runeSpell);
+	void clearWheelRunicMasteryBonus() { wheelRunicMasteryBonus = 0; }
+	int32_t getWheelRunicMasteryBonus() const { return wheelRunicMasteryBonus; }
+	bool hasWheelFocusMastery() const { return wheelFocusMastery; }
+	void setWheelFocusMastery(bool enabled);
+	void tryArmWheelFocusMastery(const Spell* spell);
+	void resetWheelFocusMasteryCastMultiplier() { wheelFocusMasteryCastMultiplier = 1.0f; }
+	float consumeWheelFocusMasteryForCast(const Spell* spell);
+	void applyWheelFocusMasteryCastMultiplier(CombatDamage& damage) const;
 
 	float getAttackFactor() const override;
 	float getDefenseFactor() const override;
@@ -934,6 +1035,12 @@ public:
 			return;
 		}
 		client->sendCreatureIcon(creature);
+	}
+	void sendCreatureEchoRaidVisual(const Creature* creature, bool force = false) const
+	{
+		if (client) {
+			client->sendCreatureEchoRaidVisual(creature, force);
+		}
 	}
 
 	void checkSkullTicks(int64_t ticks);
@@ -1050,6 +1157,13 @@ public:
 		if (client) {
 			client->sendCreatureSquare(creature, color);
 		}
+	}
+	void sendCreatureWeaponAttackMark(const Creature* target, uint8_t weaponType) const
+	{
+		if (!client || weaponType == 0) {
+			return;
+		}
+		client->sendCreatureWeaponAttackMark(target, weaponType);
 	}
 	void sendCreatureChangeOutfit(const Creature* creature, const Outfit_t& outfit)
 	{
@@ -1208,6 +1322,7 @@ public:
 	void onUpdateInventoryItem(Item* oldItem, Item* newItem);
 	void onRemoveInventoryItem(Item* item);
 	bool canReceiveAstraItemState() const;
+	bool canReceivePackedPlayerInventory() const;
 	void sendAstraPlayerInventorySnapshot() const;
 	void scheduleAstraPlayerInventorySnapshot();
 
@@ -1273,6 +1388,42 @@ public:
 	void updateImpactTracker(uint8_t analyzerType, uint32_t amount, CombatType_t combatType,
 	                         std::string_view targetName = {}) const;
 	void sendItemValues() const;
+	void sendBannerType(Banner_t bannerType) const
+	{
+		if (client) {
+			client->sendBannerType(bannerType);
+		}
+	}
+	void sendScreenshotAndBannerUpLevel(uint16_t newLevel) const
+	{
+		if (client) {
+			client->sendScreenshotAndBannerUpLevel(newLevel);
+		}
+	}
+	void sendScreenshotAndBannerUnlockedCosmetic(std::string_view skinName, uint16_t lookType, uint8_t skinType) const
+	{
+		if (client) {
+			client->sendScreenshotAndBannerUnlockedCosmetic(skinName, lookType, skinType);
+		}
+	}
+	void sendScreenshotAndBannerUpSkill(skills_t skill, uint16_t newLevel) const
+	{
+		if (client) {
+			client->sendScreenshotAndBannerUpSkill(skill, newLevel);
+		}
+	}
+	void sendScreenshotAndBannerProgressRace(uint16_t raceId, uint8_t progressLevel, bool isBoss = false) const
+	{
+		if (client) {
+			client->sendScreenshotAndBannerProgressRace(raceId, progressLevel, isBoss);
+		}
+	}
+	void sendEchoWardenReward(uint16_t raceId, uint32_t charmPoints) const
+	{
+		if (client) {
+			client->sendEchoWardenReward(raceId, charmPoints);
+		}
+	}
 	void sendPing();
 	void sendStats();
 	void sendBasicData() const
@@ -1471,6 +1622,8 @@ public:
 	bool isQuickLootAutoEnabled() const;
 	void ensureQuickLootStateLoaded();
 	void saveQuickLootState() const;
+	bool flushQuickLootPersistence(bool sync = false) const;
+	void scheduleQuickLootPersistence() const;
 	void setManagedLootContainer(ObjectCategory_t category, uint16_t containerId, uint64_t containerUid, bool isLootContainer);
 	void clearManagedLootContainer(ObjectCategory_t category, bool isLootContainer);
 	uint16_t getManagedLootContainerId(ObjectCategory_t category, bool isLootContainer) const;
@@ -1590,6 +1743,8 @@ private:
 
 	void checkTradeState(const Item* item);
 	bool hasCapacity(const Item* item, uint32_t count) const;
+	Item* getEquippedQuiver() const;
+	Item* getDistanceAmmo(Ammo_t ammoType) const;
 
 	void handleNamelockManager(const std::string& text, std::ostringstream& msg, bool& shouldShowHelp);
 	void handleAccountManager(const std::string& text, std::ostringstream& msg, bool& shouldShowHelp);
@@ -1759,6 +1914,21 @@ private:
 	int32_t varSkills[SKILL_LAST + 1] = {};
 	int32_t varStats[STAT_LAST + 1] = {};
 	float varMitigation = 0.0f;
+	float varWheelMitigationMultiplier = 0.0f;
+	float varWheelDodgeChance = 0.0f;
+	bool wheelBallisticMastery = false;
+	bool wheelGuidingPresence = false;
+	bool wheelSanctuary = false;
+	uint8_t wheelSanctuaryBonusPercent = 0;
+	int64_t wheelSanctuaryExpireTime = 0;
+	Position wheelSanctuaryFieldPosition;
+	bool wheelRunicMastery = false;
+	int32_t wheelRunicMasteryBonus = 0;
+	bool wheelFocusMastery = false;
+	bool wheelFocusMasteryReady = false;
+	int64_t wheelFocusMasteryExpireTime = 0;
+	float wheelFocusMasteryCastMultiplier = 1.0f;
+	std::array<float, COMBAT_COUNT> varCombatAbsorbPercent = {0};
 	std::array<int16_t, COMBAT_COUNT> specialMagicLevelSkill = {0};
 	std::array<int32_t, static_cast<size_t>(ExperienceRateType::STAMINA) + 1> experienceRate = {0};
 	int32_t purchaseCallback = -1;
@@ -1773,6 +1943,10 @@ private:
 	QuickLootFilter_t quickLootFilter = QUICKLOOTFILTER_SKIPPEDLOOT;
 	bool quickLootFallbackToMainContainer = true;
 	bool quickLootStateLoaded = false;
+	mutable bool quickLootSaveDirty = false;
+	mutable uint64_t quickLootSaveGeneration = 0;
+	mutable uint32_t quickLootSaveEventId = 0;
+	mutable std::chrono::steady_clock::time_point lastQuickLootDbSave{};
 	int32_t temporaryDeathLossReduction = 0;
 
 	uint16_t lastStatsTrainingTime = 0;
@@ -1831,6 +2005,12 @@ private:
 	int64_t rootImmunityEnd = 0;
 	int64_t fearImmunityEnd = 0;
 	VirtueMonk_t m_virtue = VIRTUE_NONE;
+	Stance_t m_stancePrimary = STANCE_NONE;
+	Stance_t m_stanceElemental = STANCE_NONE;
+	CombatType_t m_pendingElementConversion = COMBAT_NONE;
+	Position m_spellAimPosition;
+	bool m_hasSpellAim = false;
+	std::unordered_map<uint16_t, uint8_t> m_spellActivedAimMap;
 	bool loading = false;
 
 	AccountManagerMode accountManager{ACCOUNT_MANAGER_NONE};
@@ -1880,6 +2060,7 @@ private:
 	friend class IOLoginData;
 	friend class ProtocolGame;
 	friend class ProtocolSpectator;
+	friend struct CreatureWalkTestAccess;
 };
 
 #endif

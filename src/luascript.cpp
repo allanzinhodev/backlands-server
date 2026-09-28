@@ -1113,6 +1113,15 @@ void Lua::setMetatable(lua_State* L, int32_t index, std::string_view name)
 {
 	luaL_getmetatable(L, name.data());
 	lua_setmetatable(L, index - 1);
+	if (name == "Tile") {
+		if (Tile** userdata = static_cast<Tile**>(lua_touserdata(L, index))) {
+			if (*userdata) {
+				new (lua_newuserdatauv(L, sizeof(std::weak_ptr<Tile>), 0))
+				    std::weak_ptr<Tile>((*userdata)->weak_from_this());
+				lua_setiuservalue(L, index - 1, 1);
+			}
+		}
+	}
 }
 
 void Lua::setWeakMetatable(lua_State* L, int32_t index, std::string_view name)
@@ -1211,6 +1220,25 @@ Creature* Lua::getValidatedCreatureUserdata(lua_State* L, int32_t arg)
 		return nullptr;
 	}
 	return rawCreature;
+}
+
+Tile* Lua::getValidatedTileUserdata(lua_State* L, int32_t arg)
+{
+	const int userValueType = lua_getiuservalue(L, arg, 1);
+	if (userValueType == LUA_TUSERDATA) {
+		auto* weakPtr = static_cast<std::weak_ptr<Tile>*>(lua_touserdata(L, -1));
+		auto tileRef = weakPtr ? weakPtr->lock() : std::shared_ptr<Tile>{};
+		lua_pop(L, 1);
+
+		if (tileRef) {
+			return tileRef.get();
+		}
+
+		return nullptr;
+	}
+	lua_pop(L, 1);
+	// A Tile must have its ownership token; never revive an unvalidated raw address.
+	return nullptr;
 }
 
 // Is
@@ -1770,6 +1798,7 @@ void LuaScriptInterface::registerFunctions()
 	registerGlobalVariable("FAMILIAR_SYSTEM_ENABLED", ConfigManager::FAMILIAR_SYSTEM_ENABLED);
 	registerGlobalVariable("WHEEL_SYSTEM_ENABLED", ConfigManager::WHEEL_SYSTEM_ENABLED);
 	registerGlobalVariable("BESTIARY_SYSTEM_ENABLED", ConfigManager::BESTIARY_SYSTEM_ENABLED);
+	registerGlobalVariable("ECHO_RAID_SYSTEM_ENABLED", ConfigManager::ECHO_RAID_SYSTEM_ENABLED);
 	registerGlobalVariable("MARKET_SYSTEM_ENABLED", ConfigManager::MARKET_SYSTEM_ENABLED);
 	registerGlobalVariable("PREY_SYSTEM_ENABLED", ConfigManager::PREY_SYSTEM_ENABLED);
 	registerGlobalVariable("BATTLEPASS_SYSTEM_ENABLED", ConfigManager::BATTLEPASS_SYSTEM_ENABLED);
@@ -1869,6 +1898,76 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(COMBAT_PARAM_USECHARGES);
 	registerEnum(COMBAT_PARAM_CHAIN_EFFECT);
 	registerEnum(COMBAT_PARAM_RESET_DAMAGE_MULTIPLIER);
+	registerEnum(COMBAT_PARAM_CASTSOUND);
+	registerEnum(COMBAT_PARAM_IMPACTSOUND);
+
+	for (const char* soundEffectName : {
+	         "SOUND_EFFECT_TYPE_SILENCE",
+	         "SOUND_EFFECT_TYPE_ACTION_OPEN_DOOR",
+	         "SOUND_EFFECT_TYPE_DIST_ATK_BOW",
+	         "SOUND_EFFECT_TYPE_SPELL_BERSERK",
+	         "SOUND_EFFECT_TYPE_SPELL_BLOOD_RAGE",
+	         "SOUND_EFFECT_TYPE_SPELL_BRUISE_BANE",
+	         "SOUND_EFFECT_TYPE_SPELL_BRUTAL_STRIKE",
+	         "SOUND_EFFECT_TYPE_SPELL_BUZZ",
+	         "SOUND_EFFECT_TYPE_SPELL_CHIVALROUS_CHALLENGE",
+	         "SOUND_EFFECT_TYPE_SPELL_CURSE",
+	         "SOUND_EFFECT_TYPE_SPELL_DEATH_STRIKE",
+	         "SOUND_EFFECT_TYPE_SPELL_DEVASTATING_KNOCKOUT",
+	         "SOUND_EFFECT_TYPE_SPELL_DIVINE_CALDERA",
+	         "SOUND_EFFECT_TYPE_SPELL_DIVINE_DAZZLE",
+	         "SOUND_EFFECT_TYPE_SPELL_DOUBLE_JAB",
+	         "SOUND_EFFECT_TYPE_SPELL_ELECTRIFY",
+	         "SOUND_EFFECT_TYPE_SPELL_ENERGY_BEAM",
+	         "SOUND_EFFECT_TYPE_SPELL_ENERGY_WAVE",
+	         "SOUND_EFFECT_TYPE_SPELL_EXPLOSION_RUNE",
+	         "SOUND_EFFECT_TYPE_SPELL_FAIR_WOUND_CLEANSING",
+	         "SOUND_EFFECT_TYPE_SPELL_FIERCE_BERSERK",
+	         "SOUND_EFFECT_TYPE_SPELL_FIRE_WAVE",
+	         "SOUND_EFFECT_TYPE_SPELL_FLAME_STRIKE",
+	         "SOUND_EFFECT_TYPE_SPELL_FLURRY_OF_BLOWS",
+	         "SOUND_EFFECT_TYPE_SPELL_FORCEFULL_UPPERCUT",
+	         "SOUND_EFFECT_TYPE_SPELL_FRONT_SWEEP",
+	         "SOUND_EFFECT_TYPE_SPELL_GREAT_ENERGY_BEAM",
+	         "SOUND_EFFECT_TYPE_SPELL_GREAT_FIRE_WAVE",
+	         "SOUND_EFFECT_TYPE_SPELL_GREATER_TIGER_CLASH",
+	         "SOUND_EFFECT_TYPE_SPELL_GROUNDSHAKER",
+	         "SOUND_EFFECT_TYPE_SPELL_HEAL_FRIEND",
+	         "SOUND_EFFECT_TYPE_SPELL_HELL_SCORE",
+	         "SOUND_EFFECT_TYPE_SPELL_IGNITE",
+	         "SOUND_EFFECT_TYPE_SPELL_INTENSE_HEALING_RUNE",
+	         "SOUND_EFFECT_TYPE_SPELL_INTENSE_WOUND_CLEANSING",
+	         "SOUND_EFFECT_TYPE_SPELL_LIGHTNING",
+	         "SOUND_EFFECT_TYPE_SPELL_MASS_SPIRIT_MEND",
+	         "SOUND_EFFECT_TYPE_SPELL_MYSTIC_REPULSE",
+	         "SOUND_EFFECT_TYPE_SPELL_NATURES_EMBRACE",
+	         "SOUND_EFFECT_TYPE_SPELL_OR_RUNE",
+	         "SOUND_EFFECT_TYPE_SPELL_PROTECTOR",
+	         "SOUND_EFFECT_TYPE_SPELL_RAGE_OF_THE_SKIES",
+	         "SOUND_EFFECT_TYPE_SPELL_SALVATION",
+	         "SOUND_EFFECT_TYPE_SPELL_SCORCH",
+	         "SOUND_EFFECT_TYPE_SPELL_SHARPSHOOTER",
+	         "SOUND_EFFECT_TYPE_SPELL_STONE_SHOWER_RUNE",
+	         "SOUND_EFFECT_TYPE_SPELL_STRONG_ENERGY_STRIKE",
+	         "SOUND_EFFECT_TYPE_SPELL_STRONG_ETHEREAL_SPEAR",
+	         "SOUND_EFFECT_TYPE_SPELL_STRONG_FLAME_STRIKE",
+	         "SOUND_EFFECT_TYPE_SPELL_STRONG_ICE_STRIKE",
+	         "SOUND_EFFECT_TYPE_SPELL_STRONG_ICE_WAVE",
+	         "SOUND_EFFECT_TYPE_SPELL_STRONG_TERRA_STRIKE",
+	         "SOUND_EFFECT_TYPE_SPELL_SWEEPING_TAKEDOWN",
+	         "SOUND_EFFECT_TYPE_SPELL_SWIFT_FOOT",
+	         "SOUND_EFFECT_TYPE_SPELL_SWIFT_JAB",
+	         "SOUND_EFFECT_TYPE_SPELL_THUNDERSTORM_RUNE",
+	         "SOUND_EFFECT_TYPE_SPELL_ULTIMATE_ENERGY_STRIKE",
+	         "SOUND_EFFECT_TYPE_SPELL_ULTIMATE_FLAME_STRIKE",
+	         "SOUND_EFFECT_TYPE_SPELL_ULTIMATE_HEALING_RUNE",
+	         "SOUND_EFFECT_TYPE_SPELL_ULTIMATE_ICE_STRIKE",
+	         "SOUND_EFFECT_TYPE_SPELL_ULTIMATE_TERRA_STRIKE",
+	         "SOUND_EFFECT_TYPE_SPELL_WOUND_CLEANSING",
+	         "SOUND_EFFECT_TYPE_SPELL_WRATH_OF_NATURE",
+	     }) {
+		registerGlobalVariable(soundEffectName, 0);
+	}
 
 	registerEnum(CONDITION_NONE);
 	registerEnum(CONDITION_POISON);
@@ -2016,6 +2115,9 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CONDITION_PARAM_SPECIALSKILL_MANALEECHAMOUNT);
 	registerEnum(CONDITION_PARAM_AGGRESSIVE);
 	registerEnum(CONDITION_PARAM_CASTER_POSITION);
+	registerEnum(CONDITION_PARAM_BUFF_DAMAGEDEALT);
+	registerEnum(CONDITION_PARAM_BUFF_DAMAGERECEIVED);
+	registerEnum(CONDITION_PARAM_BUFF_HEALINGRECEIVED);
 
 	registerEnum(RETURNVALUE_CANNOTMOVEEXERCISEWEAPON);
 	registerEnum(RETURNVALUE_CANNOTMOVEGOLDPOUCH);
@@ -2289,6 +2391,11 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CONST_ANI_ROYALSTAR);
 	registerEnum(CONST_ANI_CANDYCANE);
 	registerEnum(CONST_ANI_CHERRYBOMB);
+	registerEnum(CONST_ANI_SHATTERSTORMARROW);
+	registerEnum(CONST_ANI_FIRESTORMARROW);
+	registerEnum(CONST_ANI_TERRASTORMARROW);
+	registerEnum(CONST_ANI_FROSTSTORMARROW);
+	registerEnum(CONST_ANI_THUNDERSTORMARROW);
 	registerEnum(CONST_ANI_WEAPONTYPE);
 
 	registerEnum(CONST_PROP_BLOCKSOLID);
@@ -2591,6 +2698,11 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(REPORT_TYPE_BOT);
 
 	registerEnum(VOCATION_NONE);
+	registerEnum(VOCATION_SORCERER);
+	registerEnum(VOCATION_DRUID);
+	registerEnum(VOCATION_PALADIN);
+	registerEnum(VOCATION_KNIGHT);
+	registerEnum(VOCATION_MONK);
 
 	registerEnum(SKILL_FIST);
 	registerEnum(SKILL_CLUB);
@@ -2932,6 +3044,62 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(SPELLGROUP_HEALING);
 	registerEnum(SPELLGROUP_SUPPORT);
 	registerEnum(SPELLGROUP_SPECIAL);
+	registerEnum(SPELLGROUP_FOCUS);
+	registerEnum(SPELLGROUP_STANCE);
+
+	registerEnum(STANCE_NONE);
+	registerEnum(STANCE_PROTECTOR);
+	registerEnum(STANCE_BLOOD_RAGE);
+	registerEnum(STANCE_DIVINE_DEFIANCE);
+	registerEnum(STANCE_SHARPSHOOTER);
+	registerEnum(STANCE_EXPOSE_WEAKNESS);
+	registerEnum(STANCE_SAP_STRENGTH);
+	registerEnum(STANCE_MASTER_OF_FLAMES);
+	registerEnum(STANCE_MASTER_OF_THUNDER);
+	registerEnum(STANCE_MASTER_OF_DECAY);
+	registerEnum(STANCE_SHARED_CONSERVATION);
+	registerEnum(STANCE_ELEMENTAL_SYNTHESIS);
+
+	registerEnum(AttrSubId_None);
+	registerEnum(AttrSubId_TrainParty);
+	registerEnum(AttrSubId_ProtectParty);
+	registerEnum(AttrSubId_EnchantParty);
+	registerEnum(AttrSubId_JeanPierreMagic);
+	registerEnum(AttrSubId_JeanPierreMelee);
+	registerEnum(AttrSubId_JeanPierreDistance);
+	registerEnum(AttrSubId_JeanPierreDefense);
+	registerEnum(AttrSubId_JeanPierreFishing);
+	registerEnum(AttrSubId_BloodRageProtector);
+	registerEnum(AttrSubId_Sharpshooter);
+	registerEnum(AttrSubId_SwiftFoot);
+	registerEnum(AttrSubId_DivineDefiance);
+	registerEnum(AttrSubId_SorcererMasterOfFlames);
+	registerEnum(AttrSubId_SorcererMasterOfThunder);
+	registerEnum(AttrSubId_SorcererMasterOfDecay);
+	registerEnum(AttrSubId_DruidSharedConservation);
+	registerEnum(AttrSubId_DruidElementalSynthesis);
+	registerEnum(AttrSubId_SorcererSapStrengthAura);
+	registerEnum(AttrSubId_SorcererExposeWeaknessAura);
+
+	registerEnum(SCREENSHOT_AND_BANNER_TYPE_NONE);
+	registerEnum(SCREENSHOT_AND_BANNER_TYPE_BANNER_INFO);
+
+	registerEnum(BANNER_TYPE_NONE);
+	registerEnum(BANNER_TYPE_BOSSDEFEATED);
+	registerEnum(BANNER_TYPE_DEATHPVE);
+	registerEnum(BANNER_TYPE_DEATHPVP);
+	registerEnum(BANNER_TYPE_PLAYERKILLASSIST);
+	registerEnum(BANNER_TYPE_PLAYERKILL);
+	registerEnum(BANNER_TYPE_PLAYERATTACKING);
+	registerEnum(BANNER_TYPE_TREASUREFOUND);
+	registerEnum(BANNER_TYPE_GIFTOFLIFE);
+	registerEnum(BANNER_TYPE_ATTACKSTOPPED);
+	registerEnum(BANNER_TYPE_CAPACITYLIMIT);
+	registerEnum(BANNER_TYPE_OUTOFAMMO);
+	registerEnum(BANNER_TYPE_TARGETTOOCLOSE);
+	registerEnum(BANNER_TYPE_OUTOFSOULPOINTS);
+	registerEnum(BANNER_TYPE_TUTORIALCOMPLETE);
+	registerEnum(BANNER_TYPE_PROMOTION_GRANTED);
 
 	// Imbuements
 	registerEnum(IMBUEMENT_TYPE_NONE);
@@ -3023,6 +3191,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::WHEEL_SYSTEM_ENABLED);
 	registerEnumIn("configKeys", ConfigManager::CHAIN_SYSTEM_ENABLED);
 	registerEnumIn("configKeys", ConfigManager::BESTIARY_SYSTEM_ENABLED);
+	registerEnumIn("configKeys", ConfigManager::ECHO_RAID_SYSTEM_ENABLED);
 	registerEnumIn("configKeys", ConfigManager::MARKET_SYSTEM_ENABLED);
 	registerEnumIn("configKeys", ConfigManager::PREY_SYSTEM_ENABLED);
 	registerEnumIn("configKeys", ConfigManager::BATTLEPASS_SYSTEM_ENABLED);
@@ -3031,6 +3200,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::MONSTER_LEVEL_ENABLED);
 	registerEnumIn("configKeys", ConfigManager::LOOT_GROUPING_ENABLED);
 	registerEnumIn("configKeys", ConfigManager::HIRELING_SYSTEM_ENABLED);
+	registerEnumIn("configKeys", ConfigManager::MELEE_WEAPON_SWING_MARKS_ENABLED);
 	registerEnumIn("configKeys", ConfigManager::ASTRA_HIRELING_PROTOCOL_ENABLED);
 	registerEnumIn("configKeys", ConfigManager::COLORIZED_LOOT_VALUE);
 	registerEnumIn("configKeys", ConfigManager::ITEM_TIER_DISPLAY);
@@ -3045,6 +3215,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::SOULPIT_SYSTEM_ENABLED);
 	registerEnumIn("configKeys", ConfigManager::SOULSEALS_SYSTEM_ENABLED);
 	registerEnumIn("configKeys", ConfigManager::CLEAVE_SYSTEM_ENABLED);
+	registerEnumIn("configKeys", ConfigManager::RELOAD_COMMAND_ENABLED);
 
 	registerEnumIn("configKeys", ConfigManager::MAP_NAME);
 	registerEnumIn("configKeys", ConfigManager::HOUSE_RENT_PERIOD);
@@ -3099,6 +3270,11 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::EXP_FROM_PLAYERS_LEVEL_RANGE);
 	registerEnumIn("configKeys", ConfigManager::MAX_PACKETS_PER_SECOND);
 	registerEnumIn("configKeys", ConfigManager::QUICK_LOOT_MAX_CORPSES);
+	registerEnumIn("configKeys", ConfigManager::TASK_BOARD_ACTION_COOLDOWN_MS);
+	registerEnumIn("configKeys", ConfigManager::ECHO_RAID_PORTAL_SPAWN_NUMERATOR);
+	registerEnumIn("configKeys", ConfigManager::ECHO_RAID_PORTAL_SPAWN_DENOMINATOR);
+	registerEnumIn("configKeys", ConfigManager::BATTLEPASS_REWARD_MAX_STEP);
+	registerEnumIn("configKeys", ConfigManager::BATTLEPASS_SHOP_UNLOCK_STEP);
 	registerEnumIn("configKeys", ConfigManager::STAMINA_REGEN_MINUTE);
 	registerEnumIn("configKeys", ConfigManager::STAMINA_REGEN_PREMIUM);
 	registerEnumIn("configKeys", ConfigManager::STAMINA_TRAINER);
@@ -4466,6 +4642,19 @@ int LuaScriptInterface::luaUserdataCompare(lua_State* L)
 		Lua::pushBoolean(L,
 		                 typeA == typeB &&
 		                     Lua::getSharedPtr<Condition>(L, 1).get() == Lua::getSharedPtr<Condition>(L, 2).get());
+		return 1;
+	}
+
+	if (typeA == LuaData_House || typeB == LuaData_House) {
+		Lua::pushBoolean(L,
+		                 typeA == typeB &&
+		                     Lua::getSharedUserdata<House>(L, 1) == Lua::getSharedUserdata<House>(L, 2));
+		return 1;
+	}
+
+	if (typeA == LuaData_Tile || typeB == LuaData_Tile) {
+		const Tile* tile = Lua::getUserdata<Tile>(L, 1);
+		Lua::pushBoolean(L, typeA == typeB && tile && tile == Lua::getUserdata<Tile>(L, 2));
 		return 1;
 	}
 

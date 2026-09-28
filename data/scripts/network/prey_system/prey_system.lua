@@ -16,24 +16,23 @@ dofile("data/scripts/network/prey_system/prey_monsters.lua")
 local PREY_OPCODE_OPEN = 0xE8
 local PREY_OPCODE_SELECT = 0xE9
 local PREY_OPCODE_LIST_REROLL = 0xEA
-local PREY_OPCODE_BONUS_REROLL = 0xEB
 local PREY_OPCODE_CLEAR = 0xEC
 local PREY_OPCODE_TOGGLE_AUTO = 0xD8
 local PREY_OPCODE_TOGGLE_LOCK = 0xD9
 local PREY_OPCODE_RESOURCE_BALANCE = 0xEE
-local PREY_NATIVE_OPCODE_TIME_LEFT = 0xE7
-local PREY_NATIVE_OPCODE_REQUEST = 0xED
-local PREY_NATIVE_OPCODE_ACTION = 0xEB
+-- Fonticak/OTC prey client: server -> client single channel (0xED) with
+-- sub-commands (error / full state / single-slot update).
+local PREY_OPCODE_SEND = 0xED
+local PREY_SEND_ERROR = 0x00
+local PREY_SEND_FULL = 0x01
+local PREY_SEND_UPDATE = 0x02
+
+-- Astra native prey protocol (server -> client): per-slot data + prices + time.
 local PREY_NATIVE_OPCODE_DATA = 0xE8
 local PREY_NATIVE_OPCODE_PRICES = 0xE9
+local PREY_NATIVE_OPCODE_TIME_LEFT = 0xE7
 
-local PREY_STATE_EMPTY = 0
-local PREY_STATE_LIST_SELECTION = 1
-local PREY_STATE_BONUS_SELECTION = 2
-local PREY_STATE_ACTIVE = 3
-local PREY_STATE_INACTIVE = 4
-local PREY_STATE_WILDCARD_SELECTION = 5
-
+-- Astra native slot states.
 local PREY_NATIVE_STATE_LOCKED = 0
 local PREY_NATIVE_STATE_INACTIVE = 1
 local PREY_NATIVE_STATE_ACTIVE = 2
@@ -43,6 +42,16 @@ local PREY_NATIVE_STATE_WILDCARD_WITH_MONSTERS = 6
 local PREY_NATIVE_UNLOCK_STORE = 1
 local PREY_NATIVE_BONUS_NONE = 4
 
+local PREY_NATIVE_OPCODE_REQUEST = 0xED
+local PREY_NATIVE_OPCODE_ACTION = 0xEB
+
+local PREY_STATE_EMPTY = 0
+local PREY_STATE_LIST_SELECTION = 1
+local PREY_STATE_BONUS_SELECTION = 2
+local PREY_STATE_ACTIVE = 3
+local PREY_STATE_INACTIVE = 4
+local PREY_STATE_WILDCARD_SELECTION = 5
+
 local PREY_NATIVE_ACTION_LIST_REROLL = 0
 local PREY_NATIVE_ACTION_BONUS_REROLL = 1
 local PREY_NATIVE_ACTION_MONSTER_SELECTION = 2
@@ -50,6 +59,7 @@ local PREY_NATIVE_ACTION_REQUEST_ALL_MONSTERS = 3
 local PREY_NATIVE_ACTION_CHANGE_FROM_ALL = 4
 local PREY_NATIVE_ACTION_LOCK_PREY = 5
 local PREY_NATIVE_ACTION_UNLOCK_PERMANENT = 6
+local PREY_NATIVE_ACTION_CLOSE = 7
 
 local PREY_BONUS_NONE = 0
 local PREY_BONUS_DMG_BOOST = 1
@@ -75,13 +85,31 @@ local RESOURCE_INVENTORY = 1
 local RESOURCE_PREY = 10
 
 local preyCache = {}
+-- Wire format is chosen per player from the opcode the client uses to open prey:
+-- OTC/Fonticak request prey with 0xED (native Tibia opcodes 0xE8/0xE9/0xE7).
+-- Legacy custom prey UI opens with 0xE8 and expects server payloads on 0xED.
+local preyNetworkMode = {}
+
+local function setPreyNetworkMode(player, mode)
+	preyNetworkMode[player:getId()] = mode
+end
+
+local function usesFonticakPreyProtocol(player)
+	return preyNetworkMode[player:getId()] == "fonticak"
+end
+
+local function usesNativePreyProtocol(player)
+	-- Fonticak OTC requests prey with 0xED and expects Tibia prey opcodes (0xE8/0xE9).
+	-- The legacy 0xED server->client channel is only used after an explicit 0xE8 open.
+	return not usesFonticakPreyProtocol(player)
+end
+
+local function isAstraClient(player)
+	return player and player.isUsingAstraClient and player:isUsingAstraClient()
+end
 
 local function supportsCustomNetwork(player)
 	return player and player.isUsingOtClient and player:isUsingOtClient()
-end
-
-local function supportsAstraPreyExtension(player)
-	return player and player.isUsingAstraClient and player:isUsingAstraClient()
 end
 
 local function isPreySlotUnlocked(player, slot)
@@ -361,12 +389,6 @@ local function getPreyLockType(player, slot)
 	return 0
 end
 
-local function writePreyLockType(out, player, slot)
-	if supportsAstraPreyExtension(player) then
-		out:addByte(getPreyLockType(player, slot))
-	end
-end
-
 local function sendResourceBalance(player, resourceType, value)
 	if not supportsCustomNetwork(player) then
 		return false
@@ -402,17 +424,33 @@ local function sendPreyBalances(player)
 	end
 
 	local prey = getPlayerPrey(player)
-	player:sendResource("prey", prey.wildcards)
-	player:sendResource("bank", player:getBankBalance())
-	player:sendResource("inventory", player:getMoney())
+	local bank = player:getBankBalance()
+	local inventory = player:getMoney()
+	local wildcards = (prey and prey.wildcards) or getPlayerBonusRerolls(player)
+
+	player:sendResource("prey", wildcards)
+	player:sendResource("bank", bank)
+	player:sendResource("inventory", inventory)
+
+	if PreySystem.cachedBalances then
+		PreySystem.cachedBalances[player:getId()] = {
+			bank = bank,
+			inventory = inventory,
+			prey = wildcards,
+		}
+	end
 	return true
 end
 
 local function sendError(player, message)
-	if not supportsCustomNetwork(player) then
+	if supportsCustomNetwork(player) and usesFonticakPreyProtocol(player) then
+		local out = NetworkMessage(player)
+		out:addByte(PREY_OPCODE_SEND)
+		out:addByte(PREY_SEND_ERROR)
+		out:addString(message or "")
+		out:sendToPlayer(player)
 		return false
 	end
-
 	player:sendTextMessage(MESSAGE_STATUS_SMALL, message)
 	return false
 end
@@ -467,16 +505,13 @@ local function writeMonster(out, name)
 	out:addString(name or "")
 
 	local outfit = getMonsterOutfit(name)
-	out:addU16(outfit.lookType)
-	if outfit.lookType == 0 then
-		out:addU16(outfit.lookTypeEx or 0)
-		return
-	end
-	out:addByte(outfit.lookHead)
-	out:addByte(outfit.lookBody)
-	out:addByte(outfit.lookLegs)
-	out:addByte(outfit.lookFeet)
-	out:addByte(outfit.lookAddons)
+	-- Fonticak client reads outfit as U16 + 5 bytes (head/body/legs/feet/addons).
+	out:addU16(outfit.lookType or 0)
+	out:addByte(outfit.lookHead or 0)
+	out:addByte(outfit.lookBody or 0)
+	out:addByte(outfit.lookLegs or 0)
+	out:addByte(outfit.lookFeet or 0)
+	out:addByte(outfit.lookAddons or 0)
 end
 
 local function getListRerollCost(player)
@@ -541,6 +576,15 @@ local function normalizeSlot(slotData)
 		slotData.state = PREY_STATE_LIST_SELECTION
 	end
 
+	-- An inactive slot that never held a creature should offer a fresh list
+	-- instead of rendering blank when the window is opened.
+	if slotData.state == PREY_STATE_INACTIVE and (slotData.monster_name or "") == "" then
+		slotData.state = PREY_STATE_LIST_SELECTION
+		slotData.bonus_type = PREY_BONUS_NONE
+		slotData.bonus_value = 0
+		slotData.time_left = 0
+	end
+
 	if slotData.state == PREY_STATE_ACTIVE and ((slotData.monster_name or "") == "" or slotData.time_left <= 0 or slotData.bonus_type == PREY_BONUS_NONE or #(slotData.list_monsters or {}) > 0) then
 		slotData.state = PREY_STATE_LIST_SELECTION
 		slotData.monster_name = ""
@@ -569,14 +613,128 @@ local function ensureSelectionList(player, slot, slotData)
 	return true
 end
 
-local function writeSlot(out, player, slot, slotData, wildcardRaceIds)
+local function writeFonticakSlot(out, player, slot, slotData)
+	normalizeSlot(slotData)
+
+	local unlocked = isPreySlotUnlocked(player, slot)
+	out:addByte(unlocked and slotData.state or PREY_STATE_EMPTY)
+	out:addU32(unlocked and getTimeUntilFreeReroll(slotData) or 0)
+
+	if not unlocked then
+		return
+	end
+
+	if slotData.state == PREY_STATE_LIST_SELECTION then
+		ensureSelectionList(player, slot, slotData)
+		local list = slotData.list_monsters or {}
+		out:addByte(#list)
+		for _, name in ipairs(list) do
+			writeMonster(out, name)
+		end
+	elseif slotData.state == PREY_STATE_BONUS_SELECTION then
+		writeMonster(out, slotData.monster_name)
+	elseif slotData.state == PREY_STATE_ACTIVE then
+		writeMonster(out, slotData.monster_name)
+		out:addByte(slotData.bonus_type or PREY_BONUS_NONE)
+		out:addByte(math.max(0, math.min(255, slotData.bonus_value or 0)))
+		out:addU32(slotData.time_left or 0)
+		out:addByte(getPreyLockType(player, slot))
+	elseif slotData.state == PREY_STATE_INACTIVE then
+		writeMonster(out, slotData.monster_name)
+	else
+		-- Wildcard selection / unknown states: expose a fresh list so the slot
+		-- never renders blank in the Fonticak client.
+		slotData.state = PREY_STATE_LIST_SELECTION
+		ensureSelectionList(player, slot, slotData)
+		local list = slotData.list_monsters or {}
+		out:addByte(#list)
+		for _, name in ipairs(list) do
+			writeMonster(out, name)
+		end
+	end
+end
+
+local function sendFonticakFullPrey(player, sendBalances)
+	if not supportsCustomNetwork(player) then
+		return false
+	end
+
+	local prey = getPlayerPrey(player)
+	local out = NetworkMessage(player)
+	out:addByte(PREY_OPCODE_SEND)
+	out:addByte(PREY_SEND_FULL)
+	out:addByte(math.min(getPlayerBonusRerolls(player), PREY_MAX_WILDCARDS))
+	out:addU32(getListRerollCost(player))
+	for slot = 0, PREY_SLOTS - 1 do
+		writeFonticakSlot(out, player, slot, prey.slots[slot])
+	end
+	out:addU64(player:getBankBalance())
+	out:addU64(player:getMoney())
+	syncPreyCombatBonuses(player, prey)
+	local sent = out:sendToPlayer(player)
+	if sendBalances ~= false then
+		sendPreyBalances(player)
+	end
+	return sent
+end
+
+local function sendFonticakSlotUpdate(player, slot, save)
+	if not supportsCustomNetwork(player) then
+		return false
+	end
+
+	local prey = getPlayerPrey(player)
+	local out = NetworkMessage(player)
+	out:addByte(PREY_OPCODE_SEND)
+	out:addByte(PREY_SEND_UPDATE)
+	out:addByte(math.min(getPlayerBonusRerolls(player), PREY_MAX_WILDCARDS))
+	out:addU32(getListRerollCost(player))
+	out:addByte(slot)
+	writeFonticakSlot(out, player, slot, prey.slots[slot])
+	out:addU64(player:getBankBalance())
+	out:addU64(player:getMoney())
+	syncPreyCombatBonuses(player, prey)
+	local sent = out:sendToPlayer(player)
+	if save ~= false then
+		saveSlotToDB(player:getGuid(), slot, prey.slots[slot])
+	end
+	return sent
+end
+
+-- ================= Astra native protocol =================
+-- AstraClient (Tibia-style prey UI) expects one 0xE8 message per slot,
+-- 0xE9 for prices and 0xE7 for the per-second time-left ticks. Layout and
+-- field widths match AstraClient modules/game_prey/prey.lua.
+
+local function writeAstraMonster(out, name)
+	out:addString(name or "")
+
+	local outfit = getMonsterOutfit(name)
+	out:addU16(outfit.lookType or 0)
+	if (outfit.lookType or 0) == 0 then
+		out:addU16(outfit.lookTypeEx or 0)
+		return
+	end
+	out:addByte(outfit.lookHead or 0)
+	out:addByte(outfit.lookBody or 0)
+	out:addByte(outfit.lookLegs or 0)
+	out:addByte(outfit.lookFeet or 0)
+	out:addByte(outfit.lookAddons or 0)
+end
+
+-- includeAstraExtensions: AstraClient reads an extra lock-type byte after the
+-- free-reroll timer (and a price on locked slots), and its wildcard payload
+-- carries raceId + monster name/outfit. Other native clients (CrystalOTC)
+-- parse the plain Tibia layout on protocol <= 8.60 and would desync if those
+-- extra bytes were present.
+local function writeAstraSlot(out, player, slot, slotData, includeAstraExtensions)
 	out:addByte(slot)
 	if not isPreySlotUnlocked(player, slot) then
 		out:addByte(PREY_NATIVE_STATE_LOCKED)
 		out:addByte(PREY_NATIVE_UNLOCK_STORE)
 		out:addU16(0)
-		writePreyLockType(out, player, slot)
-		if supportsAstraPreyExtension(player) then
+		if includeAstraExtensions then
+			out:addByte(getPreyLockType(player, slot))
 			out:addU32(PREY_PERMANENT_SLOT_COST)
 		end
 		return
@@ -589,22 +747,32 @@ local function writeSlot(out, player, slot, slotData, wildcardRaceIds)
 		local list = slotData.list_monsters or {}
 		out:addByte(#list)
 		for _, name in ipairs(list) do
-			writeMonster(out, name)
+			writeAstraMonster(out, name)
 		end
 	elseif slotData.state == PREY_STATE_WILDCARD_SELECTION then
-		local includeMonsterData = supportsAstraPreyExtension(player)
-		out:addByte(includeMonsterData and PREY_NATIVE_STATE_WILDCARD_WITH_MONSTERS or PREY_NATIVE_STATE_WILDCARD)
-		local raceIds = wildcardRaceIds or buildWildcardRaceIds(player, getPlayerPrey(player), slot)
-		out:addU16(#raceIds)
-		for _, raceId in ipairs(raceIds) do
-			out:addU16(raceId)
-			if includeMonsterData then
-				writeMonster(out, getPreyMonsterNameByRaceId(raceId))
+		local raceIds = buildWildcardRaceIds(player, getPlayerPrey(player), slot)
+		if includeAstraExtensions then
+			-- Astra state 6: raceId + monster name + outfit for each entry.
+			out:addByte(PREY_NATIVE_STATE_WILDCARD_WITH_MONSTERS)
+			out:addU16(#raceIds)
+			for _, raceId in ipairs(raceIds) do
+				out:addU16(raceId)
+				writeAstraMonster(out, getPreyMonsterNameByRaceId(raceId))
+			end
+		else
+			-- CrystalOTC wildcard selection: bonus fields then plain race ids.
+			out:addByte(PREY_NATIVE_STATE_WILDCARD_WITH_MONSTERS)
+			out:addByte(getNativeBonusType(slotData))
+			out:addU16(getNativeBonusValue(slotData))
+			out:addByte(getNativeBonusGrade(slotData))
+			out:addU16(#raceIds)
+			for _, raceId in ipairs(raceIds) do
+				out:addU16(raceId)
 			end
 		end
 	elseif slotData.state == PREY_STATE_ACTIVE then
 		out:addByte(PREY_NATIVE_STATE_ACTIVE)
-		writeMonster(out, slotData.monster_name)
+		writeAstraMonster(out, slotData.monster_name)
 		out:addByte(getNativeBonusType(slotData))
 		out:addU16(getNativeBonusValue(slotData))
 		out:addByte(getNativeBonusGrade(slotData))
@@ -613,61 +781,74 @@ local function writeSlot(out, player, slot, slotData, wildcardRaceIds)
 		out:addByte(PREY_NATIVE_STATE_INACTIVE)
 	end
 	out:addU16(getTimeUntilFreeReroll(slotData))
-	writePreyLockType(out, player, slot)
+	if includeAstraExtensions then
+		out:addByte(getPreyLockType(player, slot))
+	end
 end
 
-local function sendPreyPrices(player)
+local function sendAstraPrices(player)
 	local out = NetworkMessage(player)
 	out:addByte(PREY_NATIVE_OPCODE_PRICES)
 	out:addU32(getListRerollCost(player))
 	return out:sendToPlayer(player)
 end
 
-local function sendFullPrey(player, sendBalances)
-	if not supportsCustomNetwork(player) then
-		return false
-	end
-
+local function sendAstraFullPrey(player, sendBalances)
 	local prey = getPlayerPrey(player)
 	for slot = 0, PREY_SLOTS - 1 do
 		local out = NetworkMessage(player)
 		out:addByte(PREY_NATIVE_OPCODE_DATA)
-		writeSlot(out, player, slot, prey.slots[slot])
+		writeAstraSlot(out, player, slot, prey.slots[slot], isAstraClient(player))
 		out:sendToPlayer(player)
 	end
 	syncPreyCombatBonuses(player, prey)
-	sendPreyPrices(player)
+	sendAstraPrices(player)
 	if sendBalances ~= false then
 		sendPreyBalances(player)
 	end
 	return true
 end
 
-local function sendSlotUpdate(player, slot, wildcardRaceIds)
-	if not supportsCustomNetwork(player) then
-		return false
-	end
-
+local function sendAstraSlotUpdate(player, slot, save)
 	local prey = getPlayerPrey(player)
 	local out = NetworkMessage(player)
 	out:addByte(PREY_NATIVE_OPCODE_DATA)
-	writeSlot(out, player, slot, prey.slots[slot], wildcardRaceIds)
+	writeAstraSlot(out, player, slot, prey.slots[slot], isAstraClient(player))
 	syncPreyCombatBonuses(player, prey)
 	local sent = out:sendToPlayer(player)
-	saveSlotToDB(player:getGuid(), slot, prey.slots[slot])
+	if save ~= false then
+		saveSlotToDB(player:getGuid(), slot, prey.slots[slot])
+	end
 	return sent
 end
 
-local function sendPreyTimeLeft(player, slot, timeLeft)
-	if not supportsCustomNetwork(player) then
-		return false
-	end
-
+local function sendAstraTimeLeft(player, slot, timeLeft)
 	local out = NetworkMessage(player)
 	out:addByte(PREY_NATIVE_OPCODE_TIME_LEFT)
 	out:addByte(slot)
 	out:addU16(math.max(0, math.min(0xFFFF, timeLeft or 0)))
 	return out:sendToPlayer(player)
+end
+
+-- ================= Dispatch by client =================
+local function sendFullPrey(player, sendBalances)
+	if not supportsCustomNetwork(player) then
+		return false
+	end
+	if usesFonticakPreyProtocol(player) then
+		return sendFonticakFullPrey(player, sendBalances)
+	end
+	return sendAstraFullPrey(player, sendBalances)
+end
+
+local function sendSlotUpdate(player, slot, save)
+	if not supportsCustomNetwork(player) then
+		return false
+	end
+	if usesFonticakPreyProtocol(player) then
+		return sendFonticakSlotUpdate(player, slot, save)
+	end
+	return sendAstraSlotUpdate(player, slot, save)
 end
 
 getOtherSlotMonsters = function(player, prey, excludedSlot)
@@ -779,6 +960,8 @@ end
 
 local openHandler = PacketHandler(PREY_OPCODE_OPEN)
 function openHandler.onReceive(player, msg)
+	setPreyNetworkMode(player, "fonticak")
+	PreySystem.openWindows[player:getId()] = true
 	initializeEmptySlots(player)
 	sendFullPrey(player)
 	saveAllSlots(player)
@@ -787,6 +970,7 @@ openHandler:register()
 
 local selectHandler = PacketHandler(PREY_OPCODE_SELECT)
 function selectHandler.onReceive(player, msg)
+	setPreyNetworkMode(player, "fonticak")
 	if msg:len() - msg:tell() < 2 then
 		return
 	end
@@ -840,6 +1024,7 @@ selectHandler:register()
 
 local listRerollHandler = PacketHandler(PREY_OPCODE_LIST_REROLL)
 function listRerollHandler.onReceive(player, msg)
+	setPreyNetworkMode(player, "fonticak")
 	if msg:len() - msg:tell() < 1 then
 		return
 	end
@@ -891,18 +1076,9 @@ function listRerollHandler.onReceive(player, msg)
 end
 listRerollHandler:register()
 
-local bonusRerollHandler = PacketHandler(PREY_OPCODE_BONUS_REROLL)
-function bonusRerollHandler.onReceive(player, msg)
-	if msg:len() - msg:tell() < 1 then
-		return
-	end
-
-	nativeBonusReroll(player, msg:getByte())
-end
-bonusRerollHandler:register()
-
 local clearHandler = PacketHandler(PREY_OPCODE_CLEAR)
 function clearHandler.onReceive(player, msg)
+	setPreyNetworkMode(player, "fonticak")
 	if msg:len() - msg:tell() < 1 then
 		return
 	end
@@ -923,6 +1099,7 @@ clearHandler:register()
 
 local autoBonusHandler = PacketHandler(PREY_OPCODE_TOGGLE_AUTO)
 function autoBonusHandler.onReceive(player, msg)
+	setPreyNetworkMode(player, "fonticak")
 	if msg:len() - msg:tell() < 2 then
 		return
 	end
@@ -946,6 +1123,7 @@ autoBonusHandler:register()
 
 local lockPreyHandler = PacketHandler(PREY_OPCODE_TOGGLE_LOCK)
 function lockPreyHandler.onReceive(player, msg)
+	setPreyNetworkMode(player, "fonticak")
 	if msg:len() - msg:tell() < 2 then
 		return
 	end
@@ -1024,7 +1202,11 @@ local function preyTick()
 							end
 							sendSlotUpdate(player, slot)
 						else
-							sendPreyTimeLeft(player, slot, slotData.time_left)
+							if usesNativePreyProtocol(player) then
+								sendAstraTimeLeft(player, slot, slotData.time_left)
+							elseif slotData.time_left % 60 == 0 then
+								sendSlotUpdate(player, slot, false)
+							end
 						end
 					end
 				end
@@ -1047,22 +1229,88 @@ PreySystem._tickToken = (PreySystem._tickToken or 0) + 1
 preyTickToken = PreySystem._tickToken
 addEvent(preyTick, PREY_TICK_INTERVAL)
 
+-- Push the shared resource balances periodically so the prey window
+-- refreshes while open without lagging the server.
+-- Only sync players who currently have the prey window open, and only
+-- when the values have actually changed.
+local PREY_BALANCE_SYNC_INTERVAL = 3000
+local preyBalanceSyncToken = 0
+
+PreySystem.openWindows = PreySystem.openWindows or {}
+PreySystem.cachedBalances = PreySystem.cachedBalances or {}
+
+local function preyBalanceSync()
+	if PreySystem._balanceSyncToken ~= preyBalanceSyncToken then
+		return
+	end
+
+	for playerId, _ in pairs(PreySystem.openWindows) do
+		local player = Player(playerId)
+		if not player then
+			PreySystem.openWindows[playerId] = nil
+			PreySystem.cachedBalances[playerId] = nil
+		elseif supportsCustomNetwork(player) then
+			local cached = PreySystem.cachedBalances[playerId]
+			local bank = player:getBankBalance()
+			local inventory = player:getMoney()
+			local wildcards = getPlayerBonusRerolls(player)
+
+			if not cached then
+				player:sendResource("bank", bank)
+				player:sendResource("inventory", inventory)
+				player:sendResource("prey", wildcards)
+				PreySystem.cachedBalances[playerId] = {
+					bank = bank,
+					inventory = inventory,
+					prey = wildcards,
+				}
+			else
+				if cached.bank ~= bank then
+					player:sendResource("bank", bank)
+					cached.bank = bank
+				end
+				if cached.inventory ~= inventory then
+					player:sendResource("inventory", inventory)
+					cached.inventory = inventory
+				end
+				if cached.prey ~= wildcards then
+					player:sendResource("prey", wildcards)
+					cached.prey = wildcards
+				end
+			end
+		end
+	end
+
+	addEvent(preyBalanceSync, PREY_BALANCE_SYNC_INTERVAL)
+end
+
+PreySystem._balanceSyncToken = (PreySystem._balanceSyncToken or 0) + 1
+preyBalanceSyncToken = PreySystem._balanceSyncToken
+addEvent(preyBalanceSync, PREY_BALANCE_SYNC_INTERVAL)
+
 local loginEvent = CreatureEvent("PreySystemLogin")
 function loginEvent.onLogin(player)
 	local prey = getPlayerPrey(player)
 	syncPreyCombatBonuses(player, prey)
 	player:registerEvent("PreySystemLogout")
+	if supportsCustomNetwork(player) then
+		sendPreyBalances(player)
+	end
 	return true
 end
 loginEvent:register()
 
 local logoutEvent = CreatureEvent("PreySystemLogout")
 function logoutEvent.onLogout(player)
+	local playerId = player:getId()
+	PreySystem.openWindows[playerId] = nil
+	PreySystem.cachedBalances[playerId] = nil
 	saveAllSlots(player)
 	if player.clearPreyCombatBonuses then
 		player:clearPreyCombatBonuses()
 	end
-	preyCache[player:getId()] = nil
+	preyCache[playerId] = nil
+	preyNetworkMode[playerId] = nil
 	return true
 end
 logoutEvent:register()
@@ -1091,8 +1339,22 @@ function PreySystem.addWildcards(player, amount)
 
 	local prey = getPlayerPrey(player)
 	prey.wildcards = setPlayerBonusRerolls(player, prey.wildcards + amount)
-	sendFullPrey(player, false)
-	sendPreyBalances(player)
+	-- Wildcards are authoritative after setPlayerBonusRerolls. Keep a failed
+	-- client refresh from surfacing as failed delivery and refunding the Store.
+	local notifyOk, notifyError = pcall(function()
+		if PreySystem.openWindows[player:getId()] then
+			sendFullPrey(player, false)
+		end
+		sendPreyBalances(player)
+	end)
+	if not notifyOk then
+		local message = "[PreySystem] Wildcards delivered, but client refresh failed: " .. tostring(notifyError)
+		if logger and logger.error then
+			logger.error(message)
+		else
+			print(message)
+		end
+	end
 	return true
 end
 
@@ -1231,7 +1493,7 @@ local function nativeRequestAllMonsters(player, slot)
 	slotData.monster_name = ""
 	slotData.list_monsters = {}
 	slotData.time_left = 0
-	sendSlotUpdate(player, slot, raceIds)
+	sendSlotUpdate(player, slot)
 	sendPreyBalances(player)
 end
 
@@ -1271,6 +1533,8 @@ end
 
 local nativeRequestHandler = PacketHandler(PREY_NATIVE_OPCODE_REQUEST)
 function nativeRequestHandler.onReceive(player, msg)
+	setPreyNetworkMode(player, "native")
+	PreySystem.openWindows[player:getId()] = true
 	initializeEmptySlots(player)
 	sendFullPrey(player)
 	saveAllSlots(player)
@@ -1316,7 +1580,10 @@ end
 local nativeActionHandler = PacketHandler(PREY_NATIVE_OPCODE_ACTION)
 function nativeActionHandler.onReceive(player, msg)
 	local remaining = msg:len() - msg:tell()
+	-- Legacy OTC clients send 0xEB with only the slot byte for a bonus reroll;
+	-- native clients send slot + action. Both are handled here.
 	if remaining == 1 then
+		setPreyNetworkMode(player, "fonticak")
 		return nativeBonusReroll(player, msg:getByte())
 	end
 	if remaining < 2 then
@@ -1325,6 +1592,13 @@ function nativeActionHandler.onReceive(player, msg)
 
 	local slot = msg:getByte()
 	local action = msg:getByte()
+	if action == PREY_NATIVE_ACTION_CLOSE then
+		PreySystem.openWindows[player:getId()] = nil
+		PreySystem.cachedBalances[player:getId()] = nil
+		return true
+	end
+
+	setPreyNetworkMode(player, "native")
 	if slot >= PREY_SLOTS then
 		return sendError(player, "Invalid slot.")
 	end
