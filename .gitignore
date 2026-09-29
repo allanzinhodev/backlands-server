@@ -207,6 +207,7 @@ pip-log.txt
 ## TFS / OT
 #############
 config.lua
+# Estado gerado em runtime pelo servidor (rotação das ofertas diárias)
 data/store/daily_offers_state.xml
 jenkins-credentials.txt
 
@@ -216,7 +217,8 @@ tfs
 !data/npc/lib/tfs/init.lua
 
 # Others
-*.emmyrc.jsondata/scripts/meus/
+*.emmyrc.json
+data/scripts/meus/
 build-valgrind-linux/
 tfs-valgrind
 callgrind.out.*
