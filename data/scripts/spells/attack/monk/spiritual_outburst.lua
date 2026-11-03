@@ -170,7 +170,7 @@ function spell.onCastSpell(creature, var)
 	local cooldown = cooldownByGrade[grade]
 
 	local condition = Condition(CONDITION_SPELLCOOLDOWN, CONDITIONID_DEFAULT, 295)
-	condition:setTicks((cooldown * 1000) / configManager.getFloat(configKeys.RATE_SPELL_COOLDOWN))
+	condition:setTicks(cooldown * 1000) -- no RATE_SPELL_COOLDOWN config here
 	creature:addCondition(condition)
 
 	return true
