@@ -26,6 +26,7 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	local pos = creature:getPosition()
 	anomalyBreak(pos)
+	return true
 end
 
 spell:name("anomaly break")

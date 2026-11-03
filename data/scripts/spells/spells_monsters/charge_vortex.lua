@@ -35,6 +35,7 @@ local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
 	createVortex()
+	return true
 end
 
 spell:name("charge vortex")

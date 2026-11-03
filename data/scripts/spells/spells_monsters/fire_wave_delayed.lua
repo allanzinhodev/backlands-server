@@ -1,3 +1,4 @@
+local arr3, arr1, arr6, arr2, arr4, arr5, arr
 local combatWarn = Combat()
 combatWarn:setParameter(COMBAT_PARAM_TYPE, COMBAT_ENERGYDAMAGE)
 combatWarn:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_RED)

@@ -1,3 +1,4 @@
+local arr1, arr
 local combat1 = Combat()
 combat1:setParameter(COMBAT_PARAM_TYPE, COMBAT_HOLYDAMAGE)
 combat1:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HOLYDAMAGE)

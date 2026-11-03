@@ -1,3 +1,4 @@
+local arr
 local combat = {}
 
 for i = 25, 30 do

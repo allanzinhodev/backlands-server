@@ -1,3 +1,4 @@
+local arr
 local combat2 = Combat()
 combat2:setParameter(COMBAT_PARAM_TYPE, COMBAT_EARTHDAMAGE)
 combat2:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_POISON)

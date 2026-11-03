@@ -1,3 +1,4 @@
+local arr
 local summons = {
 	[1] = { name = "Demon Skeleton" },
 	[2] = { name = "Bonebeast" },
