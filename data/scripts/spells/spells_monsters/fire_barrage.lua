@@ -1,3 +1,4 @@
+local castFireMissile
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_FIREDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_FIREATTACK)
@@ -10,7 +11,7 @@ function spell.onCastSpell(creature, var)
 	addEvent(castFireMissile, 150, creature:getId(), var)
 	addEvent(castFireMissile, 300, creature:getId(), var)
 	addEvent(castFireMissile, 450, creature:getId(), var)
-	return
+	return true
 end
 
 function castFireMissile(cid, var)

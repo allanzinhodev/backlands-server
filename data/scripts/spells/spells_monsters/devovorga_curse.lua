@@ -1,3 +1,4 @@
+local arr
 local combat = {}
 
 for i = 1, 3 do
@@ -39,7 +40,7 @@ end
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-	return combat[math.random(2, 5)]:execute(creature, var)
+	return combat[math.random(1, #combat)]:execute(creature, var)
 end
 
 spell:name("devovorga curse")

@@ -903,7 +903,9 @@ local function revertLava()
 			end
 		else
 			local tp = Game.createItem(item.itemid, 1, item.position)
-			tp:setActionId(34201)
+			if tp then
+				tp:setActionId(34201)
+			end
 		end
 	end
 	return true
@@ -956,7 +958,7 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	creature:say("THE GROUND BEGINS TO HEAT UP RAPIDLY!", TALKTYPE_MONSTER_YELL)
 	addEvent(lavaGrounds, 3 * 1000, creature:getId())
-	return
+	return true
 end
 
 spell:name("mazoran fire")

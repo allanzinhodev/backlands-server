@@ -26,7 +26,6 @@ function onTargetTile(creature, pos)
 	local tile = Tile(pos)
 	if not tile then return true end
 
-	local creatures = tile:getSpectators() -- getSpectators em área 1x1 é mais estável
 	local min, max = 2200, 2500
 
 	for _, item in ipairs(tile:getCreatures() or {}) do

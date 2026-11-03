@@ -11,7 +11,7 @@ function spell.onCastSpell(creature, var)
 		creature:addCondition(condition)
 		creature:addHealth(math.random(5000, 7500))
 	else
-		return
+		return false
 	end
 	return true
 end

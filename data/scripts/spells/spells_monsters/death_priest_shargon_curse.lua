@@ -21,7 +21,7 @@ end
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-	return combat[math.random(1.12, 1.12)]:execute(creature, var)
+	return combat[1.12]:execute(creature, var)
 end
 
 spell:name("death priest shargon curse")

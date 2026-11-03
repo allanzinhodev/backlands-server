@@ -1,3 +1,4 @@
+local removeOutburst
 local function outExplode()
 	local spectators = Game.getSpectators(Position(32234, 31285, 14), false, true, 10, 10, 10, 10)
 	for _, spectator in ipairs(spectators) do
@@ -52,12 +53,12 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	outExplode()
 	delayedCastSpell(creature, var)
-	Game.setStorageValue(GlobalStorage.HeartOfDestruction.OutburstChargingKilled, 1)
+	Game.setStorageValue(crystalStorageKey("GlobalStorage.HeartOfDestruction.OutburstChargingKilled"), 1)
 	addEvent(removeOutburst, 1000, creature.uid)
 
 	local monster = Game.createMonster("Outburst", Position(32234, 31284, 14), false, true)
 	if monster then
-		local outburstHealth = Game.getStorageValue(GlobalStorage.HeartOfDestruction.OutburstHealth) > 0 and Game.getStorageValue(GlobalStorage.HeartOfDestruction.OutburstHealth) or 0
+		local outburstHealth = Game.getStorageValue(crystalStorageKey("GlobalStorage.HeartOfDestruction.OutburstHealth")) > 0 and Game.getStorageValue(crystalStorageKey("GlobalStorage.HeartOfDestruction.OutburstHealth")) or 0
 		monster:addHealth(-monster:getHealth() + outburstHealth, COMBAT_PHYSICALDAMAGE)
 	end
 	return true

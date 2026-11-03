@@ -1,3 +1,4 @@
+local hungerSummon = 0
 local hungerSummonDelay = false
 
 local combat = Combat()

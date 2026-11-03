@@ -6,18 +6,18 @@ function spell.onCastSpell(creature, var)
 		for i = 1, 4 do
 			local mid = Game.createMonster("Sin Devourer", Position(math.random(33478, 33491), math.random(32781, 32793), 13), true, true)
 			if not mid then
-				return
+				return false
 			end
 			mid:setMaster(creature)
 		end
 		for i = 1, 4 do
 			local mid2 = Game.createMonster("Damned Soul", Position(math.random(33478, 33491), math.random(32781, 32793), 13), true, true)
 			if not mid2 then
-				return
+				return false
 			end
 		end
 	end
-	return
+	return true
 end
 
 spell:name("shulgrax summon")

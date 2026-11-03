@@ -11,7 +11,7 @@ function spell.onCastSpell(creature, var)
 	local generators = generator[rand]
 	local monster = Game.createMonster("glooth-generator", generators.pos, true, true)
 	monster:say("THE GLOOTH GENERATOR CHARGES UP FOR A LETHAL EXPLOSION!", TALKTYPE_MONSTER_YELL)
-	return
+	return true
 end
 
 spell:name("generator")

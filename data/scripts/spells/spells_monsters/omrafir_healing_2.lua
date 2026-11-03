@@ -6,7 +6,7 @@ function spell.onCastSpell(creature, var)
 	if creature:getName() == "Omrafir" and (hp < 99.99) then
 		local t = Tile(cpos)
 		if t == nil then
-			return
+			return false
 		end
 		if t:getItemById(1487) or t:getItemById(1492) or t:getItemById(1500) then
 			creature:addHealth(health)
@@ -15,6 +15,7 @@ function spell.onCastSpell(creature, var)
 		else
 		end
 	end
+	return true
 end
 
 spell:name("omrafir healing 2")

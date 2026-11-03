@@ -1,3 +1,4 @@
+local castIceMissile
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ICEDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ICEAREA)
@@ -10,7 +11,7 @@ function spell.onCastSpell(creature, var)
 	addEvent(castIceMissile, 150, creature:getId(), var)
 	addEvent(castIceMissile, 300, creature:getId(), var)
 	addEvent(castIceMissile, 450, creature:getId(), var)
-	return
+	return true
 end
 
 function castIceMissile(cid, var)

@@ -1,3 +1,4 @@
+local castHolyMissile
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_HOLYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HOLYDAMAGE)
@@ -10,7 +11,7 @@ function spell.onCastSpell(creature, var)
 	addEvent(castHolyMissile, 150, creature:getId(), var)
 	addEvent(castHolyMissile, 300, creature:getId(), var)
 	addEvent(castHolyMissile, 450, creature:getId(), var)
-	return
+	return true
 end
 
 function castHolyMissile(cid, var)

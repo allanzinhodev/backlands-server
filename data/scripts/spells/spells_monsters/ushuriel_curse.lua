@@ -23,7 +23,7 @@ end
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-	return combat[math.random(1, 1.1)]:execute(creature, var)
+	return combat[1]:execute(creature, var)
 end
 
 spell:name("ushuriel curse")

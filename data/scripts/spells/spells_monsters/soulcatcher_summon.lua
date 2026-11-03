@@ -7,7 +7,7 @@ function spell.onCastSpell(creature, var)
 		Game.createMonster("corrupted soul", pos, true, true)
 		creature:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	else
-		return
+		return false
 	end
 	return true
 end

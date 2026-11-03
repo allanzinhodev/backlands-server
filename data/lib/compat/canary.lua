@@ -6,6 +6,31 @@ function Player:instantSkillWOD(name)
 	return self:revelationStageWOD(name) > 0
 end
 
+-- Without the wheel (wheelSystemEnabled = false) wheel.lua returns before defining its Player
+-- methods, and the spells calling them fail. This file loads first, so when the wheel is enabled
+-- wheel.lua replaces these defaults (no grade, no bonus).
+function Player:upgradeSpellsWOD(spellName)
+	return 0
+end
+
+function Player:getWheelSpellHealingPercentBonus(spellName)
+	return 0
+end
+
+function Player:hasWheelHealingLink()
+	return false
+end
+
+function Player:hasWheelBattleHealing()
+	return false
+end
+
+function Player:applyWheelHealingLinkSelfHeal(target, hpBefore)
+end
+
+function Player:applyWheelBattleHealingForChallenge()
+end
+
 -- Canary recalculates wheel bonuses here; the wheel module already applies them on change.
 function Player:onThinkWheelOfDestiny(force)
 	return true
@@ -76,6 +101,18 @@ function Creature:applyZoneEffect(var, combat, zoneName)
 	return combat:execute(self, var)
 end
 
+-- Storage.* / GlobalStorage.* of the ported Crystal quests only exist in the NPC state
+-- (data/npc/lib/crystalcompat). Same hash, so a spell and the quest NPCs share the key:
+-- crystalStorageKey("Storage.Quest.U12_00.TheDreamCourts.Malofur").
+function crystalStorageKey(path)
+	local base = path:find("^GlobalStorage%.") and 1000000000 or 500000000
+	local hash = base
+	for i = 1, #path do
+		hash = (hash * 131 + path:byte(i)) % 1000000000
+	end
+	return base + hash
+end
+
 -- Canary constants missing here (aliases to the TFS equivalents).
 WHEEL_GRADE_NONE = WHEEL_GRADE_NONE or 0
 MESSAGE_LOOK = MESSAGE_LOOK or MESSAGE_INFO_DESCR
@@ -84,3 +121,4 @@ COMBAT_PARAM_SHOOT = COMBAT_PARAM_SHOOT or COMBAT_PARAM_DISTANCEEFFECT
 COMBAT_PARAM_SHOOT_EFFECT = COMBAT_PARAM_SHOOT_EFFECT or COMBAT_PARAM_DISTANCEEFFECT
 CONDITION_PARAM_SKILL_DEFENSE = CONDITION_PARAM_SKILL_DEFENSE or CONDITION_PARAM_SKILL_SHIELD
 CONST_ME_POISON = CONST_ME_POISON or CONST_ME_POISONAREA
+CONST_ME_FEAR = CONST_ME_FEAR or CONST_ME_SMALLCLOUDS

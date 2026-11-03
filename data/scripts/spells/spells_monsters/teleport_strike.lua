@@ -52,7 +52,7 @@ function spell.onCastSpell(creature, var)
 		creature:teleportTo(pos3)
 	end
 
-	return
+	return true
 end
 
 spell:name("teleport strike")

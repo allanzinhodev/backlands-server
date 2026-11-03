@@ -1,3 +1,4 @@
+local castPhysicalMissile
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_PHYSICALDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_DRAWBLOOD)
@@ -10,7 +11,7 @@ function spell.onCastSpell(creature, var)
 	addEvent(castPhysicalMissile, 150, creature:getId(), var)
 	addEvent(castPhysicalMissile, 300, creature:getId(), var)
 	addEvent(castPhysicalMissile, 450, creature:getId(), var)
-	return
+	return true
 end
 
 function castPhysicalMissile(cid, var)

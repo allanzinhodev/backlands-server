@@ -25,7 +25,10 @@ local function targetFunction(creature, target)
 	if creature and creature:getPlayer() then
 		gradeBuff = creature:upgradeSpellsWOD("Drain_Body_Spells")
 	end
-	condition:setParameter(CONDITION_PARAM_DRAIN_BODY, gradeBuff)
+	-- Canary wheel param, not in this engine.
+	if CONDITION_PARAM_DRAIN_BODY then
+		condition:setParameter(CONDITION_PARAM_DRAIN_BODY, gradeBuff)
+	end
 
 	target:addCondition(condition)
 end

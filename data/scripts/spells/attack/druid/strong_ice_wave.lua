@@ -4,10 +4,15 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ICEAREA)
 -- Vocation Adjustment: size increased (AREA_SHORTWAVE3 -> AREA_SQUAREWAVE5)
 combat:setArea(createCombatArea(AREA_SQUAREWAVE5, AREADIAGONAL_SQUAREWAVE5))
 
-function onGetFormulaValues(player, level, maglevel)
+-- setCallback(name) binds the global and clears it, so both combats share this local.
+local function formulaValues(player, level, maglevel)
 	local min = (level / 5) + (maglevel * 4.5) + 20
 	local max = (level / 5) + (maglevel * 7.6) + 48
 	return -min, -max
+end
+
+function onGetFormulaValues(player, level, maglevel)
+	return formulaValues(player, level, maglevel)
 end
 
 combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
@@ -18,7 +23,7 @@ combatWOD:setParameter(COMBAT_PARAM_TYPE, COMBAT_ICEDAMAGE)
 combatWOD:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ICEAREA)
 combatWOD:setArea(createCombatArea(AREA_WAVE7, AREADIAGONAL_WAVE7))
 function onGetFormulaValuesWOD(player, level, maglevel)
-	return onGetFormulaValues(player, level, maglevel)
+	return formulaValues(player, level, maglevel)
 end
 combatWOD:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValuesWOD")
 

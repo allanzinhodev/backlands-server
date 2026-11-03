@@ -8,7 +8,7 @@ function spell.onCastSpell(creature, var)
 			local tile = Tile(Position({ x = x, y = y, z = 12 }))
 			if tile then
 				local creatureTile = tile:getTopCreature()
-				if creatureTile and creatureTile:isMonster() and creature:getName():lower() ~= "prince drazzak" or creatureTile:isPlayer() then
+				if creatureTile and ((creatureTile:isMonster() and creatureTile:getName():lower() ~= "prince drazzak") or creatureTile:isPlayer()) then
 					creatureTile:teleportTo(center, true)
 					creature:teleportTo(center2, true)
 				end

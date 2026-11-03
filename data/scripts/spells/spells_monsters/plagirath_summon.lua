@@ -7,12 +7,12 @@ function spell.onCastSpell(creature, var)
 		for i = 1, maxsummons - #summoncount do
 			local mid = Game.createMonster("Disgusting Ooze", Position(math.random(33163, 33180), math.random(31497, 31506), 13), true, true)
 			if not mid then
-				return
+				return false
 			end
 			mid:setMaster(creature)
 		end
 	end
-	return
+	return true
 end
 
 spell:name("plagirath summon")

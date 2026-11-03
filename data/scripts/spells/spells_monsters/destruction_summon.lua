@@ -1,3 +1,4 @@
+local destructionSummon = 0
 local destructionSummonDelay = false
 
 local combat = Combat()

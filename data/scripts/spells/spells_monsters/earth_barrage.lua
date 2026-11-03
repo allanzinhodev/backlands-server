@@ -1,3 +1,4 @@
+local castEarthMissile
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_EARTHDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HITBYPOISON)
@@ -10,7 +11,7 @@ function spell.onCastSpell(creature, var)
 	addEvent(castEarthMissile, 150, creature:getId(), var)
 	addEvent(castEarthMissile, 300, creature:getId(), var)
 	addEvent(castEarthMissile, 450, creature:getId(), var)
-	return
+	return true
 end
 
 function castEarthMissile(cid, var)

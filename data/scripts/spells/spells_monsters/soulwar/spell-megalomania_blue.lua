@@ -22,16 +22,13 @@ local combat = Combat()
 combat:setArea(createArea)
 
 function onTargetTile(creature, pos)
-	for _, pos in ipairs(zonePositions) do
-		local tile = Tile(pos)
-		if tile and tile:getGround() and tile:getGround():getId() ~= 409 then
-			local creature = tile:getTopCreature()
-			if creature then
-				local player = creature:getPlayer()
-				if player then
-					player:addHealth(-6000, COMBAT_DEATHDAMAGE)
-				end
-			end
+	-- Ground 409 is the safe spot of the arena.
+	local tile = Tile(pos)
+	if tile and tile:getGround() and tile:getGround():getId() ~= 409 then
+		local target = tile:getTopCreature()
+		local player = target and target:getPlayer()
+		if player then
+			player:addHealth(-6000, COMBAT_DEATHDAMAGE)
 		end
 	end
 

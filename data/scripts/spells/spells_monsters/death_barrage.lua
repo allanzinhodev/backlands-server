@@ -1,3 +1,4 @@
+local castDeathMissile
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_DEATHDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MORTAREA)
@@ -10,7 +11,7 @@ function spell.onCastSpell(creature, var)
 	addEvent(castDeathMissile, 150, creature:getId(), var)
 	addEvent(castDeathMissile, 300, creature:getId(), var)
 	addEvent(castDeathMissile, 450, creature:getId(), var)
-	return
+	return true
 end
 
 function castDeathMissile(cid, var)

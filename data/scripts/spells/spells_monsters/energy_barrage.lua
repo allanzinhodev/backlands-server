@@ -1,3 +1,4 @@
+local castEnergyMissile
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ENERGYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_PURPLEENERGY)
@@ -10,7 +11,7 @@ function spell.onCastSpell(creature, var)
 	addEvent(castEnergyMissile, 150, creature:getId(), var)
 	addEvent(castEnergyMissile, 300, creature:getId(), var)
 	addEvent(castEnergyMissile, 450, creature:getId(), var)
-	return
+	return true
 end
 
 function castEnergyMissile(cid, var)

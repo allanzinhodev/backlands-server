@@ -3,8 +3,8 @@ combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_PHYSICALDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, 262)
 combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_FIRE)
 
-local minDmg = -3000 -- Altere esses valores conforme necessário
-local maxDmg = -7000 -- Altere esses valores conforme necessário
+local minDmg = -7000 -- Altere esses valores conforme necessário
+local maxDmg = -3000 -- Altere esses valores conforme necessário
 
 local arr = {
 	{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -39,6 +39,7 @@ function spell.onCastSpell(creature, var)
 		combat:addCondition(condition)
 		return combat:execute(creature, var)
 	end, 5000) -- Executa o ataque após 5 segundos
+	return true
 end
 
 spell:name("mitmah soulfire")

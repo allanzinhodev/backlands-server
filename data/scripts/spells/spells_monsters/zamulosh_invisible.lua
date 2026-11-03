@@ -20,7 +20,7 @@ local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
 	invisible(Position(33634, 32749, 11), Position(33654, 32765, 11))
-	return
+	return true
 end
 
 spell:name("zamulosh invisible")

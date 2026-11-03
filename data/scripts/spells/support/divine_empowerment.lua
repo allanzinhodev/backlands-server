@@ -26,6 +26,13 @@ function spell.onCastSpell(creature, var)
 		return false
 	end
 
+	-- Canary item, not in this items.xml yet.
+	if not ITEM_DIVINE_EMPOWERMENT then
+		creature:sendCancelMessage("You cannot cast this spell")
+		creature:getPosition():sendMagicEffect(CONST_ME_POFF)
+		return false
+	end
+
 	local position = creature:getPosition()
 	for x = -1, 1 do
 		for y = -1, 1 do
