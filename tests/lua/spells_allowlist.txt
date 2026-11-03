@@ -1,0 +1,24 @@
+# Known exceptions of tests/lua/spells_test.lua, one per line:
+#   <file under data/scripts/spells>                     -> skip the whole file
+#   <file>: <message without the "(...)" hint>           -> skip one message
+# Every entry needs a reason; fix the script instead whenever possible.
+
+# Not a spell: removed on purpose, the file only keeps a comment.
+support/mentor_other.lua
+# Not a spell: shared GazVariables table for gaz'haragoth_summon.lua.
+spells_monsters/gaz_functions.lua
+
+# Globals read by network/wheel/wheel.lua (refreshActive on login/wheel change).
+support/sharpshooter.lua: global vazado: SharpshooterWheel
+support/swift_foot.lua: global vazado: SwiftFootWheel
+
+# Practise/light conjure spells with no official spell id (icon/cooldown by id unused).
+conjuring/light_magic_missile_rune.lua: sem spell:id()
+conjuring/light_stone_shower_rune.lua: sem spell:id()
+conjuring/lightest_magic_missile_rune.lua: sem spell:id()
+conjuring/lightest_missile_rune.lua: sem spell:id()
+
+# Canary wheel constants missing in this engine; the scripts check them before use.
+support/expose_weakness.lua: constante indefinida: CONDITION_PARAM_DRAIN_BODY
+support/sap_strength.lua: constante indefinida: CONDITION_PARAM_DRAIN_BODY
+support/divine_empowerment.lua: constante indefinida: ITEM_DIVINE_EMPOWERMENT

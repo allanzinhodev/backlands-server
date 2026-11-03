@@ -9,6 +9,9 @@ on:
       - ".github/workflows/lua-check.yml"
       - "config.lua.dist"
       - "data/**/*.lua"
+      - "src/**"
+      - "tests/lua/**"
+      - "tools/generate-lua-api.py"
 
   pull_request:
     branches:
@@ -18,6 +21,9 @@ on:
       - ".github/workflows/lua-check.yml"
       - "config.lua.dist"
       - "data/**/*.lua"
+      - "src/**"
+      - "tests/lua/**"
+      - "tools/generate-lua-api.py"
 
   workflow_dispatch:
 
@@ -49,6 +55,27 @@ jobs:
         run: |
           luac5.4 -p config.lua.dist
           find data/ -type f -name '*.lua' -print0 | xargs -0 -r -n1 luac5.4 -p
+
+  spells:
+    name: Spell scripts test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: [luac]
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
+
+      - name: Install Lua
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lua5.4
+
+      - name: Run spell tests
+        run: tests/lua/run-spell-tests.sh
 
   lint:
     name: Lua lint
