@@ -353,6 +353,19 @@ bool shouldUseContainerInsteadOfQuickLoot(const Container* container)
 	                     container->isRewardCorpse() || hasQuickLootDisabled(container));
 }
 
+// Quick loot has no window slot from the client; opening with slot 0 replaced
+// whatever container was already open there (usually the main backpack).
+uint8_t getFreeContainerId(const Player* player)
+{
+	const auto& openContainers = player->getOpenContainers();
+	for (uint8_t cid = 0; cid < 0xF; ++cid) {
+		if (!openContainers.contains(cid)) {
+			return cid;
+		}
+	}
+	return 0xF;
+}
+
 bool isQuickLootCorpseType(const Container* container)
 {
 	if (!container) {
@@ -4364,7 +4377,7 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t item
 			if (Item* clickedItem = clickedThing->getItem()) {
 				if (Container* clickedContainer = clickedItem->getContainer();
 				    shouldUseContainerInsteadOfQuickLoot(clickedContainer)) {
-					playerUseItem(playerId, pos, stackPos, 0, itemId);
+					playerUseItem(playerId, pos, stackPos, getFreeContainerId(player), itemId);
 					return;
 				}
 			}
@@ -4414,7 +4427,7 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t item
 
 	if (Container* container = item->getContainer()) {
 		if (shouldUseContainerInsteadOfQuickLoot(container) || !isQuickLootCorpseType(container)) {
-			playerUseItem(playerId, pos, stackPos, 0, itemId);
+			playerUseItem(playerId, pos, stackPos, getFreeContainerId(player), itemId);
 			return;
 		}
 
