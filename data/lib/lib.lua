@@ -18,3 +18,6 @@ if startupFile ~= nil then
 	dofile("data/startup/startup.lua")
 	io.close(startupFile)
 end
+
+-- Strict globals (strictLuaGlobals in config.lua): loaded last, once everything above is defined
+dofile(CORE_DIRECTORY .. "/lib/debugging/strict_globals.lua")

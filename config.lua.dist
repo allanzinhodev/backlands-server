@@ -511,6 +511,11 @@ staminaTrainerGain = 1
 -- Scripts
 -- warnUnsafeScripts and convertUnsafeScripts have been removed.
 -- The server always enforces safe Lua behavior (hardcoded).
+-- strictLuaGlobals: after loading, a runtime callback that reads an undefined global or creates a
+-- new one fails with file:line (data/lib/debugging/strict_globals.lua). Load code is not affected.
+-- Off by default: an error in onLogin kicks the player, so enable it only on dev, once
+-- tests/lua/run-script-tests.sh reports no undefined globals.
+strictLuaGlobals = false
 
 -- Startup
 -- NOTE: defaultPriority only works on Windows and sets process
