@@ -227,3 +227,6 @@ analysis-reports/
 compile_commands.json
 *.plist
 *.sarif
+
+# Mapa global convertido do Crystal (~190 MB): gerar com tools/convert-crystal-map.py
+data/world/global.otbm
