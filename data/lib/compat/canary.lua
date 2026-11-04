@@ -122,3 +122,56 @@ COMBAT_PARAM_SHOOT_EFFECT = COMBAT_PARAM_SHOOT_EFFECT or COMBAT_PARAM_DISTANCEEF
 CONDITION_PARAM_SKILL_DEFENSE = CONDITION_PARAM_SKILL_DEFENSE or CONDITION_PARAM_SKILL_SHIELD
 CONST_ME_POISON = CONST_ME_POISON or CONST_ME_POISONAREA
 CONST_ME_FEAR = CONST_ME_FEAR or CONST_ME_SMALLCLOUDS
+
+-- Crystal globals used by the scripts ported to data/scripts/{actions,movements}/crystal.
+MESSAGE_GAME_HIGHLIGHT = MESSAGE_GAME_HIGHLIGHT or MESSAGE_EVENT_ADVANCE
+
+-- data-global/lib/tables/town.lua (town ids of the global map)
+TOWNS_LIST = {
+	DAWNPORT_TUTORIAL = 1,
+	DAWNPORT = 2,
+	ROOKGAARD = 3,
+	ISLAND_OF_DESTINY = 4,
+	AB_DENDRIEL = 5,
+	CARLIN = 6,
+	KAZORDOON = 7,
+	THAIS = 8,
+	VENORE = 9,
+	ANKRAHMUN = 10,
+	EDRON = 11,
+	FARMINE = 12,
+	DARASHIA = 13,
+	LIBERTY_BAY = 14,
+	PORT_HOPE = 15,
+	SVARGROND = 16,
+	YALAHAR = 17,
+	GRAY_BEACH = 18,
+	KRAILOS = 19,
+	RATHLETON = 20,
+	ROSHAMUUL = 21,
+	ISSAVI = 22,
+	EVENT_ROOM = 23,
+	COBRA_BASTION = 24,
+	BOUNAC = 25,
+	FEYRIST = 26,
+	BLUE_VALLEY = 32,
+	NEWHAVEN = 33,
+	TARGUNA = 34,
+}
+
+-- data-global/lib/tables/teleport_item_destinations.lua
+-- Set to which position items are teleported for each teleport item
+-- If no position is set they will not be teleported anywhere
+--[[
+	[aid] = {destination = Postion(), effect = CONST_ME__}
+]]
+
+ItemTeleports = {
+	[5629] = { destination = Position(33145, 32863, 7), effect = CONST_ME_MAGIC_GREEN },
+	[5630] = { destination = Position(33147, 32864, 7), effect = CONST_ME_MAGIC_GREEN },
+
+	-- Rookgaard level bridge
+	[50240] = { destination = Position(32092, 32177, 6), effect = CONST_ME_MAGIC_BLUE },
+	-- Rookgaard premium bridge
+	[50241] = { destination = Position(32066, 32192, 7), effect = CONST_ME_MAGIC_BLUE },
+}

@@ -18,35 +18,36 @@ end
 -- These functions load the action/unique tables on the map
 function loadLuaMapAction(tablename)
 	-- It load actions
-	for index, value in pairs(tablename) do
-		for i = 1, #value.itemPos do
-			local tile = Tile(value.itemPos[i])
-			local item
-			-- Checks if the position is valid
-			if tile then
-				-- Checks that you have no items created
-				if not value.itemId == false and tile:getItemCountById(value.itemId) == 0 then
-					logWarning("[loadLuaMapAction] - Wrong item id found")
-					logWarning(string.format("Action id: %d, item id: %d", index, value.itemId))
-					break
-				end
-
-				if value.itemId ~= false and tile:getItemCountById(value.itemId) > 0 then
-					item = tile:getItemById(value.itemId)
-				end
-				
-				-- If he found the item, add the action id.
-				if item and value.itemId ~= false then
-					item:setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
-				end
-				if value.itemId == false and tile:getTopDownItem() then
-					tile:getTopDownItem():setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
-				end
-				if value.itemId == false and tile:getTopTopItem() then
-					tile:getTopTopItem():setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
-				end
-				if value.itemId == false and tile:getGround() then
-					tile:getGround():setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
+	for index, blocks in pairs(tablename) do
+		-- An entry is normally one { itemId, itemPos } block. When the same action id sits on
+		-- several different items the key cannot repeat, so the entry is a list of blocks instead.
+		for _, value in ipairs(blocks.itemPos and { blocks } or blocks) do
+			for i = 1, #value.itemPos do
+				local tile = Tile(value.itemPos[i])
+				-- Checks if the position is valid
+				if tile then
+					if value.itemId ~= false then
+						local item = tile:getItemById(value.itemId)
+						-- If he found the item, add the action id; a wrong one only skips this position
+						if item then
+							item:setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
+						else
+							logWarning(string.format("[loadLuaMapAction] - Wrong item id %d (action id %d) at (%d, %d, %d)", value.itemId, index, value.itemPos[i].x, value.itemPos[i].y, value.itemPos[i].z))
+						end
+					else
+						if tile:getTopDownItem() then
+							tile:getTopDownItem():setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
+						end
+						if tile:getTopTopItem() then
+							tile:getTopTopItem():setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
+						end
+						if tile:getGround() then
+							tile:getGround():setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
+						end
+					end
+				else
+					local pos = value.itemPos[i]
+					logWarning(string.format("[loadLuaMapAction] - No tile (action id %d) at (%s, %s, %s)", index, tostring(pos.x), tostring(pos.y), tostring(pos.z)))
 				end
 			end
 		end
@@ -54,29 +55,19 @@ function loadLuaMapAction(tablename)
 end
 
 function loadLuaMapUnique(tablename)
-	-- It load uniques
+	-- Item:setAttribute() refuses ITEM_ATTRIBUTE_UNIQUEID (luaitem.cpp), so a unique id cannot be
+	-- stamped from Lua: only count the entries and report them once, per table.
+	local pending = 0
 	for index, value in pairs(tablename) do
 		local tile = Tile(value.itemPos)
-		local item
-		-- Checks if the position is valid
-		if tile then
-			-- Checks that you have no items created
-			if not value.itemId == false and tile:getItemCountById(value.itemId) == 0 then
-				logWarning("[loadLuaMapUnique] - Wrong item id found")
-				logWarning("Unique id: ".. index ..", item id: ".. value.itemId .."")
-				break
-			end
-			if tile:getItemCountById(value.itemId) < 1 or value.itemId == false then
-				logWarning("[loadLuaMapUnique] - Wrong item id found")
-				logWarning("Unique id: ".. index ..", item id: wrong")
-				break
-			end
-			item = tile:getItemById(value.itemId)
-			-- If he found the item, add the unique id
-			if item then
-				item:setAttribute(ITEM_ATTRIBUTE_UNIQUEID, index)
-			end
+		if tile and value.itemId ~= false and tile:getItemById(value.itemId) then
+			pending = pending + 1
+		else
+			logWarning(string.format("[loadLuaMapUnique] - Item %s (unique id %d) not found at (%d, %d, %d)", tostring(value.itemId), index, value.itemPos.x, value.itemPos.y, value.itemPos.z))
 		end
+	end
+	if pending > 0 then
+		logWarning(string.format("[loadLuaMapUnique] - %d unique ids not stamped: the engine does not allow it from Lua", pending))
 	end
 end
 
