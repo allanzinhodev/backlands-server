@@ -1,0 +1,4 @@
+# Known false positives of tests/lua/scripts_test.lua (mock limitations), one per line:
+#   <file>                      skips every failure of that file
+#   <file>: <message prefix>    skips one failure
+# Each entry needs a comment saying why it is not a real bug.

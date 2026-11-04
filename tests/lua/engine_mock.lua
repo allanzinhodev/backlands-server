@@ -7,6 +7,7 @@ local M = {
 	creatures = {},
 	events = {},
 	spells = {},
+	objects = {}, -- event objects (Action, MoveEvent, ..., MonsterType, NpcType) created while loading
 	issues = {},
 	current = nil, -- spell record being cast, so callback errors are blamed on it
 }
@@ -129,6 +130,18 @@ local function newPosition(x, y, z, stackpos)
 end
 M.position = newPosition
 
+-- Items handed to action/movement callbacks.
+function M.item(id, data)
+	data = data or {}
+	return instance(data.class or "Item", {
+		id = id or 0,
+		count = data.count or 1,
+		actionId = data.actionId or 0,
+		uniqueId = data.uniqueId or 0,
+		position = newPosition(data.position or { x = 100, y = 100, z = 7 }),
+	})
+end
+
 -- Creatures the cast tests use as caster and target.
 function M.creature(className, data)
 	local state = {
@@ -143,6 +156,8 @@ function M.creature(className, data)
 		soul = data.soul or 100,
 		position = newPosition(data.position or { x = 100, y = 100, z = 7 }),
 		storage = {},
+		access = data.access,
+		accountType = data.accountType,
 	}
 	local creature = instance(className, state)
 	M.creatures[state.id] = creature
@@ -267,11 +282,11 @@ local creatureMethods = {
 	getBaseSpeed = function()
 		return 220
 	end,
-	getGroup = function()
-		return instance("Group", {})
+	getGroup = function(self)
+		return instance("Group", { access = self.__mock.access })
 	end,
-	getAccountType = function()
-		return 1
+	getAccountType = function(self)
+		return self.__mock.accountType or 1
 	end,
 	getGuid = function(self)
 		return self.__mock.id
@@ -329,8 +344,8 @@ local specific = {
 		end,
 	},
 	Group = {
-		getAccess = function()
-			return false
+		getAccess = function(self)
+			return self.__mock.access or false
 		end,
 		getId = function()
 			return 1
@@ -392,6 +407,64 @@ local specific = {
 		end,
 		getPosition = function(self)
 			return newPosition(self.__mock.pos or { x = 0, y = 0, z = 0 })
+		end,
+	},
+	Item = {
+		getId = function(self)
+			return self.__mock.id
+		end,
+		getActionId = function(self)
+			return self.__mock.actionId
+		end,
+		getUniqueId = function(self)
+			return self.__mock.uniqueId
+		end,
+		getCount = function(self)
+			return self.__mock.count
+		end,
+		getSubType = function(self)
+			return self.__mock.count
+		end,
+		getCharges = function()
+			return 0
+		end,
+		getPosition = function(self)
+			return newPosition(self.__mock.position)
+		end,
+		getTile = function(self)
+			return instance("Tile", { position = newPosition(self.__mock.position) })
+		end,
+		getType = function(self)
+			return instance("ItemType", { id = self.__mock.id })
+		end,
+		getName = function(self)
+			return "item " .. tostring(self.__mock.id)
+		end,
+		getTopParent = function()
+			return nil
+		end,
+		getParent = function()
+			return nil
+		end,
+		isItem = function()
+			return true
+		end,
+	},
+	ItemType = {
+		getId = function(self)
+			return self.__mock.id or 0
+		end,
+	},
+	NpcType = {
+		name = function(self, value)
+			if value ~= nil then
+				self.__mock.name = value
+				return true
+			end
+			return self.__mock.name or "npc"
+		end,
+		getName = function(self)
+			return self.__mock.name or "npc"
 		end,
 	},
 	MonsterType = {
@@ -550,12 +623,14 @@ function M.runCallbacks(combat, caster)
 	end
 end
 
--- Spell: stores the configuration (methods double as getters when called without arguments).
+-- Spell and event objects store their configuration (methods double as getters when called
+-- without arguments).
 local SPELL_CONFIG = {}
 
 local function spellMethod(name)
 	return function(self, ...)
-		local config = self.__mock.config
+		local config = self.__mock.config or {}
+		self.__mock.config = config
 		if select("#", ...) == 0 then
 			local stored = config[name]
 			if stored then
@@ -587,6 +662,48 @@ setmetatable(specific.Spell, {
 		return SPELL_CONFIG[name]
 	end,
 })
+
+-- Event objects: on*(fn) keeps the callback, register() counts, the rest is configuration.
+local RECORDING = {
+	Action = true,
+	MoveEvent = true,
+	TalkAction = true,
+	CreatureEvent = true,
+	GlobalEvent = true,
+	Weapon = true,
+	MonsterType = true,
+	NpcType = true,
+}
+M.RECORDING = RECORDING
+
+local function newObject(className, ...)
+	local args = table.pack(...)
+	local name = type(args[1]) == "string" and args[1] or nil
+	local object = instance(className, { file = M.loadingFile, args = args, name = name, config = {}, callbacks = {} })
+	table.insert(M.objects, object)
+	return object
+end
+M.newObject = newObject
+
+local function recordingMethod(className, method)
+	if method == "register" then
+		return function(self)
+			self.__mock.registered = (self.__mock.registered or 0) + 1
+			return true
+		end
+	end
+	if method:find("^on%u") then
+		return function(self, fn, ...)
+			if type(fn) == "function" then
+				self.__mock.callbacks = self.__mock.callbacks or {}
+				self.__mock.callbacks[method] = fn
+				return true
+			end
+			return spellMethod(method)(self, fn, ...)
+		end
+	end
+	return spellMethod(method)
+end
 
 -- Constructors of the classes registered with one (registerClass(name, base, constructor)).
 local constructors = {
@@ -626,12 +743,17 @@ local constructors = {
 		return instance("MonsterType", { name = name })
 	end,
 	ItemType = function(id)
-		return instance("ItemType", { id = id })
+		-- ItemType("name") resolves to some item id in the engine.
+		return instance("ItemType", { id = type(id) == "number" and id or 100 })
 	end,
 }
 
 local function creatureConstructor(className)
 	return function(value)
+		-- Npc() with no argument: the NPC whose event is running (ScriptEnvironment::getNpc).
+		if value == nil and className == "Npc" then
+			return M.currentNpc
+		end
 		if classOf(value) then
 			return inherits(classOf(value), className) and value or nil
 		end
@@ -658,6 +780,9 @@ end
 constructors.Container = constructors.Item
 
 local functions = {
+	getNpcCid = function()
+		return M.currentNpc and M.currentNpc.__mock.id or 0
+	end,
 	addEvent = function(fn, delay, ...)
 		if type(fn) ~= "function" then
 			M.issue("addEvent sem função (" .. type(fn) .. ")")
@@ -701,6 +826,16 @@ local tableFunctions = {
 		createItem = function()
 			return nil
 		end,
+		createMonsterType = function(name)
+			local object = newObject("MonsterType", name)
+			object.__mock.name = name
+			return object
+		end,
+		createNpcType = function(name)
+			local object = newObject("NpcType", name)
+			object.__mock.name = name
+			return object
+		end,
 	},
 	configManager = {
 		getNumber = function()
@@ -728,6 +863,9 @@ local function stub(className, method)
 		if fn then
 			return fn
 		end
+	end
+	if RECORDING[className] then
+		return recordingMethod(className, method)
 	end
 	local value = defaultReturn(method)
 	return function()
@@ -769,7 +907,8 @@ function M.install(api)
 
 	for name in pairs(api.classes) do
 		classes[name] = {}
-		metas[name] = { __index = classes[name], __metatable = classes[name], __name = name }
+		-- __close: scripts use `local loot <close> = Loot()` (the engine's userdata are closable).
+		metas[name] = { __index = classes[name], __metatable = classes[name], __name = name, __close = function() end }
 	end
 	metas.Position.__eq = function(a, b)
 		return a.x == b.x and a.y == b.y and a.z == b.z
@@ -781,7 +920,9 @@ function M.install(api)
 				cls[method] = stub(name, method)
 			end
 		end
-		local constructor = constructors[name] or function()
+		local constructor = constructors[name] or (RECORDING[name] and function(...)
+			return newObject(name, ...)
+		end) or function()
 			return instance(name, {})
 		end
 		setmetatable(cls, {
