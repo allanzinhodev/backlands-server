@@ -164,7 +164,7 @@ function onUseRope(player, item, fromPosition, target, toPosition, isHotkey)
 		local thing = tile:getTopVisibleThing()
 		if not thing then return true end
 
-		if thing:isCreature() and (thing:isPlayer() or thing:isMonster()) then
+		if thing:isCreature() and thing:isPlayer() then
 			if Tile(toPosition:moveUpstairs()):queryAdd(thing) ~= RETURNVALUE_NOERROR then
 				return false
 			end
