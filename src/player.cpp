@@ -2176,6 +2176,16 @@ bool Player::canOpenCorpse(uint32_t ownerId) const
 	return p && p->canOpenCorpse(ownerId);
 }
 
+// Regra única do direito de saque: abrir o corpo, destacar o loot e quick loot
+// passam por aqui. O dono é gravado na morte (Monster::getCorpse: quem mais deu
+// dano, ou o dono da summon); sem dono, ou o sentinela INT32_MAX, é livre.
+bool Player::canLootCorpse(const Container& corpse) const
+{
+	const uint32_t ownerId = corpse.getCorpseOwner();
+	return ownerId == 0 || ownerId == static_cast<uint32_t>(std::numeric_limits<int32_t>::max()) ||
+	       canOpenCorpse(ownerId) || hasFlag(PlayerFlag_CanEditHouses);
+}
+
 uint16_t Player::getLookCorpse() const
 {
 	if (sex == PLAYERSEX_FEMALE) {

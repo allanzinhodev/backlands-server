@@ -1067,6 +1067,12 @@ bool Container::isLootCorpse() const
 		return true;
 	}
 
+	// items.xml do 8.60 não tem corpseType: o corpo de monstro é marcado na
+	// morte (Monster::getCorpse), com ou sem dono.
+	if (getCustomAttribute("MonsterCorpse")) {
+		return true;
+	}
+
 	const ItemType& type = Item::items[getID()];
 	return type.corpseType != RACE_NONE || getCorpseOwner() != 0;
 }
@@ -1077,10 +1083,7 @@ uint8_t Container::getSpecialCategory(const Player* viewer) const
 		return CONTAINER_SPECIAL_NONE;
 	}
 
-	const uint32_t corpseOwner = getCorpseOwner();
-	if (corpseOwner != 0 &&
-	    corpseOwner != static_cast<uint32_t>(std::numeric_limits<int32_t>::max()) &&
-	    !viewer->canOpenCorpse(corpseOwner) && !viewer->hasFlag(PlayerFlag_CanEditHouses)) {
+	if (!viewer->canLootCorpse(*this)) {
 		return CONTAINER_SPECIAL_NONE;
 	}
 

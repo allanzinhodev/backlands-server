@@ -286,7 +286,6 @@ ReturnValue Actions::internalUseItem(Player* player, const Position& pos, uint8_
 			openContainer = container;
 		}
 
-		uint32_t corpseOwner = container->getCorpseOwner();
 		if (container->isRewardCorpse()) {
 			RewardChest& myRewardChest = player->getRewardChest();
 			for (const auto& subItem : container->getItemList()) {
@@ -305,7 +304,7 @@ ReturnValue Actions::internalUseItem(Player* player, const Position& pos, uint8_
 				}
 			}
 		}
-		else if (corpseOwner != 0 && !player->canOpenCorpse(corpseOwner)) {
+		else if (!player->canLootCorpse(*container)) {
 			return RETURNVALUE_YOUARENOTTHEOWNER;
 		}
 

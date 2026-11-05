@@ -524,6 +524,7 @@ public:
 	uint16_t getContainerIndex(uint8_t cid) const;
 
 	bool canOpenCorpse(uint32_t ownerId) const;
+	bool canLootCorpse(const Container& corpse) const;
 
 	void setStorageValue(const uint32_t key, const std::optional<int64_t> value) override;
 	void loadStorageValue(uint32_t key, int64_t value);

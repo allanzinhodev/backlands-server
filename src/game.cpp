@@ -376,8 +376,7 @@ bool isQuickLootCorpseType(const Container* container)
 		return false;
 	}
 
-	const ItemType& type = Item::items[container->getID()];
-	return type.corpseType != RACE_NONE || container->getCorpseOwner() != 0;
+	return container->isLootCorpse();
 }
 
 const Container* getQuickLootCorpseContainer(const Container* container)
@@ -405,8 +404,7 @@ ReturnValue getQuickLootContainerReturn(const Player* player, const Container* c
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
 
-	const uint32_t owner = corpseContainer->getCorpseOwner();
-	if (owner != 0 && !player->canOpenCorpse(owner) && !player->hasFlag(PlayerFlag_CanEditHouses)) {
+	if (!player->canLootCorpse(*corpseContainer)) {
 		return RETURNVALUE_YOUARENOTTHEOWNER;
 	}
 	return RETURNVALUE_NOERROR;
