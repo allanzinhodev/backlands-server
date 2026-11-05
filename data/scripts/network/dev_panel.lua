@@ -183,14 +183,16 @@ local function sendState(player)
 		flags[#flags + 1] = {name = flag[1], on = player:hasGroupFlag(flag[2])}
 	end
 
+	-- Todos os comandos, com o que o core exige (src/talkaction.cpp): o client filtra por cargo.
 	local commands = {}
-	local access = player:getGroup():getAccess()
-	local accountType = player:getAccountType()
 	for _, talk in ipairs(Game.getTalkActions()) do
-		if (access or not talk:access()) and accountType >= talk:accountType() then
-			local words = talk:getWords()
-			commands[#commands + 1] = {words = words, hint = HINTS[words:lower()] or ""}
-		end
+		local words = talk:getWords()
+		commands[#commands + 1] = {
+			words = words,
+			hint = HINTS[words:lower()] or "",
+			access = talk:access(),
+			accountType = talk:accountType()
+		}
 	end
 	table.sort(commands, function(a, b) return a.words < b.words end)
 
