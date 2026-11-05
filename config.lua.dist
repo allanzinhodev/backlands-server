@@ -194,6 +194,10 @@ quickLootMaxCorpses = 30
 -- and may even cause a crash if you have a lot of files or many modifications.
 reloadCommandEnabled = true
 
+-- Dev test panel (client Ctrl+X, dev mode): toggles group flags, quests and lists commands.
+-- Flag changes affect the whole group until the server restarts. Keep false in production.
+devTestPanel = false
+
 -- Game Store (uses accounts.tibia_coins as its coin balance)
 -- Native catalog, purchases and coin transfers for compatible OTClient clients.
 gameStore = true

@@ -1432,6 +1432,46 @@ int luaPlayerSetGroup(lua_State* L)
 	return 1;
 }
 
+// Port do Canary (opentibiabr): mexe nas flags do grupo em memória, ou seja,
+// vale pra todo o grupo e volta ao groups.xml quando o server reinicia.
+int luaPlayerHasGroupFlag(lua_State* L)
+{
+	// player:hasGroupFlag(flag)
+	const Player* player = getUserdata<const Player>(L, 1);
+	if (player) {
+		pushBoolean(L, player->hasFlag(getInteger<PlayerFlags>(L, 2)));
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int luaPlayerSetGroupFlag(lua_State* L)
+{
+	// player:setGroupFlag(flag)
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		player->getGroup()->flags |= getInteger<uint64_t>(L, 2);
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int luaPlayerRemoveGroupFlag(lua_State* L)
+{
+	// player:removeGroupFlag(flag)
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		player->getGroup()->flags &= ~getInteger<uint64_t>(L, 2);
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 int luaPlayerGetStamina(lua_State* L)
 {
 	// player:getStamina()
@@ -5016,6 +5056,9 @@ void LuaScriptInterface::registerPlayer()
 
 	registerMethod("Player", "getGroup", luaPlayerGetGroup);
 	registerMethod("Player", "setGroup", luaPlayerSetGroup);
+	registerMethod("Player", "hasGroupFlag", luaPlayerHasGroupFlag);
+	registerMethod("Player", "setGroupFlag", luaPlayerSetGroupFlag);
+	registerMethod("Player", "removeGroupFlag", luaPlayerRemoveGroupFlag);
 
 	registerMethod("Player", "getStamina", luaPlayerGetStamina);
 	registerMethod("Player", "setStamina", luaPlayerSetStamina);

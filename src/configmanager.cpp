@@ -522,6 +522,7 @@ bool ConfigManager::load()
 	booleans[Boolean::CHARACTER_BAZAAR_ENABLED] = getGlobalBoolean(L, "characterBazaarEnabled", false);
 	booleans[Boolean::RELOAD_COMMAND_ENABLED] = getGlobalBoolean(L, "reloadCommandEnabled", true);
 	booleans[Boolean::GAME_STORE_ENABLED] = getGlobalBoolean(L, "gameStore", true);
+	booleans[Boolean::DEV_TEST_PANEL] = getGlobalBoolean(L, "devTestPanel", false);
 
 	integers[Integer::CLEAVE_DEFAULT_PERCENT] = std::clamp<int64_t>(getGlobalInteger(L, "cleaveDefaultPercent", 30), 0, 100);
 	integers[Integer::CLEAVE_FIST_PERCENT] = std::clamp<int64_t>(getGlobalInteger(L, "cleaveFistPercent", 20), 0, 100);

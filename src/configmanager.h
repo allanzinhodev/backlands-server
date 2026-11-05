@@ -147,6 +147,7 @@ enum Boolean
 	CHARACTER_BAZAAR_ENABLED,
 	RELOAD_COMMAND_ENABLED,
 	GAME_STORE_ENABLED,
+	DEV_TEST_PANEL,
 
 	LAST_BOOLEAN /* this must be the last one */
 };
