@@ -543,15 +543,6 @@ function openHandler.onReceive(player, msg)
 end
 openHandler:register()
 
-local openHandlerB4 = PacketHandler(0xB4)
-function openHandlerB4.onReceive(player, msg)
-	if not NetworkGuard.cooldown(player, "daily-reward-open", 500) then
-		return
-	end
-	openRewardWall(player)
-end
-openHandlerB4:register()
-
 local historyHandler = PacketHandler(OPCODE_REWARD_HISTORY)
 function historyHandler.onReceive(player, msg)
 	if not NetworkGuard.cooldown(player, "daily-reward-history", 500) then
@@ -561,26 +552,11 @@ function historyHandler.onReceive(player, msg)
 end
 historyHandler:register()
 
-local historyHandlerB5 = PacketHandler(0xB5)
-function historyHandlerB5.onReceive(player, msg)
-	if not NetworkGuard.cooldown(player, "daily-reward-history", 500) then
-		return
-	end
-	sendRewardHistory(player)
-end
-historyHandlerB5:register()
-
 local claimHandler = PacketHandler(OPCODE_REWARD_SELECT)
 function claimHandler.onReceive(player, msg)
 	claimReward(player, msg)
 end
 claimHandler:register()
-
-local claimHandlerB6 = PacketHandler(0xB6)
-function claimHandlerB6.onReceive(player, msg)
-	claimReward(player, msg)
-end
-claimHandlerB6:register()
 
 local dailyRewardLogin = CreatureEvent("DailyRewardLogin")
 function dailyRewardLogin.onLogin(player)
