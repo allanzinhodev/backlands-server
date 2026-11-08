@@ -17,8 +17,6 @@ local PREY_OPCODE_OPEN = 0xE8
 local PREY_OPCODE_SELECT = 0xE9
 local PREY_OPCODE_LIST_REROLL = 0xEA
 local PREY_OPCODE_CLEAR = 0xEC
-local PREY_OPCODE_TOGGLE_AUTO = 0xD8
-local PREY_OPCODE_TOGGLE_LOCK = 0xD9
 local PREY_OPCODE_RESOURCE_BALANCE = 0xEE
 -- Fonticak/OTC prey client: server -> client single channel (0xED) with
 -- sub-commands (error / full state / single-slot update).
@@ -1096,54 +1094,6 @@ function clearHandler.onReceive(player, msg)
 	sendSlotUpdate(player, slot)
 end
 clearHandler:register()
-
-local autoBonusHandler = PacketHandler(PREY_OPCODE_TOGGLE_AUTO)
-function autoBonusHandler.onReceive(player, msg)
-	setPreyNetworkMode(player, "fonticak")
-	if msg:len() - msg:tell() < 2 then
-		return
-	end
-
-	local slot = msg:getByte()
-	local enabled = msg:getByte() ~= 0
-	if slot >= PREY_SLOTS then
-		return sendError(player, "Invalid slot.")
-	end
-	if not requirePreySlotUnlocked(player, slot) then
-		return false
-	end
-
-	setStorageFlag(player, PREY_STORAGE_AUTO_BONUS_BASE, slot, enabled)
-	if enabled then
-		setStorageFlag(player, PREY_STORAGE_LOCK_BASE, slot, false)
-	end
-	sendSlotUpdate(player, slot)
-end
-autoBonusHandler:register()
-
-local lockPreyHandler = PacketHandler(PREY_OPCODE_TOGGLE_LOCK)
-function lockPreyHandler.onReceive(player, msg)
-	setPreyNetworkMode(player, "fonticak")
-	if msg:len() - msg:tell() < 2 then
-		return
-	end
-
-	local slot = msg:getByte()
-	local enabled = msg:getByte() ~= 0
-	if slot >= PREY_SLOTS then
-		return sendError(player, "Invalid slot.")
-	end
-	if not requirePreySlotUnlocked(player, slot) then
-		return false
-	end
-
-	setStorageFlag(player, PREY_STORAGE_LOCK_BASE, slot, enabled)
-	if enabled then
-		setStorageFlag(player, PREY_STORAGE_AUTO_BONUS_BASE, slot, false)
-	end
-	sendSlotUpdate(player, slot)
-end
-lockPreyHandler:register()
 
 local function playerIsInCombat(player)
 	if player.isInCombat then
