@@ -1,7 +1,7 @@
-local OPCODE_UNJUSTIFIED_REQUEST = 0x2E
-local OPCODE_UNJUSTIFIED_SEND = 0x2F
+-- protocolo oficial (10.x+): o server empurra, o client não pede
+local OPCODE_UNJUSTIFIED_STATS = 0xB7
+local OPCODE_OPEN_PVP_SITUATIONS = 0xB8
 
-local ACTION_REFRESH = 1
 local REFRESH_INTERVAL = 30000
 
 local PERIOD_DAY = 24 * 60 * 60
@@ -175,44 +175,30 @@ local function sendUnjustifiedPoints(player)
 	local dayPercent, dayRemaining = getPeriodData(dayKills, limit)
 	local weekPercent, weekRemaining = getPeriodData(weekKills, limit)
 	local monthPercent, monthRemaining = getPeriodData(monthKills, limit)
-	local skullTime = math.max(0, player:getSkullTime() or 0)
+	local skullDays = clamp(math.ceil(math.max(0, player:getSkullTime() or 0) / PERIOD_DAY), 0, 255)
 
 	local msg = NetworkMessage(player)
-	msg:addByte(OPCODE_UNJUSTIFIED_SEND)
+	msg:addByte(OPCODE_UNJUSTIFIED_STATS)
 	msg:addByte(dayPercent)
 	msg:addByte(dayRemaining)
 	msg:addByte(weekPercent)
 	msg:addByte(weekRemaining)
 	msg:addByte(monthPercent)
 	msg:addByte(monthRemaining)
-	msg:addU32(skullTime)
+	msg:addByte(skullDays)
+	msg:addByte(OPCODE_OPEN_PVP_SITUATIONS)
 	msg:addByte(getActivePvpSituations(player))
-	msg:addByte(player:getSkull())
 	return msg:sendToPlayer(player)
 end
 
-local handler = PacketHandler(OPCODE_UNJUSTIFIED_REQUEST)
+local login = CreatureEvent("UnjustifiedPointsLogin")
 
-function handler.onReceive(player, msg)
-	if not supportsCustomNetwork(player) then
-		return true
-	end
-	if not NetworkGuard.cooldown(player, "unjustified-points", 1000) then
-		return true
-	end
-
-	local action = NetworkGuard.readByte(msg)
-	if not action then
-		return true
-	end
-
-	if action == ACTION_REFRESH then
-		sendUnjustifiedPoints(player)
-	end
+function login.onLogin(player)
+	sendUnjustifiedPoints(player)
 	return true
 end
 
-handler:register()
+login:register()
 
 local updater = GlobalEvent("CustomUnjustifiedPointsUpdater")
 
@@ -228,6 +214,3 @@ end
 updater:interval(REFRESH_INTERVAL)
 updater:register()
 
-CustomUnjustifiedPoints = {
-	send = sendUnjustifiedPoints
-}
