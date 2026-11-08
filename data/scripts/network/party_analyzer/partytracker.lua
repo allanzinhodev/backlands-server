@@ -237,8 +237,8 @@ function partyLoginEvent.onLogin(player)
 end
 partyLoginEvent:register()
 
--- Packet handler: client requests (0x2E, client→server - does NOT collide with 0x2C server→client boss cooldown)
-local handler = PacketHandler(0x2E)
+-- Packet handler: client requests (0x2B client→server, como no Canary; o 0x2B server→client é outro sentido)
+local handler = PacketHandler(OPCODE_PARTY_ANALYZER)
 function handler.onReceive(player, msg)
 	if not isOTC(player) then return true end
 	local action = msg:getByte()
