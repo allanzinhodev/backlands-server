@@ -13,17 +13,7 @@ end
 
 dofile("data/scripts/network/prey_system/prey_monsters.lua")
 
-local PREY_OPCODE_OPEN = 0xE8
-local PREY_OPCODE_SELECT = 0xE9
-local PREY_OPCODE_LIST_REROLL = 0xEA
-local PREY_OPCODE_CLEAR = 0xEC
 local PREY_OPCODE_RESOURCE_BALANCE = 0xEE
--- Fonticak/OTC prey client: server -> client single channel (0xED) with
--- sub-commands (error / full state / single-slot update).
-local PREY_OPCODE_SEND = 0xED
-local PREY_SEND_ERROR = 0x00
-local PREY_SEND_FULL = 0x01
-local PREY_SEND_UPDATE = 0x02
 
 -- Astra native prey protocol (server -> client): per-slot data + prices + time.
 local PREY_NATIVE_OPCODE_DATA = 0xE8
@@ -83,25 +73,6 @@ local RESOURCE_INVENTORY = 1
 local RESOURCE_PREY = 10
 
 local preyCache = {}
--- Wire format is chosen per player from the opcode the client uses to open prey:
--- OTC/Fonticak request prey with 0xED (native Tibia opcodes 0xE8/0xE9/0xE7).
--- Legacy custom prey UI opens with 0xE8 and expects server payloads on 0xED.
-local preyNetworkMode = {}
-
-local function setPreyNetworkMode(player, mode)
-	preyNetworkMode[player:getId()] = mode
-end
-
-local function usesFonticakPreyProtocol(player)
-	return preyNetworkMode[player:getId()] == "fonticak"
-end
-
-local function usesNativePreyProtocol(player)
-	-- Fonticak OTC requests prey with 0xED and expects Tibia prey opcodes (0xE8/0xE9).
-	-- The legacy 0xED server->client channel is only used after an explicit 0xE8 open.
-	return not usesFonticakPreyProtocol(player)
-end
-
 local function isAstraClient(player)
 	return player and player.isUsingAstraClient and player:isUsingAstraClient()
 end
@@ -441,14 +412,6 @@ local function sendPreyBalances(player)
 end
 
 local function sendError(player, message)
-	if supportsCustomNetwork(player) and usesFonticakPreyProtocol(player) then
-		local out = NetworkMessage(player)
-		out:addByte(PREY_OPCODE_SEND)
-		out:addByte(PREY_SEND_ERROR)
-		out:addString(message or "")
-		out:sendToPlayer(player)
-		return false
-	end
 	player:sendTextMessage(MESSAGE_STATUS_SMALL, message)
 	return false
 end
@@ -497,19 +460,6 @@ local function getMonsterRaceId(name)
 		return nil
 	end
 	return raceId
-end
-
-local function writeMonster(out, name)
-	out:addString(name or "")
-
-	local outfit = getMonsterOutfit(name)
-	-- Fonticak client reads outfit as U16 + 5 bytes (head/body/legs/feet/addons).
-	out:addU16(outfit.lookType or 0)
-	out:addByte(outfit.lookHead or 0)
-	out:addByte(outfit.lookBody or 0)
-	out:addByte(outfit.lookLegs or 0)
-	out:addByte(outfit.lookFeet or 0)
-	out:addByte(outfit.lookAddons or 0)
 end
 
 local function getListRerollCost(player)
@@ -609,94 +559,6 @@ local function ensureSelectionList(player, slot, slotData)
 	local prey = getPlayerPrey(player)
 	slotData.list_monsters = PreyMonsters.generateList(player:getLevel(), getOtherSlotMonsters(player, prey, slot))
 	return true
-end
-
-local function writeFonticakSlot(out, player, slot, slotData)
-	normalizeSlot(slotData)
-
-	local unlocked = isPreySlotUnlocked(player, slot)
-	out:addByte(unlocked and slotData.state or PREY_STATE_EMPTY)
-	out:addU32(unlocked and getTimeUntilFreeReroll(slotData) or 0)
-
-	if not unlocked then
-		return
-	end
-
-	if slotData.state == PREY_STATE_LIST_SELECTION then
-		ensureSelectionList(player, slot, slotData)
-		local list = slotData.list_monsters or {}
-		out:addByte(#list)
-		for _, name in ipairs(list) do
-			writeMonster(out, name)
-		end
-	elseif slotData.state == PREY_STATE_BONUS_SELECTION then
-		writeMonster(out, slotData.monster_name)
-	elseif slotData.state == PREY_STATE_ACTIVE then
-		writeMonster(out, slotData.monster_name)
-		out:addByte(slotData.bonus_type or PREY_BONUS_NONE)
-		out:addByte(math.max(0, math.min(255, slotData.bonus_value or 0)))
-		out:addU32(slotData.time_left or 0)
-		out:addByte(getPreyLockType(player, slot))
-	elseif slotData.state == PREY_STATE_INACTIVE then
-		writeMonster(out, slotData.monster_name)
-	else
-		-- Wildcard selection / unknown states: expose a fresh list so the slot
-		-- never renders blank in the Fonticak client.
-		slotData.state = PREY_STATE_LIST_SELECTION
-		ensureSelectionList(player, slot, slotData)
-		local list = slotData.list_monsters or {}
-		out:addByte(#list)
-		for _, name in ipairs(list) do
-			writeMonster(out, name)
-		end
-	end
-end
-
-local function sendFonticakFullPrey(player, sendBalances)
-	if not supportsCustomNetwork(player) then
-		return false
-	end
-
-	local prey = getPlayerPrey(player)
-	local out = NetworkMessage(player)
-	out:addByte(PREY_OPCODE_SEND)
-	out:addByte(PREY_SEND_FULL)
-	out:addByte(math.min(getPlayerBonusRerolls(player), PREY_MAX_WILDCARDS))
-	out:addU32(getListRerollCost(player))
-	for slot = 0, PREY_SLOTS - 1 do
-		writeFonticakSlot(out, player, slot, prey.slots[slot])
-	end
-	out:addU64(player:getBankBalance())
-	out:addU64(player:getMoney())
-	syncPreyCombatBonuses(player, prey)
-	local sent = out:sendToPlayer(player)
-	if sendBalances ~= false then
-		sendPreyBalances(player)
-	end
-	return sent
-end
-
-local function sendFonticakSlotUpdate(player, slot, save)
-	if not supportsCustomNetwork(player) then
-		return false
-	end
-
-	local prey = getPlayerPrey(player)
-	local out = NetworkMessage(player)
-	out:addByte(PREY_OPCODE_SEND)
-	out:addByte(PREY_SEND_UPDATE)
-	out:addByte(math.min(getPlayerBonusRerolls(player), PREY_MAX_WILDCARDS))
-	out:addU32(getListRerollCost(player))
-	out:addByte(slot)
-	writeFonticakSlot(out, player, slot, prey.slots[slot])
-	out:addU64(player:getBankBalance())
-	out:addU64(player:getMoney())
-	syncPreyCombatBonuses(player, prey)
-	local sent = out:sendToPlayer(player)
-	if save ~= false then
-		saveSlotToDB(player:getGuid(), slot, prey.slots[slot])
-	end
-	return sent
 end
 
 -- ================= Astra native protocol =================
@@ -833,18 +695,12 @@ local function sendFullPrey(player, sendBalances)
 	if not supportsCustomNetwork(player) then
 		return false
 	end
-	if usesFonticakPreyProtocol(player) then
-		return sendFonticakFullPrey(player, sendBalances)
-	end
 	return sendAstraFullPrey(player, sendBalances)
 end
 
 local function sendSlotUpdate(player, slot, save)
 	if not supportsCustomNetwork(player) then
 		return false
-	end
-	if usesFonticakPreyProtocol(player) then
-		return sendFonticakSlotUpdate(player, slot, save)
 	end
 	return sendAstraSlotUpdate(player, slot, save)
 end
@@ -956,145 +812,6 @@ local function initializeEmptySlots(player)
 	return changed
 end
 
-local openHandler = PacketHandler(PREY_OPCODE_OPEN)
-function openHandler.onReceive(player, msg)
-	setPreyNetworkMode(player, "fonticak")
-	PreySystem.openWindows[player:getId()] = true
-	initializeEmptySlots(player)
-	sendFullPrey(player)
-	saveAllSlots(player)
-end
-openHandler:register()
-
-local selectHandler = PacketHandler(PREY_OPCODE_SELECT)
-function selectHandler.onReceive(player, msg)
-	setPreyNetworkMode(player, "fonticak")
-	if msg:len() - msg:tell() < 2 then
-		return
-	end
-
-	local slot = msg:getByte()
-	local listIndex = msg:getByte()
-	if slot >= PREY_SLOTS then
-		return sendError(player, "Invalid slot.")
-	end
-	if not requirePreySlotUnlocked(player, slot) then
-		return false
-	end
-
-	local prey = getPlayerPrey(player)
-	local slotData = prey.slots[slot]
-	if slotData.state ~= PREY_STATE_LIST_SELECTION then
-		return sendError(player, "This slot is not in list selection.")
-	end
-
-	if listIndex >= #(slotData.list_monsters or {}) then
-		return sendError(player, "Invalid list index.")
-	end
-
-	slotData.state = PREY_STATE_BONUS_SELECTION
-	slotData.monster_name = slotData.list_monsters[listIndex + 1]
-	slotData.list_monsters = {}
-	sendSlotUpdate(player, slot)
-
-	local playerId = player:getId()
-	addEvent(function()
-		local delayedPlayer = Player(playerId)
-		if not delayedPlayer then
-			return
-		end
-
-		local delayedPrey = getPlayerPrey(delayedPlayer)
-		local delayedSlot = delayedPrey.slots[slot]
-		if delayedSlot.state ~= PREY_STATE_BONUS_SELECTION then
-			return
-		end
-
-		delayedSlot.bonus_type = rollBonusType()
-		delayedSlot.bonus_value = rollBonusValue(nil)
-		delayedSlot.time_left = PREY_DURATION_SECS
-		delayedSlot.state = PREY_STATE_ACTIVE
-		sendSlotUpdate(delayedPlayer, slot)
-		sendActiveBonusMessage(delayedPlayer, delayedSlot)
-	end, 300)
-end
-selectHandler:register()
-
-local listRerollHandler = PacketHandler(PREY_OPCODE_LIST_REROLL)
-function listRerollHandler.onReceive(player, msg)
-	setPreyNetworkMode(player, "fonticak")
-	if msg:len() - msg:tell() < 1 then
-		return
-	end
-
-	local slot = msg:getByte()
-	if slot >= PREY_SLOTS then
-		return sendError(player, "Invalid slot.")
-	end
-	if not requirePreySlotUnlocked(player, slot) then
-		return false
-	end
-
-	local prey = getPlayerPrey(player)
-	local slotData = prey.slots[slot]
-	local now = os.time()
-	local isFree = not slotData.list_reroll_used or now >= slotData.reroll_at
-
-	if isFree then
-		slotData.list_reroll_used = true
-		slotData.reroll_at = now + PREY_REROLL_CD
-	else
-		local cost = getListRerollCost(player)
-		if getPlayerTotalGold(player) < cost then
-			return sendError(player, string.format(
-				"You need %d gold in your inventory or bank to reroll the list (next free reroll in %d minutes).",
-				cost,
-				math.ceil((slotData.reroll_at - now) / 60)
-			))
-		end
-
-		if not removePlayerGold(player, cost) then
-			return sendError(player, "Failed to remove gold.")
-		end
-	end
-
-	local newList = PreyMonsters.generateList(player:getLevel(), getOtherSlotMonsters(player, prey, slot))
-	if #newList < 1 then
-		return sendError(player, "Could not generate a monster list.")
-	end
-
-	slotData.state = PREY_STATE_LIST_SELECTION
-	slotData.monster_name = ""
-	slotData.bonus_type = PREY_BONUS_NONE
-	slotData.bonus_value = 0
-	slotData.time_left = 0
-	slotData.list_monsters = newList
-	sendSlotUpdate(player, slot)
-	sendPreyBalances(player)
-end
-listRerollHandler:register()
-
-local clearHandler = PacketHandler(PREY_OPCODE_CLEAR)
-function clearHandler.onReceive(player, msg)
-	setPreyNetworkMode(player, "fonticak")
-	if msg:len() - msg:tell() < 1 then
-		return
-	end
-
-	local slot = msg:getByte()
-	if slot >= PREY_SLOTS then
-		return sendError(player, "Invalid slot.")
-	end
-	if not requirePreySlotUnlocked(player, slot) then
-		return false
-	end
-
-	local prey = getPlayerPrey(player)
-	prey.slots[slot] = defaultSlot()
-	sendSlotUpdate(player, slot)
-end
-clearHandler:register()
-
 local function playerIsInCombat(player)
 	if player.isInCombat then
 		return player:isInCombat()
@@ -1152,11 +869,7 @@ local function preyTick()
 							end
 							sendSlotUpdate(player, slot)
 						else
-							if usesNativePreyProtocol(player) then
-								sendAstraTimeLeft(player, slot, slotData.time_left)
-							elseif slotData.time_left % 60 == 0 then
-								sendSlotUpdate(player, slot, false)
-							end
+							sendAstraTimeLeft(player, slot, slotData.time_left)
 						end
 					end
 				end
@@ -1260,7 +973,6 @@ function logoutEvent.onLogout(player)
 		player:clearPreyCombatBonuses()
 	end
 	preyCache[playerId] = nil
-	preyNetworkMode[playerId] = nil
 	return true
 end
 logoutEvent:register()
@@ -1483,7 +1195,6 @@ end
 
 local nativeRequestHandler = PacketHandler(PREY_NATIVE_OPCODE_REQUEST)
 function nativeRequestHandler.onReceive(player, msg)
-	setPreyNetworkMode(player, "native")
 	PreySystem.openWindows[player:getId()] = true
 	initializeEmptySlots(player)
 	sendFullPrey(player)
@@ -1530,12 +1241,6 @@ end
 local nativeActionHandler = PacketHandler(PREY_NATIVE_OPCODE_ACTION)
 function nativeActionHandler.onReceive(player, msg)
 	local remaining = msg:len() - msg:tell()
-	-- Legacy OTC clients send 0xEB with only the slot byte for a bonus reroll;
-	-- native clients send slot + action. Both are handled here.
-	if remaining == 1 then
-		setPreyNetworkMode(player, "fonticak")
-		return nativeBonusReroll(player, msg:getByte())
-	end
 	if remaining < 2 then
 		return
 	end
@@ -1548,7 +1253,6 @@ function nativeActionHandler.onReceive(player, msg)
 		return true
 	end
 
-	setPreyNetworkMode(player, "native")
 	if slot >= PREY_SLOTS then
 		return sendError(player, "Invalid slot.")
 	end
