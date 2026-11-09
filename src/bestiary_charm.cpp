@@ -530,12 +530,15 @@ BestiaryCharmActionResult BestiaryCharmSystem::handleCharmAction(Player& player,
 			return { false, message };
 		}
 
-		if (currentState.raceId == 0) {
-			const uint8_t usedSlots = getAssignedCharmCount(states);
-			const uint8_t maxSlots = player.isPremium() ? 6 : 2;
-			if (usedSlots >= maxSlots) {
-				return { false, "You do not have any charm slots available." };
-			}
+		// as in the official client flow, a charm in use must be removed (and paid) first
+		if (currentState.raceId != 0) {
+			return { false, "Remove the creature from this charm first." };
+		}
+
+		const uint8_t usedSlots = getAssignedCharmCount(states);
+		const uint8_t maxSlots = player.isPremium() ? 6 : 2;
+		if (usedSlots >= maxSlots) {
+			return { false, "You do not have any charm slots available." };
 		}
 
 		for (const auto& [otherCharmId, state] : states) {
