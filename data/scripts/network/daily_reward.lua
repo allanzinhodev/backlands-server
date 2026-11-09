@@ -297,10 +297,25 @@ end
 
 DailyRewardSystem = DailyRewardSystem or {}
 
+-- where the player opened the wall from a shrine; a free claim must come from there
+local shrinePositions = {}
+
+local function isAtShrine(player)
+	local shrinePosition = shrinePositions[player:getId()]
+	if not shrinePosition then
+		return false
+	end
+	local position = player:getPosition()
+	return position.z == shrinePosition.z and math.abs(position.x - shrinePosition.x) <= 1 and
+		       math.abs(position.y - shrinePosition.y) <= 1
+end
+
 function DailyRewardSystem.openRewardWall(player, fromShrine)
 	if not supportsCustomNetwork(player) then
 		return false
 	end
+
+	shrinePositions[player:getId()] = fromShrine == true and player:getPosition() or nil
 
 	checkMonthlyJoker(player)
 	sendResourceBalance(player, RESOURCE_DAILYREWARD_INSTANT, getStorageNumber(player, STORAGES.instantTokens, 0))
@@ -471,6 +486,10 @@ local function claimReward(player, msg)
 	local claimType = NetworkGuard.readByte(msg)
 	local isInstantClaim = (claimType == 1)
 
+	if not isInstantClaim and not isAtShrine(player) then
+		return sendClaimError(player, "Visit a reward shrine to claim for free.")
+	end
+
 	if isInstantClaim then
 		local instantTokens = getStorageNumber(player, STORAGES.instantTokens, 0)
 		if instantTokens < 1 then
@@ -570,3 +589,10 @@ function dailyRewardLogin.onLogin(player)
 	return true
 end
 dailyRewardLogin:register()
+
+local shrineCleanup = CreatureEvent("DailyRewardShrineCleanup")
+function shrineCleanup.onLogout(player)
+	shrinePositions[player:getId()] = nil
+	return true
+end
+shrineCleanup:register()
