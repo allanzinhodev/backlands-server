@@ -745,6 +745,8 @@ bool ConfigManager::load()
 	floats[COMBAT_CHAIN_SKILL_FORMULA_FIST] = getGlobalFloat(L, "combatChainSkillFormulaFist", 1.0f);
 	floats[COMBAT_CHAIN_SKILL_FORMULA_DISTANCE] = getGlobalFloat(L, "combatChainSkillFormulaDistance", 0.9f);
 	floats[COMBAT_CHAIN_SKILL_FORMULA_WANDS_AND_RODS] = getGlobalFloat(L, "combatChainSkillFormulaWandsAndRods", 1.0f);
+	floats[RATE_HEALTH_REGEN] = std::max(0.0f, getGlobalFloat(L, "rateHealthRegen", 1.0f));
+	floats[RATE_MANA_REGEN] = std::max(0.0f, getGlobalFloat(L, "rateManaRegen", 1.0f));
 	floats[POWER_LAW_EXPONENT] = getGlobalFloat(L, "powerLawExponent", 0.3f);
 	if (floats[POWER_LAW_EXPONENT] <= 0.0f) {
 		LOG_WARN(fmt::format(

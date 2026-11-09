@@ -27,9 +27,10 @@ public:
 	uint32_t getCapGain() const { return gainCap; }
 
 	uint32_t getManaGainTicks() const { return gainManaTicks; }
-	uint32_t getManaGainAmount() const { return gainManaAmount; }
+	// quantia do vocations.xml (regen do global) × rateManaRegen do config
+	uint32_t getManaGainAmount() const { return scaleGain(gainManaAmount, ConfigManager::RATE_MANA_REGEN); }
 	uint32_t getHealthGainTicks() const { return gainHealthTicks; }
-	uint32_t getHealthGainAmount() const { return gainHealthAmount; }
+	uint32_t getHealthGainAmount() const { return scaleGain(gainHealthAmount, ConfigManager::RATE_HEALTH_REGEN); }
 
 	uint8_t getSoulMax() const { return soulMax; }
 	uint16_t getSoulGainTicks() const { return gainSoulTicks; }
@@ -71,6 +72,11 @@ public:
 	float pvpDamageDealtMultiplier = 1.0f;
 
 private:
+	static uint32_t scaleGain(uint32_t amount, ConfigManager::float_config_t rate)
+	{
+		return static_cast<uint32_t>(std::lround(amount * ConfigManager::getFloat(rate)));
+	}
+
 	friend class Vocations;
 
 	std::string name = "none";

@@ -479,6 +479,9 @@ magicLevelStages = {
 -- Rates
 rateLoot = 2
 rateSpawn = 1
+-- multiplica o regen de HP/mana do vocations.xml (padrão = global)
+rateHealthRegen = 1.0
+rateManaRegen = 1.0
 spawnMultiplier = 1
 
 -- Player speed
