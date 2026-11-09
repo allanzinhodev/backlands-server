@@ -43,6 +43,7 @@
 #include <fmt/format.h>
 #include <fmt/color.h>
 #include "luascript.h"
+#include "mailbox.h"
 #include "save_manager.h"
 
 extern Vocations g_vocations;
@@ -2312,6 +2313,7 @@ void Game::playerMoveItem(Player* player, const Position& fromPos, uint16_t spri
 			}
 		}
 
+		Mailbox::SenderScope mailSender(player);
 		ReturnValue ret = internalMoveItem(fromCylinder, toCylinder, toIndex, item, count, nullptr, FLAG_NOLIMIT,
 		                                   player, nullptr, &fromPos, &toPos);
 		if (ret != RETURNVALUE_NOERROR) {
@@ -5443,6 +5445,23 @@ void Game::playerAcceptTrade(uint32_t playerId)
 		tradePartner->tradeItem.reset();
 		tradePartner->setTradePartner(nullptr);
 		tradePartner->sendTradeClose();
+
+		if (isSuccess) {
+			saveTransferParties({player, tradePartner});
+		}
+	}
+}
+
+void Game::saveTransferParties(const std::vector<Player*>& players)
+{
+	// Persist both sides of an item transfer together, so a crash can never
+	// keep the item on one side's save and the payment/item on the other.
+	if (g_saveManager.savePlayersSync(players)) {
+		return;
+	}
+	// A save is already queued or failed for one of them: queue both, in order.
+	for (Player* player : players) {
+		g_saveManager.savePlayer(player);
 	}
 }
 

@@ -8,6 +8,8 @@
 #include "cylinder.h"
 #include "item.h"
 
+class Player;
+
 class Mailbox final : public Item, public Cylinder
 {
 public:
@@ -39,7 +41,19 @@ public:
 	void postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index,
 	                            cylinderlink_t link = LINK_OWNER) override;
 
+	// The player moving items into a mailbox, saved together with the receiver
+	// (anti-dupe). Set by Game::playerMoveItem for the duration of the move.
+	struct SenderScope
+	{
+		explicit SenderScope(Player* player) { sender = player; }
+		~SenderScope() { sender = nullptr; }
+		SenderScope(const SenderScope&) = delete;
+		SenderScope& operator=(const SenderScope&) = delete;
+	};
+
 private:
+	static inline Player* sender = nullptr;
+
 	bool getReceiver(Item* item, std::string& receiver, std::string& townName) const;
 	bool sendItem(Item* item) const;
 

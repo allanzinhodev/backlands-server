@@ -1404,6 +1404,19 @@ int luaGameClaimMarketOffer(lua_State* L)
 	return 1;
 }
 
+int luaGameSaveTransferParties(lua_State* L)
+{
+	// Game.saveTransferParties(player[, player...])
+	std::vector<Player*> players;
+	for (int i = 1, n = lua_gettop(L); i <= n; ++i) {
+		if (Player* player = getPlayer(L, i)) {
+			players.push_back(player);
+		}
+	}
+	g_game.saveTransferParties(players);
+	return 0;
+}
+
 int luaGameRestoreMarketOffer(lua_State* L)
 {
 	// Game.restoreMarketOffer(id, playerId, sale, itemId, amount, created, anonymous, price, tier, attributes,
@@ -1958,6 +1971,7 @@ void LuaScriptInterface::registerGame()
 	registerMethod("Game", "getMarketStatistics", luaGameGetMarketStatistics);
 	registerMethod("Game", "createMarketOffer", luaGameCreateMarketOffer);
 	registerMethod("Game", "claimMarketOffer", luaGameClaimMarketOffer);
+	registerMethod("Game", "saveTransferParties", luaGameSaveTransferParties);
 	registerMethod("Game", "restoreMarketOffer", luaGameRestoreMarketOffer);
 	registerMethod("Game", "addMarketHistory", luaGameAddMarketHistory);
 	registerMethod("Game", "refreshMarketStatistics", luaGameRefreshMarketStatistics);

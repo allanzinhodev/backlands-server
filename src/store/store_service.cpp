@@ -243,6 +243,8 @@ StoreResult StoreService::purchase(Player& player, uint32_t offerId,
 		}
 		return {false, deliveryError};
 	}
+	// The coins already left the DB: persist what was delivered with them.
+	g_game.saveTransferParties({&player});
 
 	// 7. Persist history.
 	uint16_t historyCount = offer->count;

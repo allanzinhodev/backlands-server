@@ -155,12 +155,21 @@ bool Mailbox::sendItem(Item* item) const
 		                            nullptr, FLAG_NOLIMIT) == RETURNVALUE_NOERROR) {
 			g_game.transformItem(item, item->getID() + 1);
 			player->onReceiveMail();
+			if (sender && sender != player.get()) {
+				g_game.saveTransferParties({sender, player.get()});
+			}
 			return true;
 		}
 	} else {
 		// Player is final and offline loads elsewhere in the codebase use this short-lived stack instance.
 		Player tmpPlayer(nullptr);
 		if (!IOLoginData::loadPlayerByName(&tmpPlayer, receiver)) {
+			return false;
+		}
+		// A save still in flight means the DB copy is stale, and savePlayerSync
+		// would only queue ours behind it (returning false after the item moved).
+		if (g_saveManager.hasPendingPlayerSave(tmpPlayer.getGUID()) ||
+		    g_saveManager.hasFailedRecovery(tmpPlayer.getGUID())) {
 			return false;
 		}
 
@@ -175,7 +184,14 @@ bool Mailbox::sendItem(Item* item) const
 		if (g_game.internalMoveItem(originalParent, inbox, INDEX_WHEREEVER, item, item->getItemCount(), nullptr,
 		                            FLAG_NOLIMIT) == RETURNVALUE_NOERROR) {
 			g_game.transformItem(item, originalItemId + 1);
+			if (sender && g_saveManager.savePlayersSync({&tmpPlayer, sender})) {
+				return true;
+			}
 			if (g_saveManager.savePlayerSync(&tmpPlayer)) {
+				// the receiver is already in the DB: the sender must follow
+				if (sender) {
+					g_saveManager.savePlayer(sender);
+				}
 				return true;
 			}
 

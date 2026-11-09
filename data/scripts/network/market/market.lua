@@ -2035,6 +2035,10 @@ local function expireOffers()
 				if returned then
 					offerCountCache[offer.playerId] = nil
 					addHistory(offer.playerId, offer.sale, offer.itemId, offer.amount, offer.price, MARKET_STATE_EXPIRED, offer.created, offer.tier)
+					local owner = Player(offer.playerName)
+					if owner then
+						Game.saveTransferParties(owner)
+					end
 				else
 					-- Delivery failed: restore the offer so it can be retried
 					rollbackOfferClaim(offer, offer.amount)
@@ -2234,6 +2238,8 @@ function createHandler.onReceive(player, msg)
 	end
 
 	offerCountCache[player:getGuid()] = nil
+	-- the offer is already in the DB: persist the removed items/money with it
+	Game.saveTransferParties(player)
 	releaseLock(playerKey)
 	sendMarketMessage(player, "Market offer created.")
 	refreshMarket(player, itemId, depotMap)
@@ -2306,6 +2312,7 @@ function cancelHandler.onReceive(player, msg)
 
 	offerCountCache[player:getGuid()] = nil
 	addHistory(player:getGuid(), offer.sale, offer.itemId, offer.amount, offer.price, MARKET_STATE_CANCELLED, offer.created, offer.tier)
+	Game.saveTransferParties(player)
 	releaseMultipleLocks({ offerKey, playerKey })
 	sendMarketMessage(player, "Market offer cancelled.")
 	refreshMarket(player, MARKET_REQUEST_MY_OFFERS)
@@ -2475,12 +2482,19 @@ function acceptHandler.onReceive(player, msg)
 	offerCountCache[offer.playerId] = nil
 	addHistory(offer.playerId, offer.sale, offer.itemId, amount, offer.price, MARKET_STATE_ACCEPTED, offer.created, acceptedTier)
 
+	-- the claim is already in the DB: persist both sides with it (offline owner was written to the DB)
+	local owner = Player(offer.playerName)
+	if owner then
+		Game.saveTransferParties(player, owner)
+	else
+		Game.saveTransferParties(player)
+	end
+
 	releaseMultipleLocks({ offerKey, buyerKey, ownerKey })
 
 	sendMarketMessage(player, "Market offer accepted.")
 	refreshMarket(player, offer.itemId, depotMap)
 
-	local owner = Player(offer.playerName)
 	if owner then
 		if offer.sale == MARKET_ACTION_BUY then
 			sendMarketMessage(owner, "Your market buy offer has been fulfilled. The purchased item was delivered to your Market Inbox.")
