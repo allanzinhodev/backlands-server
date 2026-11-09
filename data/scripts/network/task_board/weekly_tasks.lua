@@ -359,8 +359,9 @@ function WeeklyTasks.selectDifficulty(player, difficulty)
 	local data = loadWeeklyData(playerGuid)
 	data.hasExpansion = player:hasWeeklyExpansion()
 
-	-- Can only set once per week; block if progress is already finished
-	if data.weeklyProgressFinished == 1 then
+	-- Can only set once per week: choosing again would regenerate the tasks and
+	-- let delivery tasks pay experience again
+	if hasWeeklyProgress(data) then
 		return false
 	end
 
