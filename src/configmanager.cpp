@@ -43,6 +43,7 @@ using AutoLootMoneyIds = std::set<uint16_t>;
 BlockedTeleportIds blockedTeleportIds;
 TokenProtectionExceptions tokenProtectionExceptions;
 AutoLootMoneyIds autoLootMoneyIds;
+std::map<std::string, bool, std::less<>> systems;
 
 bool loaded = false;
 
@@ -278,6 +279,27 @@ BlockedTeleportIds loadLuaBlockedTeleportIds(lua_State* L)
 	}
 	lua_pop(L, 1);
 	return ids;
+}
+
+std::map<std::string, bool, std::less<>> loadLuaSystems(lua_State* L)
+{
+	std::map<std::string, bool, std::less<>> out;
+
+	lua_getglobal(L, "systems");
+	if (!lua_istable(L, -1)) {
+		lua_pop(L, 1);
+		return out;
+	}
+
+	lua_pushnil(L);
+	while (lua_next(L, -2) != 0) {
+		if (lua_type(L, -2) == LUA_TSTRING) {
+			out[lua_tostring(L, -2)] = lua_toboolean(L, -1) != 0;
+		}
+		lua_pop(L, 1);
+	}
+	lua_pop(L, 1);
+	return out;
 }
 
 TokenProtectionExceptions loadLuaTokenProtectionExceptions(lua_State* L)
@@ -753,6 +775,7 @@ bool ConfigManager::load()
 
 	blockedTeleportIds = loadLuaBlockedTeleportIds(L);
 	tokenProtectionExceptions = loadLuaTokenProtectionExceptions(L);
+	systems = loadLuaSystems(L);
 
 	// AutoLoot Config
 	booleans[Boolean::AUTOLOOT_ENABLED] = getGlobalBoolean(L, "Autoloot_enabled", true);
@@ -954,5 +977,17 @@ bool ConfigManager::setFloat(float_config_t what, float value)
 const BlockedTeleportIds& ConfigManager::getBlockedTeleportIds() { return blockedTeleportIds; }
 
 const TokenProtectionExceptions& ConfigManager::getTokenProtectionExceptions() { return tokenProtectionExceptions; }
+
+bool ConfigManager::isSystemEnabled(std::string_view name)
+{
+	if (const auto it = systems.find(name); it != systems.end()) {
+		return it->second;
+	}
+	LOG_WARN(fmt::format("[Warning - ConfigManager::isSystemEnabled] '{}' missing from systems in config.lua, treating as OFF",
+	                     name));
+	return false;
+}
+
+const std::map<std::string, bool, std::less<>>& ConfigManager::getSystems() { return systems; }
 
 const AutoLootMoneyIds& ConfigManager::getAutoLootMoneyIds() { return autoLootMoneyIds; }

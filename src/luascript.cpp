@@ -4330,6 +4330,7 @@ const luaL_Reg LuaScriptInterface::luaConfigManagerTable[] = {
     {"getNumber", LuaScriptInterface::luaConfigManagerGetNumber},
     {"getBoolean", LuaScriptInterface::luaConfigManagerGetBoolean},
     {"getFloat", LuaScriptInterface::luaConfigManagerGetFloat},
+    {"isSystemEnabled", LuaScriptInterface::luaConfigManagerIsSystemEnabled},
     {nullptr, nullptr}};
 
 int LuaScriptInterface::luaConfigManagerGetString(lua_State* L)
@@ -4347,6 +4348,13 @@ int LuaScriptInterface::luaConfigManagerGetNumber(lua_State* L)
 int LuaScriptInterface::luaConfigManagerGetBoolean(lua_State* L)
 {
 	Lua::pushBoolean(L, getBoolean(Lua::getInteger<ConfigManager::Boolean>(L, -1)));
+	return 1;
+}
+
+int LuaScriptInterface::luaConfigManagerIsSystemEnabled(lua_State* L)
+{
+	// configManager.isSystemEnabled(name)
+	Lua::pushBoolean(L, ConfigManager::isSystemEnabled(Lua::getString(L, -1)));
 	return 1;
 }
 

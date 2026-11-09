@@ -1,3 +1,7 @@
+if not configManager.isSystemEnabled("dailyReward") then
+	return
+end
+
 local OPCODE_REWARD_OPEN = 0xD8
 local OPCODE_REWARD_HISTORY = 0xD9
 local OPCODE_REWARD_SELECT = 0xDA

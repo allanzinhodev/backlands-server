@@ -151,6 +151,21 @@ timeBetweenRing = 500
 exhaustPotionMiliSeconds = 1500
 exhaustItemAtUsePotion = true
 
+-- Systems toggled by name. A disabled system registers no packet handler.
+-- A name missing here counts as OFF (the server logs a warning).
+systems = {
+	analyzers = true, -- hunt, party, misc and supply tracker
+	bossCooldown = true,
+	cyclopediaCharacter = true,
+	dailyReward = true,
+	highscores = true,
+	itemValues = true,
+	mounts = true,
+	questLog = true,
+	supplyStash = true,
+	unjustifiedPoints = true,
+}
+
 -- Optional custom systems
 -- Most optional systems default to false for closer 8.60 behavior.
 -- Quick Loot defaults to true because the Astra managed-loot UI expects it.

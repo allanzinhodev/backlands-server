@@ -2,6 +2,10 @@
 -- Misc Analyzer - sends charm/imbuement/special skill activations to AstraClient
 -- Opcodes: 0x2D (charm), 0x30 (imbuement), 0x31 (special skill)
 
+if not configManager.isSystemEnabled("analyzers") then
+	return
+end
+
 local OPCODE_CHARM_ACTIVATED = 0x2D
 local OPCODE_IMBUEMENT_ACTIVATED = 0x30
 local OPCODE_SPECIAL_SKILL_ACTIVATED = 0x31

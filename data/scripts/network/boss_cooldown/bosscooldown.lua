@@ -1,3 +1,7 @@
+if not configManager.isSystemEnabled("bossCooldown") then
+	return
+end
+
 local SERVER_PACKET_BOSS_COOLDOWN = 0x2C
 local MAX_BOSSES_PER_PACKET = 0xFF
 

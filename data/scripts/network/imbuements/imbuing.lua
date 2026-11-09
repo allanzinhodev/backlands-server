@@ -1,3 +1,7 @@
+if not configManager.getBoolean(configKeys.IMBUEMENT_SYSTEM_ENABLED) then
+	return
+end
+
 local apply = PacketHandler(0xD5)
 
 function apply.onReceive(player, msg)

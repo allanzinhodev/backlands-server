@@ -954,6 +954,31 @@ int startServer()
 		}
 		fmt::print("\n");
 
+		// Systems toggled by name (`systems` table in config.lua)
+		const auto& systems = ConfigManager::getSystems();
+		if (!systems.empty()) {
+			consolePrint(cyan_b, "    ⚙  SYSTEMS\n");
+			consolePrint(dark_gray, "    ────────────────────────────────────────\n");
+			size_t column = 0;
+			for (const auto& [name, enabled] : systems) {
+				if (column == 0) {
+					consolePrint(gray, "    ");
+				} else {
+					consolePrint(gray, "{:6}", "");
+				}
+				consolePrint(gray, "{:<24}", name);
+				consolePrint(enabled ? green_b : red_b, "{:<3}", enabled ? "ON" : "OFF");
+				if (++column == 2) {
+					fmt::print("\n");
+					column = 0;
+				}
+			}
+			if (column != 0) {
+				fmt::print("\n");
+			}
+			fmt::print("\n");
+		}
+
 		// ── Server info ──
 		consolePrint(cyan_b, "    ◈  SERVER INFO\n");
 		consolePrint(dark_gray, "    ────────────────────────────────────────\n");

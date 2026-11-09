@@ -1,3 +1,7 @@
+if not configManager.isSystemEnabled("unjustifiedPoints") then
+	return
+end
+
 -- protocolo oficial (10.x+): o server empurra, o client não pede
 local OPCODE_UNJUSTIFIED_STATS = 0xB7
 local OPCODE_OPEN_PVP_SITUATIONS = 0xB8

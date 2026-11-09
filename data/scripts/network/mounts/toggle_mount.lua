@@ -1,3 +1,7 @@
+if not configManager.isSystemEnabled("mounts") then
+	return
+end
+
 local handler = PacketHandler(0xD4)
 
 function handler.onReceive(player, msg)

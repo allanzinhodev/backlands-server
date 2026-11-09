@@ -420,6 +420,9 @@ float getSkillStage(uint32_t level);
 float getMagicLevelStage(uint32_t level);
 const std::vector<uint16_t>& getBlockedTeleportIds();
 const std::vector<uint16_t>& getTokenProtectionExceptions();
+// Systems toggled by name in the `systems` table of config.lua (version profiles, 0005).
+bool isSystemEnabled(std::string_view name);
+const std::map<std::string, bool, std::less<>>& getSystems();
 const std::set<uint16_t>& getAutoLootMoneyIds();
 
 bool setBoolean(Boolean what, bool value);

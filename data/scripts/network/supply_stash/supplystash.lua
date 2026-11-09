@@ -1,3 +1,7 @@
+if not configManager.isSystemEnabled("supplyStash") then
+	return
+end
+
 local SUPPLY_STASH_ITEM_ID = ITEM_SUPPLY_STASH or 28750
 
 local OPCODE_SUPPLY_STASH_REQUEST = 0x28

@@ -1,5 +1,9 @@
 -- data/scripts/network/huntanalyzer.lua
 
+if not configManager.isSystemEnabled("analyzers") then
+	return
+end
+
 local HUNT_ANALYZER_DROP_TRIGGER = 100
 
 local function isItemStackable(itemId)

@@ -1,3 +1,7 @@
+if not configManager.isSystemEnabled("highscores") then
+	return
+end
+
 local OPCODE_HIGHSCORES = 0xB1
 local HIGHSCORE_GET_ENTRIES = 0
 local HIGHSCORE_OUR_RANK = 1

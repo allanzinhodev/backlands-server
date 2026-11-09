@@ -1,3 +1,7 @@
+if not configManager.isSystemEnabled("analyzers") then
+	return
+end
+
 local function getClientItemId(item)
 	local itemId = item and item:getId()
 	if not itemId then return 0 end

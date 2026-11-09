@@ -1,3 +1,7 @@
+if not configManager.isSystemEnabled("questLog") then
+	return
+end
+
 local log = PacketHandler(0xF0)
 
 function log.onReceive(player, msg)

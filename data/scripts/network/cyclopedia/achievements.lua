@@ -1,3 +1,7 @@
+if not configManager.isSystemEnabled("cyclopediaCharacter") then
+	return
+end
+
 local CLIENT_PACKET_CHARACTER_INFO = 0xE5
 local SERVER_PACKET_CHARACTER_INFO = 0xDA
 local CHARACTER_INFO_ACHIEVEMENTS = 5

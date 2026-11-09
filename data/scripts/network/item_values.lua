@@ -1,3 +1,7 @@
+if not configManager.isSystemEnabled("itemValues") then
+	return
+end
+
 local OPCODE_ITEM_DETAILS = 0xC7
 
 local MARKET_DETAIL_NAMES = {
