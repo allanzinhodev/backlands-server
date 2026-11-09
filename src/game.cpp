@@ -4270,8 +4270,17 @@ void Game::playerSetMonsterPodium(uint32_t playerId, uint32_t raceId, const Posi
 
 	Thing* thing = internalGetThing(player, pos, stackPos, itemId, STACKPOS_TOPDOWN_ITEM);
 	Item* item = thing ? thing->getItem() : nullptr;
-	if (!item || !isMonsterPodiumId(item->getID()) ||
+	if (!item || !isMonsterPodiumId(item->getID()) || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID) ||
 	    !pos.isInRange(player->getPosition(), 1, 1, 0)) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	// as in Canary: inside a house only invited players may change the podium
+	Tile* podiumTile = item->getTile();
+	HouseTile* houseTile = podiumTile ? podiumTile->getHouseTile() : nullptr;
+	const auto house = houseTile ? houseTile->getHouse() : nullptr;
+	if (house && (!house->isInvited(player) || !house->canModifyItems(player))) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
