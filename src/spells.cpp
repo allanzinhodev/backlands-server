@@ -1074,6 +1074,14 @@ bool InstantSpell::playerCastInstant(Player* player, std::string& param, bool fo
 
 			var.setPosition(Spells::getCasterPosition(player, dir));
 		} else if (needPosition && to.x != 0) {
+			// the aim position comes from the client: keep it within range and sight
+			const int32_t rangeX = range != -1 ? range : Map::maxClientViewportX;
+			const int32_t rangeY = range != -1 ? range : Map::maxClientViewportY;
+			if (!g_game.canThrowObjectTo(player->getPosition(), to, true, true, rangeX, rangeY)) {
+				player->sendCancelMessage(RETURNVALUE_DESTINATIONOUTOFREACH);
+				g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF, player->getInstanceID());
+				return false;
+			}
 			var.setPosition(to);
 		} else {
 			var.setPosition(player->getPosition());
