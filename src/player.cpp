@@ -2539,17 +2539,18 @@ DepotLocker* Player::getDepotLocker(uint32_t depotId)
 		}
 	}
 
-	if (!hasSupplyStash) {
-		auto supplyStash = Item::CreateItem(ITEM_SUPPLY_STASH);
-		if (supplyStash) {
-			it->second->internalAddThing(supplyStash.get());
-		}
-	}
-
+	// internalAddThing pushes to the front: added last shows first (chest, stash, inbox, market).
 	if (!hasInbox) {
 		auto inbox = Item::CreateItem(ITEM_INBOX);
 		if (inbox) {
 			it->second->internalAddThing(inbox.get());
+		}
+	}
+
+	if (!hasSupplyStash) {
+		auto supplyStash = Item::CreateItem(ITEM_SUPPLY_STASH);
+		if (supplyStash) {
+			it->second->internalAddThing(supplyStash.get());
 		}
 	}
 

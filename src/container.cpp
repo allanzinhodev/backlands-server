@@ -450,6 +450,12 @@ ReturnValue Container::queryAdd(int32_t index, const Thing& thing, uint32_t coun
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
 
+	// The supply stash lives in the database (player_supplystash); its container is never saved,
+	// so anything dropped into it would vanish on logout.
+	if (getID() == ITEM_SUPPLY_STASH) {
+		return RETURNVALUE_NOTPOSSIBLE;
+	}
+
 	bool childIsOwner = hasBitSet(FLAG_CHILDISOWNER, flags);
 	if (childIsOwner) {
 		// a child container is querying, since we are the top container (not carried by a player)
