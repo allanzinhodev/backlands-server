@@ -1,5 +1,4 @@
--- Custom Market PacketHandler
--- OTC sends 0xF4..0xF7 and 0xE0..0xE1. Server responds with 0xDB.
+-- Market PacketHandler: official opcodes, our payloads (see OPCODE_* below).
 -- Item ids are traded directly, no wareId/ThingAttrMarket dependency.
 
 if not configManager.getBoolean(configKeys.MARKET_SYSTEM_ENABLED) then
@@ -9,19 +8,19 @@ end
 
 local MARKET_ITEM_ID = ITEM_MARKET or 12903
 
-local OPCODE_MARKET_OPEN = 0xF4
-local OPCODE_MARKET_LEAVE = 0xF5
-local OPCODE_MARKET_BROWSE = 0xF6
-local OPCODE_MARKET_CREATE = 0xF7
-local OPCODE_MARKET_CANCEL = 0xE0
-local OPCODE_MARKET_ACCEPT = 0xE1
-local OPCODE_MARKET_SEND = 0xDB
+-- Official opcodes (9.44+). Payloads are ours: the 8.60 dat has no market data,
+-- so enter carries the catalog, and offers are addressed by their DB id.
+local OPCODE_MARKET_LEAVE = 0xF4
+local OPCODE_MARKET_BROWSE = 0xF5 -- browseId 0 = enter request (no official equivalent)
+local OPCODE_MARKET_CREATE = 0xF6
+local OPCODE_MARKET_CANCEL = 0xF7
+local OPCODE_MARKET_ACCEPT = 0xF8
+local OPCODE_MARKET_ENTER_SEND = 0xF6
+local OPCODE_MARKET_LEAVE_SEND = 0xF7
+local OPCODE_MARKET_DETAIL_SEND = 0xF8
+local OPCODE_MARKET_BROWSE_SEND = 0xF9
+local MARKET_REQUEST_ENTER = 0
 
-local RESP_MESSAGE = 0x00
-local RESP_ENTER = 0x01
-local RESP_LEAVE = 0x02
-local RESP_BROWSE = 0x03
-local RESP_DETAIL = 0x04
 
 local MARKET_ACTION_BUY = 0
 local MARKET_ACTION_SELL = 1
@@ -308,11 +307,8 @@ local function sendMarketMessage(player, message)
 		return false
 	end
 
-	local out = NetworkMessage(player)
-	out:addByte(OPCODE_MARKET_SEND)
-	out:addByte(RESP_MESSAGE)
-	out:addString(message)
-	return out:sendToPlayer(player)
+	player:sendTextMessage(MESSAGE_STATUS_SMALL, message)
+	return true
 end
 
 local function sendMarketLeave(player)
@@ -321,8 +317,7 @@ local function sendMarketLeave(player)
 	end
 
 	local out = NetworkMessage(player)
-	out:addByte(OPCODE_MARKET_SEND)
-	out:addByte(RESP_LEAVE)
+	out:addByte(OPCODE_MARKET_LEAVE_SEND)
 	return out:sendToPlayer(player)
 end
 
@@ -1896,8 +1891,7 @@ local function sendMarketBrowse(player, browseId)
 	end
 
 	local out = NetworkMessage(player)
-	out:addByte(OPCODE_MARKET_SEND)
-	out:addByte(RESP_BROWSE)
+	out:addByte(OPCODE_MARKET_BROWSE_SEND)
 	out:addU16(browseId)
 	out:addU16(#buyOffers)
 	for _, offer in ipairs(buyOffers) do
@@ -1943,8 +1937,7 @@ local function sendMarketEnter(player, depotMap)
 		local chunkEnd = math.min(offset + MARKET_CATALOG_CHUNK_SIZE - 1, totalItems)
 		local chunkCount = totalItems == 0 and 0 or (chunkEnd - offset + 1)
 		local out = NetworkMessage(player)
-		out:addByte(OPCODE_MARKET_SEND)
-		out:addByte(RESP_ENTER)
+		out:addByte(OPCODE_MARKET_ENTER_SEND)
 		out:addU64(balance)
 		out:addU16(offers)
 		out:addU16(chunkIndex)
@@ -1985,8 +1978,7 @@ sendMarketDetail = function(player, itemId)
 	local saleStats = fetchMarketStatistics(itemId, MARKET_ACTION_SELL)
 
 	local out = NetworkMessage(player)
-	out:addByte(OPCODE_MARKET_SEND)
-	out:addByte(RESP_DETAIL)
+	out:addByte(OPCODE_MARKET_DETAIL_SEND)
 	out:addU16(itemId)
 	out:addByte(math.min(#descriptions, 0xFF))
 	for i = 1, math.min(#descriptions, 0xFF) do
@@ -2080,8 +2072,7 @@ local function validateOfferPayload(player, actionType, itemId, amount, price)
 	return true
 end
 
-local openHandler = PacketHandler(OPCODE_MARKET_OPEN)
-function openHandler.onReceive(player, msg)
+local function handleEnterRequest(player)
 	expireOffers()
 
 	-- Cyclopedia/OTC can request the catalog without opening a market session.
@@ -2094,7 +2085,6 @@ function openHandler.onReceive(player, msg)
 	setMarketOpen(player)
 	sendMarketEnter(player)
 end
-openHandler:register()
 
 local leaveHandler = PacketHandler(OPCODE_MARKET_LEAVE)
 function leaveHandler.onReceive(player, msg)
@@ -2105,15 +2095,19 @@ leaveHandler:register()
 
 local browseHandler = PacketHandler(OPCODE_MARKET_BROWSE)
 function browseHandler.onReceive(player, msg)
-	if not ensureMarketAccess(player) then
+	if msg:len() - msg:tell() < 2 then
 		return
 	end
-	if msg:len() - msg:tell() < 2 then
+	local browseId = msg:getU16()
+	if browseId == MARKET_REQUEST_ENTER then
+		return handleEnterRequest(player)
+	end
+	if not ensureMarketAccess(player) then
 		return
 	end
 
 	expireOffers()
-	sendMarketBrowse(player, msg:getU16())
+	sendMarketBrowse(player, browseId)
 end
 browseHandler:register()
 
@@ -2129,7 +2123,7 @@ function createHandler.onReceive(player, msg)
 	if not ensureMarketAccess(player) then
 		return
 	end
-	if msg:len() - msg:tell() < 10 then
+	if msg:len() - msg:tell() < 11 then
 		return
 	end
 	if isOnCooldown(player) then
@@ -2148,13 +2142,10 @@ function createHandler.onReceive(player, msg)
 
 	local actionType = msg:getByte()
 	local itemId = msg:getU16()
+	local requestedTier = math.max(0, math.min(10, tonumber(msg:getByte()) or 0))
 	local amount = msg:getU16()
 	local price = msg:getU32()
 	local anonymous = msg:getByte() ~= 0
-	local requestedTier = nil
-	if msg:len() - msg:tell() >= 1 then
-		requestedTier = math.max(0, math.min(10, tonumber(msg:getByte()) or 0))
-	end
 
 	local valid, errorMessage = validateOfferPayload(player, actionType, itemId, amount, price)
 	if not valid then

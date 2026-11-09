@@ -1,7 +1,7 @@
 -- GameStore Lua Delivery Bridge
 -- Subsystems that exist only in Lua (BattlePass, Prey, TaskBoard, Hirelings)
 -- are fulfilled here via the C++ StoreService::deliverViaLuaCallback bridge.
--- Network protocol handling (0xF8, 0xFA, 0xFB, 0xFC, 0xFD) is now natively executed in C++23.
+-- Network protocol handling (0xEF transfer, 0xFA, 0xFB, 0xFC, 0xFD) is now natively executed in C++23.
 
 local function logInfo(message)
 	if logger and logger.info then

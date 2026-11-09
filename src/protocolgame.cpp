@@ -1817,7 +1817,7 @@ void ProtocolGame::parsePacketOnDispatcher(NetworkMessage_ptr& packet)
 		case 0xF3: /* get object info */
 			break;
 
-		case 0xF8: /* custom store transfer */
+		case 0xEF: /* store transfer coins (official opcode) */
 			if (isOTC) {
 				parseStoreTransfer(msg);
 			} else {
