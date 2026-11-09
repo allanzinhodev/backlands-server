@@ -1,3 +1,12 @@
+local function hashToken(token)
+    local hash = 0
+    for i = 1, #token do
+        local char = string.byte(token, i)
+        hash = ((hash * 31) + char) % 4294967296
+    end
+    return string.format("%08x", hash)
+end
+
 local tokenTalkaction = TalkAction("!token")
 function tokenTalkaction.onSay(player, words, param)
     param = param:trim():lower()
@@ -123,25 +132,5 @@ function tokenTalkaction.onSay(player, words, param)
     return false
 end
 
-function hashToken(token)
-    local hash = 0
-    for i = 1, #token do
-        local char = string.byte(token, i)
-        hash = ((hash * 31) + char) % 4294967296
-    end
-    return string.format("%08x", hash)
-end
-
-function isTokenException(itemId)
-    if not tokenProtectionExceptions then
-        return false
-    end
-    for _, id in ipairs(tokenProtectionExceptions) do
-        if id == itemId then
-            return true
-        end
-    end
-    return false
-end
 tokenTalkaction:separator(" ")
 tokenTalkaction:register()

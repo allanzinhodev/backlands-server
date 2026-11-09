@@ -109,7 +109,7 @@ local function sendPartyAnalyzer(player)
 	out:sendToPlayer(player)
 end
 
-function sendPartyAnalyzerToAll(leader)
+local function sendPartyAnalyzerToAll(leader)
 	local members = getPartyMembers(leader)
 	for _, m in pairs(members) do
 		if isOTC(m) then

@@ -13,7 +13,7 @@ local config = {
 	bridgeId = 5770,
 }
 
-function moveToPosition(self, toPosition, pushMove, monsterPosition)
+local function moveToPosition(self, toPosition, pushMove, monsterPosition)
 	if self:getPosition() == toPosition then
 		return false
 	end

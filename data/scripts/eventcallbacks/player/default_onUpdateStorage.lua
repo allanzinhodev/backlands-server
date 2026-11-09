@@ -12,7 +12,7 @@ event.onUpdateStorage = function(creature, key, value, oldValue)
 		return
 	end
 
-	local playerId = player:getId()
+	local playerId = player:getGuid() -- guid: player id changes every login
 	local now = os.mtime()
 	if not lastQuestUpdate[playerId] then lastQuestUpdate[playerId] = now end
 

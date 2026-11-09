@@ -1,6 +1,6 @@
 local Storage = PlayerStorageKeys
 
-function dump(o)
+local function dump(o)
    	if type(o) == 'table' then
       	local s = '{ '
       	for k,v in pairs(o) do
@@ -14,11 +14,11 @@ function dump(o)
    	end
 end
 
-function sendHelp(player) 
+local function sendHelp(player) 
     player:popupFYI("Commands of Casting:\n!cast on - enable the gameplay \n!cast off - disable the gameplay\n!cast password <password> - sets a password on the stream\n!cast password off - disable the password\n!cast list - displays the amount and nicknames of current spectators\n!cast mute <name> - mutes selected spectator from chat\n!cast unmute <name> - removes muted\n!cast ban - shows banished spectators list\n!cast unban <name> - removes banishment lock\n!cast kick <name> - kick a spectator from your stream")
 end
 
-function findIP(spectators, name)
+local function findIP(spectators, name)
 	for k, v in pairs(spectators) do
 		if k:lower() == name:lower() then
 			return v
@@ -27,7 +27,7 @@ function findIP(spectators, name)
 	return nil
 end
 
-function removeKey(t, k_to_remove)
+local function removeKey(t, k_to_remove)
   	local new = {}
   	for k, v in pairs(t) do
 		if k:lower() ~= k_to_remove:lower() then

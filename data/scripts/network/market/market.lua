@@ -2499,7 +2499,7 @@ function acceptHandler.onReceive(player, msg)
 end
 acceptHandler:register()
 
-marketSessionCleanup = CreatureEvent("CustomMarketSessionCleanup")
+local marketSessionCleanup = CreatureEvent("CustomMarketSessionCleanup")
 function marketSessionCleanup.onLogout(player)
 	lastAction[player:getId()] = nil
 	marketDepotSessions[player:getId()] = nil
@@ -2509,7 +2509,7 @@ function marketSessionCleanup.onLogout(player)
 end
 marketSessionCleanup:register()
 
-marketSessionInit = CreatureEvent("CustomMarketSessionInit")
+local marketSessionInit = CreatureEvent("CustomMarketSessionInit")
 function marketSessionInit.onLogin(player)
 	player:registerEvent("CustomMarketSessionCleanup")
 	return true
