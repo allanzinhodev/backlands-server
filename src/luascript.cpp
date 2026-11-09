@@ -3252,6 +3252,15 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::HOUSE_PRICE);
 	registerEnumIn("configKeys", ConfigManager::KILLS_TO_RED);
 	registerEnumIn("configKeys", ConfigManager::KILLS_TO_BLACK);
+	registerEnumIn("configKeys", ConfigManager::DAY_KILLS_TO_RED);
+	registerEnumIn("configKeys", ConfigManager::WEEK_KILLS_TO_RED);
+	registerEnumIn("configKeys", ConfigManager::MONTH_KILLS_TO_RED);
+	registerEnumIn("configKeys", ConfigManager::DAY_KILLS_TO_BLACK);
+	registerEnumIn("configKeys", ConfigManager::WEEK_KILLS_TO_BLACK);
+	registerEnumIn("configKeys", ConfigManager::MONTH_KILLS_TO_BLACK);
+	registerEnumIn("configKeys", ConfigManager::RED_SKULL_DURATION);
+	registerEnumIn("configKeys", ConfigManager::BLACK_SKULL_DURATION);
+	registerEnumIn("configKeys", ConfigManager::SKULL_MODEL);
 	registerEnumIn("configKeys", ConfigManager::MAX_MESSAGEBUFFER);
 	registerEnumIn("configKeys", ConfigManager::ACTIONS_DELAY_INTERVAL);
 	registerEnumIn("configKeys", ConfigManager::EX_ACTIONS_DELAY_INTERVAL);

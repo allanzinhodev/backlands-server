@@ -609,6 +609,14 @@ bool ConfigManager::load()
 	integers[Integer::HOUSE_PRICE] = getGlobalInteger(L, "housePriceEachSQM", 1000);
 	integers[Integer::KILLS_TO_RED] = getGlobalInteger(L, "killsToRedSkull", 3);
 	integers[Integer::KILLS_TO_BLACK] = getGlobalInteger(L, "killsToBlackSkull", 6);
+	integers[Integer::DAY_KILLS_TO_RED] = getGlobalInteger(L, "dayKillsToRedSkull", 3);
+	integers[Integer::WEEK_KILLS_TO_RED] = getGlobalInteger(L, "weekKillsToRedSkull", 5);
+	integers[Integer::MONTH_KILLS_TO_RED] = getGlobalInteger(L, "monthKillsToRedSkull", 10);
+	integers[Integer::DAY_KILLS_TO_BLACK] = getGlobalInteger(L, "dayKillsToBlackSkull", 6);
+	integers[Integer::WEEK_KILLS_TO_BLACK] = getGlobalInteger(L, "weekKillsToBlackSkull", 10);
+	integers[Integer::MONTH_KILLS_TO_BLACK] = getGlobalInteger(L, "monthKillsToBlackSkull", 20);
+	integers[Integer::RED_SKULL_DURATION] = getGlobalInteger(L, "redSkullDuration", 30 * 24 * 60 * 60);
+	integers[Integer::BLACK_SKULL_DURATION] = getGlobalInteger(L, "blackSkullDuration", 45 * 24 * 60 * 60);
 	integers[Integer::ACTIONS_DELAY_INTERVAL] = getGlobalInteger(L, "timeBetweenActions", 200);
 	integers[Integer::EX_ACTIONS_DELAY_INTERVAL] = getGlobalInteger(L, "timeBetweenExActions", 1000);
 	integers[Integer::NECKLACE_DELAY_INTERVAL] = getGlobalInteger(L, "timeBetweenNecklace", 500);
@@ -818,6 +826,12 @@ bool ConfigManager::load()
 	strings[String::ADMIN_PASSWORD] = getGlobalString(L, "adminPassword", "");
 	strings[String::ADMIN_ENCRYPTION] = getGlobalString(L, "adminEncryption", "");
 	strings[String::ADMIN_ENCRYPTION_DATA] = getGlobalString(L, "adminEncryptionData", "");
+	strings[String::SKULL_MODEL] = getGlobalString(L, "skullModel", "decay");
+	if (strings[String::SKULL_MODEL] != "decay" && strings[String::SKULL_MODEL] != "periods") {
+		LOG_WARN(fmt::format("[Warning - ConfigManager::load] skullModel '{}' is unknown, using decay",
+		                     strings[String::SKULL_MODEL]));
+		strings[String::SKULL_MODEL] = "decay";
+	}
 	integers[Integer::ADMIN_CONNECTIONS_LIMIT] = getGlobalInteger(L, "adminConnectionsLimit", 1);
 
 	// Connection Limits

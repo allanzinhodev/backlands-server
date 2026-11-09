@@ -64,12 +64,26 @@ local function clamp(value, minValue, maxValue)
 	return value
 end
 
-local function getKillLimit(player)
+local function usesPeriods()
+	return configManager.getString(configKeys.SKULL_MODEL) == "periods"
+end
+
+-- limites de dia, semana e mês até a próxima skull (red; já com red ou black, a black)
+local function getKillLimits(player)
 	local skull = player:getSkull()
-	if skull == SKULL_RED or skull == SKULL_BLACK then
-		return math.max(1, configManager.getNumber(configKeys.KILLS_TO_BLACK))
+	local black = skull == SKULL_RED or skull == SKULL_BLACK
+	if not usesPeriods() then
+		local limit = configManager.getNumber(black and configKeys.KILLS_TO_BLACK or configKeys.KILLS_TO_RED)
+		return limit, limit, limit
 	end
-	return math.max(1, configManager.getNumber(configKeys.KILLS_TO_RED))
+	if black then
+		return configManager.getNumber(configKeys.DAY_KILLS_TO_BLACK),
+			configManager.getNumber(configKeys.WEEK_KILLS_TO_BLACK),
+			configManager.getNumber(configKeys.MONTH_KILLS_TO_BLACK)
+	end
+	return configManager.getNumber(configKeys.DAY_KILLS_TO_RED),
+		configManager.getNumber(configKeys.WEEK_KILLS_TO_RED),
+		configManager.getNumber(configKeys.MONTH_KILLS_TO_RED)
 end
 
 local function getCacheKey(player)
@@ -118,20 +132,25 @@ local function refreshUnjustifiedKillCaches(players)
 	local dayStart = now - PERIOD_DAY
 	local weekStart = now - PERIOD_WEEK
 	local monthStart = now - PERIOD_MONTH
+	local names = table.concat(escapedNames, ", ")
+	-- mesma contagem do C++ (countUnjustifiedKills em player.cpp): último golpe ou mais dano
 	local resultId = db.storeQuery(
-		"SELECT `killed_by`, " ..
+		"SELECT `name`, " ..
 			"SUM(CASE WHEN `time` >= " .. dayStart .. " THEN 1 ELSE 0 END) AS `day_kills`, " ..
 			"SUM(CASE WHEN `time` >= " .. weekStart .. " THEN 1 ELSE 0 END) AS `week_kills`, " ..
-			"COUNT(*) AS `month_kills` " ..
-		"FROM `player_deaths` WHERE `killed_by` IN (" .. table.concat(escapedNames, ", ") ..
-		") AND `is_player` = 1 AND `unjustified` = 1 AND `time` >= " .. monthStart .. " GROUP BY `killed_by`"
+			"COUNT(*) AS `month_kills` FROM (" ..
+			"SELECT `killed_by` AS `name`, `time` FROM `player_deaths` WHERE `killed_by` IN (" .. names ..
+			") AND `is_player` = 1 AND `unjustified` = 1 AND `time` >= " .. monthStart .. " UNION ALL " ..
+			"SELECT `mostdamage_by`, `time` FROM `player_deaths` WHERE `mostdamage_by` IN (" .. names ..
+			") AND `mostdamage_is_player` = 1 AND `mostdamage_unjustified` = 1 AND `mostdamage_by` <> `killed_by`" ..
+			" AND `time` >= " .. monthStart .. ") AS `kills` GROUP BY `name`"
 	)
 	if not resultId then
 		return
 	end
 
 	repeat
-		local killedBy = result.getDataString(resultId, "killed_by")
+		local killedBy = result.getDataString(resultId, "name")
 		local matchedPlayers = playersByName[killedBy]
 		if matchedPlayers then
 			local dayKills = result.getDataInt(resultId, "day_kills") or 0
@@ -158,6 +177,9 @@ local function getUnjustifiedKillCounts(player)
 end
 
 local function getPeriodData(kills, limit)
+	if limit <= 0 then
+		return 0, 255 -- limite 0 = janela desligada
+	end
 	local percent = clamp(math.floor((kills * 100) / limit), 0, 100)
 	local remaining = clamp(limit - kills, 0, 255)
 	return percent, remaining
@@ -174,11 +196,18 @@ local function sendUnjustifiedPoints(player)
 		return false
 	end
 
-	local dayKills, weekKills, monthKills = getUnjustifiedKillCounts(player)
-	local limit = getKillLimit(player)
-	local dayPercent, dayRemaining = getPeriodData(dayKills, limit)
-	local weekPercent, weekRemaining = getPeriodData(weekKills, limit)
-	local monthPercent, monthRemaining = getPeriodData(monthKills, limit)
+	local dayKills, weekKills, monthKills
+	if usesPeriods() then
+		dayKills, weekKills, monthKills = getUnjustifiedKillCounts(player)
+	else
+		-- decay (8.60): o que dá a skull são os frags ativos, iguais nas três janelas
+		local frags = getActivePvpSituations(player)
+		dayKills, weekKills, monthKills = frags, frags, frags
+	end
+	local dayLimit, weekLimit, monthLimit = getKillLimits(player)
+	local dayPercent, dayRemaining = getPeriodData(dayKills, dayLimit)
+	local weekPercent, weekRemaining = getPeriodData(weekKills, weekLimit)
+	local monthPercent, monthRemaining = getPeriodData(monthKills, monthLimit)
 	local skullDays = clamp(math.ceil(math.max(0, player:getSkullTime() or 0) / PERIOD_DAY), 0, 255)
 
 	local msg = NetworkMessage(player)
@@ -208,7 +237,9 @@ local updater = GlobalEvent("CustomUnjustifiedPointsUpdater")
 
 function updater.onThink(interval)
 	local players = Game.getPlayers()
-	refreshUnjustifiedKillCaches(players)
+	if usesPeriods() then
+		refreshUnjustifiedKillCaches(players)
+	end
 	for _, player in ipairs(players) do
 		sendUnjustifiedPoints(player)
 	end

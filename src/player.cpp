@@ -6730,6 +6730,51 @@ void Player::updateSkullAfterPzLockEnded()
 	}
 }
 
+namespace {
+
+struct UnjustifiedKills
+{
+	int64_t day = 0;
+	int64_t week = 0;
+	int64_t month = 0;
+};
+
+// Unjustified kills already saved in player_deaths (last hit or most damage), per window.
+// Same windows and rules as data/scripts/network/unjustified_points.
+UnjustifiedKills countUnjustifiedKills(const std::string& name)
+{
+	constexpr int64_t day = 24 * 60 * 60;
+	const int64_t now = time(nullptr);
+
+	Database& db = Database::getInstance();
+	const std::string escapedName = db.escapeString(name);
+	DBResult_ptr result = db.storeQuery(fmt::format(
+	    "SELECT COALESCE(SUM(`time` >= {1}), 0) AS `day_kills`, COALESCE(SUM(`time` >= {2}), 0) AS `week_kills`, "
+	    "COUNT(*) AS `month_kills` FROM ("
+	    "SELECT `time` FROM `player_deaths` WHERE `killed_by` = {0} AND `is_player` = 1 AND `unjustified` = 1 "
+	    "AND `time` >= {3} UNION ALL "
+	    "SELECT `time` FROM `player_deaths` WHERE `mostdamage_by` = {0} AND `mostdamage_is_player` = 1 "
+	    "AND `mostdamage_unjustified` = 1 AND `mostdamage_by` <> `killed_by` AND `time` >= {3}) AS `kills`",
+	    escapedName, now - day, now - 7 * day, now - 30 * day));
+	if (!result) {
+		return {};
+	}
+	return {result->getNumber<int64_t>("day_kills"), result->getNumber<int64_t>("week_kills"),
+	        result->getNumber<int64_t>("month_kills")};
+}
+
+bool reachesSkull(const UnjustifiedKills& kills, ConfigManager::Integer day, ConfigManager::Integer week,
+                  ConfigManager::Integer month)
+{
+	const auto reaches = [](int64_t count, ConfigManager::Integer key) {
+		const int64_t limit = getInteger(key);
+		return limit > 0 && count >= limit;
+	};
+	return reaches(kills.day, day) || reaches(kills.week, week) || reaches(kills.month, month);
+}
+
+} // namespace
+
 void Player::addUnjustifiedDead(const Player* attacked)
 {
 	if (hasFlag(PlayerFlag_NotGainInFight) || attacked == this || g_game.getWorldType() == WORLD_TYPE_PVP_ENFORCED) {
@@ -6737,6 +6782,30 @@ void Player::addUnjustifiedDead(const Player* attacked)
 	}
 
 	sendTextMessage(MESSAGE_EVENT_ADVANCE, "Warning! The murder of " + attacked->getName() + " was not justified.");
+
+	if (getString(ConfigManager::SKULL_MODEL) == "periods") {
+		// This death is not in player_deaths yet (onDeath saves it later), so it counts here.
+		auto kills = countUnjustifiedKills(getName());
+		++kills.day;
+		++kills.week;
+		++kills.month;
+
+		if (getSkull() == SKULL_BLACK) {
+			return;
+		}
+		if (reachesSkull(kills, ConfigManager::DAY_KILLS_TO_BLACK, ConfigManager::WEEK_KILLS_TO_BLACK,
+		                 ConfigManager::MONTH_KILLS_TO_BLACK)) {
+			setSkull(SKULL_BLACK);
+			skullTicks = getInteger(ConfigManager::BLACK_SKULL_DURATION);
+			sendIcons();
+		} else if (reachesSkull(kills, ConfigManager::DAY_KILLS_TO_RED, ConfigManager::WEEK_KILLS_TO_RED,
+		                        ConfigManager::MONTH_KILLS_TO_RED)) {
+			setSkull(SKULL_RED);
+			skullTicks = getInteger(ConfigManager::RED_SKULL_DURATION);
+			sendIcons();
+		}
+		return;
+	}
 
 	skullTicks += getInteger(ConfigManager::FRAG_TIME);
 
