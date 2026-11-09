@@ -995,6 +995,9 @@ end
 
 local infoHandler = PacketHandler(OPCODE_CYCLOPEDIA_INFO)
 function infoHandler.onReceive(player, msg)
+	if not NetworkGuard.cooldown(player, "bestiary-info", 200) then
+		return
+	end
 	if not isBestiaryEnabled() or not CustomBestiary then
 		logError("[CustomBestiary] CustomBestiary lib was not loaded.")
 		return
@@ -1007,7 +1010,7 @@ infoHandler:register()
 
 local categoryHandler = PacketHandler(OPCODE_CYCLOPEDIA_CATEGORY)
 function categoryHandler.onReceive(player, msg)
-	if not isBestiaryEnabled() then
+	if not isBestiaryEnabled() or not NetworkGuard.cooldown(player, "bestiary-category", 200) then
 		return
 	end
 
@@ -1053,7 +1056,7 @@ monsterHandler:register()
 
 local charmHandler = PacketHandler(OPCODE_CYCLOPEDIA_CHARM)
 function charmHandler.onReceive(player, msg)
-	if not isBestiaryEnabled() then
+	if not isBestiaryEnabled() or not NetworkGuard.cooldown(player, "bestiary-charm", 500) then
 		return
 	end
 
@@ -1074,7 +1077,7 @@ charmHandler:register()
 
 local trackerHandler = PacketHandler(OPCODE_CYCLOPEDIA_TRACKER)
 function trackerHandler.onReceive(player, msg)
-	if not isBestiaryEnabled() then
+	if not isBestiaryEnabled() or not NetworkGuard.cooldown(player, "bestiary-tracker", 200) then
 		return
 	end
 

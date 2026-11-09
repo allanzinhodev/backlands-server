@@ -1195,6 +1195,9 @@ end
 
 local nativeRequestHandler = PacketHandler(PREY_NATIVE_OPCODE_REQUEST)
 function nativeRequestHandler.onReceive(player, msg)
+	if not NetworkGuard.cooldown(player, "prey-request", 500) then
+		return
+	end
 	PreySystem.openWindows[player:getId()] = true
 	initializeEmptySlots(player)
 	sendFullPrey(player)

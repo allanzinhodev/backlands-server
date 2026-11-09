@@ -217,7 +217,7 @@ end
 
 local highscoresHandler = PacketHandler(OPCODE_HIGHSCORES)
 function highscoresHandler.onReceive(player, msg)
-	if not supportsHighscores(player) then
+	if not supportsHighscores(player) or not NetworkGuard.cooldown(player, "highscores", 500) then
 		return
 	end
 

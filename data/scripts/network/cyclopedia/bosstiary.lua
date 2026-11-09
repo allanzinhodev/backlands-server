@@ -344,7 +344,8 @@ local function handleSlotAction(player, slot, raceId)
 end
 
 local function toggleTracker(player, raceId, enabled)
-	if not isBestiaryEnabled() or not CustomBosstiary.getMonster(raceId) then
+	if not isBestiaryEnabled() or not CustomBosstiary.getMonster(raceId)
+		or not NetworkGuard.cooldown(player, "bosstiary-tracker", 200) then
 		return
 	end
 
@@ -364,7 +365,7 @@ end
 
 local openHandler = PacketHandler(OPCODE_BOSSTIARY_OPEN)
 function openHandler.onReceive(player, msg)
-	if not isBestiaryEnabled() then
+	if not isBestiaryEnabled() or not NetworkGuard.cooldown(player, "bosstiary-open", 500) then
 		return
 	end
 	sendWindow(player)
@@ -373,7 +374,7 @@ openHandler:register()
 
 local slotsHandler = PacketHandler(OPCODE_BOSSTIARY_OPEN_SLOTS)
 function slotsHandler.onReceive(player, msg)
-	if not isBestiaryEnabled() then
+	if not isBestiaryEnabled() or not NetworkGuard.cooldown(player, "bosstiary-slots", 500) then
 		return
 	end
 	sendSlots(player)
