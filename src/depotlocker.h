@@ -32,6 +32,13 @@ public:
 	void postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index,
 	                            cylinderlink_t link = LINK_OWNER) override;
 
+	// Only the chest, inbox, stash and market live here, and the locker itself is never saved:
+	// anything a player dropped straight into it would vanish on logout.
+	ReturnValue queryAdd(int32_t, const Thing&, uint32_t, uint32_t, Creature* = nullptr) const override
+	{
+		return RETURNVALUE_NOTENOUGHROOM;
+	}
+
 	bool canRemove() const override { return false; }
 
 	bool isRemoved() const override { return false; }
