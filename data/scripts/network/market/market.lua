@@ -2368,7 +2368,7 @@ function acceptHandler.onReceive(player, msg)
 	end
 
 	amount = clamp(amount, 1, offer.amount)
-	if hasSerializedAttributes(offer.attributes) and (amount ~= 1 or amount ~= offer.amount) then
+	if hasSerializedAttributes(offer.attributes) and amount ~= offer.amount then
 		releaseMultipleLocks({ offerKey, buyerKey, ownerKey })
 		sendMarketMessage(player, "Tiered/custom market offers must be accepted in full.")
 		return
