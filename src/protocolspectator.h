@@ -735,6 +735,12 @@ class ProtocolSpectator {
                 spy->sendCreatureSquare(creature, color);
         }
 
+        // owner only: the gate (OTC client) is checked against the owner
+        void sendOpenPvpSituations(uint8_t openPvpSituations) {
+            if (auto o = owner.lock())
+                o->sendOpenPvpSituations(openPvpSituations);
+        }
+
         void sendCreatureWeaponAttackMark(const Creature *target, uint8_t weaponType) {
             auto o = owner.lock();
             if (o)

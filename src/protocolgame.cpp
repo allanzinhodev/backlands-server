@@ -3323,6 +3323,14 @@ void ProtocolGame::sendCreatureSquare(const Creature* creature, SquareColor_t co
 	writeToOutputBuffer(msg);
 }
 
+void ProtocolGame::sendOpenPvpSituations(uint8_t openPvpSituations)
+{
+	NetworkMessage msg;
+	msg.addByte(0xB8);
+	msg.addByte(openPvpSituations);
+	writeToOutputBuffer(msg);
+}
+
 void ProtocolGame::sendCreatureWeaponAttackMark(const Creature* target, uint8_t weaponType)
 {
 	if ((!isFonticakClient && !(isAstraClient && supportsAstraSingleCreatureMarks)) || !target ||

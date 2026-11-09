@@ -6569,6 +6569,7 @@ void Player::addAttacked(const Player* attacked)
 	}
 
 	g_game.updateCreatureSquare(this);
+	sendOpenPvpSituations();
 }
 
 void Player::removeAttacked(const Player* attacked)
@@ -6587,6 +6588,7 @@ void Player::removeAttacked(const Player* attacked)
 		}
 
 		g_game.updateCreatureSquare(this);
+		sendOpenPvpSituations();
 	}
 }
 
@@ -6610,6 +6612,7 @@ void Player::clearAttacked()
 	}
 
 	g_game.updateCreatureSquare(this);
+	sendOpenPvpSituations();
 }
 
 bool Player::hasAttackedBy(const Player* attacker) const
@@ -6641,6 +6644,7 @@ void Player::clearAttackedBy()
 
 		attacker->attackedSet.erase(guid);
 		g_game.updateCreatureSquare(attacker.get());
+		attacker->sendOpenPvpSituations();
 	}
 
 	g_game.updateCreatureSquare(this);

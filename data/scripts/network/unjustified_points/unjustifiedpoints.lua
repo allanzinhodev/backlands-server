@@ -3,8 +3,8 @@ if not configManager.isSystemEnabled("unjustifiedPoints") then
 end
 
 -- protocolo oficial (10.x+): o server empurra, o client não pede
+-- (o 0xB8, open pvp situations, sai do C++ a cada mudança do attackedSet)
 local OPCODE_UNJUSTIFIED_STATS = 0xB7
-local OPCODE_OPEN_PVP_SITUATIONS = 0xB8
 
 local REFRESH_INTERVAL = 30000
 
@@ -185,7 +185,7 @@ local function getPeriodData(kills, limit)
 	return percent, remaining
 end
 
-local function getActivePvpSituations(player)
+local function getActiveFrags(player)
 	local skullTime = math.max(0, player:getSkullTime() or 0)
 	local fragTime = math.max(1, configManager.getNumber(configKeys.FRAG_TIME))
 	return clamp(math.ceil(skullTime / fragTime), 0, 255)
@@ -201,7 +201,7 @@ local function sendUnjustifiedPoints(player)
 		dayKills, weekKills, monthKills = getUnjustifiedKillCounts(player)
 	else
 		-- decay (8.60): o que dá a skull são os frags ativos, iguais nas três janelas
-		local frags = getActivePvpSituations(player)
+		local frags = getActiveFrags(player)
 		dayKills, weekKills, monthKills = frags, frags, frags
 	end
 	local dayLimit, weekLimit, monthLimit = getKillLimits(player)
@@ -219,8 +219,6 @@ local function sendUnjustifiedPoints(player)
 	msg:addByte(monthPercent)
 	msg:addByte(monthRemaining)
 	msg:addByte(skullDays)
-	msg:addByte(OPCODE_OPEN_PVP_SITUATIONS)
-	msg:addByte(getActivePvpSituations(player))
 	return msg:sendToPlayer(player)
 end
 

@@ -252,6 +252,7 @@ private:
 	void sendWorldLight(LightInfo lightInfo);
 
 	void sendCreatureSquare(const Creature* creature, SquareColor_t color);
+	void sendOpenPvpSituations(uint8_t openPvpSituations);
 	void sendCreatureWeaponAttackMark(const Creature* target, uint8_t weaponType);
 	void sendSpellCooldown(uint16_t spellId, uint32_t time);
 	void sendSpellGroupCooldown(SpellGroup_t groupId, uint32_t time);

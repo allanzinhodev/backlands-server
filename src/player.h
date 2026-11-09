@@ -1153,6 +1153,13 @@ public:
 			client->sendPrivateMessage(speaker, type, text);
 		}
 	}
+	// 0xB8: players attacked unjustified in the current fight (attackedSet), like the official
+	void sendOpenPvpSituations()
+	{
+		if (client && isOTC() && ConfigManager::isSystemEnabled("unjustifiedPoints")) {
+			client->sendOpenPvpSituations(static_cast<uint8_t>(std::min<size_t>(attackedSet.size(), UINT8_MAX)));
+		}
+	}
 	void sendCreatureSquare(const Creature* creature, SquareColor_t color)
 	{
 		if (client) {
