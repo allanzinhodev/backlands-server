@@ -105,6 +105,10 @@ class MonsterType
 		std::map<CombatType_t, int32_t> healingMap;
 
 		std::vector<voiceBlock_t> voiceVector;
+		std::vector<uint16_t> soundVector;
+		uint16_t deathSound = 2632;
+		uint32_t soundChance = 0;
+		uint32_t soundSpeedTicks = 0;
 
 		std::vector<LootBlock> lootItems;
 		std::vector<std::string> scripts;
@@ -187,6 +191,7 @@ public:
 	std::string name;
 	std::string nameDescription;
 	uint32_t raceId = 0;
+	uint8_t bestiaryClass = 0; // BESTY_RACE_* from monster Bestiary.race (for weapon proficiency class damage)
 
 	MonsterInfo info{};
 
@@ -209,6 +214,8 @@ public:
 	uint8_t drunkenness = 0;
 
 	uint16_t interval = 2000;
+	uint16_t soundCast = 0;
+	uint16_t soundImpact = 0;
 
 	int32_t minCombatValue = 0;
 	int32_t maxCombatValue = 0;

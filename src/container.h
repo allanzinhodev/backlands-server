@@ -20,6 +20,8 @@ class Player;
 
 bool isBrowseFieldVisibleItem(const Item* item);
 bool isInsideRewardContainer(const Cylinder* cylinder);
+// True when the client should show the container "up/parent" arrow (nested inside another container).
+bool containerHasParent(const Container* container, const Player* player = nullptr);
 
 class ContainerIterator
 {
@@ -98,6 +100,7 @@ public:
 	bool isHoldingItem(const Item* item) const;
 	bool isRewardCorpse() const;
 	bool isLootCorpse() const;
+	bool isQuickLootDisabled() const;
 	bool hasLootHighlight() const { return lootHighlightActive; }
 	void setLootHighlightActive(bool value) { lootHighlightActive = value; }
 	uint8_t getSpecialCategory(const Player* viewer) const;

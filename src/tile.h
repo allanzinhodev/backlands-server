@@ -10,6 +10,8 @@
 #include "tools.h"
 #include "zones.h"
 
+#include <array>
+
 class Creature;
 class Player;
 class Teleport;
@@ -209,6 +211,12 @@ public:
 
 	int32_t getClientIndexOfCreature(const Player* player, const Creature* creature) const;
 	int32_t getStackposOfItem(const Player* player, const Item* item) const;
+	struct ClientStack {
+		std::array<Thing*, MAX_STACKPOS_THINGS> things{};
+		size_t size = 0;
+	};
+	// The wire description and all client stack lookups must use the same order.
+	ClientStack getClientStack(const Player* player) const;
 
 	// cylinder implementations
 	ReturnValue queryAdd(int32_t index, const Thing& thing, uint32_t count, uint32_t flags,
@@ -265,6 +273,8 @@ public:
 
 private:
 	void onAddTileItem(Item* item);
+	void synchronizeAutoCarpets(uint32_t instanceId);
+	void synchronizeAutoCarpet();
 	void onUpdateTileItem(Item* oldItem, const ItemType& oldType, Item* newItem, const ItemType& newType);
 	void onRemoveTileItem(const SpectatorVec& spectators, const std::vector<int32_t>& oldStackPosVector, Item* item);
 
@@ -275,6 +285,8 @@ private:
 	Position tilePos;
 	std::vector<ZoneId> zoneIds;
 	uint32_t flags = 0;
+	bool autoCarpetSynchronizing = false;
+	bool autoCarpetPending = false;
 };
 
 // Used for walkable tiles, where there is high likeliness of

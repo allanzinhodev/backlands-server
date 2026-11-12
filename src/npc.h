@@ -66,7 +66,7 @@ public:
 	void onCreatureDisappear(Creature* creature) const;
 	void onCreatureMove(Creature* creature, const Position& oldPos, const Position& newPos) const;
 	void onCreatureSay(Creature* creature, SpeakClasses, std::string_view text) const;
-	void onPlayerTrade(Player* player, int32_t callback, uint16_t itemId, uint8_t count, uint8_t amount,
+	void onPlayerTrade(Player* player, int32_t callback, uint16_t itemId, uint8_t count, uint16_t amount,
 	                   bool ignore = false, bool inBackpacks = false) const;
 	void onPlayerCloseChannel(Player* player) const;
 	void onPlayerEndTrade(Player* player) const;
@@ -112,6 +112,10 @@ public:
 	std::string scriptFilename;
 
 	uint8_t speechBubble = 0;
+
+	uint32_t soundChance = 0;
+	uint32_t soundSpeedTicks = 0;
+	std::vector<uint16_t> soundVector;
 
 	uint32_t walkTicks = 1500;
 	uint32_t baseSpeed = 100;
@@ -215,7 +219,7 @@ public:
 	}
 
 	void onPlayerCloseChannel(Player* player);
-	void onPlayerTrade(Player* player, int32_t callback, uint16_t itemId, uint8_t count, uint8_t amount,
+	void onPlayerTrade(Player* player, int32_t callback, uint16_t itemId, uint8_t count, uint16_t amount,
 	                   bool ignore = false, bool inBackpacks = false);
 	void onPlayerEndTrade(Player* player, int32_t buyCallback, int32_t sellCallback);
 
@@ -275,6 +279,8 @@ private:
 	std::string filename;
 
 	Position masterPos;
+
+	uint32_t soundTicks = 0;
 
 	uint32_t walkTicks;
 	uint32_t baseSpeed;

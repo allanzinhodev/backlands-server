@@ -493,6 +493,15 @@ bool mainLoader(const std::shared_ptr<ServiceManager>& services, StartupRuntimeS
 	startupProgress().update(3, 5, "database worker started");
 
 	DatabaseManager::updateDatabase();
+	if (!DatabaseManager::isMarketSchemaReady()) {
+		startupErrorMessage(
+		    "The Market database schema is incomplete. Deploy data/migrations/68.lua and 69.lua and restart. "
+		    "For an existing installation, run tools/sql/market_delivery_pending.sql in the configured game database. "
+		    "That script repairs the three migration-69 columns only; missing base columns require reconciling "
+		    "table definitions and delivery records with schema.sql and a verified backup before restarting. "
+		    "Do not advance server_config.db_version manually.");
+		return false;
+	}
 	startupProgress().update(4, 5, "migrations checked");
 
 	if (const auto guildCountResult = Database::getInstance().storeQuery(

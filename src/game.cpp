@@ -341,17 +341,10 @@ void dispatchQuickLootFeedback(Player* player, const QuickLootResult& result)
 	}
 }
 
-bool hasQuickLootDisabled(const Item* item)
-{
-	const auto* attribute = item ? item->getCustomAttribute("QuickLootDisabled") : nullptr;
-	const bool* disabled = attribute ? std::get_if<bool>(&attribute->value) : nullptr;
-	return disabled && *disabled;
-}
-
 bool shouldUseContainerInsteadOfQuickLoot(const Container* container)
 {
 	return container && (container->getRewardChest() || container->getID() == ITEM_REWARD_CONTAINER ||
-	                     container->isRewardCorpse() || hasQuickLootDisabled(container));
+	                     container->isRewardCorpse() || container->isQuickLootDisabled());
 }
 
 // Quick loot has no window slot from the client; opening with slot 0 replaced
@@ -427,7 +420,7 @@ bool shouldQuickLootItem(const Player* player, const Item* item)
 bool isValidObjectCategory(ObjectCategory_t category)
 {
 	const uint8_t value = static_cast<uint8_t>(category);
-	return value >= OBJECTCATEGORY_FIRST && value <= OBJECTCATEGORY_LAST && value != 26;
+	return value >= OBJECTCATEGORY_FIRST && value <= OBJECTCATEGORY_LAST;
 }
 
 std::optional<ObjectCategory_t> getQuickLootCategoryFromPrimaryType(const ItemType& itemType)
@@ -447,6 +440,7 @@ std::optional<ObjectCategory_t> getQuickLootCategoryFromPrimaryType(const ItemTy
 	    {"tool", OBJECTCATEGORY_TOOLS},
 	    {"tools", OBJECTCATEGORY_TOOLS},
 	    {"decoration", OBJECTCATEGORY_DECORATION},
+	    {"soul cores", OBJECTCATEGORY_SOULCORES},
 	};
 
 	const auto it = categoryByPrimaryType.find(itemType.primaryType);
@@ -1099,7 +1093,7 @@ void Game::setGameState(GameState_t newState)
 	}
 }
 
-void Game::saveGameState(bool crash /* = false */)
+void Game::saveGameState(bool crash /* = false */, std::string_view reason)
 {
 	AutoStat stat("Game::saveGameState", crash ? "crash" : "full");
 	if (gameState == GAME_STATE_NORMAL) {
@@ -1125,8 +1119,21 @@ void Game::saveGameState(bool crash /* = false */)
 		++savedCount;
 	}
 
-	g_saveManager.saveAll();
+	const bool mandatory = crash || gameState == GAME_STATE_SHUTDOWN || gameState == GAME_STATE_CLOSED;
+	if (crash) {
+		reason = "crash-recovery";
+	} else if (gameState == GAME_STATE_SHUTDOWN) {
+		reason = "shutdown";
+	} else if (gameState == GAME_STATE_CLOSED) {
+		reason = "scheduled-close";
+	}
+	g_saveManager.saveAll(reason, mandatory);
 	g_databaseTasks.flush();
+	if (gameState == GAME_STATE_SHUTDOWN || crash) {
+		if (!g_saveManager.drainForShutdown()) {
+			LOG_CRITICAL("[Game] Final player flush incomplete; unresolved WAL must be recovered before login.");
+		}
+	}
 
 	if (crash && savedCount > 0) {
 		LOG_WARN(fmt::format("[Anti-Rollback] Emergency save completed — {} player(s) saved at temple.", savedCount));
@@ -2323,7 +2330,7 @@ void Game::playerMoveItem(Player* player, const Position& fromPos, uint16_t spri
 				for (const auto& [cid, openCont] : player->getOpenContainers()) {
 					auto openContPtr = openCont.container.lock();
 					if (openContPtr && openContPtr.get() == srcContainer) {
-						player->sendContainer(cid, srcContainer, srcContainer->getParent() != nullptr, openCont.index);
+						player->sendContainer(cid, srcContainer, containerHasParent(srcContainer, player), openCont.index);
 						break;
 					}
 				}
@@ -2335,7 +2342,7 @@ void Game::playerMoveItem(Player* player, const Position& fromPos, uint16_t spri
 				for (const auto& [cid, openCont] : player->getOpenContainers()) {
 					auto openContPtr = openCont.container.lock();
 					if (openContPtr && openContPtr.get() == dstContainer) {
-						player->sendContainer(cid, dstContainer, dstContainer->getParent() != nullptr, openCont.index);
+						player->sendContainer(cid, dstContainer, containerHasParent(dstContainer, player), openCont.index);
 						break;
 					}
 				}
@@ -2771,6 +2778,38 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 			*_moveItem = moveItem;
 		} else {
 			*_moveItem = item;
+		}
+	}
+
+	if (actorPlayer) {
+		uint16_t soundId = 2794; // default item movement
+		const int32_t slot = item->getSlotPosition();
+		const Item* destinationItem = toCylinder->getItem();
+		const bool personalContainer = destinationItem && destinationItem->getContainer() && destinationItem->getHoldingPlayer();
+		if (personalContainer || item->getContainer()) {
+			soundId = 2786;
+		} else if (Item::items[item->getID()].type == ITEM_TYPE_VALUABLE) {
+			soundId = 2793;
+		} else if (item->getWeaponType() == WEAPON_DISTANCE) {
+			soundId = 2791;
+		} else if (item->getWeaponType() == WEAPON_SWORD || item->getWeaponType() == WEAPON_AXE || item->getWeaponType() == WEAPON_CLUB) {
+			soundId = 2790;
+		} else if (item->getWeaponType() == WEAPON_SHIELD || item->getWeaponType() == WEAPON_WAND ||
+		           item->getWeaponType() == WEAPON_AMMO || Item::items[item->getID()].type == ITEM_TYPE_TOOL) {
+			soundId = 2792;
+		} else if (slot != static_cast<int32_t>(SLOTP_WHEREEVER)) {
+			if (slot & SLOTP_HEAD) soundId = 2796;
+			else if (slot & SLOTP_NECKLACE) soundId = 2788;
+			else if (slot & SLOTP_ARMOR) soundId = 2789;
+			else if (slot & SLOTP_LEGS) soundId = 2795;
+			else if (slot & SLOTP_FEET) soundId = 2801;
+			else if (slot & SLOTP_RING) soundId = 2798;
+		}
+		const bool personalDestination = toCylinder->getCreature() || personalContainer;
+		if (!personalDestination && toCylinder->getTile()) {
+			addSoundEffect(toCylinder->getPosition(), soundId, actorPlayer->getInstanceID(), actorPlayer);
+		} else {
+			actorPlayer->sendSingleSoundEffect(actorPlayer->getPosition(), soundId, 1);
 		}
 	}
 
@@ -4059,8 +4098,8 @@ void Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPo
 		for (const auto& [cid, openCont] : player->getOpenContainers()) {
 			auto openContPtr = openCont.container.lock();
 			if (openContPtr) {
-				player->sendContainer(cid, openContPtr.get(),
-				                      openContPtr->getParent() != nullptr, openCont.index);
+				player->sendContainer(cid, openContPtr.get(), containerHasParent(openContPtr.get(), player),
+				                      openCont.index);
 			}
 		}
 
@@ -4209,7 +4248,7 @@ void Game::playerSeekInContainer(uint32_t playerId, uint8_t containerId, uint16_
 		return;
 	}
 
-	const bool hasParent = dynamic_cast<const Container*>(container->getParent()) != nullptr;
+	const bool hasParent = containerHasParent(container, player);
 	player->setContainerIndex(containerId, index);
 	player->sendContainer(containerId, container, hasParent, index);
 }
@@ -4649,7 +4688,7 @@ void Game::playerOpenManagedLootContainer(uint32_t playerId, ObjectCategory_t ca
 	const int8_t openContainerId = player->getContainerID(container);
 	if (openContainerId >= 0) {
 		player->sendContainer(static_cast<uint8_t>(openContainerId), container,
-		                      dynamic_cast<const Container*>(container->getParent()) != nullptr,
+		                      containerHasParent(container, player),
 		                      player->getContainerIndex(static_cast<uint8_t>(openContainerId)));
 		return;
 	}
@@ -4660,7 +4699,7 @@ void Game::playerOpenManagedLootContainer(uint32_t playerId, ObjectCategory_t ca
 		}
 
 		player->addContainer(cid, container);
-		player->sendContainer(cid, container, dynamic_cast<const Container*>(container->getParent()) != nullptr, 0);
+		player->sendContainer(cid, container, containerHasParent(container, player), 0);
 		return;
 	}
 
@@ -4890,7 +4929,7 @@ void Game::playerMoveUpContainer(uint32_t playerId, uint8_t cid)
 		return;
 	}
 
-	bool hasParent = (dynamic_cast<const Container*>(parentContainer->getParent()) != nullptr);
+	bool hasParent = containerHasParent(parentContainer, player);
 	player->addContainer(cid, parentContainer);
 	player->sendContainer(cid, parentContainer, hasParent, player->getContainerIndex(cid));
 }
@@ -4908,7 +4947,7 @@ void Game::playerUpdateContainer(uint32_t playerId, uint8_t cid)
 		return;
 	}
 
-	bool hasParent = (dynamic_cast<const Container*>(container->getParent()) != nullptr);
+	bool hasParent = containerHasParent(container, player);
 	player->sendContainer(cid, container, hasParent, player->getContainerIndex(cid));
 }
 
@@ -4972,7 +5011,8 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 	}
 
 	Item* item = thing->getItem();
-	if (!item || item->getClientID() != spriteId || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
+	if (!item || item->getClientID() != spriteId || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID) ||
+	    (item->isLoadedFromMap() && item->getBed())) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
@@ -5019,6 +5059,10 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 	}
 
 	const uint16_t previousId = item->getID();
+	if (item->getCustomAttribute("__auto_carpet_source")) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
 	uint16_t targetId = getWrapTargetId(item);
 	if (targetId == 0 && previousId != ITEM_DECORATION_KIT) {
 		targetId = Item::items[previousId].wrapableTo;
@@ -5600,10 +5644,10 @@ void Game::internalCloseTrade(Player* player, bool sendCancel /* = true*/)
 	}
 }
 
-void Game::playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount,
+void Game::playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint16_t amount,
                               bool ignoreCap /* = false*/, bool inBackpacks /* = false*/)
 {
-	if (amount == 0 || amount > 100) {
+	if (amount == 0 || amount > 10000) {
 		return;
 	}
 
@@ -5640,9 +5684,9 @@ void Game::playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t coun
 	merchant->onPlayerTrade(player, onBuy, it.id, subType, amount, ignoreCap, inBackpacks);
 }
 
-void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount, bool ignoreEquipped)
+void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint16_t amount, bool ignoreEquipped)
 {
-	if (amount == 0 || amount > 100) {
+	if (amount == 0 || amount > 10000) {
 		return;
 	}
 
@@ -6419,9 +6463,11 @@ void Game::updateCreatureWalk(uint32_t creatureId)
 	PerformanceScope performanceScope(PerformanceMetric::GameUpdateCreatureWalk);
 	auto creatureRef = getCreatureByIDShared(creatureId);
 	Creature* creature = creatureRef.get();
-	if (creature && !creature->isRemoved() && !creature->isDead()) {
+	if (creature) {
 		creature->isUpdatingPath = false;
-		creature->goToFollowCreature();
+		if (!creature->isRemoved() && !creature->isDead()) {
+			creature->goToFollowCreature();
+		}
 	}
 }
 
@@ -6935,6 +6981,9 @@ bool Game::combatBlockHit(CombatDamage& damage, Creature* attacker, Creature* ta
 	applyBossDifficultyDamage(damage, attacker, target);
 
 	damage.blockType = primaryBlockType;
+	if (primaryBlockType != BLOCK_NONE || secondaryBlockType != BLOCK_NONE) {
+		addSoundEffect(target->getPosition(), 20, target->getInstanceID(), attacker);
+	}
 
 	return (primaryBlockType != BLOCK_NONE) && (secondaryBlockType != BLOCK_NONE);
 }
@@ -7939,6 +7988,32 @@ void Game::addMagicEffect(const Position& pos, uint16_t effect, uint32_t instanc
 	addMagicEffect(spectators, pos, effect);
 }
 
+void Game::addSoundEffect(const Position& pos, uint16_t soundId, uint32_t instanceId, Creature* actor)
+{
+	addDoubleSoundEffect(pos, soundId, 0, instanceId, actor);
+}
+
+void Game::addDoubleSoundEffect(const Position& pos, uint16_t mainSoundId, uint16_t secondarySoundId,
+                                uint32_t instanceId, Creature* actor)
+{
+	if (mainSoundId == 0 && secondarySoundId == 0) {
+		return;
+	}
+	SpectatorVec spectators;
+	map.getSpectators(spectators, pos, true, true);
+	InstanceUtils::filterByInstanceInPlace(spectators, instanceId);
+	for (const auto& spectator : spectators) {
+		if (Player* player = spectator ? spectator->getPlayer() : nullptr) {
+			const uint8_t source = actor ? (actor == player ? 1 : (actor->getPlayer() ? 2 : 3)) : 0;
+			if (secondarySoundId == 0) {
+				player->sendSingleSoundEffect(pos, mainSoundId, source);
+			} else {
+				player->sendDoubleSoundEffect(pos, mainSoundId, secondarySoundId, source);
+			}
+		}
+	}
+}
+
 void Game::addMagicEffect(const SpectatorVec& spectators, const Position& pos, uint16_t effect)
 {
 	for (const auto& spectator : spectators) {
@@ -8151,7 +8226,8 @@ void Game::internalDecayItem(std::shared_ptr<Item> item)
 
 void Game::startLootHighlight(Container* corpse, uint32_t ownerPlayerId)
 {
-	if (!corpse || corpse->empty() || ownerPlayerId == 0) {
+	if (!corpse || corpse->empty() || ownerPlayerId == 0 || corpse->isRewardCorpse() ||
+	    corpse->isQuickLootDisabled()) {
 		return;
 	}
 

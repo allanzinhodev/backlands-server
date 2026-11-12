@@ -230,3 +230,11 @@ compile_commands.json
 
 # Mapa global convertido do Crystal (~190 MB): gerar com tools/convert-crystal-map.py
 data/world/global.otbm
+# Generated local benchmark, stress, and static-analysis snapshots
+/VEQUE_CONDITION_DAMAGE_BENCHMARK.md
+/VEQUE_CONDITION_DAMAGE_BENCHMARK.html
+/stress-test-results.html
+/tools/tfs18_static_analysis_report.html
+
+# Emergency snapshots can contain private player data; retain locally for recovery.
+/data/save-quarantine/

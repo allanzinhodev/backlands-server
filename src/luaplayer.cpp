@@ -352,14 +352,14 @@ int luaPlayerGetRewardChest(lua_State* L)
 
 int luaPlayerGetInbox(lua_State* L)
 {
-	// player:getInbox()
+	// player:getInbox([depotId]) -- omitted keeps the home-town inbox.
 	Player* player = getUserdata<Player>(L, 1);
 	if (!player) {
 		lua_pushnil(L);
 		return 1;
 	}
 
-	Inbox* inbox = player->getInbox();
+	Inbox* inbox = isInteger(L, 2) ? player->getInbox(getInteger<uint32_t>(L, 2)) : player->getInbox();
 	if (inbox) {
 		pushItem(L, inbox);
 	} else {
@@ -471,12 +471,39 @@ int luaPlayerSetTemporaryDeathLossReduction(lua_State* L)
 	return 1;
 }
 
+
+int luaPlayerSendAmbientSound(lua_State* L)
+{
+	auto* player = getUserdata<Player>(L, 1);
+	if (!player) { lua_pushnil(L); return 1; }
+	player->sendAmbientSound(getInteger<uint32_t>(L, 2));
+	pushBoolean(L, true); return 1;
+}
+
+int luaPlayerSendSingleSoundEffect(lua_State* L)
+{
+	auto* player = getUserdata<Player>(L, 1);
+	if (!player) { lua_pushnil(L); return 1; }
+	player->sendSingleSoundEffect(player->getPosition(), getInteger<uint16_t>(L, 2), getBoolean(L, 3, true) ? 1 : 0);
+	pushBoolean(L, true); return 1;
+}
+int luaPlayerSendDoubleSoundEffect(lua_State* L)
+{
+	auto* player = getUserdata<Player>(L, 1);
+	if (!player) { lua_pushnil(L); return 1; }
+	player->sendDoubleSoundEffect(player->getPosition(), getInteger<uint16_t>(L, 2), getInteger<uint16_t>(L, 3), getBoolean(L, 4, true) ? 1 : 0);
+	pushBoolean(L, true); return 1;
+}
+
 int luaPlayerSendCharmActivated(lua_State* L)
 {
 	// player:sendCharmActivated(charmId)
 	const Player* player = getUserdata<const Player>(L, 1);
 	if (player) {
-		player->sendCharmActivated(getInteger<uint8_t>(L, 2));
+		Position position;
+		const Position* soundPosition = nullptr;
+		if (lua_gettop(L) >= 3 && !lua_isnil(L, 3)) { position = getPosition(L, 3); soundPosition = &position; }
+		player->sendCharmActivated(getInteger<uint8_t>(L, 2), soundPosition);
 		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);
@@ -2366,6 +2393,31 @@ int luaPlayerSendBannerType(lua_State* L)
 	}
 
 	player->sendBannerType(getInteger<Banner_t>(L, 2));
+	pushBoolean(L, true);
+	return 1;
+}
+
+int luaPlayerSendBestiaryBanner(lua_State* L)
+{
+	// player:sendBestiaryBanner(raceId, progressLevel, name, outfit[, isBoss])
+	const Player* player = getUserdata<const Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const Outfit_t outfit = getOutfit(L, 5);
+	BestiaryCreatureInfo info;
+	info.raceId = getInteger<uint16_t>(L, 2);
+	info.name = getString(L, 4);
+	info.lookType = outfit.lookType;
+	info.lookTypeEx = outfit.lookTypeEx;
+	info.lookHead = outfit.lookHead;
+	info.lookBody = outfit.lookBody;
+	info.lookLegs = outfit.lookLegs;
+	info.lookFeet = outfit.lookFeet;
+	info.lookAddons = outfit.lookAddons;
+	player->sendScreenshotAndBannerProgressRace(info, getInteger<uint8_t>(L, 3), getBoolean(L, 6, false));
 	pushBoolean(L, true);
 	return 1;
 }
@@ -4982,6 +5034,9 @@ void LuaScriptInterface::registerPlayer()
 	registerMethod("Player", "getDropBonus", luaPlayerGetDropBonus);
 	registerMethod("Player", "setTemporaryDeathLossReduction", luaPlayerSetTemporaryDeathLossReduction);
 	registerMethod("Player", "sendCharmActivated", luaPlayerSendCharmActivated);
+	registerMethod("Player", "sendAmbientSound", luaPlayerSendAmbientSound);
+	registerMethod("Player", "sendSingleSoundEffect", luaPlayerSendSingleSoundEffect);
+	registerMethod("Player", "sendDoubleSoundEffect", luaPlayerSendDoubleSoundEffect);
 	registerMethod("Player", "updateKillTracker", luaPlayerUpdateKillTracker);
 	registerMethod("Player", "addConditionSuppressions", luaPlayerAddConditionSuppressions);
 	registerMethod("Player", "removeConditionSuppressions", luaPlayerRemoveConditionSuppressions);
@@ -5119,6 +5174,7 @@ void LuaScriptInterface::registerPlayer()
 
 	registerMethod("Player", "sendTextMessage", luaPlayerSendTextMessage);
 	registerMethod("Player", "sendBannerType", luaPlayerSendBannerType);
+	registerMethod("Player", "sendBestiaryBanner", luaPlayerSendBestiaryBanner);
 	registerMethod("Player", "sendStats", luaPlayerSendStats);
 	registerMethod("Player", "sendSkills", luaPlayerSendSkills);
 	registerMethod("Player", "sendItemValues", luaPlayerSendItemValues);

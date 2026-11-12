@@ -445,9 +445,9 @@ public:
 	void playerAcceptTrade(uint32_t playerId);
 	void saveTransferParties(const std::vector<Player*>& players);
 	void playerLookInTrade(uint32_t playerId, bool lookAtCounterOffer, uint8_t index);
-	void playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount, bool ignoreCap = false,
+	void playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint16_t amount, bool ignoreCap = false,
 	                        bool inBackpacks = false);
-	void playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount,
+	void playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint16_t amount,
 	                    bool ignoreEquipped = false);
 	void playerCloseShop(uint32_t playerId);
 	void playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count);
@@ -511,7 +511,7 @@ public:
 
 	GameState_t getGameState() const;
 	void setGameState(GameState_t newState);
-	void saveGameState(bool crash = false);
+	void saveGameState(bool crash = false, std::string_view reason = "manual");
 
 	// Events
 	void checkCreatureWalk(uint32_t creatureId, uint32_t walkGeneration);
@@ -538,6 +538,9 @@ public:
 	static void addAnimatedText(const SpectatorVec& list, std::string_view message, const Position& pos,
 	                            TextColor_t color);
 	void addMagicEffect(const Position& pos, uint16_t effect, uint32_t instanceId = 0);
+	void addSoundEffect(const Position& pos, uint16_t soundId, uint32_t instanceId = 0, Creature* actor = nullptr);
+	void addDoubleSoundEffect(const Position& pos, uint16_t mainSoundId, uint16_t secondarySoundId,
+	                          uint32_t instanceId = 0, Creature* actor = nullptr);
 	static void addMagicEffect(const SpectatorVec& spectators, const Position& pos, uint16_t effect);
 	void addDistanceEffect(const Position& fromPos, const Position& toPos, uint16_t effect, uint32_t instanceId = 0);
 	static void addDistanceEffect(const SpectatorVec& spectators, const Position& fromPos, const Position& toPos,

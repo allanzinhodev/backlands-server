@@ -44,6 +44,18 @@ TEST_CASE(different_bed_transform_families_do_not_match)
 	CHECK(!IOMapSerialize::isSamePersistentFixtureFamily(bedA, bedB));
 }
 
+TEST_CASE(rotated_bed_fixture_matches_its_original_orientation)
+{
+	auto north = makeFixture(200, ITEM_TYPE_BED);
+	north.rotateTo = 203;
+	auto west = makeFixture(203, ITEM_TYPE_BED);
+	west.rotateTo = 200;
+	CHECK(IOMapSerialize::isSamePersistentFixtureFamily(north, west));
+	auto unrelated = makeFixture(300, ITEM_TYPE_BED);
+	unrelated.rotateTo = 303;
+	CHECK(!IOMapSerialize::isSamePersistentFixtureFamily(north, unrelated));
+}
+
 TEST_CASE(same_door_transform_family_matches)
 {
 	auto closedDoor = makeFixture(400, ITEM_TYPE_DOOR);
@@ -76,18 +88,18 @@ TEST_CASE(locked_door_does_not_match_open_or_closed_family)
 
 TEST_CASE(related_window_transform_family_matches)
 {
-	auto closedWindow = makeFixture(5302, ITEM_TYPE_DOOR);
+	auto closedWindow = makeFixture(5302, ITEM_TYPE_NONE);
 	closedWindow.persistentTransformFamily = 5302;
-	auto openWindow = makeFixture(6447, ITEM_TYPE_DOOR);
+	auto openWindow = makeFixture(6447, ITEM_TYPE_NONE);
 	openWindow.persistentTransformFamily = 5302;
 	CHECK(IOMapSerialize::isSamePersistentFixtureFamily(closedWindow, openWindow));
 }
 
 TEST_CASE(unrelated_window_transform_families_do_not_match)
 {
-	auto firstWindow = makeFixture(5302, ITEM_TYPE_DOOR);
+	auto firstWindow = makeFixture(5302, ITEM_TYPE_NONE);
 	firstWindow.persistentTransformFamily = 5302;
-	auto secondWindow = makeFixture(5303, ITEM_TYPE_DOOR);
+	auto secondWindow = makeFixture(5303, ITEM_TYPE_NONE);
 	secondWindow.persistentTransformFamily = 5303;
 	CHECK(!IOMapSerialize::isSamePersistentFixtureFamily(firstWindow, secondWindow));
 }

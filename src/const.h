@@ -993,6 +993,7 @@ enum class GameFeature : uint8_t {
 	DisplayItemDuration = 129,
 	ThingUpgradeClassification = 130,
 	ItemTierByte = 131,
+	Proficiency = 132, // OTC GameProficiency: catalog proficiencyId + shaped perk slots in info payload
 	AstraCreatureIcons = 133,
 	PlayerFamiliars = 138,
 	DisplayItemCharges = 139,
@@ -1006,8 +1007,11 @@ enum class GameFeature : uint8_t {
 	AstraEchoRaidVisuals = 147,
 	AstraShopCountU16 = 148,
 	AstraStoreBasePrice = 149,
+	AstraBestiaryBannerCreatureData = 151,
+	AstraExtendedSpellIds = 152,
+	AstraShopBuyAmountU16 = 153,
 
-	Last = 149
+	Last = 153
 };
 
 enum ContainerSpecialType : uint8_t

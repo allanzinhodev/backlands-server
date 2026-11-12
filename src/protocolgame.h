@@ -25,12 +25,19 @@ class Item;
 class Tile;
 class Connection;
 class ProtocolGame;
+struct BestiaryCreatureInfo;
 struct ProtocolGameCustomPingTestAccess;
 struct ProtocolGameAstraRegenerationTestAccess;
+struct ProtocolGameSpellCooldownTestAccess;
 using ProtocolGame_ptr = std::shared_ptr<ProtocolGame>;
 class ProtocolSpectator;
 
 extern Game g_game;
+
+namespace BestiaryNotificationProtocol {
+bool writeProgress(NetworkMessage& msg, const BestiaryCreatureInfo& info, uint8_t progressLevel, bool isBoss,
+                   bool includeCreatureData);
+}
 
 struct TextMessage
 {
@@ -54,6 +61,10 @@ inline constexpr auto OTCV8_LENGTH = 5;
 class ProtocolGame final : public Protocol
 {
 public:
+	void sendAmbientSound(uint32_t ambientId);
+	void sendSingleSoundEffect(const Position& pos, uint16_t soundId, uint8_t source = 0);
+	void sendDoubleSoundEffect(const Position& pos, uint16_t mainSoundId, uint16_t secondarySoundId, uint8_t source = 0);
+
 	// static protocol information
 	enum
 	{
@@ -116,6 +127,7 @@ private:
 	void parseAutoWalk(NetworkMessage& msg);
 	void parseSetOutfit(NetworkMessage& msg);
 	void parseInspectionObject(NetworkMessage& msg);
+	void parseCyclopediaCharacterInfo(NetworkMessage& msg);
 	void parseSetMonsterPodium(NetworkMessage& msg);
 	void parseSay(NetworkMessage& msg);
 	void parseSelectSpellAim(NetworkMessage& msg);
@@ -239,6 +251,12 @@ private:
 	void sendOutfitWindow();
 	void sendItemInspection(std::shared_ptr<Item> item = nullptr, uint16_t itemId = 0, uint8_t itemCount = 1,
 	                        uint8_t inspectionType = INSPECT_NORMALOBJECT);
+	void sendCyclopediaItemSummary();
+	void sendCyclopediaCharacterAppearances();
+	void sendCyclopediaStoreSummary();
+	void sendCyclopediaCharacterStats(uint8_t type);
+	void sendCyclopediaRecentDeaths(uint16_t entriesPerPage, uint16_t page);
+	void sendCyclopediaRecentPvPKills(uint16_t entriesPerPage, uint16_t page);
 	void sendMonsterPodiumWindow(const Item* podium, const Position& position, uint16_t itemId, uint8_t stackPos);
 
 	void sendUpdatedVIPStatus(uint32_t guid, VipStatus_t newStatus);
@@ -262,7 +280,8 @@ private:
 	void sendScreenshotAndBannerUnlockedCosmetic(std::string_view skinName, uint16_t lookType, uint8_t skinType);
 	void sendScreenshotAndBannerUpLevel(uint16_t level);
 	void sendScreenshotAndBannerUpSkill(skills_t skill, uint16_t level);
-	void sendScreenshotAndBannerProgressRace(uint16_t raceId, uint8_t progressLevel, bool isBoss = false);
+	void sendScreenshotAndBannerProgressRace(const BestiaryCreatureInfo& info, uint8_t progressLevel,
+	                                         bool isBoss = false);
 	void sendEchoWardenReward(uint16_t raceId, uint32_t charmPoints);
 	void sendExtendedOpcode(uint8_t opcode, std::string_view data);
 	void sendBlessingWindow();
@@ -368,6 +387,7 @@ private:
 	bool shouldSendThingUpgradeClassification() const;
 	bool shouldSendItemTierData() const;
 	bool usesExtendedSpellIds() const;
+	bool usesExtendedSpellCooldownIds() const;
 	void sendNewPing(uint32_t pingId);
 	void parseNewPing(NetworkMessage& msg);
 	void parseCustomClientPing(NetworkMessage& msg);
@@ -391,6 +411,8 @@ private:
 	friend class SpySystem;
 	friend struct ProtocolGameCustomPingTestAccess;
 	friend struct ProtocolGameAstraRegenerationTestAccess;
+	friend struct ProtocolGameSpellCooldownTestAccess;
+	friend struct ProtocolGameMovementTestAccess;
 
 	//cast
 	void spectatorTurn(uint8_t direction);
@@ -421,10 +443,13 @@ private:
 	bool isSpyActive() const { return spyActive_; }
 
 	std::unordered_set<uint32_t> knownCreatureSet;
+	std::unordered_set<uint32_t> pendingCreatureEmblems;
 	std::shared_ptr<Player> player;
 	tfs::net::PacketBacklog packetBacklog;
 
 	uint32_t eventConnect = 0;
+	int64_t lastCharacterHistoryRequest = 0;
+	int64_t lastCharacterItemSummaryRequest = 0;
 	uint32_t challengeTimestamp = 0;
 	uint16_t version = CLIENT_VERSION_MIN;
 
@@ -452,6 +477,9 @@ private:
 	bool supportsAstraEchoRaidVisuals = false;
 	bool supportsAstraStoreBasePrice = false;
 	bool supportsAstraStoreCatalogChunks = false;
+	bool supportsAstraBestiaryBannerCreatureData = false;
+	bool supportsAstraExtendedSpellIds = false;
+	bool supportsAstraShopBuyAmountU16 = false;
 	bool supportsZoneWeather = false;
 	bool supportsDllZoneWeather = false;
 	bool zoneWeatherFeatureEnabled = false;

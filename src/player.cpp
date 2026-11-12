@@ -4,6 +4,7 @@
 #include "otpch.h"
 
 #include "bed.h"
+#include "bestiary_charm.h"
 #include "chat.h"
 #include "combat.h"
 #include "configmanager.h"
@@ -26,6 +27,7 @@
 #include "rewardchest.h"
 #include "databasetasks.h"
 #include "save_manager.h"
+#include "market.h"
 #include "scriptmanager.h"
 #include "scheduler.h"
 #include "spells.h"
@@ -47,6 +49,11 @@ constexpr uint32_t CHAIN_SYSTEM_STORAGE = 40001;
 std::shared_ptr<Item> getSharedItem(Item* item)
 {
 	return item ? item->weak_from_this().lock() : nullptr;
+}
+
+bool accountManagerEmailLooksValid(const std::string& email)
+{
+	return email.find('@') != std::string::npos;
 }
 
 void logSharedItemLockFailure(std::string_view context, const Item* item)
@@ -3137,7 +3144,11 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 	Creature::onRemoveCreature(creature, isLogout);
 
 	if (creature == this) {
-		for (int32_t slot = CONST_SLOT_FIRST; slot <= CONST_SLOT_LAST; ++slot) {
+		removalInProgress = true;
+		// A Lua handler may abort before calling the native settlement API.
+		// Release that reservation while its original container parents still exist.
+		(void)Market::finishMoney(this, !persistenceQuarantined);
+		for (int32_t slot = CONST_SLOT_FIRST; !persistenceQuarantined && slot <= CONST_SLOT_LAST; ++slot) {
 			Item* item = inventory[slot].get();
 			if (item) {
 				g_moveEvents->onPlayerDeEquip(this, item, static_cast<slots_t>(slot));
@@ -3190,6 +3201,11 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 		}
 
 		IOLoginData::removeOnlineStatus(guid);
+		if (persistenceQuarantined) {
+			// Structural world cleanup above is required, but logout/de-equip Lua,
+			// familiar writes and a new player snapshot must not overwrite the WAL.
+			return;
+		}
 
 		Familiar::onPlayerLogout(this);
 
@@ -3205,14 +3221,19 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 		}
 
 		bool saved = false;
+		bool queued = false;
 		for (uint32_t tries = 0; tries < 3; ++tries) {
 			if (g_saveManager.savePlayerSync(this)) {
 				saved = true;
 				break;
 			}
+			if (g_saveManager.hasFailedRecovery(guid)) { break; }
+			if (g_saveManager.hasPendingPlayerSave(guid)) { queued = true; break; }
 		}
 
-		if (!saved) {
+		if (queued) {
+			LOG_INFO(fmt::format("[SaveManager] guid={} stage=logout latest_state=wal flush=pending", guid));
+		} else if (!saved) {
 			LOG_ERROR(fmt::format("Error while saving player: {}", getName()));
 		}
 	}
@@ -3388,7 +3409,7 @@ void Player::onSendContainer(const Container* container)
 		return;
 	}
 
-	bool hasParent = dynamic_cast<const Container*>(container->getParent()) != nullptr;
+	bool hasParent = containerHasParent(container, this);
 	for (auto it = openContainers.begin(); it != openContainers.end();) {
 		OpenContainer& openContainer = it->second;
 		auto openContainerRef = openContainer.container.lock();
@@ -3703,6 +3724,9 @@ void Player::removeMessageBuffer()
 
 void Player::drainHealth(const std::shared_ptr<Creature>& attacker, int32_t damage)
 {
+	if (damage > 0 && uniform_random(1, 100) <= 10) {
+		g_game.addSoundEffect(getPosition(), sex == PLAYERSEX_FEMALE ? 2518 : 2519, getInstanceID(), this);
+	}
 	Creature::drainHealth(attacker, damage);
 	sendStats();
 }
@@ -4264,6 +4288,7 @@ uint32_t Player::getIP() const
 
 void Player::death(Creature* lastHitCreature)
 {
+	g_game.addSoundEffect(getPosition(), sex == PLAYERSEX_FEMALE ? 2618 : 2619, getInstanceID(), this);
 	loginPosition = town->getTemplePosition();
 	setInstanceID(0);
 
@@ -4467,6 +4492,63 @@ bool Player::dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreature,
 	if (getZone() != ZONE_PVP || !Player::lastHitIsPlayer(lastHitCreature)) {
 		return Creature::dropCorpse(lastHitCreature, mostDamageCreature, lastHitUnjustified, mostDamageUnjustified);
 	}
+	// Persist death details so the Cyclopedia's Recent Deaths and Recent PvP
+	// Kills pages remain available after the player logs out.
+	const auto getResponsibleCreature = [](Creature* creature, std::shared_ptr<Creature>& masterRef) {
+		if (creature && !creature->getPlayer()) {
+			masterRef = creature->getMasterShared();
+			if (masterRef && masterRef->getPlayer()) {
+				return masterRef.get();
+			}
+		}
+		return creature;
+	};
+	std::shared_ptr<Creature> killerMaster;
+	std::shared_ptr<Creature> mostDamageMaster;
+	Creature* killer = getResponsibleCreature(lastHitCreature, killerMaster);
+	Creature* mostDamage = getResponsibleCreature(mostDamageCreature, mostDamageMaster);
+	std::string killedBy = killer ? killer->getNameDescription() : "an unknown creature";
+	std::string mostDamageBy = mostDamage ? mostDamage->getNameDescription() : "";
+	const auto truncateUtf8 = [](std::string& value, size_t limit) {
+		if (value.size() <= limit) {
+			return;
+		}
+		while (limit > 0 && (static_cast<unsigned char>(value[limit]) & 0xC0) == 0x80) {
+			--limit;
+		}
+		value.resize(limit);
+	};
+	truncateUtf8(killedBy, 255);
+	truncateUtf8(mostDamageBy, 100);
+	Database& db = Database::getInstance();
+	const auto query = fmt::format(
+	    "INSERT INTO `player_deaths` (`player_id`, `time`, `level`, `killed_by`, `is_player`, `mostdamage_by`, "
+	    "`mostdamage_is_player`, `unjustified`, `mostdamage_unjustified`) VALUES ({:d}, {:d}, {:d}, {:s}, {:d}, {:s}, {:d}, {:d}, {:d})",
+	    getGUID(), static_cast<uint32_t>(std::time(nullptr)), getLevel(), db.escapeString(killedBy),
+	    Player::lastHitIsPlayer(lastHitCreature) ? 1 : 0, db.escapeString(mostDamageBy),
+	    Player::lastHitIsPlayer(mostDamageCreature) ? 1 : 0, lastHitUnjustified ? 1 : 0,
+	    mostDamageUnjustified ? 1 : 0);
+	const uint32_t playerGuid = getGUID();
+	(void)g_databaseTasks.addTask(query, [playerGuid](DBResult_ptr, bool success, uint64_t) {
+		if (!success) {
+			LOG_ERROR("[Cyclopedia] Failed to record PvP death for player {}", playerGuid);
+			return;
+		}
+		const auto countQuery = fmt::format(
+		    "SELECT COUNT(*) AS `total` FROM `player_deaths` WHERE `player_id` = {:d}", playerGuid);
+		(void)g_databaseTasks.addTask(countQuery, [playerGuid](DBResult_ptr result, bool countSuccess, uint64_t) {
+			if (!countSuccess || !result) {
+				LOG_ERROR("[Cyclopedia] Failed to count death records for player {}", playerGuid);
+				return;
+			}
+			const uint32_t count = result->getNumber<uint32_t>("total");
+			if (count > 5) {
+				(void)g_databaseTasks.addTask(fmt::format(
+				    "DELETE FROM `player_deaths` WHERE `player_id` = {:d} ORDER BY `time` ASC LIMIT {:d}",
+				    playerGuid, count - 5));
+			}
+		}, true);
+	});
 
 	setDropLoot(true);
 	return false;
@@ -4476,6 +4558,9 @@ std::shared_ptr<Item> Player::getCorpse(Creature* lastHitCreature, Creature* mos
 {
 	auto corpse = Creature::getCorpse(lastHitCreature, mostDamageCreature);
 	if (corpse && corpse->getContainer()) {
+		// Player corpses use the normal container format but must never enter
+		// the monster Quick Loot flow.
+		corpse->setCustomAttribute("QuickLootDisabled", true);
 		size_t killersSize = getKillers().size();
 
 		if (lastHitCreature) {
@@ -4562,11 +4647,38 @@ void Player::addList()
 
 void Player::kickPlayer(bool displayEffect)
 {
+	if (persistenceQuarantined) {
+		if (!isRemoved() && !removalInProgress) { g_game.removeCreature(this, false); }
+		return;
+	}
 	g_creatureEvents->playerLogout(this);
 	if (client) {
 		client->logout(displayEffect, true);
 	}
 	g_game.removeCreature(this);
+}
+
+void Player::disconnectForPersistenceFailure()
+{
+	persistenceQuarantined = true;
+	setMovementBlocked(true);
+	setNextActionTask(nullptr);
+	if (client) {
+		client->disconnectClient("Your character's save could not be confirmed. Please contact support before reconnecting.");
+		client->disconnect();
+	}
+	// Deliberately bypass playerLogout() scripts. onRemoveCreature performs only
+	// structural cleanup when quarantined and never creates another player save.
+	if (!isRemoved() && !removalInProgress) {
+		// Retain the session until this Lua/dispatcher task unwinds. The packet
+		// guard rejects all actions immediately; removing now could invalidate
+		// the handler's Player userdata before it releases its reservations.
+		if (auto self = g_game.getPlayerByGUID(guid)) {
+			g_dispatcher.addTask([self] {
+				if (!self->isRemoved() && !self->removalInProgress) { g_game.removeCreature(self.get(), false); }
+			});
+		}
+	}
 }
 
 void Player::notifyStatusChange(Player* loginPlayer, VipStatus_t status)
@@ -8011,7 +8123,7 @@ namespace {
 bool isValidQuickLootCategory(ObjectCategory_t category)
 {
 	const uint8_t value = static_cast<uint8_t>(category);
-	return value >= OBJECTCATEGORY_FIRST && value <= OBJECTCATEGORY_LAST && value != 26;
+	return value >= OBJECTCATEGORY_FIRST && value <= OBJECTCATEGORY_LAST;
 }
 
 std::shared_ptr<KV> getPlayerQuickLootKV(uint32_t guid)
@@ -9379,7 +9491,7 @@ void Player::handleNewAccountManager(const std::string& text, std::ostringstream
 	}
 
 	if (checkText(text, "recover") && !managerTalkState[1]) {
-		msg << "What is your account name?";
+		msg << "What is your account name or email?";
 		managerTalkState[1] = true;
 		managerTalkState[6] = true;
 		sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msg.str());
@@ -9391,18 +9503,19 @@ void Player::handleNewAccountManager(const std::string& text, std::ostringstream
 		trimString(tmp);
 
 		if (tmp.length() < 3) {
-			msg << "That account name is too short, at least 3 digits are required. Please select a longer account name.";
+			msg << "That account name or email is too short, at least 3 characters are required. Please try again.";
 			sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msg.str());
 			return;
 		}
 
-		if (!IOLoginData::accountNameExists(tmp)) {
-			msg << "An account with that name does not exist, please try another account name or type 'account' to create a new account.";
+		const auto resolvedAccount = IOLoginData::resolveAccountNameByIdentifier(tmp);
+		if (!resolvedAccount) {
+			msg << "An account with that name or email does not exist, please try again or type 'account' to create a new account.";
 			sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msg.str());
 			return;
 		}
 
-		managerData.accountName = tmp;
+		managerData.accountName = *resolvedAccount;
 		managerTalkState[6] = false;
 		managerTalkState[7] = true;
 		msg << "What is your recovery key?";
@@ -9493,24 +9606,17 @@ void Player::handleNewAccountManager(const std::string& text, std::ostringstream
 			}
 
 			if (accountCreated) {
-				accountManager = ACCOUNT_MANAGER_ACCOUNT;
 				managerData.accountId = newAccountId;
 				accountNumber = newAccountId;
 
-				managerTalkState[1] = true;
-				for (int8_t i = 2; i <= 5; i++) {
+				for (int8_t i = 2; i <= 13; i++) {
 					managerTalkState[i] = false;
 				}
+				managerTalkState[13] = true;
 
-				msg << "Your account has been created, you may manage it now, but remember your account name: '"
-				    << managerData.accountName << "' and password: '" << managerData.string1
-				    << "'! If the account name is too hard to remember, please note it somewhere.";
+				msg << "Your account number is '" << managerData.accountName
+				    << "'. What is your email address?";
 				sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msg.str());
-
-				std::ostringstream msgWelcome;
-				msgWelcome
-				    << "Account Manager: Do you want to change your 'password', 'recovery key', 'character' or 'delete'?";
-				sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msgWelcome.str());
 				return;
 			} else {
 				msg << "Sorry, your account could not be created (all account numbers taken or system error). Please contact an administrator.";
@@ -9542,22 +9648,68 @@ void Player::handleNewAccountManager(const std::string& text, std::ostringstream
 	if (managerTalkState[4]) {
 		std::string tmp = text;
 		trimString(tmp);
-		if (tmp.length() < 3) {
-			msg << "That account name is too short, at least 3 digits are required. Please select a longer account name.";
+		if (tmp.find('@') != std::string::npos) {
+			msg << "That looks like an email address. Please enter your account name only; you will be asked for your email next.";
+		} else if (tmp.length() < 3) {
+			msg << "That account name is too short, at least 3 characters are required. Please select a longer account name.";
 		} else if (tmp.length() > 25) {
-			msg << "That account name is too long, not more than 25 digits are required. Please select a shorter account name.";
+			msg << "That account name is too long, not more than 25 characters are allowed. Please select a shorter account name.";
+		} else if (IOLoginData::accountNameExists(tmp)) {
+			msg << "An account with that name already exists, please try another account name.";
 		} else {
 			std::string lowerTmp = tmp;
 			std::string lowerPassword = managerData.string1;
 			toLowerCaseString(lowerTmp);
 			toLowerCaseString(lowerPassword);
 			if (lowerTmp == lowerPassword) {
-				msg << "Your account name cannot be same as password, please choose another one.";
+				msg << "Your account name cannot be the same as your password, please choose another one.";
 			} else {
 				managerData.accountName = tmp;
-				msg << managerData.accountName << ", are you sure? Type 'yes' to confirm or 'no' to cancel.";
 				managerTalkState[4] = false;
+				managerTalkState[13] = true;
+				msg << "What is your email address?";
+			}
+		}
+		sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msg.str());
+		return;
+	}
+
+	if (managerTalkState[13]) {
+		std::string email = text;
+		trimString(email);
+
+		if (!accountManagerEmailLooksValid(email)) {
+			msg << "That email address is invalid. Please enter a valid email address containing '@'.";
+		} else if (email.length() > 255) {
+			msg << "That email address is too long. Please enter a shorter email address.";
+		} else if (IOLoginData::accountEmailExists(email) || IOLoginData::resolveAccountNameByIdentifier(email)) {
+			msg << "An account with that email already exists, please try another email address.";
+		} else {
+			managerData.string2 = email;
+			managerTalkState[13] = false;
+
+			if (managerData.accountId != 0) {
+				if (IOLoginData::setAccountEmail(managerData.accountId, managerData.string2)) {
+					accountManager = ACCOUNT_MANAGER_ACCOUNT;
+					managerTalkState[1] = true;
+
+					msg << "Your account has been created, you may manage it now, but remember your account name: '"
+					    << managerData.accountName << "', email: '" << managerData.string2 << "' and password: '"
+					    << managerData.string1
+					    << "'! If the account name is too hard to remember, please note it somewhere.";
+					sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msg.str());
+
+					std::ostringstream msgWelcome;
+					msgWelcome << "Account Manager: Do you want to change your 'password', 'recovery key', 'character' or 'delete'?";
+					sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msgWelcome.str());
+					return;
+				}
+
+				msg << "Your account was created but the email could not be saved. Please contact an administrator.";
+			} else {
 				managerTalkState[5] = true;
+				msg << "Account name '" << managerData.accountName << "' with email '" << managerData.string2
+				    << "', are you sure? Type 'yes' to confirm or 'no' to cancel.";
 			}
 		}
 		sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msg.str());
@@ -9565,37 +9717,36 @@ void Player::handleNewAccountManager(const std::string& text, std::ostringstream
 	}
 
 	if (checkText(text, "yes") && managerTalkState[5]) {
-		if (!IOLoginData::accountNameExists(managerData.accountName)) {
-			uint32_t newAccountId = 0;
-			if (IOLoginData::createAccount(managerData.accountName, managerData.string1, newAccountId)) {
-				accountManager = ACCOUNT_MANAGER_ACCOUNT;
-				managerData.accountId = newAccountId;
-				accountNumber = newAccountId;
+		uint32_t newAccountId = 0;
+		if (IOLoginData::createAccount(managerData.accountName, managerData.string1, newAccountId) &&
+		    IOLoginData::setAccountEmail(newAccountId, managerData.string2)) {
+			accountManager = ACCOUNT_MANAGER_ACCOUNT;
+			managerData.accountId = newAccountId;
+			accountNumber = newAccountId;
 
-				managerTalkState[1] = true;
-				for (int8_t i = 2; i <= 5; i++) {
-					managerTalkState[i] = false;
-				}
-
-				msg << "Your account has been created, you may manage it now, but remember your account name: '"
-				    << managerData.accountName << "' and password: '" << managerData.string1 << "'!";
-				sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msg.str());
-
-				std::ostringstream msgWelcome;
-				msgWelcome
-				    << "Account Manager: Do you want to change your 'password', 'recovery key', 'character' or 'delete'?";
-				sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msgWelcome.str());
-				return;
-			} else {
-				msg << "Your account could not be created, please try again.";
-				for (int8_t i = 2; i <= 5; i++) {
-					managerTalkState[i] = false;
-				}
+			managerTalkState[1] = true;
+			for (int8_t i = 2; i <= 13; i++) {
+				managerTalkState[i] = false;
 			}
+
+			msg << "Your account has been created, you may manage it now, but remember your account name: '"
+			    << managerData.accountName << "', email: '" << managerData.string2 << "' and password: '"
+			    << managerData.string1 << "'!";
+			sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msg.str());
+
+			std::ostringstream msgWelcome;
+			msgWelcome << "Account Manager: Do you want to change your 'password', 'recovery key', 'character' or 'delete'?";
+			sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msgWelcome.str());
+			return;
+		}
+
+		if (newAccountId != 0) {
+			msg << "Your account was created but the email could not be saved. Please contact an administrator.";
 		} else {
-			msg << "An account with that name already exists, please try another account name.";
-			managerTalkState[4] = true;
-			managerTalkState[5] = false;
+			msg << "Your account could not be created, please try again.";
+		}
+		for (int8_t i = 2; i <= 13; i++) {
+			managerTalkState[i] = false;
 		}
 		sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msg.str());
 		return;
@@ -9603,8 +9754,8 @@ void Player::handleNewAccountManager(const std::string& text, std::ostringstream
 
 	if (checkText(text, "no") && managerTalkState[5]) {
 		managerTalkState[5] = false;
-		managerTalkState[4] = true;
-		msg << "What else would you like as your account name?";
+		managerTalkState[13] = true;
+		msg << "What is your email address?";
 		sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msg.str());
 		return;
 	}
@@ -9903,4 +10054,17 @@ void Player::clearCooldowns()
 			}
 		}
 	}
+}
+
+void Player::sendCharmActivated(uint8_t charmId, const Position* soundPosition) const
+{
+	if (client) client->sendCharmActivated(charmId);
+	const auto* sounds = g_bestiaryCharmSystem.getCharmSounds(charmId);
+	if (!sounds || (sounds->castSound == 0 && sounds->impactSound == 0)) return;
+	Position impactPosition = soundPosition ? *soundPosition : getPosition();
+	if (!soundPosition) {
+		if (auto target = getAttackedCreatureShared(); target && !target->isRemoved()) impactPosition = target->getPosition();
+	}
+	if (sounds->castSound != 0) g_game.addSoundEffect(getPosition(), sounds->castSound, getInstanceID(), const_cast<Player*>(this));
+	if (sounds->impactSound != 0) g_game.addSoundEffect(impactPosition, sounds->impactSound, getInstanceID(), const_cast<Player*>(this));
 }

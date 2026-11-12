@@ -36,6 +36,23 @@ jobs:
     name: Clang (Ubuntu 24.04, Release)
     runs-on: ubuntu-24.04
     timeout-minutes: 45
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: market_ci_only
+          MYSQL_DATABASE: tfs_market_test_ci
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost -pmarket_ci_only"
+          --health-interval=10s --health-timeout=5s --health-retries=12
+    env:
+      TFS_TEST_DB_NAME: tfs_market_test_ci
+      TFS_TEST_DB_HOST: 127.0.0.1
+      TFS_TEST_DB_USER: root
+      TFS_TEST_DB_PASS: market_ci_only
+      TFS_TEST_DB_PORT: 3306
 
     permissions:
       contents: read
@@ -55,18 +72,18 @@ jobs:
             libssl-dev zlib1g-dev libfmt-dev libspdlog-dev \
             libpugixml-dev libabsl-dev \
             libasio-dev \
-            default-libmysqlclient-dev
+            default-libmysqlclient-dev default-mysql-client
 
       - name: Cache Lua 5.5 source
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
-          path: ${{ github.workspace }}/.cache/lua/lua-5.5.0.tar.gz
+          path: ${{ runner.temp }}/lua-source/lua-5.5.0.tar.gz
           key: lua-source-5.5.0-57ccc32bbbd005cab75bcc52444052535
 
       - name: Build patched Lua 5.5 from source
         run: |
           set -euo pipefail
-          cache_tar="$GITHUB_WORKSPACE/.cache/lua/lua-5.5.0.tar.gz"
+          cache_tar="$RUNNER_TEMP/lua-source/lua-5.5.0.tar.gz"
           expected_sha="57ccc32bbbd005cab75bcc52444052535af691789dba2b9016d5c50640d68b3d"
           mkdir -p "$(dirname "$cache_tar")"
 
@@ -121,6 +138,7 @@ jobs:
           -DENABLE_SLOW_TASK_DETECTION=OFF
           -DUSE_MIMALLOC=OFF
           -DBUILD_TESTING=ON
+          -DENABLE_TEST_LTO=OFF
           -DSKIP_GIT=OFF
           -DLUA_INCLUDE_DIR=/usr/local/include
           -DLUA_LIBRARY=/usr/local/lib/liblua.a
@@ -130,5 +148,10 @@ jobs:
       - name: Build
         run: cmake --build build --parallel $(nproc)
 
-      - name: Run tests
-        run: ctest --test-dir build --output-on-failure
+      - name: Initialize disposable Market database
+        env:
+          MYSQL_PWD: ${{ env.TFS_TEST_DB_PASS }}
+        run: mysql --protocol=TCP -h 127.0.0.1 -u root tfs_market_test_ci < schema.sql
+
+      - name: Run tests (Market DB credentials required)
+        run: ctest --test-dir build --output-on-failure --no-tests=error

@@ -126,7 +126,10 @@ connectionRateLimitMS = 500
 -- Reactor Limits Config
 -- WARNING: reactorMaxTasksPerCycle = 0 means unlimited; use only on dedicated hardware with controlled workloads
 -- NOTE: reactorTimeBudgetMS: max time in ms per cycle (0 = unlimited, max = 1000)
--- NOTE: reactorMaxInboxSize: max queued tasks before dropping new ones (min = 1, max = 10000000)
+-- NOTE: reactorMaxInboxSize: queued-work threshold for rejecting expiring sends
+--       (min = 1, max = 10000000; fallback when omitted = 100000).
+--       Sends without expiration, scheduled tasks and cancellations remain lossless;
+--       this threshold does not impose a hard memory cap on those queues.
 --
 -- Presets:
 --   Low    (small VPS / few players):   250 / 3  / 50000
@@ -205,7 +208,10 @@ battlePassRewardMaxStep = 50
 -- Level that must be completed before the Battle Pass shop is unlocked.
 -- Must be between 1 and battlePassRewardMaxStep.
 battlePassShopUnlockStep = 50
+-- Weapon Proficiency grants experience to the equipped weapon based on a share of kill experience.
+-- The default multiplier is 0.01 (1% of kill experience); adjust to control proficiency progression speed.
 weaponProficiencySystemEnabled = false
+weaponProficiencyExperienceGainMultiplier = 0.01
 augmentSystemEnabled = false
 monsterLevelEnabled = false
 monsterFactionSystem = false

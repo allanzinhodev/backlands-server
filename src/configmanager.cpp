@@ -708,6 +708,8 @@ bool ConfigManager::load()
 	floats[BOOSTED_EXP_MULTIPLIER] = getGlobalFloat(L, "boostedExpMultiplier", 2.0f);
 	floats[BOOSTED_LOOT_MULTIPLIER] = getGlobalFloat(L, "boostedLootMultiplier", 2.0f);
 	floats[BOOSTED_SPAWN_MULTIPLIER] = getGlobalFloat(L, "boostedSpawnMultiplier", 0.5f);
+	floats[WEAPON_PROFICIENCY_EXPERIENCE_GAIN_MULTIPLIER] =
+	    getGlobalFloat(L, "weaponProficiencyExperienceGainMultiplier", 0.01f);
 	integers[Integer::BOOSTED_BOSS_LOOT_BONUS] = getGlobalInteger(L, "boostedBossLootBonus", 250);
 	integers[Integer::BOOSTED_BOSS_KILL_BONUS] = getGlobalInteger(L, "boostedBossKillBonus", 3);
 
@@ -850,7 +852,7 @@ bool ConfigManager::load()
 	integers[Integer::REACTOR_TIME_BUDGET_MS] =
 	    std::clamp<int64_t>(getGlobalInteger(L, "reactorTimeBudgetMS", 25), 0, 1000);
 	integers[Integer::REACTOR_MAX_INBOX_SIZE] =
-	    std::clamp<int64_t>(getGlobalInteger(L, "reactorMaxInboxSize", 200000), 1, 10'000'000);
+	    std::clamp<int64_t>(getGlobalInteger(L, "reactorMaxInboxSize", 100000), 1, 10'000'000);
 
 	loaded = true;
 	// ownedL destructor calls lua_close via LuaStateDeleter

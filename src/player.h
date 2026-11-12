@@ -261,6 +261,8 @@ public:
 	void removeList() override;
 	void addList() override;
 	void kickPlayer(bool displayEffect);
+	void disconnectForPersistenceFailure();
+	bool isPersistenceQuarantined() const { return persistenceQuarantined; }
 
 	static uint64_t getExpForLevel(const uint64_t lv)
 	{
@@ -661,6 +663,12 @@ public:
 	uint64_t getExperience() const { return experience; }
 
 	time_t getLastLoginSaved() const { return lastLoginSaved; }
+	uint64_t getOnlineTimeAt(time_t now) const
+	{
+		const uint64_t elapsed = onlineTimeSessionStart && now > onlineTimeSessionStart ?
+		    static_cast<uint64_t>(now - onlineTimeSessionStart) : 0;
+		return elapsed > UINT64_MAX - onlineTimeAtLogin ? UINT64_MAX : onlineTimeAtLogin + elapsed;
+	}
 
 	time_t getLastLogout() const { return lastLogout; }
 
@@ -1386,12 +1394,29 @@ public:
 			client->sendMagicEffect(pos, type);
 		}
 	}
-	void sendCharmActivated(uint8_t charmId) const
+	void sendAmbientSound(uint32_t ambientId) const
 	{
 		if (client) {
-			client->sendCharmActivated(charmId);
+			if (const auto protocol = client->protocol()) protocol->sendAmbientSound(ambientId);
 		}
 	}
+	void sendSingleSoundEffect(const Position& pos, uint16_t soundId, uint8_t source = 0) const
+	{
+		if (client) {
+			if (const auto protocol = client->protocol()) {
+				protocol->sendSingleSoundEffect(pos, soundId, source);
+			}
+		}
+	}
+	void sendDoubleSoundEffect(const Position& pos, uint16_t mainSoundId, uint16_t secondarySoundId, uint8_t source = 0) const
+	{
+		if (client) {
+			if (const auto protocol = client->protocol()) {
+				protocol->sendDoubleSoundEffect(pos, mainSoundId, secondarySoundId, source);
+			}
+		}
+	}
+	void sendCharmActivated(uint8_t charmId, const Position* soundPosition = nullptr) const;
 	void updateKillTracker(const std::shared_ptr<Monster>& monster, const std::shared_ptr<Container>& corpse) const;
 	void updateImpactTracker(uint8_t analyzerType, uint32_t amount, CombatType_t combatType,
 	                         std::string_view targetName = {}) const;
@@ -1420,10 +1445,11 @@ public:
 			client->sendScreenshotAndBannerUpSkill(skill, newLevel);
 		}
 	}
-	void sendScreenshotAndBannerProgressRace(uint16_t raceId, uint8_t progressLevel, bool isBoss = false) const
+	void sendScreenshotAndBannerProgressRace(const BestiaryCreatureInfo& info, uint8_t progressLevel,
+	                                         bool isBoss = false) const
 	{
 		if (client) {
-			client->sendScreenshotAndBannerProgressRace(raceId, progressLevel, isBoss);
+			client->sendScreenshotAndBannerProgressRace(info, progressLevel, isBoss);
 		}
 	}
 	void sendEchoWardenReward(uint16_t raceId, uint32_t charmPoints) const
@@ -1434,6 +1460,11 @@ public:
 	}
 	void sendPing();
 	void sendStats();
+	void refreshInventoryStats()
+	{
+		updateInventoryWeight();
+		sendStats();
+	}
 	void sendBasicData() const
 	{
 		if (client) {
@@ -1844,6 +1875,10 @@ private:
 	std::map<ObjectCategory_t, ManagedLootContainer> managedLootContainers;
 
 	time_t lastLoginSaved = 0;
+	time_t onlineTimeSessionStart = 0;
+	uint64_t onlineTimeAtLogin = 0;
+	bool persistenceQuarantined = false;
+	bool removalInProgress = false;
 	time_t lastLogout = 0;
 	time_t premiumEndsAt = 0;
 
@@ -2069,6 +2104,8 @@ private:
 	friend class ProtocolGame;
 	friend class ProtocolSpectator;
 	friend struct CreatureWalkTestAccess;
+	friend struct QuickLootTestAccess;
+	friend struct PlayerOnlineTimeTestAccess;
 };
 
 #endif
